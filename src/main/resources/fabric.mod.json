@@ -1,0 +1,49 @@
+{
+	"schemaVersion": 1,
+	"id": "arborealnature",
+	"version": "${version}",
+	"name": "Arboreal Nature",
+	"description": "Just vanilla-like mod about nature",
+	"authors":
+	[
+		"Alminoris"
+	],
+	"contact":
+	{
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/arborealnature/icon.png",
+	"environment": "*",
+	"entrypoints":
+	{
+		"main":
+		[
+			"net.alminoris.arborealnature.ArborealNature"
+		],
+		"fabric-datagen":
+		[
+			"net.alminoris.arborealnature.ArborealNatureDataGenerator"
+		],
+		"client":
+		[
+			"net.alminoris.arborealnature.ArborealNatureClient"
+		]
+	},
+	"mixins":
+	[
+		"arborealnature.mixins.json"
+	],
+	"depends":
+	{
+		"fabricloader": ">=0.16.7",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests":
+	{
+		"another-mod": "*"
+	}
+}

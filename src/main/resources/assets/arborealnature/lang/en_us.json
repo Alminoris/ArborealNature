@@ -1,0 +1,20 @@
+{
+  "item.arborealnature.hazelnut": "Hazelnut",
+  "block.arborealnature.hazelnut_log": "Hazelnut log",
+  "block.arborealnature.hazelnut_wood": "Hazelnut wood",
+  "block.arborealnature.stripped_hazelnut_log": "Stripped hazelnut log",
+  "block.arborealnature.stripped_hazelnut_wood": "Stripped hazelnut wood",
+  "block.arborealnature.hazelnut_planks": "Hazelnut planks",
+  "block.arborealnature.hazelnut_slab": "Hazelnut slab",
+  "block.arborealnature.hazelnut_stairs": "Hazelnut stairs",
+  "block.arborealnature.hazelnut_button": "Hazelnut button",
+  "block.arborealnature.hazelnut_pressure_plate": "Hazelnut pressure plate",
+  "block.arborealnature.hazelnut_fence": "Hazelnut fence",
+  "block.arborealnature.hazelnut_fence_gate": "Hazelnut fence gate",
+  "block.arborealnature.hazelnut_sign": "Hazelnut sign",
+  "block.arborealnature.hazelnut_hanging_sign": "Hazelnut hanging sign",
+  "block.arborealnature.hazelnut_door": "Hazelnut door",
+  "block.arborealnature.hazelnut_trapdoor": "Hazelnut trapdoor",
+  "block.arborealnature.hazelnut_leaves": "Hazelnut leaves",
+  "creativetab.arborealnature.antab": "Arboreal Nature"
+}
