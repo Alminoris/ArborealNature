@@ -10,7 +10,7 @@ public class ModTreeGeneration
 {
     public static void generateTrees()
     {
-        BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.PLAINS, BiomeKeys.FOREST),
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.FOREST),
                 GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.HAZELNUT_PLACED_KEY);
     }
 }
