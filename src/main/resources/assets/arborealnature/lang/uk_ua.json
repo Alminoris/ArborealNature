@@ -13,8 +13,11 @@
   "block.arborealnature.hazelnut_fence_gate": "Ліщинова хвіртка",
   "block.arborealnature.hazelnut_sign": "Ліщинова табличка",
   "block.arborealnature.hazelnut_hanging_sign": "Ліщинова вивіска",
-  "block.arborealnature.hazelnut_door": "Ліщинові door",
+  "item.arborealnature.hazelnut_boat": "Ліщиновий човен",
+  "item.arborealnature.hazelnut_chest_boat": "Ліщиновий човен зі скринею",
+  "block.arborealnature.hazelnut_door": "Ліщинові двері",
   "block.arborealnature.hazelnut_trapdoor": "Ліщиновий люк",
   "block.arborealnature.hazelnut_leaves": "Ліщинове листя",
+  "block.arborealnature.hazelnut_sapling": "Ліщиновий саджанець",
   "creativetab.arborealnature.antab": "Arboreal Nature"
 }

@@ -13,8 +13,11 @@
   "block.arborealnature.hazelnut_fence_gate": "Hazelnut fence gate",
   "block.arborealnature.hazelnut_sign": "Hazelnut sign",
   "block.arborealnature.hazelnut_hanging_sign": "Hazelnut hanging sign",
+  "item.arborealnature.hazelnut_boat": "Hazelnut boat",
+  "item.arborealnature.hazelnut_chest_boat": "Hazelnut chest boat",
   "block.arborealnature.hazelnut_door": "Hazelnut door",
   "block.arborealnature.hazelnut_trapdoor": "Hazelnut trapdoor",
   "block.arborealnature.hazelnut_leaves": "Hazelnut leaves",
+  "block.arborealnature.hazelnut_sapling": "Hazelnut sapling",
   "creativetab.arborealnature.antab": "Arboreal Nature"
 }
