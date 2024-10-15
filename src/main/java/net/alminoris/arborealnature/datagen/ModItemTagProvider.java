@@ -20,5 +20,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
     {
         getOrCreateTagBuilder(ItemTags.HANGING_SIGNS)
                 .add(ModItems.HAZELNUT_HANGING_SIGN);
+
+        getOrCreateTagBuilder(ItemTags.SIGNS)
+                .add(ModItems.HAZELNUT_SIGN);
     }
 }

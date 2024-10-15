@@ -30,9 +30,13 @@ public class ModItems
     public static final Item HAZELNUT_PEELED = registerItem("hazelnut_peeled",
             new Item(new Item.Settings().maxCount(16).food(ModFoodComponents.HAZELNUT)));
 
-    public static final Item HAZELNUT_HANGING_SIGN = registerItem("hazelnut_hanging_sign",
+    public static final Item HAZELNUT_SIGN = registerItem("hazelnut_sign",
             new SignItem(new Item.Settings().maxCount(16),
-            ModBlocks.HAZELNUT_HANGING_SIGN, ModBlocks.HAZELNUT_WALL_HANGING_SIGN));
+                    ModBlocks.HAZELNUT_SIGN, ModBlocks.HAZELNUT_WALL_SIGN));
+
+    public static final Item HAZELNUT_HANGING_SIGN = registerItem("hazelnut_hanging_sign",
+            new HangingSignItem(ModBlocks.HAZELNUT_HANGING_SIGN, ModBlocks.HAZELNUT_WALL_HANGING_SIGN,
+                    new Item.Settings().maxCount(16)));
 
     public static final Item HAZELNUT_BOAT = TerraformBoatItemHelper.registerBoatItem(
             ModBoats.HAZELNUT_BOAT_ID, ModBoats.HAZELNUT_BOAT_KEY, false);

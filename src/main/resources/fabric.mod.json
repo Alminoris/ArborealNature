@@ -3,15 +3,14 @@
 	"id": "arborealnature",
 	"version": "${version}",
 	"name": "Arboreal Nature",
-	"description": "Just vanilla-like mod about nature",
+	"description": "Just interesting vanilla-like mod about nature, trees, decor and some things around it.",
 	"authors":
 	[
-		"Alminoris"
+		"Almiris (Alminoris)"
 	],
 	"contact":
 	{
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+
 	},
 	"license": "MIT",
 	"icon": "assets/arborealnature/icon.png",
