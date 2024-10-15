@@ -1,5 +1,10 @@
 {
   "item.arborealnature.hazelnut": "Hazelnut",
+  "item.arborealnature.hazelnut_cracked": "Cracked hazelnut",
+  "item.arborealnature.hazelnut_spoiled": "Spoiled hazelnut",
+  "item.arborealnature.hazelnut_peeled": "Peeled hazelnut",
+  "item.arborealnature.minihammer": "Hammer",
+  "item.arborealnature.chisel": "Chisel",
   "block.arborealnature.hazelnut_log": "Hazelnut log",
   "block.arborealnature.hazelnut_wood": "Hazelnut wood",
   "block.arborealnature.stripped_hazelnut_log": "Stripped hazelnut log",
@@ -19,5 +24,5 @@
   "block.arborealnature.hazelnut_trapdoor": "Hazelnut trapdoor",
   "block.arborealnature.hazelnut_leaves": "Hazelnut leaves",
   "block.arborealnature.hazelnut_sapling": "Hazelnut sapling",
-  "creativetab.arborealnature.antab": "Arboreal Nature"
+  "itemgroup.antab": "Arboreal Nature"
 }

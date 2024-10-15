@@ -1,7 +1,6 @@
 package net.alminoris.arborealnature.datagen;
 
 import net.alminoris.arborealnature.block.ModBlocks;
-import net.alminoris.arborealnature.util.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.RegistryWrapper;
@@ -24,6 +23,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.STRIPPED_HAZELNUT_LOG)
                 .add(ModBlocks.HAZELNUT_WOOD)
                 .add(ModBlocks.STRIPPED_HAZELNUT_WOOD);
+
+        getOrCreateTagBuilder(BlockTags.PLANKS)
+                .add(ModBlocks.HAZELNUT_PLANKS);
 
         getOrCreateTagBuilder(BlockTags.WOODEN_FENCES)
                 .add(ModBlocks.HAZELNUT_FENCE);

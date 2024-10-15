@@ -1,16 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "building",
+  "category": "redstone",
   "key": {
     "#": {
       "item": "arborealnature:hazelnut_planks"
     }
   },
   "pattern": [
+    "###",
     "###"
   ],
   "result": {
-    "count": 6,
-    "id": "arborealnature:hazelnut_slab"
+    "count": 2,
+    "id": "arborealnature:hazelnut_trapdoor"
   }
 }

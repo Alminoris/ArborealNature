@@ -1,16 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "building",
+  "category": "misc",
   "key": {
     "#": {
       "item": "arborealnature:hazelnut_planks"
+    },
+    "/": {
+      "item": "minecraft:stick"
     }
   },
   "pattern": [
-    "###"
+    "/#/",
+    "/#/"
   ],
   "result": {
-    "count": 6,
-    "id": "arborealnature:hazelnut_slab"
+    "count": 1,
+    "id": "arborealnature:hazelnut_fence_gate"
   }
 }

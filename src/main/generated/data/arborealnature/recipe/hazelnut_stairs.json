@@ -7,10 +7,12 @@
     }
   },
   "pattern": [
+    "#  ",
+    "## ",
     "###"
   ],
   "result": {
-    "count": 6,
-    "id": "arborealnature:hazelnut_slab"
+    "count": 4,
+    "id": "arborealnature:hazelnut_stairs"
   }
 }

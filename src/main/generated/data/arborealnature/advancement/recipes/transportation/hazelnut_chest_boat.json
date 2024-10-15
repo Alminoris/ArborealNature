@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_hazelnut_log": {
+    "has_boat": {
       "conditions": {
         "items": [
           {
-            "items": "arborealnature:hazelnut_log"
+            "items": "#minecraft:boats"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:hazelnut_planks_from_hazelnut_log"
+        "recipe": "arborealnature:hazelnut_chest_boat"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_hazelnut_log"
+      "has_boat"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:hazelnut_planks_from_hazelnut_log"
+      "arborealnature:hazelnut_chest_boat"
     ]
   }
 }

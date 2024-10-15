@@ -4,11 +4,11 @@
   "group": "MISC",
   "ingredients": [
     {
-      "item": "arborealnature:hazelnut_log"
+      "item": "arborealnature:hazelnut_planks"
     }
   ],
   "result": {
     "count": 4,
-    "id": "arborealnature:hazelnut_planks"
+    "id": "arborealnature:hazelnut_log"
   }
 }

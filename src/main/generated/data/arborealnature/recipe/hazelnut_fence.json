@@ -4,13 +4,17 @@
   "key": {
     "#": {
       "item": "arborealnature:hazelnut_planks"
+    },
+    "/": {
+      "item": "minecraft:stick"
     }
   },
   "pattern": [
-    "###"
+    "#/#",
+    "#/#"
   ],
   "result": {
-    "count": 6,
-    "id": "arborealnature:hazelnut_slab"
+    "count": 3,
+    "id": "arborealnature:hazelnut_fence"
   }
 }

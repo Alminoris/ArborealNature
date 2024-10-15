@@ -7,13 +7,9 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Block;
 import net.minecraft.data.client.*;
-import net.minecraft.data.family.BlockFamilies;
-import net.minecraft.data.family.BlockFamily;
 import net.minecraft.util.Identifier;
 
 import java.util.function.Function;
-
-import static net.minecraft.data.client.BlockStateModelGenerator.createSingletonBlockState;
 
 public class ModModelProvider extends FabricModelProvider
 {
@@ -82,6 +78,16 @@ public class ModModelProvider extends FabricModelProvider
     public void generateItemModels(ItemModelGenerator itemModelGenerator)
     {
         itemModelGenerator.register(ModItems.HAZELNUT, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.HAZELNUT_CRACKED, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.HAZELNUT_SPOILED, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.HAZELNUT_PEELED, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.MINIHAMMER, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.CHISEL, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.HAZELNUT_BOAT, Models.GENERATED);
 

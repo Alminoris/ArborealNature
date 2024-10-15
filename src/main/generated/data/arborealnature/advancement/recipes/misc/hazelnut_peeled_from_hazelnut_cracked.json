@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_hazelnut_cracked": {
+      "conditions": {
+        "items": [
+          {
+            "items": "arborealnature:hazelnut_cracked"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:hazelnut_peeled_from_hazelnut_cracked"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_hazelnut_cracked"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:hazelnut_peeled_from_hazelnut_cracked"
+    ]
+  }
+}

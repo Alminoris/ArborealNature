@@ -2,13 +2,13 @@ package net.alminoris.arborealnature;
 
 import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.entity.ModBoats;
+import net.alminoris.arborealnature.item.ModItemGroups;
 import net.alminoris.arborealnature.item.ModItems;
 import net.alminoris.arborealnature.world.gen.ModWorldGeneration;
-import net.alminoris.arborealnature.world.tree.ModFoliagePlacerTypes;
-import net.alminoris.arborealnature.world.tree.ModTrunkPlacerTypes;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
+import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,11 +22,10 @@ public class ArborealNature implements ModInitializer
 	public void onInitialize()
 	{
 		ModItems.registerModItems();
+
 		ModBlocks.registerModBlocks();
 
-		ModTrunkPlacerTypes.register();
-
-		ModFoliagePlacerTypes.register();
+		FuelRegistry.INSTANCE.add(ModItems.HAZELNUT_SPOILED, 150);
 
 		StrippableBlockRegistry.register(ModBlocks.HAZELNUT_LOG, ModBlocks.STRIPPED_HAZELNUT_LOG);
 		StrippableBlockRegistry.register(ModBlocks.HAZELNUT_WOOD, ModBlocks.STRIPPED_HAZELNUT_WOOD);
@@ -40,6 +39,8 @@ public class ArborealNature implements ModInitializer
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.HAZELNUT_LEAVES, 30, 60);
 
 		ModBoats.registerBoats();
+
+		ModItemGroups.registerItemGroups();
 
 		ModWorldGeneration.generateModWorldGen();
 	}

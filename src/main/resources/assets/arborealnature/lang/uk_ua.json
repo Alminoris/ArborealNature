@@ -1,5 +1,10 @@
 {
   "item.arborealnature.hazelnut": "Ліщина",
+  "item.arborealnature.hazelnut_cracked": "Тріснута ліщина",
+  "item.arborealnature.hazelnut_spoiled": "Зіпсована ліщина",
+  "item.arborealnature.hazelnut_peeled": "Очищена ліщина",
+  "item.arborealnature.minihammer": "Молоток",
+  "item.arborealnature.chisel": "Долото",
   "block.arborealnature.hazelnut_log": "Ліщинова колода",
   "block.arborealnature.hazelnut_wood": "Ліщинова деревина",
   "block.arborealnature.stripped_hazelnut_log": "Обтесана ліщинова колода",
@@ -18,6 +23,6 @@
   "block.arborealnature.hazelnut_door": "Ліщинові двері",
   "block.arborealnature.hazelnut_trapdoor": "Ліщиновий люк",
   "block.arborealnature.hazelnut_leaves": "Ліщинове листя",
-  "block.arborealnature.hazelnut_sapling": "Ліщиновий саджанець",
-  "creativetab.arborealnature.antab": "Arboreal Nature"
+  "block.arborealnature.hazelnut_sapling": "Паросток з дерева ліщини",
+  "itemgroup.antab": "Arboreal Nature"
 }

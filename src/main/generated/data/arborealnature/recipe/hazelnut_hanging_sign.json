@@ -1,16 +1,22 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "building",
+  "category": "misc",
+  "group": "hanging_sign",
   "key": {
     "#": {
       "item": "arborealnature:hazelnut_planks"
+    },
+    "X": {
+      "item": "minecraft:chain"
     }
   },
   "pattern": [
+    "X X",
+    "###",
     "###"
   ],
   "result": {
     "count": 6,
-    "id": "arborealnature:hazelnut_slab"
+    "id": "arborealnature:hazelnut_hanging_sign"
   }
 }
