@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "arborealnature:block/hazelnut_log_side",
+    "side": "arborealnature:block/hazelnut_log_side"
+  }
+}
