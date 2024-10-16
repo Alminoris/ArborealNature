@@ -1,5 +1,16 @@
 {
   "values": [
-    "arborealnature:hazelnut_stairs"
+    "arborealnature:hazelnut_stairs",
+    "arborealnature:hazelnut_chiseled_stairs",
+    "arborealnature:oak_chiseled_stairs",
+    "arborealnature:birch_chiseled_stairs",
+    "arborealnature:spruce_chiseled_stairs",
+    "arborealnature:jungle_chiseled_stairs",
+    "arborealnature:acacia_chiseled_stairs",
+    "arborealnature:dark_oak_chiseled_stairs",
+    "arborealnature:crimson_chiseled_stairs",
+    "arborealnature:warped_chiseled_stairs",
+    "arborealnature:mangrove_chiseled_stairs",
+    "arborealnature:cherry_chiseled_stairs"
   ]
 }

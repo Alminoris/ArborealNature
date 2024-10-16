@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "arborealnature:block/mangrove_chiseled_slab"
+    },
+    "type=double": {
+      "model": "arborealnature:block/mangrove_chiseled"
+    },
+    "type=top": {
+      "model": "arborealnature:block/mangrove_chiseled_slab_top"
+    }
+  }
+}

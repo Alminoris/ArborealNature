@@ -1,5 +1,16 @@
 {
   "values": [
-    "arborealnature:hazelnut_slab"
+    "arborealnature:hazelnut_slab",
+    "arborealnature:hazelnut_chiseled_slab",
+    "arborealnature:oak_chiseled_slab",
+    "arborealnature:birch_chiseled_slab",
+    "arborealnature:spruce_chiseled_slab",
+    "arborealnature:jungle_chiseled_slab",
+    "arborealnature:acacia_chiseled_slab",
+    "arborealnature:dark_oak_chiseled_slab",
+    "arborealnature:crimson_chiseled_slab",
+    "arborealnature:warped_chiseled_slab",
+    "arborealnature:mangrove_chiseled_slab",
+    "arborealnature:cherry_chiseled_slab"
   ]
 }

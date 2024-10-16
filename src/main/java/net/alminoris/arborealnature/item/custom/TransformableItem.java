@@ -34,7 +34,7 @@ public class TransformableItem extends Item
         if (offHandStack.getItem() == targetItem)
         {
             if (offHandStack.getDamage() < offHandStack.getMaxDamage() - 1)
-                offHandStack.setDamage(offHandStack.getDamage() + 1); // Increase damage by 1
+                offHandStack.setDamage(offHandStack.getDamage() + 1);
             else
                 offHandStack.decrement(1);
 

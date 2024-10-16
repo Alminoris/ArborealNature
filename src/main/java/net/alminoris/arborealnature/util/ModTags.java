@@ -11,6 +11,8 @@ public class ModTags
 {
     public static class Blocks
     {
+        public static final TagKey<Block> CHISELABLE_BLOCKS = createTag("chiselable_blocks");
+
         private static TagKey<Block> createTag(String name)
         {
             return TagKey.of(RegistryKeys.BLOCK, Identifier.of(ArborealNature.MOD_ID, name));

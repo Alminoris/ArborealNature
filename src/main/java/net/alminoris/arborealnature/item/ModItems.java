@@ -4,6 +4,7 @@ import com.terraformersmc.terraform.boat.api.item.TerraformBoatItemHelper;
 import net.alminoris.arborealnature.ArborealNature;
 import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.entity.ModBoats;
+import net.alminoris.arborealnature.item.custom.ChiselTool;
 import net.alminoris.arborealnature.item.custom.TransformableItem;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
@@ -21,7 +22,7 @@ public class ModItems
     public static final Item MINIHAMMER = registerItem("minihammer", new ToolItem(
             ToolMaterials.IRON, new Item.Settings().maxCount(1)));
 
-    public static final Item CHISEL = registerItem("chisel", new ToolItem(
+    public static final Item CHISEL = registerItem("chisel", new ChiselTool(
             ToolMaterials.IRON, new Item.Settings().maxCount(1)));
 
     public static final Item HAZELNUT = registerItem("hazelnut",

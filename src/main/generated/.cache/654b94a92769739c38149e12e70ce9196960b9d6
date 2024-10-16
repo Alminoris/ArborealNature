@@ -1,14 +1,15 @@
-// 1.21.1	2024-10-16T00:07:36.591252	Arboreal Nature/Tags for minecraft:block
+// 1.21.1	2024-10-16T19:58:30.6878838	Arboreal Nature/Tags for minecraft:block
 a89d926f98c6c8f72dafe3e86874ffd48feda685 data\minecraft\tags\block\wooden_trapdoors.json
 299f9c952c58f3572be90d898b6efe863baa06a7 data\minecraft\tags\block\logs_that_burn.json
-9e83af18c947f9ea68a69d4d8b6c86b21b687392 data\minecraft\tags\block\wooden_slabs.json
+8a99bf27fc809e051367d2353a5d0d76a274dce3 data\minecraft\tags\block\wooden_slabs.json
 6a2e40b39e907439f2265d8a28bd79c279c5d676 data\minecraft\tags\block\wooden_pressure_plates.json
+8ac64a33df562c64cfc198fee2793262435f3536 data\arborealnature\tags\block\chiselable_blocks.json
 e4701b88b7855f1e71a52d459d2b7d5466ed1467 data\minecraft\tags\block\wooden_buttons.json
 cee35eb568f11fd6f8f27ff5c6a1d7328b43e01c data\minecraft\tags\block\wall_hanging_signs.json
-7c700d2cfd9021c8a87693c45703e8375f108392 data\minecraft\tags\block\planks.json
+62f46b659fdb357b89172e8b858fa31a151c33d6 data\minecraft\tags\block\planks.json
 00578179c898af35df99c6280c40c0c6405b93b4 data\minecraft\tags\block\standing_signs.json
 ca0bd4bdd39cdab5b8ff5a834d29d3d85c6827d0 data\minecraft\tags\block\wall_signs.json
-b9634d025df799784d4e6359496ddf41adacdf32 data\minecraft\tags\block\wooden_doors.json
 dee6a6e784e700567dbfe5a0b200015fe1d2d374 data\minecraft\tags\block\ceiling_hanging_signs.json
-8e72c6a59c8b3a17d84af2cbfdb97d7b2435a482 data\minecraft\tags\block\wooden_stairs.json
+b9634d025df799784d4e6359496ddf41adacdf32 data\minecraft\tags\block\wooden_doors.json
+69ea2f90515c3452878cbc40bfb0686a0d88d8d1 data\minecraft\tags\block\wooden_stairs.json
 1cc050b3823b9b2bd02d2a1f2167fed657a13bed data\minecraft\tags\block\wooden_fences.json

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "arborealnature:block/spruce_chiseled_slab"
+    },
+    "type=double": {
+      "model": "arborealnature:block/spruce_chiseled"
+    },
+    "type=top": {
+      "model": "arborealnature:block/spruce_chiseled_slab_top"
+    }
+  }
+}

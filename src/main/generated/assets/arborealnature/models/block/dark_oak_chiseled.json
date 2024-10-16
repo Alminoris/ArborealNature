@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "arborealnature:block/dark_oak_chiseled"
+  }
+}
