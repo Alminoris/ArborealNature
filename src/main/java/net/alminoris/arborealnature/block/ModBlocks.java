@@ -74,10 +74,10 @@ public class ModBlocks
             new TerraformWallSignBlock(HAZELNUT_SIGN_TEXTURE, AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN).dropsLike(HAZELNUT_SIGN)));
 
     public static final Block HAZELNUT_HANGING_SIGN = registerBlock("hazelnut_hanging_sign",
-            new TerraformHangingSignBlock(HAZELNUT_HANGING_SIGN_TEXTURE, HAZELNUT_HANGING_GUI_SIGN_TEXTURE, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN)));
+            new TerraformHangingSignBlock(HAZELNUT_HANGING_SIGN_TEXTURE, HAZELNUT_HANGING_GUI_SIGN_TEXTURE, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN).noBlockBreakParticles()));
 
     public static final Block HAZELNUT_WALL_HANGING_SIGN = registerBlock("hazelnut_wall_hanging_sign",
-            new TerraformWallHangingSignBlock(HAZELNUT_HANGING_SIGN_TEXTURE, HAZELNUT_HANGING_GUI_SIGN_TEXTURE, AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN).dropsLike(HAZELNUT_HANGING_SIGN)));
+            new TerraformWallHangingSignBlock(HAZELNUT_HANGING_SIGN_TEXTURE, HAZELNUT_HANGING_GUI_SIGN_TEXTURE, AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN).noBlockBreakParticles().dropsLike(HAZELNUT_HANGING_SIGN)));
 
     public static final BlockFamily HAZELNUT_FAMILY = new BlockFamily.Builder(ModBlocks.HAZELNUT_PLANKS)
             .sign(ModBlocks.HAZELNUT_SIGN, ModBlocks.HAZELNUT_WALL_SIGN)
