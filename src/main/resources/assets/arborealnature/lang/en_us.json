@@ -57,5 +57,7 @@
   "block.arborealnature.hazelnut_trapdoor": "Hazelnut trapdoor",
   "block.arborealnature.hazelnut_leaves": "Hazelnut leaves",
   "block.arborealnature.hazelnut_sapling": "Hazelnut sapling",
+  "item.arborealnature.squirrel_spawn_egg": "Squirrel spawn egg",
+  "entity.arborealnature.squirrel": "Squirrel",
   "itemgroup.antab": "Arboreal Nature"
 }

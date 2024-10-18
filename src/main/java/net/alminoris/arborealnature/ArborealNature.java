@@ -2,11 +2,15 @@ package net.alminoris.arborealnature;
 
 import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.entity.ModBoats;
+import net.alminoris.arborealnature.entity.ModEntities;
+import net.alminoris.arborealnature.entity.custom.SquirrelEntity;
 import net.alminoris.arborealnature.item.ModItemGroups;
 import net.alminoris.arborealnature.item.ModItems;
+import net.alminoris.arborealnature.sound.ModSounds;
 import net.alminoris.arborealnature.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
@@ -24,6 +28,8 @@ public class ArborealNature implements ModInitializer
 		ModItems.registerModItems();
 
 		ModBlocks.registerModBlocks();
+
+		ModSounds.registerSounds();
 
 		FuelRegistry.INSTANCE.add(ModItems.HAZELNUT_SPOILED, 150);
 
@@ -43,5 +49,7 @@ public class ArborealNature implements ModInitializer
 		ModItemGroups.registerItemGroups();
 
 		ModWorldGeneration.generateModWorldGen();
+
+		FabricDefaultAttributeRegistry.register(ModEntities.SQUIRREL, SquirrelEntity.setAttributes());
 	}
 }

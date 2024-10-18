@@ -57,5 +57,7 @@
   "block.arborealnature.hazelnut_trapdoor": "Trappe en noisette",
   "block.arborealnature.hazelnut_leaves": "Feuilles de noisette",
   "block.arborealnature.hazelnut_sapling": "Plant de noisette",
+  "item.arborealnature.squirrel_spawn_egg": "Œuf de ponte d'écureuil",
+  "entity.arborealnature.squirrel": "Écureuil",
   "itemgroup.antab": "Nature Arborescente"
 }

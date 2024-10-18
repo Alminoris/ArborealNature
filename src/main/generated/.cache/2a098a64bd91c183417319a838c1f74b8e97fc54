@@ -1,4 +1,4 @@
-// 1.21.1	2024-10-16T19:58:30.6908754	Arboreal Nature/Block Loot Tables
+// 1.21.1	2024-10-18T17:25:10.5615759	Arboreal Nature/Block Loot Tables
 6dbdbd1af9195b89cf6a7fe15d4463438e92e313 data\arborealnature\loot_table\blocks\oak_chiseled_slab.json
 51510260221ade3a10590595695316a8b1cfc515 data\arborealnature\loot_table\blocks\spruce_chiseled_stairs.json
 24fe0e2f248ebf2a98364eceb6377c13a1b431e5 data\arborealnature\loot_table\blocks\hazelnut_chiseled.json
@@ -47,5 +47,5 @@ f7115aa0dce854c35e54471a8a5acd5482a01b86 data\arborealnature\loot_table\blocks\s
 2664637c22b5ed8a13f2a0bf60722feff17f869d data\arborealnature\loot_table\blocks\hazelnut_leaves.json
 4aaf5bc1da9a1328a32174a8f4241e62f8578f73 data\arborealnature\loot_table\blocks\acacia_chiseled_stairs.json
 918dee0503f23f83e0539e5b64d0e0fec61abe02 data\arborealnature\loot_table\blocks\stripped_hazelnut_wood.json
-f99c7eb29726a3d24c68a3e5db928a0e7d0f611c data\arborealnature\loot_table\blocks\jungle_chiseled.json
 92a98ca1e1cc86314eba564d59ecdd98e8fcf6cc data\arborealnature\loot_table\blocks\jungle_chiseled_stairs.json
+f99c7eb29726a3d24c68a3e5db928a0e7d0f611c data\arborealnature\loot_table\blocks\jungle_chiseled.json

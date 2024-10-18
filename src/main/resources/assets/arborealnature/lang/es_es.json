@@ -57,5 +57,7 @@
   "block.arborealnature.hazelnut_trapdoor": "Trampa de avellana",
   "block.arborealnature.hazelnut_leaves": "Hojas de avellana",
   "block.arborealnature.hazelnut_sapling": "Plántula de avellana",
+  "item.arborealnature.squirrel_spawn_egg": "Ardilla desovar huevo",
+  "entity.arborealnature.squirrel": "Ardilla",
   "itemgroup.antab": "Naturaleza Arbórea"
 }

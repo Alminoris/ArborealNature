@@ -57,6 +57,8 @@
   "block.arborealnature.hazelnut_trapdoor": "Люк з лещини",
   "block.arborealnature.hazelnut_leaves": "Листя лещини",
   "block.arborealnature.hazelnut_sapling": "Саджанець лещини",
+  "item.arborealnature.squirrel_spawn_egg": "Яйцо призыва белки",
+  "entity.arborealnature.squirrel": "Белка",
   "itemgroup.antab": "Арбореальна природа"
 }
 

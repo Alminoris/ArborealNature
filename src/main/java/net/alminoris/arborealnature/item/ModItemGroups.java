@@ -78,6 +78,7 @@ public class ModItemGroups
                         entries.add(ModItems.HAZELNUT_CRACKED);
                         entries.add(ModItems.HAZELNUT_SPOILED);
                         entries.add(ModItems.HAZELNUT_PEELED);
+                        entries.add(ModItems.SQUIRREL_SPAWN_EGG);
                     }).build());
 
     public static void registerItemGroups()

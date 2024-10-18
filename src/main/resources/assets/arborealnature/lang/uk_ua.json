@@ -57,5 +57,7 @@
   "block.arborealnature.hazelnut_trapdoor": "Ліщиновий люк",
   "block.arborealnature.hazelnut_leaves": "Ліщинове листя",
   "block.arborealnature.hazelnut_sapling": "Паросток з дерева ліщини",
+  "item.arborealnature.squirrel_spawn_egg": "Яйце виклику білки",
+  "entity.arborealnature.squirrel": "Білка",
   "itemgroup.antab": "Arboreal Nature"
 }

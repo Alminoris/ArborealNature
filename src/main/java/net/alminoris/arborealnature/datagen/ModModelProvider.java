@@ -101,6 +101,8 @@ public class ModModelProvider extends FabricModelProvider
         hazelnutPlanksPool.pressurePlate(ModBlocks.HAZELNUT_PRESSURE_PLATE);
 
         hazelnutPlanksPool.family(ModBlocks.HAZELNUT_FAMILY);
+
+        blockStateModelGenerator.registerParentedItemModel(ModItems.SQUIRREL_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
     }
 
     private void registerHangingSign(BlockStateModelGenerator blockStateModelGenerator, Block strippedLog, Block hangingSign, Block wallHangingSign)

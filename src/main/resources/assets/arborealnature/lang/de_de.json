@@ -57,5 +57,7 @@
   "block.arborealnature.hazelnut_trapdoor": "Haselnussschachtel",
   "block.arborealnature.hazelnut_leaves": "Haselnussblätter",
   "block.arborealnature.hazelnut_sapling": "Haselnusssetzling",
+  "item.arborealnature.squirrel_spawn_egg": "Eichhörnchen Laich Ei",
+  "entity.arborealnature.squirrel": "Eichhörnchen",
   "itemgroup.antab": "Arboreal Nature"
 }

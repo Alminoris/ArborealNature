@@ -4,6 +4,7 @@ import com.terraformersmc.terraform.boat.api.item.TerraformBoatItemHelper;
 import net.alminoris.arborealnature.ArborealNature;
 import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.entity.ModBoats;
+import net.alminoris.arborealnature.entity.ModEntities;
 import net.alminoris.arborealnature.item.custom.ChiselTool;
 import net.alminoris.arborealnature.item.custom.TransformableItem;
 import net.minecraft.item.*;
@@ -13,6 +14,9 @@ import net.minecraft.util.Identifier;
 
 public class ModItems
 {
+    public static final Item SQUIRREL_SPAWN_EGG = registerItem("squirrel_spawn_egg", new SpawnEggItem(
+            ModEntities.SQUIRREL, 0xC77510, 0XE8E1D3, new Item.Settings()));
+
     public static final Item HAZELNUT_CRACKED = registerItem("hazelnut_cracked", new Item(
             new Item.Settings().maxCount(16)));
 

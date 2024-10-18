@@ -1,0 +1,17 @@
+{
+  "sound_squirrel_ambient":
+  {
+    "subtitle": "sounds.arborealnature.sound_squirrel_ambient",
+    "sounds": [ "arborealnature:sound_squirrel_ambient" ]
+  },
+  "sound_squirrel_hurt":
+  {
+    "subtitle": "sounds.arborealnature.sound_squirrel_hurt",
+    "sounds": [ "arborealnature:sound_squirrel_hurt" ]
+  },
+  "sound_squirrel_death":
+  {
+    "subtitle": "sounds.arborealnature.sound_squirrel_death",
+    "sounds": [ "arborealnature:sound_squirrel_death" ]
+  }
+}

@@ -1,6 +1,7 @@
 package net.alminoris.arborealnature.datagen;
 
 import net.alminoris.arborealnature.item.ModItems;
+import net.alminoris.arborealnature.util.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.RegistryWrapper;
@@ -23,5 +24,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
 
         getOrCreateTagBuilder(ItemTags.SIGNS)
                 .add(ModItems.HAZELNUT_SIGN);
+
+        getOrCreateTagBuilder(ModTags.Items.SQUIRREL_FOOD)
+                .add(ModItems.HAZELNUT_PEELED);
     }
 }
