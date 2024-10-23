@@ -4,8 +4,7 @@ public class ModWorldGeneration
 {
     public static void generateModWorldGen()
     {
-        ModTreeGeneration.generateTrees();
-
+        ModBiomeModifications.addTreesAndHugeMushrooms();
         ModEntityGeneration.addSpawns();
     }
 }

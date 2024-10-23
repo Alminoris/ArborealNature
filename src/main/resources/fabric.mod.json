@@ -28,6 +28,10 @@
 		"client":
 		[
 			"net.alminoris.arborealnature.ArborealNatureClient"
+		],
+		"terrablender":
+		[
+			"net.alminoris.arborealnature.world.biome.ModTerrablenderAPI"
 		]
 	},
 	"mixins":

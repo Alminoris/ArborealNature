@@ -10,6 +10,8 @@ import net.minecraft.registry.tag.BlockTags;
 
 import java.util.concurrent.CompletableFuture;
 
+import static net.alminoris.arborealnature.util.helper.ModWoodHelper.*;
+
 public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
 {
     public ModBlockTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture)
@@ -20,14 +22,58 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup)
     {
-        getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
-                .add(ModBlocks.HAZELNUT_LOG)
-                .add(ModBlocks.STRIPPED_HAZELNUT_LOG)
-                .add(ModBlocks.HAZELNUT_WOOD)
-                .add(ModBlocks.STRIPPED_HAZELNUT_WOOD);
+        for (String name : WOOD_NAMES)
+        {
+            getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
+                    .add(LOGS.get(name))
+                    .add(STRIPPED_LOGS.get(name))
+                    .add(WOODS.get(name))
+                    .add(STRIPPED_WOODS.get(name));
+
+            getOrCreateTagBuilder(ModTags.Blocks.CHISELABLE_BLOCKS)
+                    .add(STRIPPED_WOODS.get(name));
+
+            getOrCreateTagBuilder(BlockTags.PLANKS)
+                    .add(WOODEN_PLANKS.get(name))
+                    .add(WOODEN_CHISELED.get(name));
+
+            getOrCreateTagBuilder(BlockTags.WOODEN_FENCES)
+                    .add(WOODEN_FENCES.get(name));
+
+            getOrCreateTagBuilder(BlockTags.WOODEN_SLABS)
+                    .add(WOODEN_SLABS.get(name))
+                    .add(WOODEN_CHISELED_SLABS.get(name));
+
+            getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS)
+                    .add(WOODEN_STAIRS.get(name))
+                    .add(WOODEN_CHISELED_STAIRS.get(name));
+
+            getOrCreateTagBuilder(BlockTags.WOODEN_BUTTONS)
+                    .add(WOODEN_BUTTONS.get(name));
+
+            getOrCreateTagBuilder(BlockTags.WOODEN_PRESSURE_PLATES)
+                    .add(WOODEN_PRESSURE_PLATES.get(name));
+
+            getOrCreateTagBuilder(BlockTags.WOODEN_TRAPDOORS)
+                    .add(WOODEN_TRAPDOORS.get(name));
+
+            getOrCreateTagBuilder(BlockTags.WOODEN_DOORS)
+                    .add(WOODEN_DOORS.get(name));
+
+            getOrCreateTagBuilder(BlockTags.STANDING_SIGNS)
+                    .add(WOODEN_SIGNS.get(name));
+
+            getOrCreateTagBuilder(BlockTags.WALL_SIGNS)
+                    .add(WOODEN_WALL_SIGNS.get(name));
+
+            getOrCreateTagBuilder(BlockTags.CEILING_HANGING_SIGNS)
+                    .add(WOODEN_HANGING_SIGNS.get(name));
+
+            getOrCreateTagBuilder(BlockTags.WALL_HANGING_SIGNS)
+                    .add(WOODEN_WALL_HANGING_SIGNS.get(name));
+        }
 
         getOrCreateTagBuilder(ModTags.Blocks.CHISELABLE_BLOCKS)
-                .add(ModBlocks.STRIPPED_HAZELNUT_WOOD)
                 .add(Blocks.STRIPPED_OAK_WOOD)
                 .add(Blocks.STRIPPED_BIRCH_WOOD)
                 .add(Blocks.STRIPPED_SPRUCE_WOOD)
@@ -40,9 +86,17 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(Blocks.STRIPPED_CHERRY_WOOD)
                 .add(Blocks.STRIPPED_BAMBOO_BLOCK);
 
+        getOrCreateTagBuilder(BlockTags.FLOWERS)
+                .add(ModBlocks.WOOD_ANEMONA)
+                .add(LEAVES.get("hawthorn"));
+
+        getOrCreateTagBuilder(BlockTags.TALL_FLOWERS)
+                .add(ModBlocks.LARGE_CELANDINE);
+
+        getOrCreateTagBuilder(BlockTags.FLOWER_POTS)
+                .add(ModBlocks.POTTED_WHITE_MUSHROOM);
+
         getOrCreateTagBuilder(BlockTags.PLANKS)
-                .add(ModBlocks.HAZELNUT_PLANKS)
-                .add(ModBlocks.HAZELNUT_CHISELED)
                 .add(ModBlocks.OAK_CHISELED)
                 .add(ModBlocks.BIRCH_CHISELED)
                 .add(ModBlocks.SPRUCE_CHISELED)
@@ -54,12 +108,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.MANGROVE_CHISELED)
                 .add(ModBlocks.CHERRY_CHISELED);
 
-        getOrCreateTagBuilder(BlockTags.WOODEN_FENCES)
-                .add(ModBlocks.HAZELNUT_FENCE);
-
         getOrCreateTagBuilder(BlockTags.WOODEN_SLABS)
-                .add(ModBlocks.HAZELNUT_SLAB)
-                .add(ModBlocks.HAZELNUT_CHISELED_SLAB)
                 .add(ModBlocks.OAK_CHISELED_SLAB)
                 .add(ModBlocks.BIRCH_CHISELED_SLAB)
                 .add(ModBlocks.SPRUCE_CHISELED_SLAB)
@@ -71,10 +120,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.MANGROVE_CHISELED_SLAB)
                 .add(ModBlocks.CHERRY_CHISELED_SLAB);
 
-
         getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS)
-                .add(ModBlocks.HAZELNUT_STAIRS)
-                .add(ModBlocks.HAZELNUT_CHISELED_STAIRS)
                 .add(ModBlocks.OAK_CHISELED_STAIRS)
                 .add(ModBlocks.BIRCH_CHISELED_STAIRS)
                 .add(ModBlocks.SPRUCE_CHISELED_STAIRS)
@@ -85,29 +131,5 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.WARPED_CHISELED_STAIRS)
                 .add(ModBlocks.MANGROVE_CHISELED_STAIRS)
                 .add(ModBlocks.CHERRY_CHISELED_STAIRS);
-
-        getOrCreateTagBuilder(BlockTags.WOODEN_BUTTONS)
-                .add(ModBlocks.HAZELNUT_BUTTON);
-
-        getOrCreateTagBuilder(BlockTags.WOODEN_PRESSURE_PLATES)
-                .add(ModBlocks.HAZELNUT_PRESSURE_PLATE);
-
-        getOrCreateTagBuilder(BlockTags.WOODEN_TRAPDOORS)
-                .add(ModBlocks.HAZELNUT_TRAPDOOR);
-
-        getOrCreateTagBuilder(BlockTags.WOODEN_DOORS)
-                .add(ModBlocks.HAZELNUT_DOOR);
-
-        getOrCreateTagBuilder(BlockTags.STANDING_SIGNS)
-                .add(ModBlocks.HAZELNUT_SIGN);
-
-        getOrCreateTagBuilder(BlockTags.WALL_SIGNS)
-                .add(ModBlocks.HAZELNUT_WALL_SIGN);
-
-        getOrCreateTagBuilder(BlockTags.CEILING_HANGING_SIGNS)
-                .add(ModBlocks.HAZELNUT_HANGING_SIGN);
-
-        getOrCreateTagBuilder(BlockTags.WALL_HANGING_SIGNS)
-                .add(ModBlocks.HAZELNUT_WALL_HANGING_SIGN);
     }
 }

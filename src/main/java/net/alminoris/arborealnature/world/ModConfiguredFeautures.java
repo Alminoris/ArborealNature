@@ -2,34 +2,114 @@ package net.alminoris.arborealnature.world;
 
 import net.alminoris.arborealnature.ArborealNature;
 import net.alminoris.arborealnature.block.ModBlocks;
+import net.alminoris.arborealnature.util.helper.ModWoodHelper;
+import net.alminoris.arborealnature.world.gen.decorator.custom.LeafCarpetDecorator;
+import net.alminoris.arborealnature.world.gen.feature.ModFeatures;
+import net.alminoris.arborealnature.world.tree.custom.LargeHazelnutTrunkPlacer;
+import net.alminoris.arborealnature.world.tree.custom.LargeHornbeamFoliagePlacer;
+import net.alminoris.arborealnature.world.tree.custom.LargeHornbeamTrunkPlacer;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.FlowerbedBlock;
+import net.minecraft.block.MushroomBlock;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.collection.DataPool;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.FeatureConfig;
-import net.minecraft.world.gen.feature.TreeFeatureConfig;
+import net.minecraft.util.math.intprovider.IntProvider;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
+import net.minecraft.util.math.intprovider.WeightedListIntProvider;
+import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
-import net.minecraft.world.gen.foliage.LargeOakFoliagePlacer;
+import net.minecraft.world.gen.foliage.CherryFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
-import net.minecraft.world.gen.trunk.ForkingTrunkPlacer;
+import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
+import net.minecraft.world.gen.treedecorator.AlterGroundTreeDecorator;
+import net.minecraft.world.gen.trunk.CherryTrunkPlacer;
+import net.minecraft.world.gen.trunk.LargeOakTrunkPlacer;
+
+import java.util.Dictionary;
+import java.util.Hashtable;
+import java.util.List;
 
 public class ModConfiguredFeautures
 {
-    public static final RegistryKey<ConfiguredFeature<?, ?>> HAZELNUT_KEY = registerKey("hazelnut");
+    public static RegistryKey<ConfiguredFeature<?, ?>> HAZELNUT_KEY = registerKey("hazelnut");
 
-    public static void boostrap(Registerable<ConfiguredFeature<?, ?>> context)
+    public static RegistryKey<ConfiguredFeature<?, ?>> HORNBEAM_KEY = registerKey("hornbeam");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> HAWTHORN_KEY = registerKey("hawthorn");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> LARGE_CELANDINE_KEY = registerKey("large_celandine");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> WOOD_ANEMONA_KEY = registerKey("wood_anemona");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> WHITE_MUSHROOM_KEY = registerKey("white_mushroom");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> HUGE_WHITE_MUSHROOM_KEY = registerKey("huge_white_mushroom");
+
+    public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context)
     {
         register(context, HAZELNUT_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(ModBlocks.HAZELNUT_LOG),
-                new ForkingTrunkPlacer(1, 0, 10),
+                BlockStateProvider.of(ModWoodHelper.LOGS.get("hazelnut")),
+                new LargeHazelnutTrunkPlacer(5, 3, 5),
 
-                BlockStateProvider.of(ModBlocks.HAZELNUT_LEAVES),
-                new LargeOakFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(2), 3),
+                BlockStateProvider.of(ModWoodHelper.LEAVES.get("hazelnut")),
+                new CherryFoliagePlacer(ConstantIntProvider.create(4), ConstantIntProvider.create(0), ConstantIntProvider.create(4),
+                        0.25F, 0.5F, 0.16666667F, 0.33333334F),
 
-                new TwoLayersFeatureSize(2, 2, 0)).build());
+                new TwoLayersFeatureSize(2, 2, 0)).decorators(List.of(new LeafCarpetDecorator())).ignoreVines().build());
+
+        register(context, HORNBEAM_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModWoodHelper.LOGS.get("hornbeam")),
+                new LargeHornbeamTrunkPlacer(7, 2, 3),
+
+                BlockStateProvider.of(ModWoodHelper.LEAVES.get("hornbeam")),
+                new LargeHornbeamFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0),5),
+
+                new TwoLayersFeatureSize(2, 0, 2)).ignoreVines().build());
+
+        register(context, HAWTHORN_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModWoodHelper.LOGS.get("hawthorn")),
+                new LargeOakTrunkPlacer(6, 2, 2),
+
+                BlockStateProvider.of(ModWoodHelper.LEAVES.get("hawthorn")),
+                new CherryFoliagePlacer(ConstantIntProvider.create(4), ConstantIntProvider.create(0), ConstantIntProvider.create(7),
+                        0.25F, 0.5F, 0.08F, 0.16F),
+
+                new TwoLayersFeatureSize(2, 0, 2)).ignoreVines().build());
+
+        register(context, WHITE_MUSHROOM_KEY, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.WHITE_MUSHROOM))));
+
+        register(context, LARGE_CELANDINE_KEY, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.LARGE_CELANDINE))));
+
+        DataPool.Builder<BlockState> builder = DataPool.builder();
+        for (int i = 1; i <= 4; i++)
+            for (Direction direction : Direction.Type.HORIZONTAL)
+                builder.add(ModBlocks.WOOD_ANEMONA.getDefaultState().with(FlowerbedBlock.FLOWER_AMOUNT, Integer.valueOf(i)).with(FlowerbedBlock.FACING, direction), 1);
+
+        register(context, WOOD_ANEMONA_KEY, Feature.RANDOM_PATCH,
+                new RandomPatchFeatureConfig(96, 6, 2, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(builder)))));
+
+        register(context, HUGE_WHITE_MUSHROOM_KEY, ModFeatures.HUGE_WHITE_MUSHROOM,
+                new HugeMushroomFeatureConfig(
+                        BlockStateProvider.of(
+                                ModBlocks.WHITE_MUSHROOM_BLOCK.getDefaultState().with(MushroomBlock.UP, Boolean.valueOf(true)).with(MushroomBlock.DOWN, Boolean.valueOf(false))
+                        ),
+                        BlockStateProvider.of(
+                                ModBlocks.WHITE_MUSHROOM_STEM.getDefaultState().with(MushroomBlock.UP, Boolean.valueOf(false)).with(MushroomBlock.DOWN, Boolean.valueOf(false))
+                        ),
+                        2
+                )
+        );
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name)

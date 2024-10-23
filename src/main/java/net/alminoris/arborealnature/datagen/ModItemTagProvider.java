@@ -9,6 +9,8 @@ import net.minecraft.registry.tag.ItemTags;
 
 import java.util.concurrent.CompletableFuture;
 
+import static net.alminoris.arborealnature.util.helper.ModWoodHelper.*;
+
 public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
 {
     public ModItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture)
@@ -19,11 +21,14 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup)
     {
-        getOrCreateTagBuilder(ItemTags.HANGING_SIGNS)
-                .add(ModItems.HAZELNUT_HANGING_SIGN);
+        for (String name : WOOD_NAMES)
+        {
+            getOrCreateTagBuilder(ItemTags.HANGING_SIGNS)
+                    .add(WOODEN_HANGING_SIGN_ITEMS.get(name));
 
-        getOrCreateTagBuilder(ItemTags.SIGNS)
-                .add(ModItems.HAZELNUT_SIGN);
+            getOrCreateTagBuilder(ItemTags.SIGNS)
+                    .add(WOODEN_SIGN_ITEMS.get(name));
+        }
 
         getOrCreateTagBuilder(ModTags.Items.SQUIRREL_FOOD)
                 .add(ModItems.HAZELNUT_PEELED);

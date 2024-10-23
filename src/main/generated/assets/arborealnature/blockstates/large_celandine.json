@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "arborealnature:block/large_celandine_bottom"
+    },
+    "half=upper": {
+      "model": "arborealnature:block/large_celandine_top"
+    }
+  }
+}

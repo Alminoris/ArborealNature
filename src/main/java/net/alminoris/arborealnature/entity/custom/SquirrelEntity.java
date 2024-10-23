@@ -43,20 +43,16 @@ public class SquirrelEntity extends AnimalEntity implements GeoEntity
     }
 
     @Override
-    public boolean isClimbing()
-    {
-        return true;
-    }
-
-    @Override
     protected void initGoals()
     {
-        this.goalSelector.add(1, new SwimGoal(this));
-        this.goalSelector.add(2, new PickUpItemGoal(this, 1.3D, ModItems.HAZELNUT_PEELED, ModItems.HAZELNUT_CRACKED, ModItems.HAZELNUT));
-        this.goalSelector.add(3, new EatHeldItemGoal(this,  ModItems.HAZELNUT_PEELED, ModItems.HAZELNUT_CRACKED));
-        this.goalSelector.add(4, new EscapeDangerGoal(this, 1.5D));
-        this.goalSelector.add(5, new WanderAroundGoal(this, 1.0D));
-        this.goalSelector.add(6, new TemptGoal(this, 1.2, stack -> stack.isIn(ModTags.Items.SQUIRREL_FOOD), false));
+        this.goalSelector.add(0, new SwimGoal(this));
+        this.goalSelector.add(1, new PickUpItemGoal(this, 1.3D, ModItems.HAZELNUT_PEELED, ModItems.HAZELNUT_CRACKED, ModItems.HAZELNUT));
+        this.goalSelector.add(2, new EatHeldItemGoal(this,  ModItems.HAZELNUT_PEELED, ModItems.HAZELNUT_CRACKED));
+        this.goalSelector.add(3, new AnimalMateGoal(this, 1.15D));
+        this.goalSelector.add(4, new TemptGoal(this, 1.2, stack -> stack.isIn(ModTags.Items.SQUIRREL_FOOD), false));
+        this.goalSelector.add(5, new FollowParentGoal(this, 1.0D));
+        this.goalSelector.add(5, new EscapeDangerGoal(this, 1.5D));
+        this.goalSelector.add(6, new WanderAroundGoal(this, 1.0D));
         this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
 
         super.initGoals();

@@ -1,5 +1,6 @@
 package net.alminoris.arborealnature.item;
 
+import com.terraformersmc.terraform.boat.api.TerraformBoatType;
 import com.terraformersmc.terraform.boat.api.item.TerraformBoatItemHelper;
 import net.alminoris.arborealnature.ArborealNature;
 import net.alminoris.arborealnature.block.ModBlocks;
@@ -7,9 +8,11 @@ import net.alminoris.arborealnature.entity.ModBoats;
 import net.alminoris.arborealnature.entity.ModEntities;
 import net.alminoris.arborealnature.item.custom.ChiselTool;
 import net.alminoris.arborealnature.item.custom.TransformableItem;
+import net.minecraft.block.Block;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 
 public class ModItems
@@ -35,7 +38,7 @@ public class ModItems
     public static final Item HAZELNUT_PEELED = registerItem("hazelnut_peeled",
             new Item(new Item.Settings().maxCount(16).food(ModFoodComponents.HAZELNUT)));
 
-    public static final Item HAZELNUT_SIGN = registerItem("hazelnut_sign",
+    /*public static final Item HAZELNUT_SIGN = registerItem("hazelnut_sign",
             new SignItem(new Item.Settings().maxCount(16),
                     ModBlocks.HAZELNUT_SIGN, ModBlocks.HAZELNUT_WALL_SIGN));
 
@@ -47,7 +50,7 @@ public class ModItems
             ModBoats.HAZELNUT_BOAT_ID, ModBoats.HAZELNUT_BOAT_KEY, false);
 
     public static final Item HAZELNUT_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(
-            ModBoats.HAZELNUT_CHEST_BOAT_ID, ModBoats.HAZELNUT_BOAT_KEY, true);
+            ModBoats.HAZELNUT_CHEST_BOAT_ID, ModBoats.HAZELNUT_BOAT_KEY, true);*/
 
     private static Item registerItem(String name, Item item)
     {
@@ -57,5 +60,25 @@ public class ModItems
     public static void registerModItems()
     {
 
+    }
+
+    public static Item registerSignItem(String name, Block signBlock, Block wallSignBlock)
+    {
+        return registerItem(name+"_sign", new SignItem(new Item.Settings().maxCount(16), signBlock, wallSignBlock));
+    }
+
+    public static Item registerHangingSignItem(String name, Block hangingSignBlock, Block wallHangingSignBlock)
+    {
+        return registerItem(name+"_hanging_sign", new HangingSignItem(hangingSignBlock, wallHangingSignBlock, new Item.Settings().maxCount(16)));
+    }
+
+    public static Item registerBoatItem(String name, Identifier boatID,  RegistryKey<TerraformBoatType> boatKey)
+    {
+        return TerraformBoatItemHelper.registerBoatItem(boatID, boatKey, false);
+    }
+
+    public static Item registerChestBoatItem(String name, Identifier chestBoatID,  RegistryKey<TerraformBoatType> boatKey)
+    {
+        return TerraformBoatItemHelper.registerBoatItem(chestBoatID, boatKey, true);
     }
 }

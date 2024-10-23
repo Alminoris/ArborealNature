@@ -5,20 +5,38 @@ import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.entity.ModBoats;
 import net.alminoris.arborealnature.entity.ModEntities;
 import net.alminoris.arborealnature.entity.client.SquirrelRenderer;
+import net.alminoris.arborealnature.util.helper.ModWoodHelper;
+import net.alminoris.arborealnature.world.gen.feature.ModFeatures;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.world.biome.FoliageColors;
+
+import static net.alminoris.arborealnature.util.helper.ModWoodHelper.*;
 
 public class ArborealNatureClient implements ClientModInitializer
 {
+
     @Override
     public void onInitializeClient()
     {
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HAZELNUT_LEAVES, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HAZELNUT_SAPLING, RenderLayer.getCutout());
+        for (String name : WOOD_NAMES)
+        {
+            BlockRenderLayerMap.INSTANCE.putBlock(LEAVES.get(name), RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(WOODEN_SAPLINGS.get(name), RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(WOODEN_DOORS.get(name), RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(WOODEN_TRAPDOORS.get(name), RenderLayer.getCutout());
+            TerraformBoatClientHelper.registerModelLayers(ModBoats.boatIDs.get(name), false);
+        }
 
-        TerraformBoatClientHelper.registerModelLayers(ModBoats.HAZELNUT_BOAT_ID, false);
+
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HAZELNUT_COVER, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WOOD_ANEMONA, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LARGE_CELANDINE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WHITE_MUSHROOM, RenderLayer.getCutout());
 
         EntityRendererRegistry.register(ModEntities.SQUIRREL, SquirrelRenderer::new);
     }

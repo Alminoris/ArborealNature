@@ -5,7 +5,7 @@ import com.terraformersmc.terraform.sign.api.block.TerraformSignBlock;
 import com.terraformersmc.terraform.sign.api.block.TerraformWallHangingSignBlock;
 import com.terraformersmc.terraform.sign.api.block.TerraformWallSignBlock;
 import net.alminoris.arborealnature.ArborealNature;
-import net.alminoris.arborealnature.world.tree.ModSaplingGenerators;
+import net.alminoris.arborealnature.world.ModConfiguredFeautures;
 import net.minecraft.block.*;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.item.BlockItem;
@@ -13,86 +13,10 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.gen.feature.TreeConfiguredFeatures;
 
 public class ModBlocks
 {
-    public static final Block HAZELNUT_LOG = registerBlock("hazelnut_log",
-            new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG)));
-
-    public static final Block STRIPPED_HAZELNUT_LOG = registerBlock("stripped_hazelnut_log",
-            new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_LOG)));
-
-    public static final Block HAZELNUT_WOOD = registerBlock("hazelnut_wood",
-            new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_WOOD)));
-
-    public static final Block STRIPPED_HAZELNUT_WOOD = registerBlock("stripped_hazelnut_wood",
-            new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_WOOD)));
-
-    public static final Block HAZELNUT_PLANKS = registerBlock("hazelnut_planks",
-            new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS)));
-
-    public static final Block HAZELNUT_LEAVES = registerBlock("hazelnut_leaves",
-            new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)));
-
-    public static final Block HAZELNUT_SAPLING = registerBlock("hazelnut_sapling",
-            new SaplingBlock(ModSaplingGenerators.HAZELNUT, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
-
-    public static final Block HAZELNUT_SLAB = registerBlock("hazelnut_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)));
-
-    public static final Block HAZELNUT_STAIRS = registerBlock("hazelnut_stairs",
-            new StairsBlock(HAZELNUT_PLANKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_STAIRS)));
-
-    public static final Block HAZELNUT_FENCE = registerBlock("hazelnut_fence",
-            new FenceBlock(AbstractBlock.Settings.copy(Blocks.OAK_FENCE)));
-
-    public static final Block HAZELNUT_FENCE_GATE = registerBlock("hazelnut_fence_gate",
-            new FenceGateBlock(WoodType.OAK, AbstractBlock.Settings.copy(Blocks.OAK_FENCE_GATE)));
-
-    public static final Block HAZELNUT_DOOR = registerBlock("hazelnut_door",
-            new DoorBlock(BlockSetType.OAK, AbstractBlock.Settings.copy(Blocks.OAK_DOOR)));
-
-    public static final Block HAZELNUT_TRAPDOOR = registerBlock("hazelnut_trapdoor",
-            new TrapdoorBlock(BlockSetType.OAK, AbstractBlock.Settings.copy(Blocks.OAK_TRAPDOOR)));
-
-    public static final Block HAZELNUT_BUTTON = registerBlock("hazelnut_button",
-            new ButtonBlock(BlockSetType.OAK, 30, AbstractBlock.Settings.copy(Blocks.OAK_BUTTON)));
-
-    public static final Block HAZELNUT_PRESSURE_PLATE = registerBlock("hazelnut_pressure_plate",
-            new PressurePlateBlock(BlockSetType.OAK, AbstractBlock.Settings.copy(Blocks.OAK_PRESSURE_PLATE)));
-
-    public static final Identifier HAZELNUT_SIGN_TEXTURE = Identifier.of(ArborealNature.MOD_ID, "entity/signs/hazelnut");
-
-    public static final Identifier HAZELNUT_HANGING_SIGN_TEXTURE = Identifier.of(ArborealNature.MOD_ID, "entity/signs/hanging/hazelnut");
-
-    public static final Identifier HAZELNUT_HANGING_GUI_SIGN_TEXTURE = Identifier.of(ArborealNature.MOD_ID, "textures/gui/hanging_signs/hazelnut");
-
-    public static final Block HAZELNUT_SIGN = registerBlock("hazelnut_sign",
-            new TerraformSignBlock(HAZELNUT_SIGN_TEXTURE, AbstractBlock.Settings.copy(Blocks.OAK_SIGN)));
-
-    public static final Block HAZELNUT_WALL_SIGN = registerBlock("hazelnut_wall_sign",
-            new TerraformWallSignBlock(HAZELNUT_SIGN_TEXTURE, AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN).dropsLike(HAZELNUT_SIGN)));
-
-    public static final Block HAZELNUT_HANGING_SIGN = registerBlock("hazelnut_hanging_sign",
-            new TerraformHangingSignBlock(HAZELNUT_HANGING_SIGN_TEXTURE, HAZELNUT_HANGING_GUI_SIGN_TEXTURE, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN).noBlockBreakParticles()));
-
-    public static final Block HAZELNUT_WALL_HANGING_SIGN = registerBlock("hazelnut_wall_hanging_sign",
-            new TerraformWallHangingSignBlock(HAZELNUT_HANGING_SIGN_TEXTURE, HAZELNUT_HANGING_GUI_SIGN_TEXTURE, AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN).noBlockBreakParticles().dropsLike(HAZELNUT_HANGING_SIGN)));
-
-    public static final BlockFamily HAZELNUT_FAMILY = new BlockFamily.Builder(ModBlocks.HAZELNUT_PLANKS)
-            .sign(ModBlocks.HAZELNUT_SIGN, ModBlocks.HAZELNUT_WALL_SIGN)
-            .group("wooden")
-            .unlockCriterionName("has_planks").build();
-
-    public static final Block HAZELNUT_CHISELED = registerBlock("hazelnut_chiseled",
-            new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS)));
-
-    public static final Block HAZELNUT_CHISELED_SLAB = registerBlock("hazelnut_chiseled_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)));
-
-    public static final Block HAZELNUT_CHISELED_STAIRS = registerBlock("hazelnut_chiseled_stairs",
-            new StairsBlock(HAZELNUT_CHISELED.getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_STAIRS)));
-
     public static final Block OAK_CHISELED = registerBlock("oak_chiseled",
             new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS)));
 
@@ -183,6 +107,27 @@ public class ModBlocks
     public static final Block CHERRY_CHISELED_STAIRS = registerBlock("cherry_chiseled_stairs",
             new StairsBlock(CHERRY_CHISELED.getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_STAIRS)));
 
+    public static final Block WOOD_ANEMONA = registerBlock("wood_anemona",
+            new FlowerbedBlock(AbstractBlock.Settings.copy(Blocks.PINK_PETALS)));
+
+    public static final Block LARGE_CELANDINE = registerBlock("large_celandine",
+            new TallFlowerBlock(AbstractBlock.Settings.copy(Blocks.PEONY)));
+
+    public static final Block HAZELNUT_COVER = registerBlock("hazelnut_cover_block",
+            new CarpetBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)));
+
+    public static final Block WHITE_MUSHROOM = registerBlock("white_mushroom",
+            new MushroomPlantBlock(ModConfiguredFeautures.HUGE_WHITE_MUSHROOM_KEY, AbstractBlock.Settings.copy(Blocks.BROWN_MUSHROOM)));
+
+    public static final Block POTTED_WHITE_MUSHROOM = registerBlock("potted_white_mushroom",
+            new FlowerPotBlock(WHITE_MUSHROOM, AbstractBlock.Settings.copy(Blocks.POTTED_BROWN_MUSHROOM)));
+
+    public static final Block WHITE_MUSHROOM_BLOCK = registerBlock("white_mushroom_block",
+            new MushroomBlock(AbstractBlock.Settings.copy(Blocks.BROWN_MUSHROOM_BLOCK)));
+
+    public static final Block WHITE_MUSHROOM_STEM = registerBlock("white_mushroom_stem",
+            new MushroomBlock(AbstractBlock.Settings.copy(Blocks.MUSHROOM_STEM)));
+
     private static Block registerBlock(String name, Block block)
     {
         registerBlockItem(name, block);
@@ -198,5 +143,147 @@ public class ModBlocks
     public static void registerModBlocks()
     {
 
+    }
+
+    public static Block registerLeavesBlock(String name)
+    {
+        return registerBlock(name+"_leaves",
+                new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)));
+    }
+
+    public static Block registerLogsBlock(String name)
+    {
+        return registerBlock(name+"_log",
+                new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG)));
+    }
+
+    public static Block registerWoodsBlock(String name)
+    {
+        return registerBlock(name+"_wood",
+                new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_WOOD)));
+    }
+
+    public static Block registerStrippedLogsBlock(String name)
+    {
+        return registerBlock("stripped_"+name+"_log",
+                new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_LOG)));
+    }
+
+    public static Block registerStrippedWoodsBlock(String name)
+    {
+        return registerBlock("stripped_"+name+"_wood",
+                new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_WOOD)));
+    }
+
+    public static Block registerPlanksBlock(String name)
+    {
+        return registerBlock(name+"_planks",
+                new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS)));
+    }
+
+    public static Block registerSlabBlock(String name)
+    {
+        return registerBlock(name+"_slab",
+                new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)));
+    }
+
+    public static Block registerStairsBlock(String name, Block planks)
+    {
+        return registerBlock(name+"_stairs",
+                new StairsBlock(planks.getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_STAIRS)));
+    }
+
+    public static Block registerChiseledBlock(String name)
+    {
+        return registerBlock(name+"_chiseled",
+                new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS)));
+    }
+
+    public static Block registerChiseledSlabBlock(String name)
+    {
+        return registerBlock(name+"_chiseled_slab",
+                new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)));
+    }
+
+    public static Block registerChiseledStairsBlock(String name, Block planks)
+    {
+        return registerBlock(name+"_chiseled_stairs",
+                new StairsBlock(planks.getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_STAIRS)));
+    }
+
+    public static Block registerFenceBlock(String name)
+    {
+        return registerBlock(name+"_fence",
+                new FenceBlock(AbstractBlock.Settings.copy(Blocks.OAK_FENCE)));
+    }
+
+    public static Block registerFenceGateBlock(String name)
+    {
+        return registerBlock(name+"_fence_gate",
+                new FenceGateBlock(WoodType.OAK, AbstractBlock.Settings.copy(Blocks.OAK_FENCE_GATE)));
+    }
+
+    public static Block registerDoorBlock(String name)
+    {
+        return registerBlock(name+"_door",
+                new DoorBlock(BlockSetType.OAK, AbstractBlock.Settings.copy(Blocks.OAK_DOOR)));
+    }
+
+    public static Block registerTrapdoorBlock(String name)
+    {
+        return registerBlock(name+"_trapdoor",
+                new TrapdoorBlock(BlockSetType.OAK, AbstractBlock.Settings.copy(Blocks.OAK_TRAPDOOR)));
+    }
+
+    public static Block registerButtonBlock(String name)
+    {
+        return registerBlock(name+"_button",
+                new ButtonBlock(BlockSetType.OAK, 30, AbstractBlock.Settings.copy(Blocks.OAK_BUTTON)));
+    }
+
+    public static Block registerPressurePlateBlock(String name)
+    {
+        return registerBlock(name+"_pressure_plate",
+                new PressurePlateBlock(BlockSetType.OAK, AbstractBlock.Settings.copy(Blocks.OAK_PRESSURE_PLATE)));
+    }
+
+    public static Block registerSignBlock(String name)
+    {
+        return registerBlock(name+"_sign",
+                new TerraformSignBlock(Identifier.of(ArborealNature.MOD_ID, "entity/signs/"+name), AbstractBlock.Settings.copy(Blocks.OAK_SIGN)));
+    }
+
+    public static Block registerWallSignBlock(String name)
+    {
+        return registerBlock(name+"_wall_sign",
+                new TerraformWallSignBlock(Identifier.of(ArborealNature.MOD_ID, "entity/signs/"+name), AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN)));
+    }
+
+    public static Block registerHangingSignBlock(String name)
+    {
+        return registerBlock(name+"_hanging_sign",
+                new TerraformHangingSignBlock(Identifier.of(ArborealNature.MOD_ID, "entity/signs/hanging/"+name),
+                        Identifier.of(ArborealNature.MOD_ID, "textures/gui/hanging_signs/"+name), AbstractBlock.Settings.copy(Blocks.OAK_SIGN)));
+    }
+
+    public static Block registerWallHangingSignBlock(String name)
+    {
+        return registerBlock(name+"_wall_hanging_sign",
+                new TerraformWallHangingSignBlock(Identifier.of(ArborealNature.MOD_ID, "entity/signs/hanging/"+name),
+                        Identifier.of(ArborealNature.MOD_ID, "textures/gui/hanging_signs/"+name), AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN)));
+    }
+
+    public static Block registerSaplingBlock(String name, SaplingGenerator saplingGenerator)
+    {
+        return registerBlock(name+"_sapling",
+                new SaplingBlock(saplingGenerator, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
+    }
+
+    public static BlockFamily registerBlockFamily(Block planks, Block sign, Block wallSign)
+    {
+        return new BlockFamily.Builder(planks)
+                .sign(sign, wallSign)
+                .group("wooden")
+                .unlockCriterionName("has_planks").build();
     }
 }

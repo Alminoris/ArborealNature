@@ -1,3 +1,4 @@
-// 1.21.1	2024-10-18T17:25:10.545187	Arboreal Nature/Tags for minecraft:item
-dee6a6e784e700567dbfe5a0b200015fe1d2d374 data\minecraft\tags\item\hanging_signs.json
-00578179c898af35df99c6280c40c0c6405b93b4 data\minecraft\tags\item\signs.json
+// 1.21.1	2024-10-23T22:35:57.4239305	Arboreal Nature/Tags for minecraft:item
+4f0ce525bb8fe680bc0e0b8e31495bac2334ddcc data\minecraft\tags\item\hanging_signs.json
+321590fe98328a7bf13c32497b8b600068408d29 data\arborealnature\tags\item\squirrel_food.json
+13cb56c43771fbffcb5769af4520057a6392543b data\minecraft\tags\item\signs.json

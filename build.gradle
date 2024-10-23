@@ -23,6 +23,8 @@ repositories {
 			includeGroup("software.bernie.geckolib")
 		}
 	}
+
+	maven { url = 'https://maven.minecraftforge.net/' }
 }
 
 fabricApi {
@@ -41,6 +43,8 @@ dependencies {
 	modImplementation "com.terraformersmc.terraform-api:terraform-wood-api-v1:11.0.0"
 
 	modImplementation "software.bernie.geckolib:geckolib-fabric-${minecraft_version}:${geckolib_version}"
+
+	modImplementation 'com.github.glitchfiend:TerraBlender-fabric:1.21.1-4.1.0.3'
 
 	include "com.terraformersmc.terraform-api:terraform-wood-api-v1:11.0.0"
 }

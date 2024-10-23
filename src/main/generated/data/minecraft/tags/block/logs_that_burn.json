@@ -3,6 +3,14 @@
     "arborealnature:hazelnut_log",
     "arborealnature:stripped_hazelnut_log",
     "arborealnature:hazelnut_wood",
-    "arborealnature:stripped_hazelnut_wood"
+    "arborealnature:stripped_hazelnut_wood",
+    "arborealnature:hornbeam_log",
+    "arborealnature:stripped_hornbeam_log",
+    "arborealnature:hornbeam_wood",
+    "arborealnature:stripped_hornbeam_wood",
+    "arborealnature:hawthorn_log",
+    "arborealnature:stripped_hawthorn_log",
+    "arborealnature:hawthorn_wood",
+    "arborealnature:stripped_hawthorn_wood"
   ]
 }

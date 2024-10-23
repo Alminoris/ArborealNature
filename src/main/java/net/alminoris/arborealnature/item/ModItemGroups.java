@@ -2,6 +2,7 @@ package net.alminoris.arborealnature.item;
 
 import net.alminoris.arborealnature.ArborealNature;
 import net.alminoris.arborealnature.block.ModBlocks;
+import net.alminoris.arborealnature.util.helper.ModWoodHelper;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
@@ -11,21 +12,38 @@ import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
+import static net.alminoris.arborealnature.util.helper.ModWoodHelper.*;
+
 public class ModItemGroups
 {
-    public static final ItemGroup ARBOREAL_NATURE_GROUP = Registry.register(Registries.ITEM_GROUP,
-            Identifier.of(ArborealNature.MOD_ID, "antab"),
-            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.antab"))
-                    .icon(() -> new ItemStack(ModItems.HAZELNUT)).entries((displayContext, entries) ->
+    public static final ItemGroup WOODS_TAB = Registry.register(Registries.ITEM_GROUP,
+            Identifier.of(ArborealNature.MOD_ID, "anwoodstab"),
+            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.anwoodstab"))
+                    .icon(() -> new ItemStack(WOODS.get("hazelnut"))).entries((displayContext, entries) ->
                     {
-                        entries.add(ModBlocks.HAZELNUT_LOG);
-                        entries.add(ModBlocks.STRIPPED_HAZELNUT_LOG);
-                        entries.add(ModBlocks.HAZELNUT_WOOD);
-                        entries.add(ModBlocks.STRIPPED_HAZELNUT_WOOD);
-                        entries.add(ModBlocks.HAZELNUT_PLANKS);
-                        entries.add(ModBlocks.HAZELNUT_CHISELED);
-                        entries.add(ModBlocks.HAZELNUT_CHISELED_STAIRS);
-                        entries.add(ModBlocks.HAZELNUT_CHISELED_SLAB);
+                        for (String name : WOOD_NAMES)
+                        {
+                            entries.add(LOGS.get(name));
+                            entries.add(WOODS.get(name));
+                            entries.add(STRIPPED_LOGS.get(name));
+                            entries.add(STRIPPED_WOODS.get(name));
+                            entries.add(WOODEN_PLANKS.get(name));
+                            entries.add(WOODEN_SLABS.get(name));
+                            entries.add(WOODEN_STAIRS.get(name));
+                            entries.add(WOODEN_FENCES.get(name));
+                            entries.add(WOODEN_FENCE_GATES.get(name));
+                            entries.add(WOODEN_DOORS.get(name));
+                            entries.add(WOODEN_TRAPDOORS.get(name));
+                            entries.add(WOODEN_BUTTONS.get(name));
+                            entries.add(WOODEN_PRESSURE_PLATES.get(name));
+                            entries.add(WOODEN_SIGN_ITEMS.get(name));
+                            entries.add(WOODEN_HANGING_SIGN_ITEMS.get(name));
+                            entries.add(WOODEN_BOATS.get(name));
+                            entries.add(WOODEN_CHEST_BOATS.get(name));
+                            entries.add(WOODEN_CHISELED.get(name));
+                            entries.add(WOODEN_CHISELED_SLABS.get(name));
+                            entries.add(WOODEN_CHISELED_STAIRS.get(name));
+                        }
                         entries.add(ModBlocks.OAK_CHISELED);
                         entries.add(ModBlocks.OAK_CHISELED_STAIRS);
                         entries.add(ModBlocks.OAK_CHISELED_SLAB);
@@ -59,26 +77,55 @@ public class ModItemGroups
                         entries.add(Blocks.BAMBOO_MOSAIC);
                         entries.add(Blocks.BAMBOO_MOSAIC_STAIRS);
                         entries.add(Blocks.BAMBOO_MOSAIC_SLAB);
-                        entries.add(ModBlocks.HAZELNUT_STAIRS);
-                        entries.add(ModBlocks.HAZELNUT_SLAB);
-                        entries.add(ModBlocks.HAZELNUT_FENCE);
-                        entries.add(ModBlocks.HAZELNUT_FENCE_GATE);
-                        entries.add(ModBlocks.HAZELNUT_DOOR);
-                        entries.add(ModBlocks.HAZELNUT_TRAPDOOR);
-                        entries.add(ModBlocks.HAZELNUT_BUTTON);
-                        entries.add(ModBlocks.HAZELNUT_PRESSURE_PLATE);
-                        entries.add(ModItems.HAZELNUT_SIGN);
-                        entries.add(ModItems.HAZELNUT_HANGING_SIGN);
-                        entries.add(ModItems.HAZELNUT_BOAT);
-                        entries.add(ModItems.HAZELNUT_CHEST_BOAT);
-                        entries.add(ModBlocks.HAZELNUT_SAPLING);
+                    }).build());
+
+    public static final ItemGroup SPAWN_EGGS_TAB = Registry.register(Registries.ITEM_GROUP,
+            Identifier.of(ArborealNature.MOD_ID, "anspawneggstab"),
+            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.anspawneggstab"))
+                    .icon(() -> new ItemStack(ModItems.SQUIRREL_SPAWN_EGG)).entries((displayContext, entries) ->
+                    {
+                        entries.add(ModItems.SQUIRREL_SPAWN_EGG);
+                    }).build());
+
+    public static final ItemGroup PLANTS_AND_MUSHROOMS_TAB = Registry.register(Registries.ITEM_GROUP,
+            Identifier.of(ArborealNature.MOD_ID, "anplntsmshrmstab"),
+            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.anplntsmshrmstab"))
+                    .icon(() -> new ItemStack(LEAVES.get("hazelnut"))).entries((displayContext, entries) ->
+                    {
+                        for (String name : WOOD_NAMES)
+                        {
+                            entries.add(LEAVES.get(name));
+                        }
+                        entries.add(ModBlocks.WHITE_MUSHROOM_BLOCK);
+                        entries.add(ModBlocks.WHITE_MUSHROOM_STEM);
+                        for (String name : WOOD_NAMES)
+                        {
+                            entries.add(WOODEN_SAPLINGS.get(name));
+                        }
+                        entries.add(ModBlocks.HAZELNUT_COVER);
+                        entries.add(ModBlocks.LARGE_CELANDINE);
+                        entries.add(ModBlocks.WOOD_ANEMONA);
+                        entries.add(ModBlocks.WHITE_MUSHROOM);
+                    }).build());
+
+    public static final ItemGroup TOOLS_TAB = Registry.register(Registries.ITEM_GROUP,
+            Identifier.of(ArborealNature.MOD_ID, "antoolstab"),
+            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.antoolstab"))
+                    .icon(() -> new ItemStack(ModItems.MINIHAMMER)).entries((displayContext, entries) ->
+                    {
                         entries.add(ModItems.MINIHAMMER);
                         entries.add(ModItems.CHISEL);
+                    }).build());
+
+    public static final ItemGroup FOOD_AND_INGREDIENTS_TAB = Registry.register(Registries.ITEM_GROUP,
+            Identifier.of(ArborealNature.MOD_ID, "anfoodingtab"),
+            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.anfoodingtab"))
+                    .icon(() -> new ItemStack(ModItems.HAZELNUT_CRACKED)).entries((displayContext, entries) ->
+                    {
+                        entries.add(ModItems.HAZELNUT_PEELED);
                         entries.add(ModItems.HAZELNUT);
                         entries.add(ModItems.HAZELNUT_CRACKED);
                         entries.add(ModItems.HAZELNUT_SPOILED);
-                        entries.add(ModItems.HAZELNUT_PEELED);
-                        entries.add(ModItems.SQUIRREL_SPAWN_EGG);
                     }).build());
 
     public static void registerItemGroups()

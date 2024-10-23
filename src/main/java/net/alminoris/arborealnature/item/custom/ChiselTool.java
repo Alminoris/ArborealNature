@@ -2,6 +2,7 @@ package net.alminoris.arborealnature.item.custom;
 
 import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.util.ModTags;
+import net.alminoris.arborealnature.util.helper.ModWoodHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemStack;
@@ -59,8 +60,6 @@ public class ChiselTool extends ToolItem
             String isThisBlock = currentBlock.getName().toString().split("_")[1];
             switch (isThisBlock)
             {
-                case "hazelnut":
-                    return ModBlocks.HAZELNUT_CHISELED;
                 case "oak":
                     return ModBlocks.OAK_CHISELED;
                 case "birch":
@@ -83,6 +82,9 @@ public class ChiselTool extends ToolItem
                     return ModBlocks.CHERRY_CHISELED;
                 case "bamboo":
                     return Blocks.BAMBOO_MOSAIC;
+                default:
+                    for(String name : ModWoodHelper.WOOD_NAMES)
+                        if (isThisBlock.equals(name)) return ModWoodHelper.WOODEN_CHISELED.get(name);
             }
         }
         return null;

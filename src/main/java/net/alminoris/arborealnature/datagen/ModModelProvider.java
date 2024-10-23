@@ -6,11 +6,15 @@ import net.alminoris.arborealnature.block.ModBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.client.*;
 import net.minecraft.util.Identifier;
 
+import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.function.Function;
 
+import static net.alminoris.arborealnature.util.helper.ModWoodHelper.*;
 import static net.minecraft.data.client.BlockStateModelGenerator.createSingletonBlockState;
 
 public class ModModelProvider extends FabricModelProvider
@@ -23,8 +27,58 @@ public class ModModelProvider extends FabricModelProvider
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator)
     {
-        BlockStateModelGenerator.BlockTexturePool hazelnutPlanksPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.HAZELNUT_PLANKS);
-        BlockStateModelGenerator.BlockTexturePool hazelnutChiseledPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.HAZELNUT_CHISELED);
+        Dictionary<String, BlockStateModelGenerator.BlockTexturePool> woodenPlanksPool = new Hashtable<>()
+        {{
+            for(String name : WOOD_NAMES)
+                put(name, blockStateModelGenerator.registerCubeAllModelTexturePool(WOODEN_PLANKS.get(name)));
+        }};
+
+        Dictionary<String, BlockStateModelGenerator.BlockTexturePool> woodenChiseledPool = new Hashtable<>()
+        {{
+            for(String name : WOOD_NAMES)
+                put(name, blockStateModelGenerator.registerCubeAllModelTexturePool(WOODEN_CHISELED.get(name)));
+        }};
+
+        for(String name : WOOD_NAMES)
+        {
+            woodenPlanksPool.get(name).slab(WOODEN_SLABS.get(name));
+            woodenPlanksPool.get(name).stairs(WOODEN_STAIRS.get(name));
+
+            woodenChiseledPool.get(name).slab(WOODEN_CHISELED_SLABS.get(name));
+            woodenChiseledPool.get(name).stairs(WOODEN_CHISELED_STAIRS.get(name));
+
+            registerLogBlock(blockStateModelGenerator, LOGS.get(name),
+                    Identifier.of(ArborealNature.MOD_ID, "block/"+name+"_log_top"),
+                    Identifier.of(ArborealNature.MOD_ID, "block/"+name+"_log"));
+
+            registerLogBlock(blockStateModelGenerator, STRIPPED_LOGS.get(name),
+                    Identifier.of(ArborealNature.MOD_ID, "block/stripped_"+name+"_log_top"),
+                    Identifier.of(ArborealNature.MOD_ID, "block/stripped_"+name+"_log"));
+
+            registerLogBlock(blockStateModelGenerator, WOODS.get(name),
+                    Identifier.of(ArborealNature.MOD_ID, "block/"+name+"_log"),
+                    Identifier.of(ArborealNature.MOD_ID, "block/"+name+"_log"));
+
+            registerLogBlock(blockStateModelGenerator, STRIPPED_WOODS.get(name),
+                    Identifier.of(ArborealNature.MOD_ID, "block/stripped_"+name+"_log"),
+                    Identifier.of(ArborealNature.MOD_ID, "block/stripped_"+name+"_log"));
+
+            blockStateModelGenerator.registerSingleton(LEAVES.get(name), TexturedModel.LEAVES);
+            blockStateModelGenerator.registerTintableCross(WOODEN_SAPLINGS.get(name), BlockStateModelGenerator.TintType.NOT_TINTED);
+
+            blockStateModelGenerator.registerDoor(WOODEN_DOORS.get(name));
+
+            blockStateModelGenerator.registerOrientableTrapdoor(WOODEN_TRAPDOORS.get(name));
+
+            woodenPlanksPool.get(name).fence(WOODEN_FENCES.get(name));
+            woodenPlanksPool.get(name).fenceGate(WOODEN_FENCE_GATES.get(name));
+            woodenPlanksPool.get(name).button(WOODEN_BUTTONS.get(name));
+            woodenPlanksPool.get(name).pressurePlate(WOODEN_PRESSURE_PLATES.get(name));
+
+            woodenPlanksPool.get(name).family(WOODEN_BLOCK_FAMILIES.get(name));
+            registerHangingSign(blockStateModelGenerator, STRIPPED_LOGS.get(name), WOODEN_HANGING_SIGNS.get(name), WOODEN_WALL_HANGING_SIGNS.get(name));
+        }
+        
         BlockStateModelGenerator.BlockTexturePool oakChiseledPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.OAK_CHISELED);
         BlockStateModelGenerator.BlockTexturePool birchChiseledPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.BIRCH_CHISELED);
         BlockStateModelGenerator.BlockTexturePool spruceChiseledPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.SPRUCE_CHISELED);
@@ -35,12 +89,6 @@ public class ModModelProvider extends FabricModelProvider
         BlockStateModelGenerator.BlockTexturePool warpedChiseledPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.WARPED_CHISELED);
         BlockStateModelGenerator.BlockTexturePool mangroveChiseledPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.MANGROVE_CHISELED);
         BlockStateModelGenerator.BlockTexturePool cherryChiseledPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.CHERRY_CHISELED);
-
-        hazelnutPlanksPool.slab(ModBlocks.HAZELNUT_SLAB);
-        hazelnutPlanksPool.stairs(ModBlocks.HAZELNUT_STAIRS);
-
-        hazelnutChiseledPool.slab(ModBlocks.HAZELNUT_CHISELED_SLAB);
-        hazelnutChiseledPool.stairs(ModBlocks.HAZELNUT_CHISELED_STAIRS);
 
         oakChiseledPool.slab(ModBlocks.OAK_CHISELED_SLAB);
         oakChiseledPool.stairs(ModBlocks.OAK_CHISELED_STAIRS);
@@ -72,37 +120,22 @@ public class ModModelProvider extends FabricModelProvider
         cherryChiseledPool.slab(ModBlocks.CHERRY_CHISELED_SLAB);
         cherryChiseledPool.stairs(ModBlocks.CHERRY_CHISELED_STAIRS);
 
-        registerLogBlock(blockStateModelGenerator, ModBlocks.HAZELNUT_LOG,
-                Identifier.of(ArborealNature.MOD_ID, "block/hazelnut_log_top"),
-                Identifier.of(ArborealNature.MOD_ID, "block/hazelnut_log_side"));
-
-        registerLogBlock(blockStateModelGenerator, ModBlocks.STRIPPED_HAZELNUT_LOG,
-                Identifier.of(ArborealNature.MOD_ID, "block/stripped_hazelnut_log_top"),
-                Identifier.of(ArborealNature.MOD_ID, "block/stripped_hazelnut_log_side"));
-
-        registerLogBlock(blockStateModelGenerator, ModBlocks.HAZELNUT_WOOD,
-                Identifier.of(ArborealNature.MOD_ID, "block/hazelnut_log_side"),
-                Identifier.of(ArborealNature.MOD_ID, "block/hazelnut_log_side"));
-
-        registerLogBlock(blockStateModelGenerator, ModBlocks.STRIPPED_HAZELNUT_WOOD,
-                Identifier.of(ArborealNature.MOD_ID, "block/stripped_hazelnut_log_side"),
-                Identifier.of(ArborealNature.MOD_ID, "block/stripped_hazelnut_log_side"));
-
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.HAZELNUT_LEAVES);
-        blockStateModelGenerator.registerTintableCross(ModBlocks.HAZELNUT_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
-
-        blockStateModelGenerator.registerDoor(ModBlocks.HAZELNUT_DOOR);
-
-        blockStateModelGenerator.registerOrientableTrapdoor(ModBlocks.HAZELNUT_TRAPDOOR);
-
-        hazelnutPlanksPool.fence(ModBlocks.HAZELNUT_FENCE);
-        hazelnutPlanksPool.fenceGate(ModBlocks.HAZELNUT_FENCE_GATE);
-        hazelnutPlanksPool.button(ModBlocks.HAZELNUT_BUTTON);
-        hazelnutPlanksPool.pressurePlate(ModBlocks.HAZELNUT_PRESSURE_PLATE);
-
-        hazelnutPlanksPool.family(ModBlocks.HAZELNUT_FAMILY);
-
         blockStateModelGenerator.registerParentedItemModel(ModItems.SQUIRREL_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
+
+        blockStateModelGenerator.registerFlowerbed(ModBlocks.WOOD_ANEMONA);
+        registerCarpet(blockStateModelGenerator, LEAVES.get("hazelnut"), ModBlocks.HAZELNUT_COVER);
+        blockStateModelGenerator.registerDoubleBlock(ModBlocks.LARGE_CELANDINE, BlockStateModelGenerator.TintType.NOT_TINTED);
+
+        blockStateModelGenerator.registerMushroomBlock(ModBlocks.WHITE_MUSHROOM_BLOCK);
+        blockStateModelGenerator.registerMushroomBlock(ModBlocks.WHITE_MUSHROOM_STEM);
+
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.WHITE_MUSHROOM, ModBlocks.POTTED_WHITE_MUSHROOM, BlockStateModelGenerator.TintType.NOT_TINTED);
+    }
+
+    public final void registerCarpet(BlockStateModelGenerator blockStateModelGenerator, Block wool, Block carpet)
+    {
+        Identifier identifier = TexturedModel.CARPET.get(wool).upload(carpet, blockStateModelGenerator.modelCollector);
+        blockStateModelGenerator.blockStateCollector.accept(createSingletonBlockState(carpet, identifier));
     }
 
     private void registerHangingSign(BlockStateModelGenerator blockStateModelGenerator, Block strippedLog, Block hangingSign, Block wallHangingSign)
@@ -111,22 +144,19 @@ public class ModModelProvider extends FabricModelProvider
         Identifier identifier = Models.PARTICLE.upload(hangingSign, textureMap, blockStateModelGenerator.modelCollector);
         blockStateModelGenerator.blockStateCollector.accept(createSingletonBlockState(hangingSign, identifier));
         blockStateModelGenerator.blockStateCollector.accept(createSingletonBlockState(wallHangingSign, identifier));
-        blockStateModelGenerator.registerItemModel(wallHangingSign.asItem());
     }
 
     private void registerLogBlock(BlockStateModelGenerator generator, Block logBlock, Identifier topTexture, Identifier sideTexture)
     {
-        // Create a texture map for the log's side and top
         Function<Block, TextureMap> texturesGetter = block -> new TextureMap()
                 .put(TextureKey.TOP, topTexture)
                 .put(TextureKey.SIDE, sideTexture)
                 .put(TextureKey.END, topTexture);
 
-        // Register the blockstate for the log (handles axis-based rotation)
         generator.registerAxisRotated(
                 logBlock,
-                TexturedModel.makeFactory(texturesGetter, Models.CUBE_COLUMN),         // Factory for cube_column (vertical)
-                TexturedModel.makeFactory(texturesGetter, Models.CUBE_COLUMN_HORIZONTAL)  // Factory for cube_column_horizontal (horizontal)
+                TexturedModel.makeFactory(texturesGetter, Models.CUBE_COLUMN),
+                TexturedModel.makeFactory(texturesGetter, Models.CUBE_COLUMN_HORIZONTAL)
         );
     }
 
@@ -134,8 +164,6 @@ public class ModModelProvider extends FabricModelProvider
     public void generateItemModels(ItemModelGenerator itemModelGenerator)
     {
         itemModelGenerator.register(ModItems.HAZELNUT, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.HAZELNUT_HANGING_SIGN, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.HAZELNUT_CRACKED, Models.GENERATED);
 
@@ -147,8 +175,13 @@ public class ModModelProvider extends FabricModelProvider
 
         itemModelGenerator.register(ModItems.CHISEL, Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.HAZELNUT_BOAT, Models.GENERATED);
+        for(String name : WOOD_NAMES)
+        {
+            itemModelGenerator.register(WOODEN_BOATS.get(name), Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.HAZELNUT_CHEST_BOAT, Models.GENERATED);
+            itemModelGenerator.register(WOODEN_CHEST_BOATS.get(name), Models.GENERATED);
+
+            itemModelGenerator.register(WOODEN_HANGING_SIGN_ITEMS.get(name), Models.GENERATED);
+        }
     }
 }

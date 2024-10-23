@@ -3,6 +3,7 @@ package net.alminoris.arborealnature;
 import net.alminoris.arborealnature.datagen.*;
 import net.alminoris.arborealnature.world.ModConfiguredFeautures;
 import net.alminoris.arborealnature.world.ModPlacedFeatures;
+import net.alminoris.arborealnature.world.biome.ModBiomes;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.registry.RegistryBuilder;
@@ -18,6 +19,7 @@ public class ArborealNatureDataGenerator implements DataGeneratorEntrypoint
 		pack.addProvider(ModBlockTagProvider::new);
 		pack.addProvider(ModItemTagProvider::new);
 		pack.addProvider(ModLootTableProvider::new);
+		pack.addProvider(ModBiomeTagProvider::new);
 		pack.addProvider(ModRecipeProvider::new);
 		pack.addProvider(ModModelProvider::new);
 		pack.addProvider(ModWorldGenerator::new);
@@ -26,7 +28,8 @@ public class ArborealNatureDataGenerator implements DataGeneratorEntrypoint
 	@Override
 	public void buildRegistry(RegistryBuilder registryBuilder)
 	{
-		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeautures::boostrap);
-		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::boostrap);
+		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeautures::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.BIOME, ModBiomes::bootstrap);
 	}
 }

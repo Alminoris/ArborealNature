@@ -12,6 +12,8 @@ import net.minecraft.registry.RegistryWrapper;
 
 import java.util.concurrent.CompletableFuture;
 
+import static net.alminoris.arborealnature.util.helper.ModWoodHelper.*;
+
 public class ModRecipeProvider extends FabricRecipeProvider
 {
     public ModRecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture)
@@ -22,9 +24,91 @@ public class ModRecipeProvider extends FabricRecipeProvider
     @Override
     public void generate(RecipeExporter recipeExporter)
     {
-        offerShapelessRecipe(recipeExporter, ModBlocks.HAZELNUT_LOG, ModBlocks.HAZELNUT_PLANKS, String.valueOf(RecipeCategory.MISC), 4);
-        offerSlabRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.HAZELNUT_SLAB, ModBlocks.HAZELNUT_PLANKS);
-        offerSlabRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.HAZELNUT_CHISELED_SLAB, ModBlocks.HAZELNUT_CHISELED);
+        for(String name : WOOD_NAMES)
+        {
+            offerSlabRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, WOODEN_CHISELED_SLABS.get(name), WOODEN_CHISELED.get(name));
+            offerShapelessRecipe(recipeExporter, WOODEN_PLANKS.get(name), LOGS.get(name), String.valueOf(RecipeCategory.MISC), 4);
+            offerSlabRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, WOODEN_SLABS.get(name), WOODEN_PLANKS.get(name));
+            offerBoatRecipe(recipeExporter, WOODEN_BOATS.get(name), WOODEN_PLANKS.get(name));
+            offerChestBoatRecipe(recipeExporter, WOODEN_CHEST_BOATS.get(name), WOODEN_PLANKS.get(name));
+            offerHangingSignRecipe(recipeExporter, WOODEN_HANGING_SIGN_ITEMS.get(name), WOODEN_PLANKS.get(name));
+            offerPressurePlateRecipe(recipeExporter, WOODEN_PRESSURE_PLATES.get(name), WOODEN_PLANKS.get(name));
+            offerSingleOutputShapelessRecipe(recipeExporter, WOODEN_BUTTONS.get(name), WOODEN_PLANKS.get(name), String.valueOf(RecipeCategory.MISC));
+
+            ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODS.get(name), 3)
+                    .pattern("##")
+                    .pattern("##")
+                    .input('#', LOGS.get(name))
+                    .criterion(hasItem(LOGS.get(name)), conditionsFromItem(LOGS.get(name)))
+                    .offerTo(recipeExporter);
+
+            ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, STRIPPED_WOODS.get(name), 3)
+                    .pattern("##")
+                    .pattern("##")
+                    .input('#', STRIPPED_LOGS.get(name))
+                    .criterion(hasItem(STRIPPED_LOGS.get(name)), conditionsFromItem(STRIPPED_LOGS.get(name)))
+                    .offerTo(recipeExporter);
+
+            ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_STAIRS.get(name), 4)
+                    .pattern("#  ")
+                    .pattern("## ")
+                    .pattern("###")
+                    .input('#', WOODEN_PLANKS.get(name))
+                    .criterion(hasItem(WOODEN_PLANKS.get(name)), conditionsFromItem(WOODEN_PLANKS.get(name)))
+                    .offerTo(recipeExporter);
+
+            ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_FENCES.get(name), 3)
+                    .pattern("#/#")
+                    .pattern("#/#")
+                    .input('#', WOODEN_PLANKS.get(name))
+                    .input('/', Items.STICK)
+                    .criterion(hasItem(WOODEN_PLANKS.get(name)), conditionsFromItem(WOODEN_PLANKS.get(name)))
+                    .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                    .offerTo(recipeExporter);
+
+            ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, WOODEN_FENCE_GATES.get(name))
+                    .pattern("/#/")
+                    .pattern("/#/")
+                    .input('#', WOODEN_PLANKS.get(name))
+                    .input('/', Items.STICK)
+                    .criterion(hasItem(WOODEN_PLANKS.get(name)), conditionsFromItem(WOODEN_PLANKS.get(name)))
+                    .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                    .offerTo(recipeExporter);
+
+            ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, WOODEN_SIGN_ITEMS.get(name), 3)
+                    .pattern("###")
+                    .pattern("###")
+                    .pattern(" / ")
+                    .input('#', WOODEN_PLANKS.get(name))
+                    .input('/', Items.STICK)
+                    .criterion(hasItem(WOODEN_PLANKS.get(name)), conditionsFromItem(WOODEN_PLANKS.get(name)))
+                    .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                    .offerTo(recipeExporter);
+
+            ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, WOODEN_DOORS.get(name), 3)
+                    .pattern("##")
+                    .pattern("##")
+                    .pattern("##")
+                    .input('#', WOODEN_PLANKS.get(name))
+                    .criterion(hasItem(WOODEN_PLANKS.get(name)), conditionsFromItem(WOODEN_PLANKS.get(name)))
+                    .offerTo(recipeExporter);
+
+            ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, WOODEN_TRAPDOORS.get(name), 2)
+                    .pattern("###")
+                    .pattern("###")
+                    .input('#', WOODEN_PLANKS.get(name))
+                    .criterion(hasItem(WOODEN_PLANKS.get(name)), conditionsFromItem(WOODEN_PLANKS.get(name)))
+                    .offerTo(recipeExporter);
+
+            ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_CHISELED_STAIRS.get(name), 4)
+                    .pattern("#  ")
+                    .pattern("## ")
+                    .pattern("###")
+                    .input('#', WOODEN_CHISELED.get(name))
+                    .criterion(hasItem(WOODEN_CHISELED.get(name)), conditionsFromItem(WOODEN_CHISELED.get(name)))
+                    .offerTo(recipeExporter);
+        }
+
         offerSlabRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.OAK_CHISELED_SLAB, ModBlocks.OAK_CHISELED);
         offerSlabRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.BIRCH_CHISELED_SLAB, ModBlocks.BIRCH_CHISELED);
         offerSlabRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SPRUCE_CHISELED_SLAB, ModBlocks.SPRUCE_CHISELED);
@@ -35,28 +119,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
         offerSlabRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.WARPED_CHISELED_SLAB, ModBlocks.WARPED_CHISELED);
         offerSlabRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.MANGROVE_CHISELED_SLAB, ModBlocks.MANGROVE_CHISELED);
         offerSlabRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHERRY_CHISELED_SLAB, ModBlocks.CHERRY_CHISELED);
-        offerBoatRecipe(recipeExporter, ModItems.HAZELNUT_BOAT, ModBlocks.HAZELNUT_PLANKS);
-        offerChestBoatRecipe(recipeExporter, ModItems.HAZELNUT_CHEST_BOAT, ModBlocks.HAZELNUT_PLANKS);
-        offerHangingSignRecipe(recipeExporter, ModItems.HAZELNUT_HANGING_SIGN, ModBlocks.HAZELNUT_PLANKS);
-        offerPressurePlateRecipe(recipeExporter, ModBlocks.HAZELNUT_PRESSURE_PLATE, ModBlocks.HAZELNUT_PLANKS);
-        offerSingleOutputShapelessRecipe(recipeExporter, ModBlocks.HAZELNUT_BUTTON, ModBlocks.HAZELNUT_PLANKS, String.valueOf(RecipeCategory.MISC));
-        offerSingleOutputShapelessRecipe(recipeExporter, ModItems.HAZELNUT_PEELED, ModItems.HAZELNUT_CRACKED, String.valueOf(RecipeCategory.MISC));
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.HAZELNUT_STAIRS, 4)
-                .pattern("#  ")
-                .pattern("## ")
-                .pattern("###")
-                .input('#', ModBlocks.HAZELNUT_PLANKS)
-                .criterion(hasItem(ModBlocks.HAZELNUT_PLANKS), conditionsFromItem(ModBlocks.HAZELNUT_PLANKS))
-                .offerTo(recipeExporter);
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.HAZELNUT_CHISELED_STAIRS, 4)
-                .pattern("#  ")
-                .pattern("## ")
-                .pattern("###")
-                .input('#', ModBlocks.HAZELNUT_CHISELED)
-                .criterion(hasItem(ModBlocks.HAZELNUT_CHISELED), conditionsFromItem(ModBlocks.HAZELNUT_CHISELED))
-                .offerTo(recipeExporter);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.OAK_CHISELED_STAIRS, 4)
                 .pattern("#  ")
@@ -136,49 +198,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
                 .pattern("###")
                 .input('#', ModBlocks.CHERRY_CHISELED)
                 .criterion(hasItem(ModBlocks.CHERRY_CHISELED), conditionsFromItem(ModBlocks.CHERRY_CHISELED))
-                .offerTo(recipeExporter);
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.HAZELNUT_FENCE, 3)
-                .pattern("#/#")
-                .pattern("#/#")
-                .input('#', ModBlocks.HAZELNUT_PLANKS)
-                .input('/', Items.STICK)
-                .criterion(hasItem(ModBlocks.HAZELNUT_PLANKS), conditionsFromItem(ModBlocks.HAZELNUT_PLANKS))
-                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                .offerTo(recipeExporter);
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, ModBlocks.HAZELNUT_FENCE_GATE)
-                .pattern("/#/")
-                .pattern("/#/")
-                .input('#', ModBlocks.HAZELNUT_PLANKS)
-                .input('/', Items.STICK)
-                .criterion(hasItem(ModBlocks.HAZELNUT_PLANKS), conditionsFromItem(ModBlocks.HAZELNUT_PLANKS))
-                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                .offerTo(recipeExporter);
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, ModItems.HAZELNUT_SIGN, 3)
-                .pattern("###")
-                .pattern("###")
-                .pattern(" / ")
-                .input('#', ModBlocks.HAZELNUT_PLANKS)
-                .input('/', Items.STICK)
-                .criterion(hasItem(ModBlocks.HAZELNUT_PLANKS), conditionsFromItem(ModBlocks.HAZELNUT_PLANKS))
-                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                .offerTo(recipeExporter);
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, ModBlocks.HAZELNUT_DOOR, 3)
-                .pattern("##")
-                .pattern("##")
-                .pattern("##")
-                .input('#', ModBlocks.HAZELNUT_PLANKS)
-                .criterion(hasItem(ModBlocks.HAZELNUT_PLANKS), conditionsFromItem(ModBlocks.HAZELNUT_PLANKS))
-                .offerTo(recipeExporter);
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, ModBlocks.HAZELNUT_TRAPDOOR, 2)
-                .pattern("###")
-                .pattern("###")
-                .input('#', ModBlocks.HAZELNUT_PLANKS)
-                .criterion(hasItem(ModBlocks.HAZELNUT_PLANKS), conditionsFromItem(ModBlocks.HAZELNUT_PLANKS))
                 .offerTo(recipeExporter);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.MINIHAMMER, 1)

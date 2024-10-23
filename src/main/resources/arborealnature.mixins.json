@@ -3,7 +3,9 @@
   "package": "net.alminoris.arborealnature.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "ExampleMixin"
+    "ExampleMixin",
+    "TrunkPlacerTypeInvoker",
+    "FoliagePlacerTypeInvoker"
   ],
   "injectors": {
     "defaultRequire": 1
