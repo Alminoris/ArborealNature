@@ -5,15 +5,12 @@ import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.entity.ModBoats;
 import net.alminoris.arborealnature.entity.ModEntities;
 import net.alminoris.arborealnature.entity.client.SquirrelRenderer;
-import net.alminoris.arborealnature.util.helper.ModWoodHelper;
-import net.alminoris.arborealnature.world.gen.feature.ModFeatures;
+import net.alminoris.arborealnature.entity.client.WoodMouseRenderer;
+import net.alminoris.arborealnature.entity.client.projectile.SilentArrowRenderer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.world.biome.FoliageColors;
 
 import static net.alminoris.arborealnature.util.helper.ModWoodHelper.*;
 
@@ -39,5 +36,8 @@ public class ArborealNatureClient implements ClientModInitializer
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WHITE_MUSHROOM, RenderLayer.getCutout());
 
         EntityRendererRegistry.register(ModEntities.SQUIRREL, SquirrelRenderer::new);
+        EntityRendererRegistry.register(ModEntities.WOOD_MOUSE, WoodMouseRenderer::new);
+
+        EntityRendererRegistry.register(ModEntities.SILENT_ARROW, SilentArrowRenderer::new);
     }
 }

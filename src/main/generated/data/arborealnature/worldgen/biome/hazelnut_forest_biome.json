@@ -90,6 +90,12 @@
         "type": "arborealnature:squirrel",
         "maxCount": 5,
         "minCount": 3,
+        "weight": 35
+      },
+      {
+        "type": "arborealnature:wood_mouse",
+        "maxCount": 3,
+        "minCount": 1,
         "weight": 25
       },
       {

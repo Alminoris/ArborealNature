@@ -217,5 +217,22 @@ public class ModRecipeProvider extends FabricRecipeProvider
                 .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
                 .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
                 .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.LEATHER, 1)
+                .pattern("##")
+                .pattern("##")
+                .input('#', ModItems.SQUIRREL_HIDE)
+                .criterion(hasItem(ModItems.SQUIRREL_HIDE), conditionsFromItem(ModItems.SQUIRREL_HIDE))
+                .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.SILENT_ARROW, 2)
+                .pattern(" # ")
+                .pattern("#X#")
+                .pattern(" # ")
+                .input('X', Items.ARROW)
+                .input('#', ModItems.WOOD_MOUSE_TAIL)
+                .criterion(hasItem(Items.ARROW), conditionsFromItem(Items.ARROW))
+                .criterion(hasItem(ModItems.WOOD_MOUSE_TAIL), conditionsFromItem(ModItems.WOOD_MOUSE_TAIL))
+                .offerTo(recipeExporter);
     }
 }

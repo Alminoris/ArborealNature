@@ -16,7 +16,6 @@ public class PickUpItemGoal extends Goal
     private final PathAwareEntity pathAwareEntity;
     private final double speed;
     private ItemEntity targetItem;
-    private final double searchRadius = 8.0D;
     private final List<Item> prioritizedItems;
 
     public PickUpItemGoal(PathAwareEntity pathAwareEntity, double speed, Item... pickupabbleItems)
@@ -29,6 +28,7 @@ public class PickUpItemGoal extends Goal
     @Override
     public boolean canStart()
     {
+        double searchRadius = 8.0D;
         List<ItemEntity> nearbyItems = this.pathAwareEntity.getWorld().getEntitiesByClass(
                 ItemEntity.class,
                 this.pathAwareEntity.getBoundingBox().expand(searchRadius),
@@ -37,7 +37,7 @@ public class PickUpItemGoal extends Goal
 
         if (!nearbyItems.isEmpty())
         {
-            this.targetItem = nearbyItems.get(0);
+            this.targetItem = nearbyItems.getFirst();
             return true;
         }
 

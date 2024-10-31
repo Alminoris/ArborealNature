@@ -32,5 +32,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
 
         getOrCreateTagBuilder(ModTags.Items.SQUIRREL_FOOD)
                 .add(ModItems.HAZELNUT_PEELED);
+
+        getOrCreateTagBuilder(ItemTags.ARROWS)
+                .add(ModItems.SILENT_ARROW);
     }
 }

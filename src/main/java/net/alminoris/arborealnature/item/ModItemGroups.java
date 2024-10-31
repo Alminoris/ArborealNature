@@ -85,6 +85,7 @@ public class ModItemGroups
                     .icon(() -> new ItemStack(ModItems.SQUIRREL_SPAWN_EGG)).entries((displayContext, entries) ->
                     {
                         entries.add(ModItems.SQUIRREL_SPAWN_EGG);
+                        entries.add(ModItems.WOOD_MOUSE_SPAWN_EGG);
                     }).build());
 
     public static final ItemGroup PLANTS_AND_MUSHROOMS_TAB = Registry.register(Registries.ITEM_GROUP,
@@ -115,6 +116,7 @@ public class ModItemGroups
                     {
                         entries.add(ModItems.MINIHAMMER);
                         entries.add(ModItems.CHISEL);
+                        entries.add(ModItems.SILENT_ARROW);
                     }).build());
 
     public static final ItemGroup FOOD_AND_INGREDIENTS_TAB = Registry.register(Registries.ITEM_GROUP,
@@ -126,6 +128,8 @@ public class ModItemGroups
                         entries.add(ModItems.HAZELNUT);
                         entries.add(ModItems.HAZELNUT_CRACKED);
                         entries.add(ModItems.HAZELNUT_SPOILED);
+                        entries.add(ModItems.SQUIRREL_HIDE);
+                        entries.add(ModItems.WOOD_MOUSE_TAIL);
                     }).build());
 
     public static void registerItemGroups()

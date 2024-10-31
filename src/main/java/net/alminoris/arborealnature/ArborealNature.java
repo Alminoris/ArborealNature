@@ -4,6 +4,7 @@ import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.entity.ModBoats;
 import net.alminoris.arborealnature.entity.ModEntities;
 import net.alminoris.arborealnature.entity.custom.SquirrelEntity;
+import net.alminoris.arborealnature.entity.custom.WoodMouseEntity;
 import net.alminoris.arborealnature.item.ModItemGroups;
 import net.alminoris.arborealnature.item.ModItems;
 import net.alminoris.arborealnature.sound.ModSounds;
@@ -66,6 +67,7 @@ public class ArborealNature implements ModInitializer
 		ModTreeDecorators.register();
 
 		FabricDefaultAttributeRegistry.register(ModEntities.SQUIRREL, SquirrelEntity.setAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.WOOD_MOUSE, WoodMouseEntity.setAttributes());
 
 		ModWorldGeneration.generateModWorldGen();
 	}

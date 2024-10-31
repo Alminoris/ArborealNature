@@ -121,6 +121,7 @@ public class ModModelProvider extends FabricModelProvider
         cherryChiseledPool.stairs(ModBlocks.CHERRY_CHISELED_STAIRS);
 
         blockStateModelGenerator.registerParentedItemModel(ModItems.SQUIRREL_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
+        blockStateModelGenerator.registerParentedItemModel(ModItems.WOOD_MOUSE_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
 
         blockStateModelGenerator.registerFlowerbed(ModBlocks.WOOD_ANEMONA);
         registerCarpet(blockStateModelGenerator, LEAVES.get("hazelnut"), ModBlocks.HAZELNUT_COVER);
@@ -170,6 +171,12 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.HAZELNUT_SPOILED, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.HAZELNUT_PEELED, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.SQUIRREL_HIDE, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.WOOD_MOUSE_TAIL, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.SILENT_ARROW, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.MINIHAMMER, Models.GENERATED);
 

@@ -10,7 +10,8 @@
 	],
 	"contact":
 	{
-
+		"homepage": "https://modrinth.com/mod/arboreal-nature/",
+		"sources": "https://github.com/Alminoris/ArborealNature/"
 	},
 	"license": "MIT",
 	"icon": "assets/arborealnature/icon.png",

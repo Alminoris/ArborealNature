@@ -166,13 +166,13 @@ public class ModWoodHelper
     public static final Dictionary<String, Item> WOODEN_BOATS = new Hashtable<>()
     {{
         for(String name : WOOD_NAMES)
-            put(name, registerBoatItem(name, ModBoats.boatIDs.get(name), ModBoats.boatKeys.get(name)));
+            put(name, registerBoatItem(ModBoats.boatIDs.get(name), ModBoats.boatKeys.get(name)));
     }};
 
     public static final Dictionary<String, Item> WOODEN_CHEST_BOATS = new Hashtable<>()
     {{
         for(String name : WOOD_NAMES)
-            put(name, registerChestBoatItem(name, ModBoats.chestBoatIDs.get(name), ModBoats.boatKeys.get(name)));
+            put(name, registerChestBoatItem(ModBoats.chestBoatIDs.get(name), ModBoats.boatKeys.get(name)));
     }};
 
     public static final Dictionary<String, BlockFamily> WOODEN_BLOCK_FAMILIES = new Hashtable<>()
