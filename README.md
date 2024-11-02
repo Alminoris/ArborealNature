@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/1dd67378-d695-436d-9366-44e821f5e568)
+![image](https://github.com/user-attachments/assets/daa50902-aca5-4cfe-a910-1efa4dcf0c10)
 
 Arboreal Nature adds many beautiful, interesting and useful vanilla-like trees to diversify every minecraft biome. Without magic, fantasy, hitech or industrial only vanilla experience.
 
