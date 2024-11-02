@@ -40,6 +40,15 @@ public class ModItems
     public static final Item HAZELNUT_PEELED = registerItem("hazelnut_peeled",
             new Item(new Item.Settings().maxCount(16).food(ModFoodComponents.HAZELNUT)));
 
+    public static final Item QUINCE = registerItem("quince",
+            new Item(new Item.Settings().maxCount(16).food(ModFoodComponents.QUINCE)));
+
+    public static final Item PLUM = registerItem("plum",
+            new Item(new Item.Settings().maxCount(16).food(ModFoodComponents.PLUM)));
+
+    public static final Item MANGO = registerItem("mango",
+            new Item(new Item.Settings().maxCount(16).food(ModFoodComponents.MANGO)));
+
     public static final Item SQUIRREL_HIDE = registerItem("squirrel_hide", new Item(
             new Item.Settings().maxCount(16)));
 

@@ -53,9 +53,25 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
             addDrop(ModWoodHelper.WOODEN_SIGNS.get(name), drops(ModWoodHelper.WOODEN_WALL_SIGNS.get(name)));
             addDrop(ModWoodHelper.WOODEN_HANGING_SIGNS.get(name), drops(ModWoodHelper.WOODEN_WALL_HANGING_SIGNS.get(name)));
             addDrop(ModWoodHelper.WOODEN_SAPLINGS.get(name));
-            addDrop(ModWoodHelper.LEAVES.get(name), leavesItemDrops(ModWoodHelper.LEAVES.get(name),
-                    ModWoodHelper.WOODEN_SAPLINGS.get(name), ModItems.HAZELNUT, 0.0025f));
         }
+
+        addDrop(ModWoodHelper.LEAVES.get("hazelnut"), leavesItemDrops(ModWoodHelper.LEAVES.get("hazelnut"),
+                ModWoodHelper.WOODEN_SAPLINGS.get("hazelnut"), ModItems.HAZELNUT, 0.0025f));
+
+        addDrop(ModWoodHelper.LEAVES.get("hornbeam"), leavesDrops(ModWoodHelper.LEAVES.get("hornbeam"),
+                ModWoodHelper.WOODEN_SAPLINGS.get("hornbeam"), 0.0025f));
+
+        addDrop(ModWoodHelper.LEAVES.get("hawthorn"), leavesDrops(ModWoodHelper.LEAVES.get("hawthorn"),
+                ModWoodHelper.WOODEN_SAPLINGS.get("hawthorn"), 0.0025f));
+
+        addDrop(ModWoodHelper.LEAVES.get("quince"), leavesItemDrops(ModWoodHelper.LEAVES.get("quince"),
+                ModWoodHelper.WOODEN_SAPLINGS.get("quince"), ModItems.QUINCE, 0.0025f));
+
+        addDrop(ModWoodHelper.LEAVES.get("plum"), leavesItemDrops(ModWoodHelper.LEAVES.get("plum"),
+                ModWoodHelper.WOODEN_SAPLINGS.get("plum"), ModItems.PLUM, 0.0025f));
+
+        addDrop(ModWoodHelper.LEAVES.get("mango"), leavesItemDrops(ModWoodHelper.LEAVES.get("mango"),
+                ModWoodHelper.WOODEN_SAPLINGS.get("mango"), ModItems.MANGO, 0.0025f));
 
         addDrop(ModBlocks.OAK_CHISELED);
         addDrop(ModBlocks.OAK_CHISELED_SLAB);
@@ -114,7 +130,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
                         .conditionally(this.createWithoutShearsOrSilkTouchCondition())
                         .with(
                                 ((LeafEntry.Builder)this.addSurvivesExplosionCondition(leaves, ItemEntry.builder(item)))
-                                        .conditionally(TableBonusLootCondition.builder(impl.getOrThrow(Enchantments.FORTUNE), 0.005F, 0.0055555557F, 0.00625F, 0.008333334F, 0.025F))
+                                        .conditionally(TableBonusLootCondition.builder(impl.getOrThrow(Enchantments.FORTUNE), 0.00625F, 0.008333334F, 0.025F, 0.05F, 0.06F))
                         )
                 );
     }

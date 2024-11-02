@@ -13,6 +13,15 @@ public class ModBiomeModifications
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.FOREST),
                 GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.HAZELNUT_PLACED_KEY);
 
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.FOREST),
+                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.QUINCE_PLACED_KEY);
+
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.PLAINS),
+                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.PLUM_PLACED_KEY);
+
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.JUNGLE),
+                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.MANGO_PLACED_KEY);
+
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.MUSHROOM_FIELDS),
                 GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.HUGE_WHITE_MUSHROOM_PLACED_KEY);
     }

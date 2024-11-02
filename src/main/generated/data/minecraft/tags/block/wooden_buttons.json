@@ -2,6 +2,9 @@
   "values": [
     "arborealnature:hazelnut_button",
     "arborealnature:hornbeam_button",
-    "arborealnature:hawthorn_button"
+    "arborealnature:hawthorn_button",
+    "arborealnature:quince_button",
+    "arborealnature:plum_button",
+    "arborealnature:mango_button"
   ]
 }

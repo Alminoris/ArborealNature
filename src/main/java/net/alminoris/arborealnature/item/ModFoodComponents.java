@@ -7,6 +7,11 @@ import net.minecraft.entity.effect.StatusEffects;
 
 public class ModFoodComponents
 {
-    public static final FoodComponent HAZELNUT = new FoodComponent.Builder().nutrition(5).saturationModifier(0.75f)
-            .statusEffect(new StatusEffectInstance(StatusEffects.SATURATION, 200), 0.4f).build();
+    public static final FoodComponent HAZELNUT = new FoodComponent.Builder().nutrition(3).saturationModifier(0.5f).build();
+
+    public static final FoodComponent QUINCE = new FoodComponent.Builder().nutrition(3).saturationModifier(0.35f).build();
+
+    public static final FoodComponent PLUM = new FoodComponent.Builder().nutrition(3).saturationModifier(0.5f).build();
+
+    public static final FoodComponent MANGO = new FoodComponent.Builder().nutrition(3).saturationModifier(0.8f).build();
 }

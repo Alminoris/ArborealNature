@@ -2,6 +2,9 @@
   "values": [
     "arborealnature:hazelnut_fence",
     "arborealnature:hornbeam_fence",
-    "arborealnature:hawthorn_fence"
+    "arborealnature:hawthorn_fence",
+    "arborealnature:quince_fence",
+    "arborealnature:plum_fence",
+    "arborealnature:mango_fence"
   ]
 }

@@ -9,7 +9,6 @@ import net.alminoris.arborealnature.world.tree.custom.LargeHazelnutTrunkPlacer;
 import net.alminoris.arborealnature.world.tree.custom.LargeHornbeamFoliagePlacer;
 import net.alminoris.arborealnature.world.tree.custom.LargeHornbeamTrunkPlacer;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowerbedBlock;
 import net.minecraft.block.MushroomBlock;
 import net.minecraft.registry.Registerable;
@@ -19,20 +18,19 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
-import net.minecraft.util.math.intprovider.IntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
-import net.minecraft.util.math.intprovider.WeightedListIntProvider;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
+import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.foliage.CherryFoliagePlacer;
+import net.minecraft.world.gen.foliage.LargeOakFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
-import net.minecraft.world.gen.treedecorator.AlterGroundTreeDecorator;
+import net.minecraft.world.gen.treedecorator.LeavesVineTreeDecorator;
 import net.minecraft.world.gen.trunk.CherryTrunkPlacer;
+import net.minecraft.world.gen.trunk.ForkingTrunkPlacer;
 import net.minecraft.world.gen.trunk.LargeOakTrunkPlacer;
 
-import java.util.Dictionary;
-import java.util.Hashtable;
 import java.util.List;
 
 public class ModConfiguredFeautures
@@ -42,6 +40,12 @@ public class ModConfiguredFeautures
     public static RegistryKey<ConfiguredFeature<?, ?>> HORNBEAM_KEY = registerKey("hornbeam");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> HAWTHORN_KEY = registerKey("hawthorn");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> QUINCE_KEY = registerKey("quince");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> PLUM_KEY = registerKey("plum");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> MANGO_KEY = registerKey("mango");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> LARGE_CELANDINE_KEY = registerKey("large_celandine");
 
@@ -81,6 +85,58 @@ public class ModConfiguredFeautures
                         0.25F, 0.5F, 0.08F, 0.16F),
 
                 new TwoLayersFeatureSize(2, 0, 2)).ignoreVines().build());
+
+        register(context, QUINCE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModWoodHelper.LOGS.get("quince")),
+                new ForkingTrunkPlacer(5, 2, 2),
+                BlockStateProvider.of(ModWoodHelper.LEAVES.get("quince")),
+                new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
+                new TwoLayersFeatureSize(1, 0, 1)
+        ).ignoreVines().build());
+
+        register(context, PLUM_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModWoodHelper.LOGS.get("plum")),
+                new CherryTrunkPlacer(
+                        2,
+                        2,
+                        3,
+                        ConstantIntProvider.create(3),
+                        UniformIntProvider.create(2, 4),
+                        UniformIntProvider.create(-1, 0),
+                        ConstantIntProvider.create(1)
+                ),
+                BlockStateProvider.of(ModWoodHelper.LEAVES.get("plum")),
+                new CherryFoliagePlacer(
+                        ConstantIntProvider.create(4),
+                        ConstantIntProvider.create(1),
+                        UniformIntProvider.create(6, 7),
+                        0.1f,
+                        0.2f,
+                        0.3f,
+                        0.2f
+                ),
+                new TwoLayersFeatureSize(1, 0, 1)
+        ).ignoreVines().build());
+
+        register(context, MANGO_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModWoodHelper.LOGS.get("mango")),
+                new CherryTrunkPlacer(
+                        4,
+                        2,
+                        3,
+                        ConstantIntProvider.create(2),
+                        UniformIntProvider.create(2, 4),
+                        UniformIntProvider.create(-1, 0),
+                        ConstantIntProvider.create(1)
+                ),
+                BlockStateProvider.of(ModWoodHelper.LEAVES.get("mango")),
+                new LargeOakFoliagePlacer(
+                        UniformIntProvider.create(2, 4),
+                        UniformIntProvider.create(0, 2),
+                        4
+                ),
+                new TwoLayersFeatureSize(1, 0, 1)
+        ).decorators(List.of(new LeavesVineTreeDecorator(0.33f))).build());
 
         register(context, WHITE_MUSHROOM_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,

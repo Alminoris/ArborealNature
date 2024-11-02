@@ -6,7 +6,6 @@ import net.alminoris.arborealnature.block.ModBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.data.client.*;
 import net.minecraft.util.Identifier;
 
@@ -165,29 +164,22 @@ public class ModModelProvider extends FabricModelProvider
     public void generateItemModels(ItemModelGenerator itemModelGenerator)
     {
         itemModelGenerator.register(ModItems.HAZELNUT, Models.GENERATED);
-
         itemModelGenerator.register(ModItems.HAZELNUT_CRACKED, Models.GENERATED);
-
         itemModelGenerator.register(ModItems.HAZELNUT_SPOILED, Models.GENERATED);
-
         itemModelGenerator.register(ModItems.HAZELNUT_PEELED, Models.GENERATED);
-
+        itemModelGenerator.register(ModItems.QUINCE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PLUM, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MANGO, Models.GENERATED);
         itemModelGenerator.register(ModItems.SQUIRREL_HIDE, Models.GENERATED);
-
         itemModelGenerator.register(ModItems.WOOD_MOUSE_TAIL, Models.GENERATED);
-
         itemModelGenerator.register(ModItems.SILENT_ARROW, Models.GENERATED);
-
         itemModelGenerator.register(ModItems.MINIHAMMER, Models.GENERATED);
-
         itemModelGenerator.register(ModItems.CHISEL, Models.GENERATED);
 
         for(String name : WOOD_NAMES)
         {
             itemModelGenerator.register(WOODEN_BOATS.get(name), Models.GENERATED);
-
             itemModelGenerator.register(WOODEN_CHEST_BOATS.get(name), Models.GENERATED);
-
             itemModelGenerator.register(WOODEN_HANGING_SIGN_ITEMS.get(name), Models.GENERATED);
         }
     }

@@ -27,6 +27,12 @@ public class ModPlacedFeatures
 
     public static final RegistryKey<PlacedFeature> OAK_PLACED_KEY = registerKey("oak_placed");
 
+    public static final RegistryKey<PlacedFeature> QUINCE_PLACED_KEY = registerKey("quince_placed");
+
+    public static final RegistryKey<PlacedFeature> PLUM_PLACED_KEY = registerKey("plum_placed");
+
+    public static final RegistryKey<PlacedFeature> MANGO_PLACED_KEY = registerKey("mango_placed");
+
     public static final RegistryKey<PlacedFeature> LARGE_CELANDINE_PLACED_KEY = registerKey("large_celandine_placed");
 
     public static final RegistryKey<PlacedFeature> WOOD_ANEMONA_PLACED_KEY = registerKey("wood_anemona_placed");
@@ -40,7 +46,7 @@ public class ModPlacedFeatures
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
         register(context, HAZELNUT_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeautures.HAZELNUT_KEY),
-                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(0, 0.1f, 1),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(0, 0.05f, 1),
                         ModWoodHelper.WOODEN_SAPLINGS.get("hazelnut")));
 
         register(context, HAZELNUT_FOREST_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeautures.HAZELNUT_KEY),
@@ -58,6 +64,18 @@ public class ModPlacedFeatures
         register(context, OAK_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(TreeConfiguredFeatures.OAK),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(7, 0.1f, 12),
                         Blocks.OAK_SAPLING));
+
+        register(context, QUINCE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeautures.QUINCE_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(0, 0.1f, 1),
+                        ModWoodHelper.WOODEN_SAPLINGS.get("quince")));
+
+        register(context, PLUM_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeautures.PLUM_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(0, 0.05f, 1),
+                        ModWoodHelper.WOODEN_SAPLINGS.get("plum")));
+
+        register(context, MANGO_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeautures.MANGO_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(0, 0.2f, 1),
+                        ModWoodHelper.WOODEN_SAPLINGS.get("mango")));
 
         register(context, LARGE_CELANDINE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeautures.LARGE_CELANDINE_KEY),
                 List.of(RarityFilterPlacementModifier.of(5),

@@ -11,6 +11,18 @@
     "arborealnature:hawthorn_log",
     "arborealnature:stripped_hawthorn_log",
     "arborealnature:hawthorn_wood",
-    "arborealnature:stripped_hawthorn_wood"
+    "arborealnature:stripped_hawthorn_wood",
+    "arborealnature:quince_log",
+    "arborealnature:stripped_quince_log",
+    "arborealnature:quince_wood",
+    "arborealnature:stripped_quince_wood",
+    "arborealnature:plum_log",
+    "arborealnature:stripped_plum_log",
+    "arborealnature:plum_wood",
+    "arborealnature:stripped_plum_wood",
+    "arborealnature:mango_log",
+    "arborealnature:stripped_mango_log",
+    "arborealnature:mango_wood",
+    "arborealnature:stripped_mango_wood"
   ]
 }

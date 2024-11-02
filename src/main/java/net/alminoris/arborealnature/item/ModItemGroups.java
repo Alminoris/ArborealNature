@@ -125,6 +125,9 @@ public class ModItemGroups
                     .icon(() -> new ItemStack(ModItems.HAZELNUT_CRACKED)).entries((displayContext, entries) ->
                     {
                         entries.add(ModItems.HAZELNUT_PEELED);
+                        entries.add(ModItems.QUINCE);
+                        entries.add(ModItems.PLUM);
+                        entries.add(ModItems.MANGO);
                         entries.add(ModItems.HAZELNUT);
                         entries.add(ModItems.HAZELNUT_CRACKED);
                         entries.add(ModItems.HAZELNUT_SPOILED);
