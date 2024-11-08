@@ -17,7 +17,7 @@ import static net.alminoris.arborealnature.world.ModConfiguredFeautures.register
 
 public class ModWoodHelper
 {
-    public static final String[] WOOD_NAMES = new String[] { "hazelnut", "hornbeam", "hawthorn", "quince", "plum", "mango" };
+    public static final String[] WOOD_NAMES = new String[] { "hazelnut", "hornbeam", "hawthorn", "quince", "plum", "mango", "fig" };
 
     public static final Dictionary<String, Block> LEAVES = new Hashtable<>()
     {{

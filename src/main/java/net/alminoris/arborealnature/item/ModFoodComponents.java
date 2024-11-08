@@ -14,4 +14,6 @@ public class ModFoodComponents
     public static final FoodComponent PLUM = new FoodComponent.Builder().nutrition(3).saturationModifier(0.5f).build();
 
     public static final FoodComponent MANGO = new FoodComponent.Builder().nutrition(3).saturationModifier(0.8f).build();
+
+    public static final FoodComponent FIGS = new FoodComponent.Builder().nutrition(3).saturationModifier(0.6f).build();
 }

@@ -33,6 +33,8 @@ public class ModPlacedFeatures
 
     public static final RegistryKey<PlacedFeature> MANGO_PLACED_KEY = registerKey("mango_placed");
 
+    public static final RegistryKey<PlacedFeature> FIG_PLACED_KEY = registerKey("fig_placed");
+
     public static final RegistryKey<PlacedFeature> LARGE_CELANDINE_PLACED_KEY = registerKey("large_celandine_placed");
 
     public static final RegistryKey<PlacedFeature> WOOD_ANEMONA_PLACED_KEY = registerKey("wood_anemona_placed");
@@ -76,6 +78,10 @@ public class ModPlacedFeatures
         register(context, MANGO_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeautures.MANGO_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(0, 0.2f, 1),
                         ModWoodHelper.WOODEN_SAPLINGS.get("mango")));
+
+        register(context, FIG_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeautures.FIG_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(0, 0.1f, 1),
+                        ModWoodHelper.WOODEN_SAPLINGS.get("fig")));
 
         register(context, LARGE_CELANDINE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeautures.LARGE_CELANDINE_KEY),
                 List.of(RarityFilterPlacementModifier.of(5),

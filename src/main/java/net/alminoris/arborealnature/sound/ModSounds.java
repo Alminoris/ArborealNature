@@ -16,6 +16,10 @@ public class ModSounds
     public static final SoundEvent SOUND_WOOD_MOUSE_HURT = registerSoundEvent("sound_wood_mouse_hurt");
     public static final SoundEvent SOUND_WOOD_MOUSE_DEATH = registerSoundEvent("sound_wood_mouse_death");
 
+    public static final SoundEvent SOUND_FIGEATER_BEETLE_AMBIENT = registerSoundEvent("sound_figeater_beetle_ambient");
+    public static final SoundEvent SOUND_FIGEATER_BEETLE_HURT = registerSoundEvent("sound_figeater_beetle_hurt");
+    public static final SoundEvent SOUND_FIGEATER_BEETLE_DEATH = registerSoundEvent("sound_figeater_beetle_death");
+
     private static SoundEvent registerSoundEvent(String name)
     {
         Identifier id = Identifier.of(ArborealNature.MOD_ID, name);

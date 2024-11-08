@@ -19,5 +19,11 @@ public class ModEntityGeneration
 
         SpawnRestriction.register(ModEntities.SQUIRREL, SpawnLocationTypes.ON_GROUND,
                 Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AnimalEntity::isValidNaturalSpawn);
+
+        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.SAVANNA), SpawnGroup.CREATURE,
+                ModEntities.FIGEATER_BEETLE, 25, 1, 3);
+
+        SpawnRestriction.register(ModEntities.FIGEATER_BEETLE, SpawnLocationTypes.ON_GROUND,
+                Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AnimalEntity::isValidNaturalSpawn);
     }
 }

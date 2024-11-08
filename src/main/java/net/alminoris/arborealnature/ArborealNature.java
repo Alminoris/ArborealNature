@@ -3,6 +3,7 @@ package net.alminoris.arborealnature;
 import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.entity.ModBoats;
 import net.alminoris.arborealnature.entity.ModEntities;
+import net.alminoris.arborealnature.entity.custom.FigeaterBeetleEntity;
 import net.alminoris.arborealnature.entity.custom.SquirrelEntity;
 import net.alminoris.arborealnature.entity.custom.WoodMouseEntity;
 import net.alminoris.arborealnature.item.ModItemGroups;
@@ -68,6 +69,7 @@ public class ArborealNature implements ModInitializer
 
 		FabricDefaultAttributeRegistry.register(ModEntities.SQUIRREL, SquirrelEntity.setAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.WOOD_MOUSE, WoodMouseEntity.setAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.FIGEATER_BEETLE, FigeaterBeetleEntity.setAttributes());
 
 		ModWorldGeneration.generateModWorldGen();
 	}

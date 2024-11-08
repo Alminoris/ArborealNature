@@ -28,5 +28,20 @@
   {
     "subtitle": "sounds.arborealnature.sound_wood_mouse_death",
     "sounds": [ "arborealnature:sound_wood_mouse_death" ]
+  },
+  "sound_figeater_beetle_ambient":
+  {
+    "subtitle": "sounds.arborealnature.sound_figeater_beetle_ambient",
+    "sounds": [ "arborealnature:sound_figeater_beetle_ambient" ]
+  },
+  "sound_figeater_beetle_hurt":
+  {
+    "subtitle": "sounds.arborealnature.sound_figeater_beetle_hurt",
+    "sounds": [ "arborealnature:sound_figeater_beetle_hurt" ]
+  },
+  "sound_figeater_beetle_death":
+  {
+    "subtitle": "sounds.arborealnature.sound_figeater_beetle_death",
+    "sounds": [ "arborealnature:sound_figeater_beetle_death" ]
   }
 }

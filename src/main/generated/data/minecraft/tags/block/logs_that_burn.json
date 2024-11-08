@@ -23,6 +23,10 @@
     "arborealnature:mango_log",
     "arborealnature:stripped_mango_log",
     "arborealnature:mango_wood",
-    "arborealnature:stripped_mango_wood"
+    "arborealnature:stripped_mango_wood",
+    "arborealnature:fig_log",
+    "arborealnature:stripped_fig_log",
+    "arborealnature:fig_wood",
+    "arborealnature:stripped_fig_wood"
   ]
 }

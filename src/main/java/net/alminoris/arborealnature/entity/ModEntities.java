@@ -1,6 +1,7 @@
 package net.alminoris.arborealnature.entity;
 
 import net.alminoris.arborealnature.ArborealNature;
+import net.alminoris.arborealnature.entity.custom.FigeaterBeetleEntity;
 import net.alminoris.arborealnature.entity.custom.SquirrelEntity;
 import net.alminoris.arborealnature.entity.custom.WoodMouseEntity;
 import net.alminoris.arborealnature.entity.custom.projectile.SilentArrowEntity;
@@ -22,6 +23,11 @@ public class ModEntities
     public static final EntityType<WoodMouseEntity> WOOD_MOUSE = Registry.register(
             Registries.ENTITY_TYPE, Identifier.of(ArborealNature.MOD_ID, "wood_mouse"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, WoodMouseEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.5f, 0.5f)).build());
+
+    public static final EntityType<FigeaterBeetleEntity> FIGEATER_BEETLE = Registry.register(
+            Registries.ENTITY_TYPE, Identifier.of(ArborealNature.MOD_ID, "figeater_beetle"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, FigeaterBeetleEntity::new)
                     .dimensions(EntityDimensions.fixed(0.5f, 0.5f)).build());
 
     public static final EntityType<SilentArrowEntity> SILENT_ARROW = Registry.register(

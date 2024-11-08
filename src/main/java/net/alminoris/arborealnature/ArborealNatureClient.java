@@ -4,6 +4,7 @@ import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.entity.ModBoats;
 import net.alminoris.arborealnature.entity.ModEntities;
+import net.alminoris.arborealnature.entity.client.FigeaterBeetleRenderer;
 import net.alminoris.arborealnature.entity.client.SquirrelRenderer;
 import net.alminoris.arborealnature.entity.client.WoodMouseRenderer;
 import net.alminoris.arborealnature.entity.client.projectile.SilentArrowRenderer;
@@ -37,6 +38,7 @@ public class ArborealNatureClient implements ClientModInitializer
 
         EntityRendererRegistry.register(ModEntities.SQUIRREL, SquirrelRenderer::new);
         EntityRendererRegistry.register(ModEntities.WOOD_MOUSE, WoodMouseRenderer::new);
+        EntityRendererRegistry.register(ModEntities.FIGEATER_BEETLE, FigeaterBeetleRenderer::new);
 
         EntityRendererRegistry.register(ModEntities.SILENT_ARROW, SilentArrowRenderer::new);
     }

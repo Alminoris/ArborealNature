@@ -35,5 +35,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
 
         getOrCreateTagBuilder(ItemTags.ARROWS)
                 .add(ModItems.SILENT_ARROW);
+
+        getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR)
+                .add(ModItems.FIGEATER_BEETLE_CHESTPLATE);
     }
 }

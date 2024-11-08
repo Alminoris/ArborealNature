@@ -47,6 +47,8 @@ public class ModConfiguredFeautures
 
     public static RegistryKey<ConfiguredFeature<?, ?>> MANGO_KEY = registerKey("mango");
 
+    public static RegistryKey<ConfiguredFeature<?, ?>> FIG_KEY = registerKey("fig");
+
     public static RegistryKey<ConfiguredFeature<?, ?>> LARGE_CELANDINE_KEY = registerKey("large_celandine");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> WOOD_ANEMONA_KEY = registerKey("wood_anemona");
@@ -137,6 +139,18 @@ public class ModConfiguredFeautures
                 ),
                 new TwoLayersFeatureSize(1, 0, 1)
         ).decorators(List.of(new LeavesVineTreeDecorator(0.33f))).build());
+
+        register(context, FIG_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModWoodHelper.LOGS.get("fig")),
+                new ForkingTrunkPlacer(2, 2, 2),
+                BlockStateProvider.of(ModWoodHelper.LEAVES.get("fig")),
+                new BlobFoliagePlacer(
+                        ConstantIntProvider.create(2),  // Canopy radius
+                        ConstantIntProvider.create(2),  // Increased height offset
+                        3  // Canopy height
+                ),
+                new TwoLayersFeatureSize(1, 0, 1)
+        ).ignoreVines().build());
 
         register(context, WHITE_MUSHROOM_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,

@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Block;
 import net.minecraft.data.client.*;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.util.Identifier;
 
 import java.util.Dictionary;
@@ -121,6 +122,7 @@ public class ModModelProvider extends FabricModelProvider
 
         blockStateModelGenerator.registerParentedItemModel(ModItems.SQUIRREL_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
         blockStateModelGenerator.registerParentedItemModel(ModItems.WOOD_MOUSE_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
+        blockStateModelGenerator.registerParentedItemModel(ModItems.FIGEATER_BEETLE_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
 
         blockStateModelGenerator.registerFlowerbed(ModBlocks.WOOD_ANEMONA);
         registerCarpet(blockStateModelGenerator, LEAVES.get("hazelnut"), ModBlocks.HAZELNUT_COVER);
@@ -170,8 +172,10 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.QUINCE, Models.GENERATED);
         itemModelGenerator.register(ModItems.PLUM, Models.GENERATED);
         itemModelGenerator.register(ModItems.MANGO, Models.GENERATED);
+        itemModelGenerator.register(ModItems.FIGS, Models.GENERATED);
         itemModelGenerator.register(ModItems.SQUIRREL_HIDE, Models.GENERATED);
         itemModelGenerator.register(ModItems.WOOD_MOUSE_TAIL, Models.GENERATED);
+        itemModelGenerator.register(ModItems.FIGEATER_BEETLE_SHELL, Models.GENERATED);
         itemModelGenerator.register(ModItems.SILENT_ARROW, Models.GENERATED);
         itemModelGenerator.register(ModItems.MINIHAMMER, Models.GENERATED);
         itemModelGenerator.register(ModItems.CHISEL, Models.GENERATED);
@@ -182,5 +186,7 @@ public class ModModelProvider extends FabricModelProvider
             itemModelGenerator.register(WOODEN_CHEST_BOATS.get(name), Models.GENERATED);
             itemModelGenerator.register(WOODEN_HANGING_SIGN_ITEMS.get(name), Models.GENERATED);
         }
+
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.FIGEATER_BEETLE_CHESTPLATE);
     }
 }

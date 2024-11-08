@@ -86,6 +86,7 @@ public class ModItemGroups
                     {
                         entries.add(ModItems.SQUIRREL_SPAWN_EGG);
                         entries.add(ModItems.WOOD_MOUSE_SPAWN_EGG);
+                        entries.add(ModItems.FIGEATER_BEETLE_SPAWN_EGG);
                     }).build());
 
     public static final ItemGroup PLANTS_AND_MUSHROOMS_TAB = Registry.register(Registries.ITEM_GROUP,
@@ -117,6 +118,7 @@ public class ModItemGroups
                         entries.add(ModItems.MINIHAMMER);
                         entries.add(ModItems.CHISEL);
                         entries.add(ModItems.SILENT_ARROW);
+                        entries.add(ModItems.FIGEATER_BEETLE_CHESTPLATE);
                     }).build());
 
     public static final ItemGroup FOOD_AND_INGREDIENTS_TAB = Registry.register(Registries.ITEM_GROUP,
@@ -128,11 +130,13 @@ public class ModItemGroups
                         entries.add(ModItems.QUINCE);
                         entries.add(ModItems.PLUM);
                         entries.add(ModItems.MANGO);
+                        entries.add(ModItems.FIGS);
                         entries.add(ModItems.HAZELNUT);
                         entries.add(ModItems.HAZELNUT_CRACKED);
                         entries.add(ModItems.HAZELNUT_SPOILED);
                         entries.add(ModItems.SQUIRREL_HIDE);
                         entries.add(ModItems.WOOD_MOUSE_TAIL);
+                        entries.add(ModItems.FIGEATER_BEETLE_SHELL);
                     }).build());
 
     public static void registerItemGroups()

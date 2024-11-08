@@ -234,5 +234,13 @@ public class ModRecipeProvider extends FabricRecipeProvider
                 .criterion(hasItem(Items.ARROW), conditionsFromItem(Items.ARROW))
                 .criterion(hasItem(ModItems.WOOD_MOUSE_TAIL), conditionsFromItem(ModItems.WOOD_MOUSE_TAIL))
                 .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.FIGEATER_BEETLE_CHESTPLATE, 1)
+                .pattern("# #")
+                .pattern("###")
+                .pattern("###")
+                .input('#', ModItems.FIGEATER_BEETLE_SHELL)
+                .criterion(hasItem(ModItems.FIGEATER_BEETLE_SHELL), conditionsFromItem(ModItems.FIGEATER_BEETLE_SHELL))
+                .offerTo(recipeExporter);
     }
 }

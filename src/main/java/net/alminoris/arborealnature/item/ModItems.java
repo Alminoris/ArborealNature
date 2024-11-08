@@ -5,9 +5,12 @@ import com.terraformersmc.terraform.boat.api.item.TerraformBoatItemHelper;
 import net.alminoris.arborealnature.ArborealNature;
 import net.alminoris.arborealnature.entity.ModEntities;
 import net.alminoris.arborealnature.item.custom.ChiselTool;
+import net.alminoris.arborealnature.item.custom.StatusEffectArmorItem;
 import net.alminoris.arborealnature.item.custom.SilentArrowItem;
 import net.alminoris.arborealnature.item.custom.TransformableItem;
 import net.minecraft.block.Block;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -21,6 +24,9 @@ public class ModItems
 
     public static final Item WOOD_MOUSE_SPAWN_EGG = registerItem("wood_mouse_spawn_egg", new SpawnEggItem(
             ModEntities.WOOD_MOUSE, 0x9e8c6c, 0Xcdb8b3, new Item.Settings()));
+
+    public static final Item FIGEATER_BEETLE_SPAWN_EGG = registerItem("figeater_beetle_spawn_egg", new SpawnEggItem(
+            ModEntities.FIGEATER_BEETLE, 0x1e5f1d, 0X84632c, new Item.Settings()));
 
     public static final Item HAZELNUT_CRACKED = registerItem("hazelnut_cracked", new Item(
             new Item.Settings().maxCount(16)));
@@ -49,11 +55,24 @@ public class ModItems
     public static final Item MANGO = registerItem("mango",
             new Item(new Item.Settings().maxCount(16).food(ModFoodComponents.MANGO)));
 
+    public static final Item FIGS = registerItem("figs",
+            new Item(new Item.Settings().maxCount(16).food(ModFoodComponents.FIGS)));
+
     public static final Item SQUIRREL_HIDE = registerItem("squirrel_hide", new Item(
             new Item.Settings().maxCount(16)));
 
     public static final Item WOOD_MOUSE_TAIL = registerItem("wood_mouse_tail", new Item(
             new Item.Settings().maxCount(16)));
+
+    public static final Item FIGEATER_BEETLE_SHELL = registerItem("figeater_beetle_shell", new Item(
+            new Item.Settings().maxCount(16)));
+
+    public static final Item FIGEATER_BEETLE_CHESTPLATE = registerItem("figeater_beetle_chestplate",
+            new StatusEffectArmorItem(
+                    ModArmorMaterials.FIGEATER_BEETLE_SHELL,
+                    ArmorItem.Type.CHESTPLATE,
+                    StatusEffects.SLOW_FALLING,
+                    new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(25))));
 
     public static final Item SILENT_ARROW = registerItem("silent_arrow", new SilentArrowItem(new Item.Settings()));
 

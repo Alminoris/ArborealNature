@@ -22,6 +22,9 @@ public class ModBiomeModifications
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.JUNGLE),
                 GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.MANGO_PLACED_KEY);
 
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.SAVANNA),
+                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.FIG_PLACED_KEY);
+
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.MUSHROOM_FIELDS),
                 GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.HUGE_WHITE_MUSHROOM_PLACED_KEY);
     }

@@ -73,6 +73,9 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         addDrop(ModWoodHelper.LEAVES.get("mango"), leavesItemDrops(ModWoodHelper.LEAVES.get("mango"),
                 ModWoodHelper.WOODEN_SAPLINGS.get("mango"), ModItems.MANGO, 0.0025f));
 
+        addDrop(ModWoodHelper.LEAVES.get("fig"), leavesItemDrops(ModWoodHelper.LEAVES.get("fig"),
+                ModWoodHelper.WOODEN_SAPLINGS.get("fig"), ModItems.FIGS, 0.0025f));
+
         addDrop(ModBlocks.OAK_CHISELED);
         addDrop(ModBlocks.OAK_CHISELED_SLAB);
         addDrop(ModBlocks.OAK_CHISELED_STAIRS);
