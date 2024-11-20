@@ -173,7 +173,7 @@ public class ModConfiguredFeautures
                 BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("viburnum")),
                 new ViburnumTrunkPlacer(3, 5, 0),
                 BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("viburnum")),
-                new JungleFoliagePlacer(ConstantIntProvider.create(2),  ConstantIntProvider.create(2), 3),
+                new BlobFoliagePlacer(ConstantIntProvider.create(2),  ConstantIntProvider.create(2), 3),
                 new TwoLayersFeatureSize(1, 0, 1)
         ).ignoreVines().build());
 

@@ -56,7 +56,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
             addDrop(ModBlockSetsHelper.WOODEN_CHISELED_STAIRS.get(name));
             addDrop(ModBlockSetsHelper.WOODEN_FENCES.get(name));
             addDrop(ModBlockSetsHelper.WOODEN_FENCE_GATES.get(name));
-            addDrop(ModBlockSetsHelper.WOODEN_DOORS.get(name));
             addDrop(ModBlockSetsHelper.WOODEN_TRAPDOORS.get(name));
             addDrop(ModBlockSetsHelper.WOODEN_BUTTONS.get(name));
             addDrop(ModBlockSetsHelper.WOODEN_PRESSURE_PLATES.get(name));

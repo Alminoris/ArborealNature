@@ -1,4 +1,4 @@
-// 1.21.1	2024-11-16T13:29:39.6219706	Arboreal Nature/Block Loot Tables
+// 1.21.1	2024-11-20T10:18:24.3908393	Arboreal Nature/Block Loot Tables
 cdef76025e72c3c6102fcf8b49e3c80200ab2e51 data\arborealnature\loot_table\blocks\jungle_chiseled_slab.json
 3515e05c0d59cca6e2c34b50e88b24a87b29f249 data\arborealnature\loot_table\blocks\birch_chiseled_slab.json
 7f955cc2297f416f0dc0553fc17762ce3dc35360 data\arborealnature\loot_table\blocks\fig_sign.json
