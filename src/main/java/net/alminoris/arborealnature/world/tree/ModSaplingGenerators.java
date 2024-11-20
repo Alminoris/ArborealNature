@@ -1,6 +1,6 @@
 package net.alminoris.arborealnature.world.tree;
 
-import net.alminoris.arborealnature.util.helper.ModWoodHelper;
+import net.alminoris.arborealnature.util.helper.ModBlockSetsHelper;
 import net.alminoris.arborealnature.world.ModConfiguredFeautures;
 import net.minecraft.block.SaplingGenerator;
 import net.minecraft.registry.RegistryKey;
@@ -21,11 +21,15 @@ public class ModSaplingGenerators
         put("plum", ModConfiguredFeautures.PLUM_KEY);
         put("mango", ModConfiguredFeautures.MANGO_KEY);
         put("fig", ModConfiguredFeautures.FIG_KEY);
+        put("viburnum", ModConfiguredFeautures.VIBURNUM_KEY);
+        put("wild_cherry", ModConfiguredFeautures.WILD_CHERRY_KEY);
+        put("white_mulberry", ModConfiguredFeautures.WHITE_MULBERRY_KEY);
+
     }};
 
     public static final Dictionary<String, SaplingGenerator> saplingGenerators = new Hashtable<>()
     {{
-        for(String name : ModWoodHelper.WOOD_NAMES)
+        for(String name : ModBlockSetsHelper.WOOD_NAMES)
             put(name, new SaplingGenerator(name, 0f, Optional.empty(),
                     Optional.empty(),
                     Optional.of(keys.get(name)),

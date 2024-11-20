@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_right_open",
+  "textures": {
+    "bottom": "arborealnature:block/wild_cherry_door_bottom",
+    "top": "arborealnature:block/wild_cherry_door_top"
+  }
+}

@@ -23,7 +23,7 @@ import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static net.alminoris.arborealnature.util.helper.ModWoodHelper.*;
+import static net.alminoris.arborealnature.util.helper.ModBlockSetsHelper.*;
 
 public class ArborealNature implements ModInitializer
 {

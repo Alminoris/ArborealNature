@@ -9,7 +9,7 @@ import net.minecraft.registry.tag.ItemTags;
 
 import java.util.concurrent.CompletableFuture;
 
-import static net.alminoris.arborealnature.util.helper.ModWoodHelper.*;
+import static net.alminoris.arborealnature.util.helper.ModBlockSetsHelper.*;
 
 public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
 {

@@ -2,15 +2,12 @@ package net.alminoris.arborealnature.world;
 
 import net.alminoris.arborealnature.ArborealNature;
 import net.alminoris.arborealnature.block.ModBlocks;
-import net.alminoris.arborealnature.util.helper.ModWoodHelper;
+import net.alminoris.arborealnature.block.custom.BerryBushBlock;
+import net.alminoris.arborealnature.util.helper.ModBlockSetsHelper;
 import net.alminoris.arborealnature.world.gen.decorator.custom.LeafCarpetDecorator;
 import net.alminoris.arborealnature.world.gen.feature.ModFeatures;
-import net.alminoris.arborealnature.world.tree.custom.LargeHazelnutTrunkPlacer;
-import net.alminoris.arborealnature.world.tree.custom.LargeHornbeamFoliagePlacer;
-import net.alminoris.arborealnature.world.tree.custom.LargeHornbeamTrunkPlacer;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.FlowerbedBlock;
-import net.minecraft.block.MushroomBlock;
+import net.alminoris.arborealnature.world.tree.custom.*;
+import net.minecraft.block.*;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -23,6 +20,7 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.foliage.CherryFoliagePlacer;
+import net.minecraft.world.gen.foliage.JungleFoliagePlacer;
 import net.minecraft.world.gen.foliage.LargeOakFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
@@ -30,8 +28,11 @@ import net.minecraft.world.gen.treedecorator.LeavesVineTreeDecorator;
 import net.minecraft.world.gen.trunk.CherryTrunkPlacer;
 import net.minecraft.world.gen.trunk.ForkingTrunkPlacer;
 import net.minecraft.world.gen.trunk.LargeOakTrunkPlacer;
+import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 
 import java.util.List;
+
+import static net.alminoris.arborealnature.util.helper.ModBlockSetsHelper.BUSHES;
 
 public class ModConfiguredFeautures
 {
@@ -49,7 +50,23 @@ public class ModConfiguredFeautures
 
     public static RegistryKey<ConfiguredFeature<?, ?>> FIG_KEY = registerKey("fig");
 
+    public static RegistryKey<ConfiguredFeature<?, ?>> VIBURNUM_KEY = registerKey("viburnum");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> WILD_CHERRY_KEY = registerKey("wild_cherry");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> WHITE_MULBERRY_KEY = registerKey("white_mulberry");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> BILBERRY_KEY = registerKey("bilberry");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> BLACKBERRY_KEY = registerKey("blackberry");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> PINK_CURRANT_KEY = registerKey("pink_currant");
+
     public static RegistryKey<ConfiguredFeature<?, ?>> LARGE_CELANDINE_KEY = registerKey("large_celandine");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> BLUEGRASS_KEY = registerKey("bluegrass");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> GERANIUM_KEY = registerKey("geranium");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> WOOD_ANEMONA_KEY = registerKey("wood_anemona");
 
@@ -60,44 +77,44 @@ public class ModConfiguredFeautures
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context)
     {
         register(context, HAZELNUT_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(ModWoodHelper.LOGS.get("hazelnut")),
+                BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("hazelnut")),
                 new LargeHazelnutTrunkPlacer(5, 3, 5),
 
-                BlockStateProvider.of(ModWoodHelper.LEAVES.get("hazelnut")),
+                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("hazelnut")),
                 new CherryFoliagePlacer(ConstantIntProvider.create(4), ConstantIntProvider.create(0), ConstantIntProvider.create(4),
                         0.25F, 0.5F, 0.16666667F, 0.33333334F),
 
                 new TwoLayersFeatureSize(2, 2, 0)).decorators(List.of(new LeafCarpetDecorator())).ignoreVines().build());
 
         register(context, HORNBEAM_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(ModWoodHelper.LOGS.get("hornbeam")),
+                BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("hornbeam")),
                 new LargeHornbeamTrunkPlacer(7, 2, 3),
 
-                BlockStateProvider.of(ModWoodHelper.LEAVES.get("hornbeam")),
+                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("hornbeam")),
                 new LargeHornbeamFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0),5),
 
                 new TwoLayersFeatureSize(2, 0, 2)).ignoreVines().build());
 
         register(context, HAWTHORN_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(ModWoodHelper.LOGS.get("hawthorn")),
+                BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("hawthorn")),
                 new LargeOakTrunkPlacer(6, 2, 2),
 
-                BlockStateProvider.of(ModWoodHelper.LEAVES.get("hawthorn")),
+                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("hawthorn")),
                 new CherryFoliagePlacer(ConstantIntProvider.create(4), ConstantIntProvider.create(0), ConstantIntProvider.create(7),
                         0.25F, 0.5F, 0.08F, 0.16F),
 
                 new TwoLayersFeatureSize(2, 0, 2)).ignoreVines().build());
 
         register(context, QUINCE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(ModWoodHelper.LOGS.get("quince")),
+                BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("quince")),
                 new ForkingTrunkPlacer(5, 2, 2),
-                BlockStateProvider.of(ModWoodHelper.LEAVES.get("quince")),
+                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("quince")),
                 new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
                 new TwoLayersFeatureSize(1, 0, 1)
         ).ignoreVines().build());
 
         register(context, PLUM_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(ModWoodHelper.LOGS.get("plum")),
+                BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("plum")),
                 new CherryTrunkPlacer(
                         2,
                         2,
@@ -107,7 +124,7 @@ public class ModConfiguredFeautures
                         UniformIntProvider.create(-1, 0),
                         ConstantIntProvider.create(1)
                 ),
-                BlockStateProvider.of(ModWoodHelper.LEAVES.get("plum")),
+                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("plum")),
                 new CherryFoliagePlacer(
                         ConstantIntProvider.create(4),
                         ConstantIntProvider.create(1),
@@ -121,7 +138,7 @@ public class ModConfiguredFeautures
         ).ignoreVines().build());
 
         register(context, MANGO_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(ModWoodHelper.LOGS.get("mango")),
+                BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("mango")),
                 new CherryTrunkPlacer(
                         4,
                         2,
@@ -131,7 +148,7 @@ public class ModConfiguredFeautures
                         UniformIntProvider.create(-1, 0),
                         ConstantIntProvider.create(1)
                 ),
-                BlockStateProvider.of(ModWoodHelper.LEAVES.get("mango")),
+                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("mango")),
                 new LargeOakFoliagePlacer(
                         UniformIntProvider.create(2, 4),
                         UniformIntProvider.create(0, 2),
@@ -141,14 +158,38 @@ public class ModConfiguredFeautures
         ).decorators(List.of(new LeavesVineTreeDecorator(0.33f))).build());
 
         register(context, FIG_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(ModWoodHelper.LOGS.get("fig")),
+                BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("fig")),
                 new ForkingTrunkPlacer(2, 2, 2),
-                BlockStateProvider.of(ModWoodHelper.LEAVES.get("fig")),
+                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("fig")),
                 new BlobFoliagePlacer(
                         ConstantIntProvider.create(2),  // Canopy radius
                         ConstantIntProvider.create(2),  // Increased height offset
                         3  // Canopy height
                 ),
+                new TwoLayersFeatureSize(1, 0, 1)
+        ).ignoreVines().build());
+
+        register(context, VIBURNUM_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("viburnum")),
+                new ViburnumTrunkPlacer(3, 5, 0),
+                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("viburnum")),
+                new JungleFoliagePlacer(ConstantIntProvider.create(2),  ConstantIntProvider.create(2), 3),
+                new TwoLayersFeatureSize(1, 0, 1)
+        ).ignoreVines().build());
+
+        register(context, WILD_CHERRY_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("wild_cherry")),
+                new StraightTrunkPlacer(3, 3, 2),
+                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("wild_cherry")),
+                new WildCherryFoliagePlacer(ConstantIntProvider.create(4),  ConstantIntProvider.create(1), 3),
+                new TwoLayersFeatureSize(1, 0, 1)
+        ).ignoreVines().build());
+
+        register(context, WHITE_MULBERRY_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("white_mulberry")),
+                new ForkingTrunkPlacer(3, 5, 2),
+                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("white_mulberry")),
+                new WhiteMulberryFoliagePlacer(ConstantIntProvider.create(3),  ConstantIntProvider.create(0), 3),
                 new TwoLayersFeatureSize(1, 0, 1)
         ).ignoreVines().build());
 
@@ -160,6 +201,14 @@ public class ModConfiguredFeautures
                 ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
                         new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.LARGE_CELANDINE))));
 
+        register(context, BLUEGRASS_KEY, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.BLUEGRASS))));
+
+        register(context, GERANIUM_KEY, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.GERANIUM))));
+
         DataPool.Builder<BlockState> builder = DataPool.builder();
         for (int i = 1; i <= 4; i++)
             for (Direction direction : Direction.Type.HORIZONTAL)
@@ -168,6 +217,27 @@ public class ModConfiguredFeautures
         register(context, WOOD_ANEMONA_KEY, Feature.RANDOM_PATCH,
                 new RandomPatchFeatureConfig(96, 6, 2, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
                         new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(builder)))));
+
+        register(context, BILBERRY_KEY, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(BUSHES.get("bilberry").getDefaultState().with(BerryBushBlock.AGE, Integer.valueOf(3)))),
+                        List.of(Blocks.GRASS_BLOCK)
+                )
+        );
+
+        register(context, BLACKBERRY_KEY, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(BUSHES.get("blackberry").getDefaultState().with(BerryBushBlock.AGE, Integer.valueOf(3)))),
+                        List.of(Blocks.GRASS_BLOCK)
+                )
+        );
+
+        register(context, PINK_CURRANT_KEY, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(BUSHES.get("pink_currant").getDefaultState().with(BerryBushBlock.AGE, Integer.valueOf(3)))),
+                        List.of(Blocks.GRASS_BLOCK)
+                )
+        );
 
         register(context, HUGE_WHITE_MUSHROOM_KEY, ModFeatures.HUGE_WHITE_MUSHROOM,
                 new HugeMushroomFeatureConfig(

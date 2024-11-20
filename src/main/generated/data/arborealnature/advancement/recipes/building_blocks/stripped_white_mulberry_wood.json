@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_stripped_white_mulberry_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "arborealnature:stripped_white_mulberry_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arborealnature:stripped_white_mulberry_wood"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_stripped_white_mulberry_log"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arborealnature:stripped_white_mulberry_wood"
+    ]
+  }
+}

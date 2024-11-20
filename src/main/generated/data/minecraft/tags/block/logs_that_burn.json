@@ -27,6 +27,18 @@
     "arborealnature:fig_log",
     "arborealnature:stripped_fig_log",
     "arborealnature:fig_wood",
-    "arborealnature:stripped_fig_wood"
+    "arborealnature:stripped_fig_wood",
+    "arborealnature:viburnum_log",
+    "arborealnature:stripped_viburnum_log",
+    "arborealnature:viburnum_wood",
+    "arborealnature:stripped_viburnum_wood",
+    "arborealnature:wild_cherry_log",
+    "arborealnature:stripped_wild_cherry_log",
+    "arborealnature:wild_cherry_wood",
+    "arborealnature:stripped_wild_cherry_wood",
+    "arborealnature:white_mulberry_log",
+    "arborealnature:stripped_white_mulberry_log",
+    "arborealnature:white_mulberry_wood",
+    "arborealnature:stripped_white_mulberry_wood"
   ]
 }

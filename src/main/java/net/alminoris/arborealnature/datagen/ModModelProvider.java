@@ -6,15 +6,19 @@ import net.alminoris.arborealnature.block.ModBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.client.*;
 import net.minecraft.item.ArmorItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.Items;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.function.Function;
 
-import static net.alminoris.arborealnature.util.helper.ModWoodHelper.*;
+import static net.alminoris.arborealnature.util.helper.ModBlockSetsHelper.*;
 import static net.minecraft.data.client.BlockStateModelGenerator.createSingletonBlockState;
 
 public class ModModelProvider extends FabricModelProvider
@@ -78,6 +82,12 @@ public class ModModelProvider extends FabricModelProvider
             woodenPlanksPool.get(name).family(WOODEN_BLOCK_FAMILIES.get(name));
             registerHangingSign(blockStateModelGenerator, STRIPPED_LOGS.get(name), WOODEN_HANGING_SIGNS.get(name), WOODEN_WALL_HANGING_SIGNS.get(name));
         }
+
+        for (String name : BUSHES_NAMES)
+        {
+            blockStateModelGenerator.registerTintableCrossBlockStateWithStages(BUSHES.get(name),
+                    BlockStateModelGenerator.TintType.NOT_TINTED, Properties.AGE_3, 0, 1, 2, 3);
+        }
         
         BlockStateModelGenerator.BlockTexturePool oakChiseledPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.OAK_CHISELED);
         BlockStateModelGenerator.BlockTexturePool birchChiseledPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.BIRCH_CHISELED);
@@ -127,6 +137,9 @@ public class ModModelProvider extends FabricModelProvider
         blockStateModelGenerator.registerFlowerbed(ModBlocks.WOOD_ANEMONA);
         registerCarpet(blockStateModelGenerator, LEAVES.get("hazelnut"), ModBlocks.HAZELNUT_COVER);
         blockStateModelGenerator.registerDoubleBlock(ModBlocks.LARGE_CELANDINE, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerDoubleBlock(ModBlocks.BLUEGRASS, BlockStateModelGenerator.TintType.NOT_TINTED);
+
+        blockStateModelGenerator.registerTintableCross(ModBlocks.GERANIUM, BlockStateModelGenerator.TintType.NOT_TINTED);
 
         blockStateModelGenerator.registerMushroomBlock(ModBlocks.WHITE_MUSHROOM_BLOCK);
         blockStateModelGenerator.registerMushroomBlock(ModBlocks.WHITE_MUSHROOM_STEM);
@@ -173,6 +186,9 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.PLUM, Models.GENERATED);
         itemModelGenerator.register(ModItems.MANGO, Models.GENERATED);
         itemModelGenerator.register(ModItems.FIGS, Models.GENERATED);
+        itemModelGenerator.register(ModItems.VIBURNUM, Models.GENERATED);
+        itemModelGenerator.register(ModItems.WILD_CHERRY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.WHITE_MULBERRY, Models.GENERATED);
         itemModelGenerator.register(ModItems.SQUIRREL_HIDE, Models.GENERATED);
         itemModelGenerator.register(ModItems.WOOD_MOUSE_TAIL, Models.GENERATED);
         itemModelGenerator.register(ModItems.FIGEATER_BEETLE_SHELL, Models.GENERATED);

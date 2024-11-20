@@ -13,7 +13,7 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.RenderLayer;
 
-import static net.alminoris.arborealnature.util.helper.ModWoodHelper.*;
+import static net.alminoris.arborealnature.util.helper.ModBlockSetsHelper.*;
 
 public class ArborealNatureClient implements ClientModInitializer
 {
@@ -30,10 +30,16 @@ public class ArborealNatureClient implements ClientModInitializer
             TerraformBoatClientHelper.registerModelLayers(ModBoats.boatIDs.get(name), false);
         }
 
+        for (String name : BUSHES_NAMES)
+        {
+            BlockRenderLayerMap.INSTANCE.putBlock(BUSHES.get(name), RenderLayer.getCutout());
+        }
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HAZELNUT_COVER, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WOOD_ANEMONA, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LARGE_CELANDINE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BLUEGRASS, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GERANIUM, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WHITE_MUSHROOM, RenderLayer.getCutout());
 
         EntityRendererRegistry.register(ModEntities.SQUIRREL, SquirrelRenderer::new);

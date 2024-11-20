@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "arborealnature:block/pink_currant_bush_stage1"
+  }
+}

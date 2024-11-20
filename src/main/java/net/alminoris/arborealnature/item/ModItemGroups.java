@@ -2,7 +2,6 @@ package net.alminoris.arborealnature.item;
 
 import net.alminoris.arborealnature.ArborealNature;
 import net.alminoris.arborealnature.block.ModBlocks;
-import net.alminoris.arborealnature.util.helper.ModWoodHelper;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
@@ -12,7 +11,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-import static net.alminoris.arborealnature.util.helper.ModWoodHelper.*;
+import static net.alminoris.arborealnature.util.helper.ModBlockSetsHelper.*;
 
 public class ModItemGroups
 {
@@ -106,6 +105,8 @@ public class ModItemGroups
                         }
                         entries.add(ModBlocks.HAZELNUT_COVER);
                         entries.add(ModBlocks.LARGE_CELANDINE);
+                        entries.add(ModBlocks.BLUEGRASS);
+                        entries.add(ModBlocks.GERANIUM);
                         entries.add(ModBlocks.WOOD_ANEMONA);
                         entries.add(ModBlocks.WHITE_MUSHROOM);
                     }).build());
@@ -131,6 +132,13 @@ public class ModItemGroups
                         entries.add(ModItems.PLUM);
                         entries.add(ModItems.MANGO);
                         entries.add(ModItems.FIGS);
+                        entries.add(ModItems.VIBURNUM);
+                        entries.add(ModItems.WILD_CHERRY);
+                        entries.add(ModItems.WHITE_MULBERRY);
+                        for (String name : BUSHES_NAMES)
+                        {
+                            entries.add(BERRIES.get(name));
+                        }
                         entries.add(ModItems.HAZELNUT);
                         entries.add(ModItems.HAZELNUT_CRACKED);
                         entries.add(ModItems.HAZELNUT_SPOILED);

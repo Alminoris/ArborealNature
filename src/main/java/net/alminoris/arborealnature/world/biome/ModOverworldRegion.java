@@ -26,6 +26,7 @@ public class ModOverworldRegion extends Region
         this.addModifiedVanillaOverworldBiomes(mapper, modifiedVanillaOverworldBuilder ->
         {
             modifiedVanillaOverworldBuilder.replaceBiome(BiomeKeys.FOREST, ModBiomes.HAZELNUT_FOREST);
+            modifiedVanillaOverworldBuilder.replaceBiome(BiomeKeys.MEADOW, ModBiomes.MULBERRY_GROVE);
         });
     }
 }

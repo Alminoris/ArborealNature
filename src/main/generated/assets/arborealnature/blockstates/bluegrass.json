@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "arborealnature:block/bluegrass_bottom"
+    },
+    "half=upper": {
+      "model": "arborealnature:block/bluegrass_top"
+    }
+  }
+}

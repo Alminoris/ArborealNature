@@ -5,15 +5,18 @@ import com.terraformersmc.terraform.sign.api.block.TerraformSignBlock;
 import com.terraformersmc.terraform.sign.api.block.TerraformWallHangingSignBlock;
 import com.terraformersmc.terraform.sign.api.block.TerraformWallSignBlock;
 import net.alminoris.arborealnature.ArborealNature;
+import net.alminoris.arborealnature.block.custom.BerryBushBlock;
 import net.alminoris.arborealnature.world.ModConfiguredFeautures;
 import net.minecraft.block.*;
 import net.minecraft.data.family.BlockFamily;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.gen.feature.TreeConfiguredFeatures;
+
+import static net.alminoris.arborealnature.util.helper.ModBlockSetsHelper.BERRIES;
 
 public class ModBlocks
 {
@@ -113,6 +116,12 @@ public class ModBlocks
     public static final Block LARGE_CELANDINE = registerBlock("large_celandine",
             new TallFlowerBlock(AbstractBlock.Settings.copy(Blocks.PEONY)));
 
+    public static final Block BLUEGRASS = registerBlock("bluegrass",
+            new TallFlowerBlock(AbstractBlock.Settings.copy(Blocks.PEONY)));
+
+    public static final Block GERANIUM = registerBlock("geranium",
+            new FlowerBlock(StatusEffects.HASTE, 0.35F, AbstractBlock.Settings.copy(Blocks.PEONY)));
+
     public static final Block HAZELNUT_COVER = registerBlock("hazelnut_cover_block",
             new CarpetBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)));
 
@@ -143,6 +152,11 @@ public class ModBlocks
     public static void registerModBlocks()
     {
 
+    }
+
+    public static Block registerBushBlock(String name)
+    {
+        return registerBlock(name+"_bush", new BerryBushBlock(name));
     }
 
     public static Block registerLeavesBlock(String name)

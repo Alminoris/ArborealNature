@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "arborealnature:block/wild_cherry_planks",
+    "side": "arborealnature:block/wild_cherry_planks",
+    "top": "arborealnature:block/wild_cherry_planks"
+  }
+}

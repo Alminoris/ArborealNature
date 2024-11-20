@@ -2,7 +2,7 @@ package net.alminoris.arborealnature.item.custom;
 
 import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.util.ModTags;
-import net.alminoris.arborealnature.util.helper.ModWoodHelper;
+import net.alminoris.arborealnature.util.helper.ModBlockSetsHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemStack;
@@ -83,8 +83,8 @@ public class ChiselTool extends ToolItem
                 case "bamboo":
                     return Blocks.BAMBOO_MOSAIC;
                 default:
-                    for(String name : ModWoodHelper.WOOD_NAMES)
-                        if (isThisBlock.equals(name)) return ModWoodHelper.WOODEN_CHISELED.get(name);
+                    for(String name : ModBlockSetsHelper.WOOD_NAMES)
+                        if (isThisBlock.equals(name)) return ModBlockSetsHelper.WOODEN_CHISELED.get(name);
             }
         }
         return null;

@@ -19,11 +19,15 @@ import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.carver.ConfiguredCarver;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.PlacedFeature;
+import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 
 public class ModBiomes
 {
     public static final RegistryKey<Biome> HAZELNUT_FOREST = RegistryKey.of(RegistryKeys.BIOME,
             Identifier.of(ArborealNature.MOD_ID, "hazelnut_forest_biome"));
+
+    public static final RegistryKey<Biome> MULBERRY_GROVE = RegistryKey.of(RegistryKeys.BIOME,
+            Identifier.of(ArborealNature.MOD_ID, "mulberry_grove_biome"));
 
     public static void bootstrap(Registerable<Biome> context)
     {
@@ -31,6 +35,8 @@ public class ModBiomes
         RegistryEntryLookup<ConfiguredCarver<?>> configuredCarvers = context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER);
 
         context.register(HAZELNUT_FOREST, hazelnutForestBiome(placedFeatures, configuredCarvers));
+
+        context.register(MULBERRY_GROVE, mulberryGroveBiome(placedFeatures, configuredCarvers));
     }
 
     public static void globalOverworldGeneration(GenerationSettings.LookupBackedBuilder builder)
@@ -80,6 +86,45 @@ public class ModBiomes
                         .grassColor(0x496c2b)
                         .foliageColor(0x496c2b)
                         .fogColor(0Xa7c5b5)
+                        .moodSound(BiomeMoodSound.CAVE).build())
+                .build();
+    }
+
+    public static Biome mulberryGroveBiome(RegistryEntryLookup<PlacedFeature> placedFeatures, RegistryEntryLookup<ConfiguredCarver<?>> configuredCarvers)
+    {
+        GenerationSettings.LookupBackedBuilder biomeBuilder = new GenerationSettings.LookupBackedBuilder(placedFeatures, configuredCarvers);
+        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
+
+        DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
+        DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
+
+        globalOverworldGeneration(biomeBuilder);
+        DefaultBiomeFeatures.addDefaultOres(biomeBuilder);
+
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.WHITE_MULBERRY_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.VIBURNUM_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.WILD_CHERRY_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_GRASS_FOREST);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_TALL_GRASS);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.GERANIUM_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.BLUEGRASS_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.BILBERRY_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.BLACKBERRY_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.PINK_CURRANT_PLACED_KEY);
+
+        return new Biome.Builder()
+                .precipitation(true)
+                .downfall(0.6f)
+                .temperature(0.75f)
+                .generationSettings(biomeBuilder.build())
+                .spawnSettings(spawnBuilder.build())
+                .effects((new BiomeEffects.Builder())
+                        .waterColor(0x3c67e8)
+                        .waterFogColor(0x2d4fb5)
+                        .skyColor(0X99ebff)
+                        .grassColor(0x529024)
+                        .foliageColor(0x529024)
+                        .fogColor(0Xb9c4a5)
                         .moodSound(BiomeMoodSound.CAVE).build())
                 .build();
     }

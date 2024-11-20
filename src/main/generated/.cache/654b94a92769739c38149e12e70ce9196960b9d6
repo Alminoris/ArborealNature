@@ -1,18 +1,18 @@
-// 1.21.1	2024-11-08T19:11:55.3315263	Arboreal Nature/Tags for minecraft:block
-b5c09d30e94dfa880d9b4ed532e55a79e625fe94 data\minecraft\tags\block\logs_that_burn.json
-2773614877c9d864585eb0285790dc5e2b2afa08 data\minecraft\tags\block\wall_signs.json
-5f0aab398f485374470b6d431b6eda011fdd487d data\minecraft\tags\block\wooden_stairs.json
-623ea699afe1ffb852acf8d8f1ca796c14ebd126 data\minecraft\tags\block\wooden_pressure_plates.json
+// 1.21.1	2024-11-16T13:29:39.6209729	Arboreal Nature/Tags for minecraft:block
+a7d0e01d221f598ea4da34b9a68dda6bbaaa3d39 data\minecraft\tags\block\logs_that_burn.json
+7515df397456da4843bebb266fb55a17ed115ccf data\minecraft\tags\block\wall_signs.json
+74dc3f094d3a6d68d10f85cadb042ec5ae59d763 data\minecraft\tags\block\wooden_pressure_plates.json
+49c6234f5b7b5b383a6fde34c76f64e697e545ed data\minecraft\tags\block\wooden_stairs.json
 2bb45aad2c0ecd9171c8ebc0d41a6601fac42f64 data\minecraft\tags\block\flowers.json
-c1e61845623d64e18c6147ce3db9d8264d025a14 data\minecraft\tags\block\wall_hanging_signs.json
-c39999076b1b970f5e09d03276e356491b5c43ae data\minecraft\tags\block\planks.json
+23f8990ec3a1bf28ae1e866246f7aec077465870 data\minecraft\tags\block\wall_hanging_signs.json
+91034ded09a1edde03c7412ea77b6fecb9d35c73 data\minecraft\tags\block\planks.json
 cc3ca05ec6c5a63dcf5e0ba7257126434514f6f0 data\minecraft\tags\block\flower_pots.json
 43863bb5ef7f5f730a09b2cea4a5e53e12a6b601 data\minecraft\tags\block\tall_flowers.json
-a931d6a9c650841253e62e2b1b27c2ba72c7db41 data\arborealnature\tags\block\chiselable_blocks.json
-30124f09b7edefea2b84c46282c9c60c03bf282b data\minecraft\tags\block\ceiling_hanging_signs.json
-ba219e9e1edf16132bb9293f423144d10956005a data\minecraft\tags\block\wooden_trapdoors.json
-ed960f82c4c7554ce1d4de50bd02472c684a1375 data\minecraft\tags\block\standing_signs.json
-44a858e02c0b48000a16d01a3c21226876472e7c data\minecraft\tags\block\wooden_fences.json
-a41596a9c1804c3b4d3b1d065789c506da997ac0 data\minecraft\tags\block\wooden_doors.json
-8ac59556606cee15472a552da598358758e9d467 data\minecraft\tags\block\wooden_buttons.json
-0633490f1d09d43ddd242c0eb0857ca8df51182c data\minecraft\tags\block\wooden_slabs.json
+a65a58d94eb8d44f0e4259de754fcfb859e165c8 data\arborealnature\tags\block\chiselable_blocks.json
+bb0b31576c1d852cdf4ed14fd2cd7a9e1f4e5b0a data\minecraft\tags\block\ceiling_hanging_signs.json
+4bc4e8f279e5d9ae83c26f5b9b8fbf3cf7815272 data\minecraft\tags\block\standing_signs.json
+6dc7351861720d6411f86fa7aecaa30a7cf262e0 data\minecraft\tags\block\wooden_trapdoors.json
+1a1e9836b53388744f17ffcf5bff91c325f681e7 data\minecraft\tags\block\wooden_fences.json
+674669550daf83a644722e6724e035341645184e data\minecraft\tags\block\wooden_buttons.json
+d667208e53cd1bc026e81e0827032f990aa40191 data\minecraft\tags\block\wooden_doors.json
+5b8de50a04ea38698137862a534544235a7bdd52 data\minecraft\tags\block\wooden_slabs.json

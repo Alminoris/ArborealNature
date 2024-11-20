@@ -9,7 +9,6 @@ import net.alminoris.arborealnature.item.custom.StatusEffectArmorItem;
 import net.alminoris.arborealnature.item.custom.SilentArrowItem;
 import net.alminoris.arborealnature.item.custom.TransformableItem;
 import net.minecraft.block.Block;
-import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
@@ -58,6 +57,15 @@ public class ModItems
     public static final Item FIGS = registerItem("figs",
             new Item(new Item.Settings().maxCount(16).food(ModFoodComponents.FIGS)));
 
+    public static final Item VIBURNUM = registerItem("viburnum",
+            new Item(new Item.Settings().maxCount(16).food(ModFoodComponents.VIBURNUM)));
+
+    public static final Item WILD_CHERRY = registerItem("wild_cherry",
+            new Item(new Item.Settings().maxCount(16).food(ModFoodComponents.WILD_CHERRY)));
+
+    public static final Item WHITE_MULBERRY = registerItem("white_mulberry",
+            new Item(new Item.Settings().maxCount(16).food(ModFoodComponents.WHITE_MULBERRY)));
+
     public static final Item SQUIRREL_HIDE = registerItem("squirrel_hide", new Item(
             new Item.Settings().maxCount(16)));
 
@@ -84,6 +92,11 @@ public class ModItems
     public static void registerModItems()
     {
 
+    }
+
+    public static Item registerBerryItem(String name, int nutrition, float saturation, Block block)
+    {
+        return registerItem(name, new AliasedBlockItem(block, new Item.Settings().maxCount(16).food(ModFoodComponents.registerFood(nutrition, saturation))));
     }
 
     public static Item registerSignItem(String name, Block signBlock, Block wallSignBlock)

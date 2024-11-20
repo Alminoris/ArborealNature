@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "arborealnature:block/blackberry_bush_stage0"
+    },
+    "age=1": {
+      "model": "arborealnature:block/blackberry_bush_stage1"
+    },
+    "age=2": {
+      "model": "arborealnature:block/blackberry_bush_stage2"
+    },
+    "age=3": {
+      "model": "arborealnature:block/blackberry_bush_stage3"
+    }
+  }
+}
