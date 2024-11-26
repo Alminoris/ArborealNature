@@ -53,6 +53,10 @@ public class ModPlacedFeatures
 
     public static final RegistryKey<PlacedFeature> GERANIUM_PLACED_KEY = registerKey("geranium_placed");
 
+    public static final RegistryKey<PlacedFeature> LARGE_ORCHID_PLACED_KEY = registerKey("large_orchid_placed");
+
+    public static final RegistryKey<PlacedFeature> ORCHID_PLACED_KEY = registerKey("orchid_placed");
+
     public static final RegistryKey<PlacedFeature> WOOD_ANEMONA_PLACED_KEY = registerKey("wood_anemona_placed");
 
     public static final RegistryKey<PlacedFeature> WHITE_MUSHROOM_PLACED_KEY = registerKey("white_mushroom_placed");
@@ -125,6 +129,18 @@ public class ModPlacedFeatures
 
         register(context, GERANIUM_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeautures.GERANIUM_KEY),
                 List.of(RarityFilterPlacementModifier.of(3),
+                        SquarePlacementModifier.of(),
+                        PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
+                        BiomePlacementModifier.of()));
+
+        register(context, LARGE_ORCHID_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeautures.LARGE_ORCHID_KEY),
+                List.of(RarityFilterPlacementModifier.of(5),
+                        SquarePlacementModifier.of(),
+                        PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
+                        BiomePlacementModifier.of()));
+
+        register(context, ORCHID_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeautures.ORCHID_KEY),
+                List.of(RarityFilterPlacementModifier.of(5),
                         SquarePlacementModifier.of(),
                         PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
                         BiomePlacementModifier.of()));

@@ -1,6 +1,7 @@
 package net.alminoris.arborealnature.datagen;
 
 import net.alminoris.arborealnature.block.ModBlocks;
+import net.alminoris.arborealnature.item.ModItems;
 import net.alminoris.arborealnature.util.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
@@ -131,5 +132,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.WARPED_CHISELED_STAIRS)
                 .add(ModBlocks.MANGROVE_CHISELED_STAIRS)
                 .add(ModBlocks.CHERRY_CHISELED_STAIRS);
+
+        getOrCreateTagBuilder(ModTags.Blocks.ORCHID_MANTIS_FLOWERS)
+                .add(ModBlocks.ORCHID)
+                .add(ModBlocks.LARGE_ORCHID);
     }
 }

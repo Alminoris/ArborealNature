@@ -43,5 +43,20 @@
   {
     "subtitle": "sounds.arborealnature.sound_figeater_beetle_death",
     "sounds": [ "arborealnature:sound_figeater_beetle_death" ]
+  },
+  "sound_orchid_mantis_ambient":
+  {
+    "subtitle": "sounds.arborealnature.sound_orchid_mantis_ambient",
+    "sounds": [ "arborealnature:sound_orchid_mantis_ambient" ]
+  },
+  "sound_orchid_mantis_hurt":
+  {
+    "subtitle": "sounds.arborealnature.sound_orchid_mantis_hurt",
+    "sounds": [ "arborealnature:sound_orchid_mantis_hurt" ]
+  },
+  "sound_orchid_mantis_death":
+  {
+    "subtitle": "sounds.arborealnature.sound_orchid_mantis_death",
+    "sounds": [ "arborealnature:sound_orchid_mantis_death" ]
   }
 }

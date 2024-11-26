@@ -10,8 +10,10 @@ import java.util.Dictionary;
 import java.util.Hashtable;
 
 import static net.alminoris.arborealnature.block.ModBlocks.*;
-import static net.alminoris.arborealnature.item.ModFoodComponents.registerFood;
+import static net.alminoris.arborealnature.block.ModSigns.*;
 import static net.alminoris.arborealnature.item.ModItems.*;
+import static net.alminoris.arborealnature.block.ModSigns.registerHangingSignItem;
+import static net.alminoris.arborealnature.block.ModSigns.registerSignItem;
 
 public class ModBlockSetsHelper
 {
@@ -133,46 +135,30 @@ public class ModBlockSetsHelper
             put(name, registerPressurePlateBlock(name));
     }};
 
-    public static final Dictionary<String, Block> WOODEN_SIGNS = new Hashtable<>()
-    {{
-        for(String name : WOOD_NAMES)
-            put(name, registerSignBlock(name));
-    }};
+    public static final Dictionary<String, Block> WOODEN_SIGNS = new Hashtable<>();
+    public static final Dictionary<String, Block> WOODEN_WALL_SIGNS = new Hashtable<>();
+    public static final Dictionary<String, Block> WOODEN_HANGING_SIGNS = new Hashtable<>();
+    public static final Dictionary<String, Block> WOODEN_WALL_HANGING_SIGNS = new Hashtable<>();
+    public static final Dictionary<String, Item> WOODEN_SIGN_ITEMS = new Hashtable<>();
+    public static final Dictionary<String, Item> WOODEN_HANGING_SIGN_ITEMS = new Hashtable<>();
 
-    public static final Dictionary<String, Block> WOODEN_WALL_SIGNS = new Hashtable<>()
-    {{
-        for(String name : WOOD_NAMES)
-            put(name, registerWallSignBlock(name));
-    }};
-
-    public static final Dictionary<String, Block> WOODEN_HANGING_SIGNS = new Hashtable<>()
-    {{
-        for(String name : WOOD_NAMES)
-            put(name, registerHangingSignBlock(name));
-    }};
-
-    public static final Dictionary<String, Block> WOODEN_WALL_HANGING_SIGNS = new Hashtable<>()
-    {{
-        for(String name : WOOD_NAMES)
-            put(name, registerWallHangingSignBlock(name));
-    }};
+    static
+    {
+        for (String name : WOOD_NAMES)
+        {
+            WOODEN_SIGNS.put(name, registerSignBlock(name));
+            WOODEN_WALL_SIGNS.put(name, registerWallSignBlock(name));
+            WOODEN_HANGING_SIGNS.put(name, registerHangingSignBlock(name));
+            WOODEN_WALL_HANGING_SIGNS.put(name, registerWallHangingSignBlock(name));
+            WOODEN_SIGN_ITEMS.put(name, registerSignItem(name, WOODEN_SIGNS.get(name), WOODEN_WALL_SIGNS.get(name)));
+            WOODEN_HANGING_SIGN_ITEMS.put(name, registerHangingSignItem(name, WOODEN_HANGING_SIGNS.get(name), WOODEN_WALL_HANGING_SIGNS.get(name)));
+        }
+    }
 
     public static final Dictionary<String, Block> WOODEN_SAPLINGS = new Hashtable<>()
     {{
         for(String name : WOOD_NAMES)
             put(name, registerSaplingBlock(name, ModSaplingGenerators.saplingGenerators.get(name)));
-    }};
-
-    public static final Dictionary<String, Item> WOODEN_SIGN_ITEMS = new Hashtable<>()
-    {{
-        for(String name : WOOD_NAMES)
-            put(name, registerSignItem(name, WOODEN_SIGNS.get(name), WOODEN_WALL_SIGNS.get(name)));
-    }};
-
-    public static final Dictionary<String, Item> WOODEN_HANGING_SIGN_ITEMS = new Hashtable<>()
-    {{
-        for(String name : WOOD_NAMES)
-            put(name, registerHangingSignItem(name, WOODEN_HANGING_SIGNS.get(name), WOODEN_WALL_HANGING_SIGNS.get(name)));
     }};
 
     public static final Dictionary<String, Item> WOODEN_BOATS = new Hashtable<>()

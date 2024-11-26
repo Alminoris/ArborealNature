@@ -86,6 +86,7 @@ public class ModItemGroups
                         entries.add(ModItems.SQUIRREL_SPAWN_EGG);
                         entries.add(ModItems.WOOD_MOUSE_SPAWN_EGG);
                         entries.add(ModItems.FIGEATER_BEETLE_SPAWN_EGG);
+                        entries.add(ModItems.ORCHID_MANTIS_SPAWN_EGG);
                     }).build());
 
     public static final ItemGroup PLANTS_AND_MUSHROOMS_TAB = Registry.register(Registries.ITEM_GROUP,
@@ -93,6 +94,7 @@ public class ModItemGroups
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.anplntsmshrmstab"))
                     .icon(() -> new ItemStack(LEAVES.get("hazelnut"))).entries((displayContext, entries) ->
                     {
+                        //entries.add(ModBlocks.ORCHID_GRASS_BLOCK);
                         for (String name : WOOD_NAMES)
                         {
                             entries.add(LEAVES.get(name));
@@ -107,6 +109,8 @@ public class ModItemGroups
                         entries.add(ModBlocks.LARGE_CELANDINE);
                         entries.add(ModBlocks.BLUEGRASS);
                         entries.add(ModBlocks.GERANIUM);
+                        entries.add(ModBlocks.LARGE_ORCHID);
+                        entries.add(ModBlocks.ORCHID);
                         entries.add(ModBlocks.WOOD_ANEMONA);
                         entries.add(ModBlocks.WHITE_MUSHROOM);
                     }).build());
@@ -120,6 +124,7 @@ public class ModItemGroups
                         entries.add(ModItems.CHISEL);
                         entries.add(ModItems.SILENT_ARROW);
                         entries.add(ModItems.FIGEATER_BEETLE_CHESTPLATE);
+                        entries.add(ModItems.ORCHID_MANTIS_INCISOR);
                     }).build());
 
     public static final ItemGroup FOOD_AND_INGREDIENTS_TAB = Registry.register(Registries.ITEM_GROUP,

@@ -22,7 +22,10 @@ import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.foliage.CherryFoliagePlacer;
 import net.minecraft.world.gen.foliage.JungleFoliagePlacer;
 import net.minecraft.world.gen.foliage.LargeOakFoliagePlacer;
+import net.minecraft.world.gen.placementmodifier.CountPlacementModifier;
+import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
+import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.treedecorator.LeavesVineTreeDecorator;
 import net.minecraft.world.gen.trunk.CherryTrunkPlacer;
@@ -67,6 +70,10 @@ public class ModConfiguredFeautures
     public static RegistryKey<ConfiguredFeature<?, ?>> BLUEGRASS_KEY = registerKey("bluegrass");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> GERANIUM_KEY = registerKey("geranium");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> LARGE_ORCHID_KEY = registerKey("large_orchid");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> ORCHID_KEY = registerKey("orchid");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> WOOD_ANEMONA_KEY = registerKey("wood_anemona");
 
@@ -208,6 +215,16 @@ public class ModConfiguredFeautures
         register(context, GERANIUM_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
                         new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.GERANIUM))));
+
+        register(context, LARGE_ORCHID_KEY, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.LARGE_ORCHID)),
+                        List.of(Blocks.GRASS_BLOCK, Blocks.DIRT),
+                        64));
+
+        register(context, ORCHID_KEY, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.ORCHID))));
 
         DataPool.Builder<BlockState> builder = DataPool.builder();
         for (int i = 1; i <= 4; i++)

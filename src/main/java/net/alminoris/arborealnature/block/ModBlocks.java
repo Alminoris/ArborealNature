@@ -1,22 +1,15 @@
 package net.alminoris.arborealnature.block;
 
-import com.terraformersmc.terraform.sign.api.block.TerraformHangingSignBlock;
-import com.terraformersmc.terraform.sign.api.block.TerraformSignBlock;
-import com.terraformersmc.terraform.sign.api.block.TerraformWallHangingSignBlock;
-import com.terraformersmc.terraform.sign.api.block.TerraformWallSignBlock;
 import net.alminoris.arborealnature.ArborealNature;
 import net.alminoris.arborealnature.block.custom.BerryBushBlock;
 import net.alminoris.arborealnature.world.ModConfiguredFeautures;
 import net.minecraft.block.*;
-import net.minecraft.data.family.BlockFamily;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-
-import static net.alminoris.arborealnature.util.helper.ModBlockSetsHelper.BERRIES;
 
 public class ModBlocks
 {
@@ -121,6 +114,15 @@ public class ModBlocks
 
     public static final Block GERANIUM = registerBlock("geranium",
             new FlowerBlock(StatusEffects.HASTE, 0.35F, AbstractBlock.Settings.copy(Blocks.PEONY)));
+
+    public static final Block LARGE_ORCHID = registerBlock("large_orchid",
+            new TallFlowerBlock(AbstractBlock.Settings.copy(Blocks.PEONY)));
+
+    public static final Block ORCHID = registerBlock("orchid",
+            new FlowerBlock(StatusEffects.NAUSEA, 0.35F, AbstractBlock.Settings.copy(Blocks.PEONY)));
+
+    public static final Block ORCHID_GRASS_BLOCK = registerBlock("orchid_grass_block",
+            new GrassBlock(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK)));
 
     public static final Block HAZELNUT_COVER = registerBlock("hazelnut_cover_block",
             new CarpetBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)));
@@ -261,43 +263,9 @@ public class ModBlocks
                 new PressurePlateBlock(BlockSetType.OAK, AbstractBlock.Settings.copy(Blocks.OAK_PRESSURE_PLATE)));
     }
 
-    public static Block registerSignBlock(String name)
-    {
-        return registerBlock(name+"_sign",
-                new TerraformSignBlock(Identifier.of(ArborealNature.MOD_ID, "entity/signs/"+name), AbstractBlock.Settings.copy(Blocks.OAK_SIGN)));
-    }
-
-    public static Block registerWallSignBlock(String name)
-    {
-        return registerBlock(name+"_wall_sign",
-                new TerraformWallSignBlock(Identifier.of(ArborealNature.MOD_ID, "entity/signs/"+name), AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN)));
-    }
-
-    public static Block registerHangingSignBlock(String name)
-    {
-        return registerBlock(name+"_hanging_sign",
-                new TerraformHangingSignBlock(Identifier.of(ArborealNature.MOD_ID, "entity/signs/hanging/"+name),
-                        Identifier.of(ArborealNature.MOD_ID, "textures/gui/hanging_signs/"+name), AbstractBlock.Settings.copy(Blocks.OAK_SIGN)));
-    }
-
-    public static Block registerWallHangingSignBlock(String name)
-    {
-        return registerBlock(name+"_wall_hanging_sign",
-                new TerraformWallHangingSignBlock(Identifier.of(ArborealNature.MOD_ID, "entity/signs/hanging/"+name),
-                        Identifier.of(ArborealNature.MOD_ID, "textures/gui/hanging_signs/"+name), AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN)));
-    }
-
     public static Block registerSaplingBlock(String name, SaplingGenerator saplingGenerator)
     {
         return registerBlock(name+"_sapling",
                 new SaplingBlock(saplingGenerator, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
-    }
-
-    public static BlockFamily registerBlockFamily(Block planks, Block sign, Block wallSign)
-    {
-        return new BlockFamily.Builder(planks)
-                .sign(sign, wallSign)
-                .group("wooden")
-                .unlockCriterionName("has_planks").build();
     }
 }

@@ -111,9 +111,11 @@ public class ModRecipeProvider extends FabricRecipeProvider
 
         offerSingleOutputShapelessRecipe(recipeExporter, Items.WHITE_DYE, ModBlocks.WOOD_ANEMONA, String.valueOf(RecipeCategory.MISC));
         offerSingleOutputShapelessRecipe(recipeExporter, Items.MAGENTA_DYE, ModBlocks.GERANIUM, String.valueOf(RecipeCategory.MISC));
+        offerSingleOutputShapelessRecipe(recipeExporter, Items.PINK_DYE, ModBlocks.ORCHID, String.valueOf(RecipeCategory.MISC));
 
         offerShapelessRecipe(recipeExporter, Items.YELLOW_DYE, ModBlocks.LARGE_CELANDINE, String.valueOf(RecipeCategory.MISC), 2);
         offerShapelessRecipe(recipeExporter, Items.LIGHT_GRAY_DYE, ModBlocks.BLUEGRASS, String.valueOf(RecipeCategory.MISC), 2);
+        offerShapelessRecipe(recipeExporter, Items.PINK_DYE, ModBlocks.LARGE_ORCHID, String.valueOf(RecipeCategory.MISC), 2);
 
         offerSlabRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.OAK_CHISELED_SLAB, ModBlocks.OAK_CHISELED);
         offerSlabRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.BIRCH_CHISELED_SLAB, ModBlocks.BIRCH_CHISELED);

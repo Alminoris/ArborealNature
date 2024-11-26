@@ -1,6 +1,7 @@
 package net.alminoris.arborealnature.world.gen;
 
 import net.alminoris.arborealnature.entity.ModEntities;
+import net.alminoris.arborealnature.entity.custom.OrchidMantisEntity;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.entity.SpawnGroup;
@@ -25,5 +26,11 @@ public class ModEntityGeneration
 
         SpawnRestriction.register(ModEntities.FIGEATER_BEETLE, SpawnLocationTypes.ON_GROUND,
                 Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AnimalEntity::isValidNaturalSpawn);
+
+        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.DARK_FOREST), SpawnGroup.CREATURE,
+                ModEntities.ORCHID_MANTIS, 75, 1, 2);
+
+        SpawnRestriction.register(ModEntities.ORCHID_MANTIS, SpawnLocationTypes.ON_GROUND,
+                Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, OrchidMantisEntity::isValidNaturalSpawn);
     }
 }

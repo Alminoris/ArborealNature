@@ -13,6 +13,8 @@ public class ModTags
     {
         public static final TagKey<Block> CHISELABLE_BLOCKS = createTag("chiselable_blocks");
 
+        public static final TagKey<Block> ORCHID_MANTIS_FLOWERS = createTag("orchid_mantis_flowers");
+
         private static TagKey<Block> createTag(String name)
         {
             return TagKey.of(RegistryKeys.BLOCK, Identifier.of(ArborealNature.MOD_ID, name));

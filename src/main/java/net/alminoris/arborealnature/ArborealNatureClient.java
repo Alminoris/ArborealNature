@@ -2,9 +2,11 @@ package net.alminoris.arborealnature;
 
 import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import net.alminoris.arborealnature.block.ModBlocks;
+import net.alminoris.arborealnature.block.ModSigns;
 import net.alminoris.arborealnature.entity.ModBoats;
 import net.alminoris.arborealnature.entity.ModEntities;
 import net.alminoris.arborealnature.entity.client.FigeaterBeetleRenderer;
+import net.alminoris.arborealnature.entity.client.OrchidMantisRenderer;
 import net.alminoris.arborealnature.entity.client.SquirrelRenderer;
 import net.alminoris.arborealnature.entity.client.WoodMouseRenderer;
 import net.alminoris.arborealnature.entity.client.projectile.SilentArrowRenderer;
@@ -21,6 +23,8 @@ public class ArborealNatureClient implements ClientModInitializer
     @Override
     public void onInitializeClient()
     {
+        ModSigns.registerModSigns();
+
         for (String name : WOOD_NAMES)
         {
             BlockRenderLayerMap.INSTANCE.putBlock(LEAVES.get(name), RenderLayer.getCutout());
@@ -40,11 +44,14 @@ public class ArborealNatureClient implements ClientModInitializer
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LARGE_CELANDINE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BLUEGRASS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GERANIUM, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LARGE_ORCHID, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ORCHID, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WHITE_MUSHROOM, RenderLayer.getCutout());
 
         EntityRendererRegistry.register(ModEntities.SQUIRREL, SquirrelRenderer::new);
         EntityRendererRegistry.register(ModEntities.WOOD_MOUSE, WoodMouseRenderer::new);
         EntityRendererRegistry.register(ModEntities.FIGEATER_BEETLE, FigeaterBeetleRenderer::new);
+        EntityRendererRegistry.register(ModEntities.ORCHID_MANTIS, OrchidMantisRenderer::new);
 
         EntityRendererRegistry.register(ModEntities.SILENT_ARROW, SilentArrowRenderer::new);
     }

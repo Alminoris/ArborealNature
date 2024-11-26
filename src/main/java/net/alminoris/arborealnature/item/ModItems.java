@@ -4,10 +4,7 @@ import com.terraformersmc.terraform.boat.api.TerraformBoatType;
 import com.terraformersmc.terraform.boat.api.item.TerraformBoatItemHelper;
 import net.alminoris.arborealnature.ArborealNature;
 import net.alminoris.arborealnature.entity.ModEntities;
-import net.alminoris.arborealnature.item.custom.ChiselTool;
-import net.alminoris.arborealnature.item.custom.StatusEffectArmorItem;
-import net.alminoris.arborealnature.item.custom.SilentArrowItem;
-import net.alminoris.arborealnature.item.custom.TransformableItem;
+import net.alminoris.arborealnature.item.custom.*;
 import net.minecraft.block.Block;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
@@ -15,6 +12,9 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class ModItems
 {
@@ -26,6 +26,9 @@ public class ModItems
 
     public static final Item FIGEATER_BEETLE_SPAWN_EGG = registerItem("figeater_beetle_spawn_egg", new SpawnEggItem(
             ModEntities.FIGEATER_BEETLE, 0x1e5f1d, 0X84632c, new Item.Settings()));
+
+    public static final Item ORCHID_MANTIS_SPAWN_EGG = registerItem("orchid_mantis_spawn_egg", new SpawnEggItem(
+            ModEntities.ORCHID_MANTIS, 0xffedff, 0Xff74ff, new Item.Settings()));
 
     public static final Item HAZELNUT_CRACKED = registerItem("hazelnut_cracked", new Item(
             new Item.Settings().maxCount(16)));
@@ -75,6 +78,11 @@ public class ModItems
     public static final Item FIGEATER_BEETLE_SHELL = registerItem("figeater_beetle_shell", new Item(
             new Item.Settings().maxCount(16)));
 
+    public static final Item ORCHID_MANTIS_INCISOR = registerItem("orchid_mantis_incisor", new OrchidMantisIncisorItem(
+            ToolMaterials.STONE, new Item.Settings()
+            .attributeModifiers(OrchidMantisIncisorItem.createAttributeModifiers(ToolMaterials.STONE, 4, -1.7f))
+            .maxCount(1)));
+
     public static final Item FIGEATER_BEETLE_CHESTPLATE = registerItem("figeater_beetle_chestplate",
             new StatusEffectArmorItem(
                     ModArmorMaterials.FIGEATER_BEETLE_SHELL,
@@ -97,16 +105,6 @@ public class ModItems
     public static Item registerBerryItem(String name, int nutrition, float saturation, Block block)
     {
         return registerItem(name, new AliasedBlockItem(block, new Item.Settings().maxCount(16).food(ModFoodComponents.registerFood(nutrition, saturation))));
-    }
-
-    public static Item registerSignItem(String name, Block signBlock, Block wallSignBlock)
-    {
-        return registerItem(name+"_sign", new SignItem(new Item.Settings().maxCount(16), signBlock, wallSignBlock));
-    }
-
-    public static Item registerHangingSignItem(String name, Block hangingSignBlock, Block wallHangingSignBlock)
-    {
-        return registerItem(name+"_hanging_sign", new HangingSignItem(hangingSignBlock, wallHangingSignBlock, new Item.Settings().maxCount(16)));
     }
 
     public static Item registerBoatItem(Identifier boatID,  RegistryKey<TerraformBoatType> boatKey)

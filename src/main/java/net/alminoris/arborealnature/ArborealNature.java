@@ -4,6 +4,7 @@ import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.entity.ModBoats;
 import net.alminoris.arborealnature.entity.ModEntities;
 import net.alminoris.arborealnature.entity.custom.FigeaterBeetleEntity;
+import net.alminoris.arborealnature.entity.custom.OrchidMantisEntity;
 import net.alminoris.arborealnature.entity.custom.SquirrelEntity;
 import net.alminoris.arborealnature.entity.custom.WoodMouseEntity;
 import net.alminoris.arborealnature.item.ModItemGroups;
@@ -22,6 +23,10 @@ import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.spongepowered.asm.mixin.Mixins;
+import org.spongepowered.asm.mixin.transformer.Config;
+
+import java.util.Set;
 
 import static net.alminoris.arborealnature.util.helper.ModBlockSetsHelper.*;
 
@@ -30,9 +35,20 @@ public class ArborealNature implements ModInitializer
 	public static final String MOD_ID = "arborealnature";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
+	static {
+		// Перевірка наявності конфліктного Mixin
+		Set<Config> loadedMixins = Mixins.getConfigs();
+		if (loadedMixins.contains("nameplate.mixins.json")) {
+			System.out.println("[Arboreal Nature] Nameplate Mixin detected, compatibility mode enabled.");
+			// Ви можете тут відключити специфічну функціональність або попередити користувача
+		}
+	}
+
 	@Override
 	public void onInitialize()
 	{
+		LOGGER.info("Initialization MOD");
+
 		ModItems.registerModItems();
 
 		ModBlocks.registerModBlocks();
@@ -70,6 +86,7 @@ public class ArborealNature implements ModInitializer
 		FabricDefaultAttributeRegistry.register(ModEntities.SQUIRREL, SquirrelEntity.setAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.WOOD_MOUSE, WoodMouseEntity.setAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.FIGEATER_BEETLE, FigeaterBeetleEntity.setAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.ORCHID_MANTIS, OrchidMantisEntity.setAttributes());
 
 		ModWorldGeneration.generateModWorldGen();
 	}

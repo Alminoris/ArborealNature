@@ -7,18 +7,20 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.data.client.*;
 import net.minecraft.item.ArmorItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 
+import java.util.Arrays;
 import java.util.Dictionary;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.function.Function;
 
 import static net.alminoris.arborealnature.util.helper.ModBlockSetsHelper.*;
+import static net.minecraft.data.client.BlockStateModelGenerator.createModelVariantWithRandomHorizontalRotations;
 import static net.minecraft.data.client.BlockStateModelGenerator.createSingletonBlockState;
 
 public class ModModelProvider extends FabricModelProvider
@@ -133,18 +135,32 @@ public class ModModelProvider extends FabricModelProvider
         blockStateModelGenerator.registerParentedItemModel(ModItems.SQUIRREL_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
         blockStateModelGenerator.registerParentedItemModel(ModItems.WOOD_MOUSE_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
         blockStateModelGenerator.registerParentedItemModel(ModItems.FIGEATER_BEETLE_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
+        blockStateModelGenerator.registerParentedItemModel(ModItems.ORCHID_MANTIS_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
 
         blockStateModelGenerator.registerFlowerbed(ModBlocks.WOOD_ANEMONA);
         registerCarpet(blockStateModelGenerator, LEAVES.get("hazelnut"), ModBlocks.HAZELNUT_COVER);
         blockStateModelGenerator.registerDoubleBlock(ModBlocks.LARGE_CELANDINE, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerDoubleBlock(ModBlocks.BLUEGRASS, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerDoubleBlock(ModBlocks.LARGE_ORCHID, BlockStateModelGenerator.TintType.NOT_TINTED);
 
         blockStateModelGenerator.registerTintableCross(ModBlocks.GERANIUM, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.ORCHID, BlockStateModelGenerator.TintType.NOT_TINTED);
+
+        registerGrassBlock(blockStateModelGenerator, ModBlocks.ORCHID_GRASS_BLOCK);
 
         blockStateModelGenerator.registerMushroomBlock(ModBlocks.WHITE_MUSHROOM_BLOCK);
         blockStateModelGenerator.registerMushroomBlock(ModBlocks.WHITE_MUSHROOM_STEM);
 
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.WHITE_MUSHROOM, ModBlocks.POTTED_WHITE_MUSHROOM, BlockStateModelGenerator.TintType.NOT_TINTED);
+    }
+
+    private void registerGrassBlock(BlockStateModelGenerator generator, Block grassBlock)
+    {
+        TextureMap textureMap = new TextureMap()
+                .put(TextureKey.BOTTOM, TextureMap.getId(Blocks.DIRT))
+                .put(TextureKey.TOP, TextureMap.getSubId(grassBlock, "_top"))
+                .put(TextureKey.SIDE, TextureMap.getSubId(grassBlock, "_side"));
+        generator.blockStateCollector.accept(createSingletonBlockState(grassBlock, Models.CUBE_BOTTOM_TOP.upload(grassBlock, textureMap, generator.modelCollector)));
     }
 
     public final void registerCarpet(BlockStateModelGenerator blockStateModelGenerator, Block wool, Block carpet)
@@ -195,6 +211,7 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.SILENT_ARROW, Models.GENERATED);
         itemModelGenerator.register(ModItems.MINIHAMMER, Models.GENERATED);
         itemModelGenerator.register(ModItems.CHISEL, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ORCHID_MANTIS_INCISOR, Models.GENERATED);
 
         for(String name : WOOD_NAMES)
         {
