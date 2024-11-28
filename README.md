@@ -2,10 +2,9 @@
 
 Arboreal Nature adds many beautiful, interesting and useful vanilla-like trees to diversify every minecraft biome. Without magic, fantasy, hitech or industrial only vanilla experience.
 
-Arboreal Nature Mod consists of expansions. Every expansion is a bunch of 10 updates for this mod. The first expansion as you can see is the Hazelnut Expansion. It's all about hazelnut trees, forest, fauna and flora that live in there. The main features of every expansion you can see below.
+Arboreal Nature Mod consists of expansions. Every expansion is a bunch of 10 updates for this mod. The main features of every expansion you can see below.
 
-![image](https://github.com/user-attachments/assets/329fbba5-ee76-4ec7-b75e-d423762d7881) ![image](https://github.com/user-attachments/assets/a658c23e-e024-4406-bede-30e6d41bc9d6)
-
+![image](https://github.com/user-attachments/assets/29673511-f01a-4b66-89cc-ab66afda9612) ![image](https://github.com/user-attachments/assets/8a3cc8ae-c2df-4762-9365-c5f112c66b39)
 
 Future Plans
 - Adding new biomes with flora and fauna to match the new trees
