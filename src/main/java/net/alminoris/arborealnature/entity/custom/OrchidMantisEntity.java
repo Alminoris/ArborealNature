@@ -256,7 +256,7 @@ public class OrchidMantisEntity extends AnimalEntity implements GeoEntity
         @Override
         public void start()
         {
-            this.delayTicks = 100; // 5 секунд (20 тік = 1 секунда)
+            this.delayTicks = 100;
             this.isInvisible = false;
             this.isRunning = false;
         }
@@ -278,14 +278,12 @@ public class OrchidMantisEntity extends AnimalEntity implements GeoEntity
 
             if (!this.isRunning)
             {
-                // Якщо ще не біжить — зупиняється і запускає таймер
                 this.mantis.getNavigation().stop();
 
                 if (this.delayTicks > 0)
                 {
                     this.delayTicks--;
 
-                    // Невидимість на останні 2 секунди затримки
                     if (this.delayTicks <= 40 && !this.isInvisible)
                     {
                         this.mantis.setInvisible(true);
@@ -294,14 +292,12 @@ public class OrchidMantisEntity extends AnimalEntity implements GeoEntity
                 }
                 else
                 {
-                    // Завершення затримки, починає бігти
                     this.isRunning = true;
-                    this.mantis.setInvisible(false); // Повертає видимість
+                    this.mantis.setInvisible(false);
                 }
             }
             else
             {
-                // Моб біжить до цілі і атакує
                 if (distanceToTarget > 2.0D)
                 {
                     this.mantis.getNavigation().startMovingTo(this.target, this.runSpeed);

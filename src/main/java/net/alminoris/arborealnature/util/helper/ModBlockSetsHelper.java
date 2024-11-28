@@ -17,6 +17,9 @@ import static net.alminoris.arborealnature.block.ModSigns.registerSignItem;
 
 public class ModBlockSetsHelper
 {
+    public static final String[] CLASSIC_WOOD_NAMES = new String[] { "acacia", "birch", "dark_oak", "cherry", "bamboo", "jungle",
+            "mangrove", "crimson", "warped", "spruce", "oak" };
+
     public static final String[] WOOD_NAMES = new String[] { "hazelnut", "hornbeam", "hawthorn", "quince", "plum", "mango",
             "fig", "viburnum", "wild_cherry", "white_mulberry" };
 
@@ -61,6 +64,22 @@ public class ModBlockSetsHelper
     {{
         for(String name : WOOD_NAMES)
             put(name, registerStrippedWoodsBlock(name));
+    }};
+
+    public static final Dictionary<String, Block> BURNT_LOGS = new Hashtable<>()
+    {{
+        for(String name : WOOD_NAMES)
+            put(name, registerBurntLogsBlock(name));
+        for(String name : CLASSIC_WOOD_NAMES)
+            put(name, registerBurntLogsBlock(name));
+    }};
+
+    public static final Dictionary<String, Block> BURNT_WOODS = new Hashtable<>()
+    {{
+        for(String name : WOOD_NAMES)
+            put(name, registerBurntWoodsBlock(name));
+        for(String name : CLASSIC_WOOD_NAMES)
+            put(name, registerBurntWoodsBlock(name));
     }};
 
     public static final Dictionary<String, Block> WOODEN_PLANKS = new Hashtable<>()

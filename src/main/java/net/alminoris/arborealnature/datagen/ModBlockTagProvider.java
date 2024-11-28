@@ -31,6 +31,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                     .add(WOODS.get(name))
                     .add(STRIPPED_WOODS.get(name));
 
+            getOrCreateTagBuilder(ModTags.Blocks.LOGS_TO_BE_BURNT)
+                    .add(STRIPPED_LOGS.get(name));
+
             getOrCreateTagBuilder(ModTags.Blocks.CHISELABLE_BLOCKS)
                     .add(STRIPPED_WOODS.get(name));
 
@@ -73,6 +76,19 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
             getOrCreateTagBuilder(BlockTags.WALL_HANGING_SIGNS)
                     .add(WOODEN_WALL_HANGING_SIGNS.get(name));
         }
+
+        getOrCreateTagBuilder(ModTags.Blocks.LOGS_TO_BE_BURNT)
+                .add(Blocks.STRIPPED_BIRCH_LOG)
+                .add(Blocks.STRIPPED_BAMBOO_BLOCK)
+                .add(Blocks.STRIPPED_OAK_LOG)
+                .add(Blocks.STRIPPED_DARK_OAK_LOG)
+                .add(Blocks.STRIPPED_ACACIA_LOG)
+                .add(Blocks.STRIPPED_MANGROVE_LOG)
+                .add(Blocks.STRIPPED_JUNGLE_LOG)
+                .add(Blocks.STRIPPED_SPRUCE_LOG)
+                .add(Blocks.STRIPPED_CRIMSON_STEM)
+                .add(Blocks.STRIPPED_WARPED_STEM)
+                .add(Blocks.STRIPPED_CHERRY_LOG);
 
         getOrCreateTagBuilder(ModTags.Blocks.CHISELABLE_BLOCKS)
                 .add(Blocks.STRIPPED_OAK_WOOD)

@@ -26,6 +26,8 @@ public class ModItemGroups
                             entries.add(WOODS.get(name));
                             entries.add(STRIPPED_LOGS.get(name));
                             entries.add(STRIPPED_WOODS.get(name));
+                            entries.add(BURNT_LOGS.get(name));
+                            entries.add(BURNT_WOODS.get(name));
                             entries.add(WOODEN_PLANKS.get(name));
                             entries.add(WOODEN_SLABS.get(name));
                             entries.add(WOODEN_STAIRS.get(name));
@@ -42,6 +44,11 @@ public class ModItemGroups
                             entries.add(WOODEN_CHISELED.get(name));
                             entries.add(WOODEN_CHISELED_SLABS.get(name));
                             entries.add(WOODEN_CHISELED_STAIRS.get(name));
+                        }
+                        for (String name : CLASSIC_WOOD_NAMES)
+                        {
+                            entries.add(BURNT_LOGS.get(name));
+                            entries.add(BURNT_WOODS.get(name));
                         }
                         entries.add(ModBlocks.OAK_CHISELED);
                         entries.add(ModBlocks.OAK_CHISELED_STAIRS);

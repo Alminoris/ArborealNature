@@ -1,19 +1,20 @@
-// 1.21.1	2024-11-26T13:52:52.7345667	Arboreal Nature/Tags for minecraft:block
+// 1.21.1	2024-11-27T18:44:32.0892573	Arboreal Nature/Tags for minecraft:block
 a7d0e01d221f598ea4da34b9a68dda6bbaaa3d39 data\minecraft\tags\block\logs_that_burn.json
 7515df397456da4843bebb266fb55a17ed115ccf data\minecraft\tags\block\wall_signs.json
-74dc3f094d3a6d68d10f85cadb042ec5ae59d763 data\minecraft\tags\block\wooden_pressure_plates.json
 49c6234f5b7b5b383a6fde34c76f64e697e545ed data\minecraft\tags\block\wooden_stairs.json
+74dc3f094d3a6d68d10f85cadb042ec5ae59d763 data\minecraft\tags\block\wooden_pressure_plates.json
 2bb45aad2c0ecd9171c8ebc0d41a6601fac42f64 data\minecraft\tags\block\flowers.json
 23f8990ec3a1bf28ae1e866246f7aec077465870 data\minecraft\tags\block\wall_hanging_signs.json
+7abeb6374abb1a449d85274a4fda99cf40c9fd9e data\arborealnature\tags\block\logs_to_be_burnt.json
 91034ded09a1edde03c7412ea77b6fecb9d35c73 data\minecraft\tags\block\planks.json
 b183dca9131e4efc935de613cb9b65fad1580a90 data\arborealnature\tags\block\orchid_mantis_flowers.json
 cc3ca05ec6c5a63dcf5e0ba7257126434514f6f0 data\minecraft\tags\block\flower_pots.json
 43863bb5ef7f5f730a09b2cea4a5e53e12a6b601 data\minecraft\tags\block\tall_flowers.json
 a65a58d94eb8d44f0e4259de754fcfb859e165c8 data\arborealnature\tags\block\chiselable_blocks.json
 bb0b31576c1d852cdf4ed14fd2cd7a9e1f4e5b0a data\minecraft\tags\block\ceiling_hanging_signs.json
+1a1e9836b53388744f17ffcf5bff91c325f681e7 data\minecraft\tags\block\wooden_fences.json
 4bc4e8f279e5d9ae83c26f5b9b8fbf3cf7815272 data\minecraft\tags\block\standing_signs.json
 6dc7351861720d6411f86fa7aecaa30a7cf262e0 data\minecraft\tags\block\wooden_trapdoors.json
-1a1e9836b53388744f17ffcf5bff91c325f681e7 data\minecraft\tags\block\wooden_fences.json
 5b8de50a04ea38698137862a534544235a7bdd52 data\minecraft\tags\block\wooden_slabs.json
 674669550daf83a644722e6724e035341645184e data\minecraft\tags\block\wooden_buttons.json
 d667208e53cd1bc026e81e0827032f990aa40191 data\minecraft\tags\block\wooden_doors.json

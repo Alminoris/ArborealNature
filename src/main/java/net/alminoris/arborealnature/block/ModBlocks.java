@@ -191,6 +191,18 @@ public class ModBlocks
                 new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_WOOD)));
     }
 
+    public static Block registerBurntLogsBlock(String name)
+    {
+        return registerBlock("burnt_"+name+"_log",
+                new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_LOG)));
+    }
+
+    public static Block registerBurntWoodsBlock(String name)
+    {
+        return registerBlock("burnt_"+name+"_wood",
+                new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_WOOD)));
+    }
+
     public static Block registerPlanksBlock(String name)
     {
         return registerBlock(name+"_planks",

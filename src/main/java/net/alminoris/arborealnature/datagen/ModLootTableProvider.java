@@ -46,8 +46,10 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         {
             addDrop(ModBlockSetsHelper.LOGS.get(name));
             addDrop(ModBlockSetsHelper.STRIPPED_LOGS.get(name));
+            addDrop(ModBlockSetsHelper.BURNT_LOGS.get(name));
             addDrop(ModBlockSetsHelper.WOODS.get(name));
             addDrop(ModBlockSetsHelper.STRIPPED_WOODS.get(name));
+            addDrop(ModBlockSetsHelper.BURNT_WOODS.get(name));
             addDrop(ModBlockSetsHelper.WOODEN_PLANKS.get(name));
             addDrop(ModBlockSetsHelper.WOODEN_SLABS.get(name));
             addDrop(ModBlockSetsHelper.WOODEN_STAIRS.get(name));
@@ -62,6 +64,12 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
             addDrop(ModBlockSetsHelper.WOODEN_SIGNS.get(name), drops(ModBlockSetsHelper.WOODEN_WALL_SIGNS.get(name)));
             addDrop(ModBlockSetsHelper.WOODEN_HANGING_SIGNS.get(name), drops(ModBlockSetsHelper.WOODEN_WALL_HANGING_SIGNS.get(name)));
             addDrop(ModBlockSetsHelper.WOODEN_SAPLINGS.get(name));
+        }
+
+        for (String name : CLASSIC_WOOD_NAMES)
+        {
+            addDrop(BURNT_LOGS.get(name));
+            addDrop(BURNT_WOODS.get(name));
         }
 
         for (String name : BUSHES_NAMES)

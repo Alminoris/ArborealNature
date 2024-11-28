@@ -15,6 +15,8 @@ public class ModTags
 
         public static final TagKey<Block> ORCHID_MANTIS_FLOWERS = createTag("orchid_mantis_flowers");
 
+        public static final TagKey<Block> LOGS_TO_BE_BURNT = createTag("logs_to_be_burnt");
+
         private static TagKey<Block> createTag(String name)
         {
             return TagKey.of(RegistryKeys.BLOCK, Identifier.of(ArborealNature.MOD_ID, name));

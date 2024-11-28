@@ -1,5 +1,6 @@
 package net.alminoris.arborealnature.datagen;
 
+import net.alminoris.arborealnature.ArborealNature;
 import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -9,6 +10,7 @@ import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.util.Identifier;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -47,6 +49,13 @@ public class ModRecipeProvider extends FabricRecipeProvider
                     .pattern("##")
                     .input('#', STRIPPED_LOGS.get(name))
                     .criterion(hasItem(STRIPPED_LOGS.get(name)), conditionsFromItem(STRIPPED_LOGS.get(name)))
+                    .offerTo(recipeExporter);
+
+            ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BURNT_WOODS.get(name), 3)
+                    .pattern("##")
+                    .pattern("##")
+                    .input('#', BURNT_LOGS.get(name))
+                    .criterion(hasItem(BURNT_LOGS.get(name)), conditionsFromItem(BURNT_LOGS.get(name)))
                     .offerTo(recipeExporter);
 
             ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_STAIRS.get(name), 4)
@@ -106,6 +115,16 @@ public class ModRecipeProvider extends FabricRecipeProvider
                     .pattern("###")
                     .input('#', WOODEN_CHISELED.get(name))
                     .criterion(hasItem(WOODEN_CHISELED.get(name)), conditionsFromItem(WOODEN_CHISELED.get(name)))
+                    .offerTo(recipeExporter);
+        }
+
+        for (String name : CLASSIC_WOOD_NAMES)
+        {
+            ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BURNT_WOODS.get(name), 3)
+                    .pattern("##")
+                    .pattern("##")
+                    .input('#', BURNT_LOGS.get(name))
+                    .criterion(hasItem(BURNT_LOGS.get(name)), conditionsFromItem(BURNT_LOGS.get(name)))
                     .offerTo(recipeExporter);
         }
 

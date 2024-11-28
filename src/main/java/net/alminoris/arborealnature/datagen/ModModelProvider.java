@@ -61,6 +61,10 @@ public class ModModelProvider extends FabricModelProvider
                     Identifier.of(ArborealNature.MOD_ID, "block/stripped_"+name+"_log_top"),
                     Identifier.of(ArborealNature.MOD_ID, "block/stripped_"+name+"_log"));
 
+            registerLogBlock(blockStateModelGenerator, BURNT_LOGS.get(name),
+                    Identifier.of(ArborealNature.MOD_ID, "block/burnt_"+name+"_log_top"),
+                    Identifier.of(ArborealNature.MOD_ID, "block/burnt_"+name+"_log"));
+
             registerLogBlock(blockStateModelGenerator, WOODS.get(name),
                     Identifier.of(ArborealNature.MOD_ID, "block/"+name+"_log"),
                     Identifier.of(ArborealNature.MOD_ID, "block/"+name+"_log"));
@@ -68,6 +72,10 @@ public class ModModelProvider extends FabricModelProvider
             registerLogBlock(blockStateModelGenerator, STRIPPED_WOODS.get(name),
                     Identifier.of(ArborealNature.MOD_ID, "block/stripped_"+name+"_log"),
                     Identifier.of(ArborealNature.MOD_ID, "block/stripped_"+name+"_log"));
+
+            registerLogBlock(blockStateModelGenerator, BURNT_WOODS.get(name),
+                    Identifier.of(ArborealNature.MOD_ID, "block/burnt_"+name+"_log"),
+                    Identifier.of(ArborealNature.MOD_ID, "block/burnt_"+name+"_log"));
 
             blockStateModelGenerator.registerSingleton(LEAVES.get(name), TexturedModel.LEAVES);
             blockStateModelGenerator.registerTintableCross(WOODEN_SAPLINGS.get(name), BlockStateModelGenerator.TintType.NOT_TINTED);
@@ -83,6 +91,16 @@ public class ModModelProvider extends FabricModelProvider
 
             woodenPlanksPool.get(name).family(WOODEN_BLOCK_FAMILIES.get(name));
             registerHangingSign(blockStateModelGenerator, STRIPPED_LOGS.get(name), WOODEN_HANGING_SIGNS.get(name), WOODEN_WALL_HANGING_SIGNS.get(name));
+        }
+
+        for (String name : CLASSIC_WOOD_NAMES)
+        {
+            registerLogBlock(blockStateModelGenerator, BURNT_LOGS.get(name),
+                    Identifier.of(ArborealNature.MOD_ID, "block/burnt_"+name+"_log_top"),
+                    Identifier.of(ArborealNature.MOD_ID, "block/burnt_"+name+"_log"));
+            registerLogBlock(blockStateModelGenerator, BURNT_WOODS.get(name),
+                    Identifier.of(ArborealNature.MOD_ID, "block/burnt_"+name+"_log"),
+                    Identifier.of(ArborealNature.MOD_ID, "block/burnt_"+name+"_log"));
         }
 
         for (String name : BUSHES_NAMES)
