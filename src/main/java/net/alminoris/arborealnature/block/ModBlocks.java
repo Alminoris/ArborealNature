@@ -158,7 +158,7 @@ public class ModBlocks
 
     public static Block registerBushBlock(String name)
     {
-        return registerBlock(name+"_bush", new BerryBushBlock(name));
+        return registerBlock(name, new BerryBushBlock(name));
     }
 
     public static Block registerLeavesBlock(String name)

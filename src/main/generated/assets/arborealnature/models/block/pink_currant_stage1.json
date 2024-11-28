@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "arborealnature:block/bilberry_bush_stage1"
+    "cross": "arborealnature:block/pink_currant_stage1"
   }
 }
