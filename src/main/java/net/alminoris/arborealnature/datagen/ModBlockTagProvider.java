@@ -1,7 +1,6 @@
 package net.alminoris.arborealnature.datagen;
 
 import net.alminoris.arborealnature.block.ModBlocks;
-import net.alminoris.arborealnature.item.ModItems;
 import net.alminoris.arborealnature.util.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
@@ -105,13 +104,30 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
 
         getOrCreateTagBuilder(BlockTags.FLOWERS)
                 .add(ModBlocks.WOOD_ANEMONA)
+                .add(ModBlocks.ORCHID)
+                .add(ModBlocks.GERANIUM)
                 .add(LEAVES.get("hawthorn"));
 
         getOrCreateTagBuilder(BlockTags.TALL_FLOWERS)
+                .add(ModBlocks.BLUEGRASS)
+                .add(ModBlocks.LARGE_ORCHID)
                 .add(ModBlocks.LARGE_CELANDINE);
 
         getOrCreateTagBuilder(BlockTags.FLOWER_POTS)
+                .add(ModBlocks.POTTED_GERANIUM)
+                .add(ModBlocks.POTTED_ORCHID)
                 .add(ModBlocks.POTTED_WHITE_MUSHROOM);
+
+        this.getOrCreateTagBuilder(BlockTags.INSIDE_STEP_SOUND_BLOCKS).add(ModBlocks.ORCHID_LILY_PAD);
+
+        this.getOrCreateTagBuilder(BlockTags.AXE_MINEABLE).add(ModBlocks.ORCHID_LILY_PAD);
+
+        this.getOrCreateTagBuilder(BlockTags.SWORD_EFFICIENT).add(ModBlocks.ORCHID_LILY_PAD);
+
+        this.getOrCreateTagBuilder(BlockTags.FROG_PREFER_JUMP_TO).add(ModBlocks.ORCHID_LILY_PAD);
+
+        this.getOrCreateTagBuilder(BlockTags.CLIMBABLE)
+                .add(ModBlocks.BAUHINIA_VINES);
 
         getOrCreateTagBuilder(BlockTags.PLANKS)
                 .add(ModBlocks.OAK_CHISELED)

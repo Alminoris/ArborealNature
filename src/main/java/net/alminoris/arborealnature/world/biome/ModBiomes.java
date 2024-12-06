@@ -17,9 +17,7 @@ import net.minecraft.world.biome.GenerationSettings;
 import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.carver.ConfiguredCarver;
-import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
-import net.minecraft.world.gen.feature.PlacedFeature;
-import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
+import net.minecraft.world.gen.feature.*;
 
 public class ModBiomes
 {
@@ -29,6 +27,9 @@ public class ModBiomes
     public static final RegistryKey<Biome> MULBERRY_GROVE = RegistryKey.of(RegistryKeys.BIOME,
             Identifier.of(ArborealNature.MOD_ID, "mulberry_grove_biome"));
 
+    public static final RegistryKey<Biome> ORCHID_OASIS = RegistryKey.of(RegistryKeys.BIOME,
+            Identifier.of(ArborealNature.MOD_ID, "orchid_oasis_biome"));
+
     public static void bootstrap(Registerable<Biome> context)
     {
         RegistryEntryLookup<PlacedFeature> placedFeatures = context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
@@ -37,6 +38,8 @@ public class ModBiomes
         context.register(HAZELNUT_FOREST, hazelnutForestBiome(placedFeatures, configuredCarvers));
 
         context.register(MULBERRY_GROVE, mulberryGroveBiome(placedFeatures, configuredCarvers));
+
+        context.register(ORCHID_OASIS, orchidOasisBiome(placedFeatures, configuredCarvers));
     }
 
     public static void globalOverworldGeneration(GenerationSettings.LookupBackedBuilder builder)
@@ -44,7 +47,7 @@ public class ModBiomes
         DefaultBiomeFeatures.addAmethystGeodes(builder);
         DefaultBiomeFeatures.addDungeons(builder);
         DefaultBiomeFeatures.addMineables(builder);
-        DefaultBiomeFeatures.addSprings(builder);
+        DefaultBiomeFeatures.addDefaultOres(builder);
     }
 
     public static Biome hazelnutForestBiome(RegistryEntryLookup<PlacedFeature> placedFeatures, RegistryEntryLookup<ConfiguredCarver<?>> configuredCarvers)
@@ -61,7 +64,8 @@ public class ModBiomes
         DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
 
         globalOverworldGeneration(biomeBuilder);
-        DefaultBiomeFeatures.addDefaultOres(biomeBuilder);
+
+        biomeBuilder.feature(GenerationStep.Feature.LAKES, MiscPlacedFeatures.SPRING_WATER);
 
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.HAZELNUT_FOREST_PLACED_KEY);
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.HORNBEAM_PLACED_KEY);
@@ -99,7 +103,8 @@ public class ModBiomes
         DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
 
         globalOverworldGeneration(biomeBuilder);
-        DefaultBiomeFeatures.addDefaultOres(biomeBuilder);
+
+        biomeBuilder.feature(GenerationStep.Feature.LAKES, MiscPlacedFeatures.SPRING_WATER);
 
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.WHITE_MULBERRY_PLACED_KEY);
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.VIBURNUM_PLACED_KEY);
@@ -125,6 +130,42 @@ public class ModBiomes
                         .grassColor(0x529024)
                         .foliageColor(0x529024)
                         .fogColor(0Xb9c4a5)
+                        .moodSound(BiomeMoodSound.CAVE).build())
+                .build();
+    }
+
+    public static Biome orchidOasisBiome(RegistryEntryLookup<PlacedFeature> placedFeatures, RegistryEntryLookup<ConfiguredCarver<?>> configuredCarvers)
+    {
+        GenerationSettings.LookupBackedBuilder biomeBuilder = new GenerationSettings.LookupBackedBuilder(placedFeatures, configuredCarvers);
+        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
+
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.ORCHID_MANTIS, 75, 1, 3));
+
+        DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
+
+        globalOverworldGeneration(biomeBuilder);
+
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.BAUHINIA_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_GRASS_FOREST);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_TALL_GRASS);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.ORCHID_BIOME_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.LARGE_ORCHID_BIOME_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.PINK_CURRANT_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.ORCHID_LILY_PLACED_KEY);
+
+        return new Biome.Builder()
+                .precipitation(true)
+                .downfall(0.3f)
+                .temperature(0.75f)
+                .generationSettings(biomeBuilder.build())
+                .spawnSettings(spawnBuilder.build())
+                .effects((new BiomeEffects.Builder())
+                        .waterColor(0x2492d9)
+                        .waterFogColor(0x004e8e)
+                        .skyColor(0X3cc9df)
+                        .grassColor(0x7f922a)
+                        .foliageColor(0x7f922a)
+                        .fogColor(0Xc3e6b6)
                         .moodSound(BiomeMoodSound.CAVE).build())
                 .build();
     }

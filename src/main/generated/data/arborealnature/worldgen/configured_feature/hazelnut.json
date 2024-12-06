@@ -3,7 +3,13 @@
   "config": {
     "decorators": [
       {
-        "type": "minecraft:leaf_carpet_decorator"
+        "type": "minecraft:leaf_carpet_decorator",
+        "provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "arborealnature:hazelnut_cover_block"
+          }
+        }
       }
     ],
     "dirt_provider": {

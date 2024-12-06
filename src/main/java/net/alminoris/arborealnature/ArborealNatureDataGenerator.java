@@ -1,7 +1,7 @@
 package net.alminoris.arborealnature;
 
 import net.alminoris.arborealnature.datagen.*;
-import net.alminoris.arborealnature.world.ModConfiguredFeautures;
+import net.alminoris.arborealnature.world.ModConfiguredFeatures;
 import net.alminoris.arborealnature.world.ModPlacedFeatures;
 import net.alminoris.arborealnature.world.biome.ModBiomes;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
@@ -28,7 +28,7 @@ public class ArborealNatureDataGenerator implements DataGeneratorEntrypoint
 	@Override
 	public void buildRegistry(RegistryBuilder registryBuilder)
 	{
-		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeautures::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.BIOME, ModBiomes::bootstrap);
 	}

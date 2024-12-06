@@ -1,10 +1,8 @@
 package net.alminoris.arborealnature.world.gen;
 
-import net.alminoris.arborealnature.entity.ModEntities;
 import net.alminoris.arborealnature.world.ModPlacedFeatures;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.minecraft.entity.SpawnGroup;
 import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.GenerationStep;
 

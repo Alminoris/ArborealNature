@@ -9,6 +9,7 @@ import net.alminoris.arborealnature.entity.custom.SquirrelEntity;
 import net.alminoris.arborealnature.entity.custom.WoodMouseEntity;
 import net.alminoris.arborealnature.item.ModItemGroups;
 import net.alminoris.arborealnature.item.ModItems;
+import net.alminoris.arborealnature.particle.ModParticles;
 import net.alminoris.arborealnature.sound.ModSounds;
 import net.alminoris.arborealnature.util.ModTags;
 import net.alminoris.arborealnature.world.gen.ModWorldGeneration;
@@ -57,6 +58,8 @@ public class ArborealNature implements ModInitializer
 
 		ModSounds.registerSounds();
 
+		ModParticles.registerParticles();
+
 		FuelRegistry.INSTANCE.add(ModItems.HAZELNUT_SPOILED, 150);
 
 		for (String name : WOOD_NAMES)
@@ -74,6 +77,9 @@ public class ArborealNature implements ModInitializer
 		}
 
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.HAZELNUT_COVER, 30, 60);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BAUHINIA_COVER, 30, 60);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BAUHINIA_COVER_BLOCK, 30, 60);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BAUHINIA_VINES, 30, 60);
 
 		AttackBlockCallback.EVENT.register((player, world, hand, pos, direction) ->
 		{

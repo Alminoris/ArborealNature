@@ -13,8 +13,7 @@ import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.passive.PassiveEntity;
+import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -111,6 +110,10 @@ public class OrchidMantisEntity extends AnimalEntity implements GeoEntity
         this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 5.0F));
 
         this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
+        this.targetSelector.add(2, new ActiveTargetGoal<>(this, CowEntity.class, true));
+        this.targetSelector.add(3, new ActiveTargetGoal<>(this, SheepEntity.class, true));
+        this.targetSelector.add(4, new ActiveTargetGoal<>(this, PigEntity.class, true));
+        this.targetSelector.add(5, new ActiveTargetGoal<>(this, ChickenEntity.class, true));
     }
 
     @Override

@@ -1,7 +1,6 @@
 package net.alminoris.arborealnature.entity.client;
 
 import net.alminoris.arborealnature.ArborealNature;
-import net.alminoris.arborealnature.entity.custom.SquirrelEntity;
 import net.alminoris.arborealnature.entity.custom.WoodMouseEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;

@@ -3,8 +3,6 @@ package net.alminoris.arborealnature.datagen;
 import net.alminoris.arborealnature.world.biome.ModBiomes;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BiomeTags;
@@ -24,5 +22,7 @@ public class ModBiomeTagProvider extends FabricTagProvider<Biome>
     {
         this.getOrCreateTagBuilder(BiomeTags.IS_FOREST).add(ModBiomes.HAZELNUT_FOREST).setReplace(false);
         this.getOrCreateTagBuilder(BiomeTags.IS_OVERWORLD).add(ModBiomes.HAZELNUT_FOREST).setReplace(false);
+        this.getOrCreateTagBuilder(BiomeTags.IS_FOREST).add(ModBiomes.MULBERRY_GROVE).setReplace(false);
+        this.getOrCreateTagBuilder(BiomeTags.IS_OVERWORLD).add(ModBiomes.MULBERRY_GROVE).setReplace(false);
     }
 }

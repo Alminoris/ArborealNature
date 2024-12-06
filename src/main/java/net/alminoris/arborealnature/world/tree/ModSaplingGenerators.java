@@ -1,7 +1,7 @@
 package net.alminoris.arborealnature.world.tree;
 
 import net.alminoris.arborealnature.util.helper.ModBlockSetsHelper;
-import net.alminoris.arborealnature.world.ModConfiguredFeautures;
+import net.alminoris.arborealnature.world.ModConfiguredFeatures;
 import net.minecraft.block.SaplingGenerator;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
@@ -14,17 +14,17 @@ public class ModSaplingGenerators
 {
     public static final Dictionary<String, RegistryKey<ConfiguredFeature<?, ?>>> keys = new Hashtable<>()
     {{
-        put("hazelnut", ModConfiguredFeautures.HAZELNUT_KEY);
-        put("hornbeam", ModConfiguredFeautures.HORNBEAM_KEY);
-        put("hawthorn", ModConfiguredFeautures.HAWTHORN_KEY);
-        put("quince", ModConfiguredFeautures.QUINCE_KEY);
-        put("plum", ModConfiguredFeautures.PLUM_KEY);
-        put("mango", ModConfiguredFeautures.MANGO_KEY);
-        put("fig", ModConfiguredFeautures.FIG_KEY);
-        put("viburnum", ModConfiguredFeautures.VIBURNUM_KEY);
-        put("wild_cherry", ModConfiguredFeautures.WILD_CHERRY_KEY);
-        put("white_mulberry", ModConfiguredFeautures.WHITE_MULBERRY_KEY);
-
+        put("hazelnut", ModConfiguredFeatures.HAZELNUT_KEY);
+        put("hornbeam", ModConfiguredFeatures.HORNBEAM_KEY);
+        put("hawthorn", ModConfiguredFeatures.HAWTHORN_KEY);
+        put("quince", ModConfiguredFeatures.QUINCE_KEY);
+        put("plum", ModConfiguredFeatures.PLUM_KEY);
+        put("mango", ModConfiguredFeatures.MANGO_KEY);
+        put("fig", ModConfiguredFeatures.FIG_KEY);
+        put("viburnum", ModConfiguredFeatures.VIBURNUM_KEY);
+        put("wild_cherry", ModConfiguredFeatures.WILD_CHERRY_KEY);
+        put("white_mulberry", ModConfiguredFeatures.WHITE_MULBERRY_KEY);
+        put("bauhinia", ModConfiguredFeatures.BAUHINIA_KEY);
     }};
 
     public static final Dictionary<String, SaplingGenerator> saplingGenerators = new Hashtable<>()

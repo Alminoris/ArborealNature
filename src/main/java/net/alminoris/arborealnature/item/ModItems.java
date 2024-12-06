@@ -3,6 +3,7 @@ package net.alminoris.arborealnature.item;
 import com.terraformersmc.terraform.boat.api.TerraformBoatType;
 import com.terraformersmc.terraform.boat.api.item.TerraformBoatItemHelper;
 import net.alminoris.arborealnature.ArborealNature;
+import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.entity.ModEntities;
 import net.alminoris.arborealnature.item.custom.*;
 import net.minecraft.block.Block;
@@ -12,9 +13,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
-
-import java.util.HashSet;
-import java.util.Set;
 
 public class ModItems
 {
@@ -91,6 +89,8 @@ public class ModItems
                     new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(25))));
 
     public static final Item SILENT_ARROW = registerItem("silent_arrow", new SilentArrowItem(new Item.Settings()));
+
+    public static final Item ORCHID_LILY_PAD = registerItem("orchid_lily_pad", new PlaceableOnWaterItem(ModBlocks.ORCHID_LILY_PAD, new Item.Settings()));
 
     private static Item registerItem(String name, Item item)
     {

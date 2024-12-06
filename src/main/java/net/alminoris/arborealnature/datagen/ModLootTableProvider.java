@@ -7,12 +7,9 @@ import net.alminoris.arborealnature.util.helper.ModBlockSetsHelper;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.SweetBerryBushBlock;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
-import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
@@ -121,6 +118,9 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         addDrop(ModBlockSetsHelper.LEAVES.get("white_mulberry"), leavesItemDrops(ModBlockSetsHelper.LEAVES.get("white_mulberry"),
                 ModBlockSetsHelper.WOODEN_SAPLINGS.get("white_mulberry"), ModItems.WHITE_MULBERRY, 0.0025f));
 
+        addDrop(ModBlockSetsHelper.LEAVES.get("bauhinia"), leavesDrops(ModBlockSetsHelper.LEAVES.get("bauhinia"),
+                ModBlockSetsHelper.WOODEN_SAPLINGS.get("bauhinia"), 0.0025f));
+
         addDrop(ModBlocks.OAK_CHISELED);
         addDrop(ModBlocks.OAK_CHISELED_SLAB);
         addDrop(ModBlocks.OAK_CHISELED_STAIRS);
@@ -153,7 +153,11 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         addDrop(ModBlocks.CHERRY_CHISELED_STAIRS);
 
         addDrop(ModBlocks.WOOD_ANEMONA);
+        addDrop(ModBlocks.ORCHID_LILY_PAD);
         addDrop(ModBlocks.HAZELNUT_COVER, dropsWithSilkTouch(ModBlocks.HAZELNUT_COVER));
+        addDrop(ModBlocks.BAUHINIA_COVER, dropsWithSilkTouch(ModBlocks.BAUHINIA_COVER));
+        addDrop(ModBlocks.BAUHINIA_COVER_BLOCK, dropsWithSilkTouch(ModBlocks.BAUHINIA_COVER_BLOCK));
+        addDrop(ModBlocks.BAUHINIA_VINES, dropsWithSilkTouch(ModBlocks.BAUHINIA_VINES));
         addDrop(ModBlocks.HAZELNUT_COVER, multipleOreDrops(ModBlocks.HAZELNUT_COVER, ModItems.HAZELNUT, 0, 3));
         addDrop(ModBlocks.LARGE_CELANDINE);
         addDrop(ModBlocks.BLUEGRASS);

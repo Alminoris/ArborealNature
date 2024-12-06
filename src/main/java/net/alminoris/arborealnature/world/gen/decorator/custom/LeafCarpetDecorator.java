@@ -1,12 +1,12 @@
 package net.alminoris.arborealnature.world.gen.decorator.custom;
 
 import com.mojang.serialization.MapCodec;
-import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.world.gen.decorator.ModTreeDecorators;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.TestableWorld;
+import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.treedecorator.TreeDecorator;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
 
@@ -15,7 +15,15 @@ import java.util.List;
 
 public class LeafCarpetDecorator extends TreeDecorator
 {
-    public static final MapCodec<LeafCarpetDecorator> CODEC = MapCodec.unit(LeafCarpetDecorator::new);
+    public static final MapCodec<LeafCarpetDecorator> CODEC = BlockStateProvider.TYPE_CODEC
+            .fieldOf("provider")
+            .xmap(LeafCarpetDecorator::new, decorator -> decorator.provider);
+    private final BlockStateProvider provider;
+
+    public LeafCarpetDecorator(BlockStateProvider provider)
+    {
+        this.provider = provider;
+    }
 
     @Override
     protected TreeDecoratorType<?> getType()
@@ -50,7 +58,7 @@ public class LeafCarpetDecorator extends TreeDecorator
                     mutable.set(basePos.getX() + x, basePos.getY()+1, basePos.getZ() + z);
                     if (world.testBlockState(mutable, BlockState::isAir))
                     {
-                        generator.replace(mutable, ModBlocks.HAZELNUT_COVER.getDefaultState());
+                        generator.replace(mutable, provider.get(generator.getRandom(), basePos));
                     }
                 }
             }

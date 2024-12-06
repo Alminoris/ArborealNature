@@ -21,7 +21,7 @@ public class ModBlockSetsHelper
             "mangrove", "crimson", "warped", "spruce", "oak" };
 
     public static final String[] WOOD_NAMES = new String[] { "hazelnut", "hornbeam", "hawthorn", "quince", "plum", "mango",
-            "fig", "viburnum", "wild_cherry", "white_mulberry" };
+            "fig", "viburnum", "wild_cherry", "white_mulberry", "bauhinia" };
 
     public static final String[] BUSHES_NAMES = new String[] { "bilberry", "blackberry", "pink_currant" };
 

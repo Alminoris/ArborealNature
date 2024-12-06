@@ -1,14 +1,17 @@
 package net.alminoris.arborealnature.block;
 
 import net.alminoris.arborealnature.ArborealNature;
+import net.alminoris.arborealnature.block.custom.BauhiniaLeavesBlock;
 import net.alminoris.arborealnature.block.custom.BerryBushBlock;
-import net.alminoris.arborealnature.world.ModConfiguredFeautures;
+import net.alminoris.arborealnature.world.ModConfiguredFeatures;
 import net.minecraft.block.*;
+import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
 public class ModBlocks
@@ -128,16 +131,42 @@ public class ModBlocks
             new CarpetBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)));
 
     public static final Block WHITE_MUSHROOM = registerBlock("white_mushroom",
-            new MushroomPlantBlock(ModConfiguredFeautures.HUGE_WHITE_MUSHROOM_KEY, AbstractBlock.Settings.copy(Blocks.BROWN_MUSHROOM)));
+            new MushroomPlantBlock(ModConfiguredFeatures.HUGE_WHITE_MUSHROOM_KEY, AbstractBlock.Settings.copy(Blocks.BROWN_MUSHROOM)));
 
     public static final Block POTTED_WHITE_MUSHROOM = registerBlock("potted_white_mushroom",
             new FlowerPotBlock(WHITE_MUSHROOM, AbstractBlock.Settings.copy(Blocks.POTTED_BROWN_MUSHROOM)));
+
+    public static final Block POTTED_GERANIUM = registerBlock("potted_geranium",
+            new FlowerPotBlock(GERANIUM, AbstractBlock.Settings.copy(Blocks.POTTED_DANDELION)));
+
+    public static final Block POTTED_ORCHID = registerBlock("potted_orchid",
+            new FlowerPotBlock(ORCHID, AbstractBlock.Settings.copy(Blocks.POTTED_DANDELION)));
 
     public static final Block WHITE_MUSHROOM_BLOCK = registerBlock("white_mushroom_block",
             new MushroomBlock(AbstractBlock.Settings.copy(Blocks.BROWN_MUSHROOM_BLOCK)));
 
     public static final Block WHITE_MUSHROOM_STEM = registerBlock("white_mushroom_stem",
             new MushroomBlock(AbstractBlock.Settings.copy(Blocks.MUSHROOM_STEM)));
+
+    public static final Block BAUHINIA_VINES = registerBlock("bauhinia_vines",
+            new VineBlock(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.MAGENTA)
+                    .replaceable()
+                    .noCollision()
+                    .ticksRandomly()
+                    .strength(0.2F)
+                    .sounds(BlockSoundGroup.VINE)
+                    .burnable()
+                    .pistonBehavior(PistonBehavior.DESTROY)));
+
+    public static final Block BAUHINIA_COVER_BLOCK = registerBlock("bauhinia_cover_block",
+            new LeavesBlock(AbstractBlock.Settings.copy(Blocks.PINK_PETALS)));
+
+    public static final Block BAUHINIA_COVER = registerBlock("bauhinia_cover",
+            new CarpetBlock(AbstractBlock.Settings.copy(Blocks.PINK_PETALS)));
+
+    public static final Block ORCHID_LILY_PAD = registerBlock("orchid_lily_pad",
+            new LilyPadBlock(AbstractBlock.Settings.copy(Blocks.LILY_PAD)));
 
     private static Block registerBlock(String name, Block block)
     {
@@ -163,6 +192,22 @@ public class ModBlocks
 
     public static Block registerLeavesBlock(String name)
     {
+        if (name.equals("bauhinia"))
+        {
+            return registerBlock(name+"_leaves",
+                    new BauhiniaLeavesBlock(AbstractBlock.Settings.create()
+                            .mapColor(MapColor.MAGENTA)
+                            .strength(0.2F)
+                            .ticksRandomly()
+                            .sounds(BlockSoundGroup.CHERRY_LEAVES)
+                            .nonOpaque()
+                            .allowsSpawning(Blocks::canSpawnOnLeaves)
+                            .suffocates(Blocks::never)
+                            .blockVision(Blocks::never)
+                            .burnable()
+                            .pistonBehavior(PistonBehavior.DESTROY)
+                            .solidBlock(Blocks::never)));
+        }
         return registerBlock(name+"_leaves",
                 new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)));
     }

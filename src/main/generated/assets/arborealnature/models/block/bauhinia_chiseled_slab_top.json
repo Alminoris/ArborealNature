@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "arborealnature:block/bauhinia_chiseled",
+    "side": "arborealnature:block/bauhinia_chiseled",
+    "top": "arborealnature:block/bauhinia_chiseled"
+  }
+}

@@ -17,7 +17,9 @@
   },
   "features": [
     [],
-    [],
+    [
+      "minecraft:spring_water"
+    ],
     [
       "minecraft:amethyst_geode"
     ],
@@ -56,10 +58,7 @@
       "minecraft:underwater_magma"
     ],
     [],
-    [
-      "minecraft:spring_water",
-      "minecraft:spring_lava"
-    ],
+    [],
     [
       "minecraft:glow_lichen",
       "arborealnature:white_mulberry_placed",
