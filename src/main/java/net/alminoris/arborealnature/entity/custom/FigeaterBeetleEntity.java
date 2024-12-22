@@ -153,7 +153,7 @@ public class FigeaterBeetleEntity extends AnimalEntity implements GeoEntity, Flu
     }
 
     @Override
-    public @Nullable PassiveEntity createChild(ServerWorld world, PassiveEntity entity)
+    public @Nullable FigeaterBeetleEntity createChild(ServerWorld world, PassiveEntity entity)
     {
         return ModEntities.FIGEATER_BEETLE.create(world);
     }

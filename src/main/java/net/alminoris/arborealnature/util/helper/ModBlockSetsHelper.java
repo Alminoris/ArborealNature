@@ -21,9 +21,9 @@ public class ModBlockSetsHelper
             "mangrove", "crimson", "warped", "spruce", "oak" };
 
     public static final String[] WOOD_NAMES = new String[] { "hazelnut", "hornbeam", "hawthorn", "quince", "plum", "mango",
-            "fig", "viburnum", "wild_cherry", "white_mulberry", "bauhinia" };
+            "fig", "viburnum", "wild_cherry", "white_mulberry", "bauhinia", "pine" };
 
-    public static final String[] BUSHES_NAMES = new String[] { "bilberry", "blackberry", "pink_currant" };
+    public static final String[] BUSHES_NAMES = new String[] { "bilberry", "blackberry", "pink_currant", "blueberry" };
 
     public static final Dictionary<String, Block> BUSHES = new Hashtable<>();
     public static final Dictionary<String, Item> BERRIES = new Hashtable<>();

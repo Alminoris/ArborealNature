@@ -24,6 +24,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
     {
         for (String name : WOOD_NAMES)
         {
+            getOrCreateTagBuilder(BlockTags.SAPLINGS)
+                    .add(WOODEN_SAPLINGS.get(name));
+
             getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
                     .add(LOGS.get(name))
                     .add(STRIPPED_LOGS.get(name))
@@ -106,6 +109,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.WOOD_ANEMONA)
                 .add(ModBlocks.ORCHID)
                 .add(ModBlocks.GERANIUM)
+                .add(ModBlocks.XEROCHRYSUM)
                 .add(LEAVES.get("hawthorn"));
 
         getOrCreateTagBuilder(BlockTags.TALL_FLOWERS)
@@ -115,6 +119,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
 
         getOrCreateTagBuilder(BlockTags.FLOWER_POTS)
                 .add(ModBlocks.POTTED_GERANIUM)
+                .add(ModBlocks.POTTED_XEROCHRYSUM)
                 .add(ModBlocks.POTTED_ORCHID)
                 .add(ModBlocks.POTTED_WHITE_MUSHROOM);
 
@@ -139,7 +144,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.CRIMSON_CHISELED)
                 .add(ModBlocks.WARPED_CHISELED)
                 .add(ModBlocks.MANGROVE_CHISELED)
-                .add(ModBlocks.CHERRY_CHISELED);
+                .add(ModBlocks.CHERRY_CHISELED)
+                .add(ModBlocks.PINE_RESIN_BRICKS);
 
         getOrCreateTagBuilder(BlockTags.WOODEN_SLABS)
                 .add(ModBlocks.OAK_CHISELED_SLAB)
@@ -151,7 +157,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.CRIMSON_CHISELED_SLAB)
                 .add(ModBlocks.WARPED_CHISELED_SLAB)
                 .add(ModBlocks.MANGROVE_CHISELED_SLAB)
-                .add(ModBlocks.CHERRY_CHISELED_SLAB);
+                .add(ModBlocks.CHERRY_CHISELED_SLAB)
+                .add(ModBlocks.PINE_RESIN_BRICKS_SLAB);
 
         getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS)
                 .add(ModBlocks.OAK_CHISELED_STAIRS)
@@ -163,10 +170,17 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.CRIMSON_CHISELED_STAIRS)
                 .add(ModBlocks.WARPED_CHISELED_STAIRS)
                 .add(ModBlocks.MANGROVE_CHISELED_STAIRS)
-                .add(ModBlocks.CHERRY_CHISELED_STAIRS);
+                .add(ModBlocks.CHERRY_CHISELED_STAIRS)
+                .add(ModBlocks.PINE_RESIN_BRICKS_STAIRS);
 
         getOrCreateTagBuilder(ModTags.Blocks.ORCHID_MANTIS_FLOWERS)
                 .add(ModBlocks.ORCHID)
                 .add(ModBlocks.LARGE_ORCHID);
+
+        getOrCreateTagBuilder(ModTags.Blocks.MOOSE_SPAWNABLE_ON)
+                .add(Blocks.GRASS_BLOCK)
+                .add(Blocks.PODZOL)
+                .add(ModBlocks.DIRTED_GRASS_BLOCK)
+                .add(ModBlocks.PINE_COVER);
     }
 }

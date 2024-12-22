@@ -151,20 +151,35 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         addDrop(ModBlocks.CHERRY_CHISELED);
         addDrop(ModBlocks.CHERRY_CHISELED_SLAB);
         addDrop(ModBlocks.CHERRY_CHISELED_STAIRS);
+        addDrop(ModBlocks.PINE_CONE_BLOCK);
+        addDrop(ModBlocks.PINE_RESIN_BLOCK);
+        addDrop(ModBlocks.PINE_RESIN_BRICKS);
+        addDrop(ModBlocks.PINE_RESIN_BRICKS_SLAB);
+        addDrop(ModBlocks.PINE_RESIN_BRICKS_STAIRS);
+        addDrop(ModBlocks.PINE_RESIN_CHISELED);
 
         addDrop(ModBlocks.WOOD_ANEMONA);
         addDrop(ModBlocks.ORCHID_LILY_PAD);
         addDrop(ModBlocks.HAZELNUT_COVER, dropsWithSilkTouch(ModBlocks.HAZELNUT_COVER));
         addDrop(ModBlocks.BAUHINIA_COVER, dropsWithSilkTouch(ModBlocks.BAUHINIA_COVER));
         addDrop(ModBlocks.BAUHINIA_COVER_BLOCK, dropsWithSilkTouch(ModBlocks.BAUHINIA_COVER_BLOCK));
+        addDrop(ModBlocks.PINE_COVER, dropsWithSilkTouch(ModBlocks.PINE_COVER));
+        addDrop(ModBlocks.PINE_COVER_BLOCK, dropsWithSilkTouch(ModBlocks.PINE_COVER_BLOCK));
+        addDrop(ModBlocks.LYNX_HIDE, dropsWithSilkTouch(ModBlocks.LYNX_HIDE));
         addDrop(ModBlocks.BAUHINIA_VINES, dropsWithSilkTouch(ModBlocks.BAUHINIA_VINES));
+        addDrop(ModBlocks.PINE_RESIN, dropsWithSilkTouch(ModBlocks.PINE_RESIN));
         addDrop(ModBlocks.HAZELNUT_COVER, multipleOreDrops(ModBlocks.HAZELNUT_COVER, ModItems.HAZELNUT, 0, 3));
+        addDrop(ModBlocks.PINE_COVER, multipleOreDrops(ModBlocks.PINE_COVER, ModItems.PINE_CONE, 0, 3));
+        addDrop(LEAVES.get("pine"), leavesItemDrops(ModBlockSetsHelper.LEAVES.get("pine"),
+                ModBlockSetsHelper.WOODEN_SAPLINGS.get("pine"), ModItems.PINE_CONE, 0.0025f));
         addDrop(ModBlocks.LARGE_CELANDINE);
         addDrop(ModBlocks.BLUEGRASS);
         addDrop(ModBlocks.GERANIUM);
+        addDrop(ModBlocks.XEROCHRYSUM);
         addDrop(ModBlocks.LARGE_ORCHID);
         addDrop(ModBlocks.ORCHID);
         addDrop(ModBlocks.ORCHID_GRASS_BLOCK);
+        addDrop(ModBlocks.DIRTED_GRASS_BLOCK);
         addDrop(ModBlocks.WHITE_MUSHROOM);
         addDrop(ModBlocks.WHITE_MUSHROOM_BLOCK);
         addDrop(ModBlocks.WHITE_MUSHROOM_STEM);

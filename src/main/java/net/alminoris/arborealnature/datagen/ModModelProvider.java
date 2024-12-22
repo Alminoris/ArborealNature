@@ -117,6 +117,8 @@ public class ModModelProvider extends FabricModelProvider
         BlockStateModelGenerator.BlockTexturePool mangroveChiseledPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.MANGROVE_CHISELED);
         BlockStateModelGenerator.BlockTexturePool cherryChiseledPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.CHERRY_CHISELED);
 
+        BlockStateModelGenerator.BlockTexturePool pineResinBricksPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.PINE_RESIN_BRICKS);
+
         oakChiseledPool.slab(ModBlocks.OAK_CHISELED_SLAB);
         oakChiseledPool.stairs(ModBlocks.OAK_CHISELED_STAIRS);
 
@@ -147,16 +149,28 @@ public class ModModelProvider extends FabricModelProvider
         cherryChiseledPool.slab(ModBlocks.CHERRY_CHISELED_SLAB);
         cherryChiseledPool.stairs(ModBlocks.CHERRY_CHISELED_STAIRS);
 
+        pineResinBricksPool.slab(ModBlocks.PINE_RESIN_BRICKS_SLAB);
+        pineResinBricksPool.stairs(ModBlocks.PINE_RESIN_BRICKS_STAIRS);
+
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PINE_CONE_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PINE_RESIN_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PINE_RESIN_CHISELED);
+
         blockStateModelGenerator.registerParentedItemModel(ModItems.SQUIRREL_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
         blockStateModelGenerator.registerParentedItemModel(ModItems.WOOD_MOUSE_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
         blockStateModelGenerator.registerParentedItemModel(ModItems.FIGEATER_BEETLE_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
         blockStateModelGenerator.registerParentedItemModel(ModItems.ORCHID_MANTIS_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
+        blockStateModelGenerator.registerParentedItemModel(ModItems.MOOSE_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
+        blockStateModelGenerator.registerParentedItemModel(ModItems.LYNX_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
 
         blockStateModelGenerator.registerFlowerbed(ModBlocks.WOOD_ANEMONA);
         registerCarpet(blockStateModelGenerator, LEAVES.get("hazelnut"), ModBlocks.HAZELNUT_COVER);
         blockStateModelGenerator.registerSingleton(ModBlocks.BAUHINIA_COVER_BLOCK, TexturedModel.LEAVES);
         registerCarpet(blockStateModelGenerator, ModBlocks.BAUHINIA_COVER_BLOCK, ModBlocks.BAUHINIA_COVER);
+        blockStateModelGenerator.registerSingleton(ModBlocks.PINE_COVER_BLOCK, TexturedModel.LEAVES);
+        registerCarpet(blockStateModelGenerator, ModBlocks.PINE_COVER_BLOCK, ModBlocks.PINE_COVER);
         blockStateModelGenerator.registerWallPlant(ModBlocks.BAUHINIA_VINES);
+        blockStateModelGenerator.registerWallPlant(ModBlocks.PINE_RESIN);
         blockStateModelGenerator.registerDoubleBlock(ModBlocks.LARGE_CELANDINE, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerDoubleBlock(ModBlocks.BLUEGRASS, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerDoubleBlock(ModBlocks.LARGE_ORCHID, BlockStateModelGenerator.TintType.NOT_TINTED);
@@ -164,6 +178,7 @@ public class ModModelProvider extends FabricModelProvider
         registerLilyPad(blockStateModelGenerator, ModBlocks.ORCHID_LILY_PAD);
 
         registerGrassBlock(blockStateModelGenerator, ModBlocks.ORCHID_GRASS_BLOCK);
+        registerGrassBlock(blockStateModelGenerator, ModBlocks.DIRTED_GRASS_BLOCK);
 
         blockStateModelGenerator.registerMushroomBlock(ModBlocks.WHITE_MUSHROOM_BLOCK);
         blockStateModelGenerator.registerMushroomBlock(ModBlocks.WHITE_MUSHROOM_STEM);
@@ -171,6 +186,7 @@ public class ModModelProvider extends FabricModelProvider
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.WHITE_MUSHROOM, ModBlocks.POTTED_WHITE_MUSHROOM, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.ORCHID, ModBlocks.POTTED_ORCHID, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.GERANIUM, ModBlocks.POTTED_GERANIUM, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.XEROCHRYSUM, ModBlocks.POTTED_XEROCHRYSUM, BlockStateModelGenerator.TintType.NOT_TINTED);
     }
 
     private void registerLilyPad(BlockStateModelGenerator blockStateModelGenerator, Block block)
@@ -237,6 +253,14 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.MINIHAMMER, Models.GENERATED);
         itemModelGenerator.register(ModItems.CHISEL, Models.GENERATED);
         itemModelGenerator.register(ModItems.ORCHID_MANTIS_INCISOR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PINE_RESIN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PINE_CONE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MOOSE_HORN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MOOSE_VENISON, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COOKED_MOOSE_VENISON, Models.GENERATED);
+        itemModelGenerator.register(ModItems.HUNTING_KNIFE, Models.GENERATED);
+        itemModelGenerator.register(ModBlocks.LYNX_HIDE.asItem(), Models.GENERATED);
+
 
         for(String name : WOOD_NAMES)
         {

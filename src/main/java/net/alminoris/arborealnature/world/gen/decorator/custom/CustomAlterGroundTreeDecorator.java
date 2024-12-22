@@ -1,12 +1,18 @@
 package net.alminoris.arborealnature.world.gen.decorator.custom;
 
 import com.google.common.collect.Lists;
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.alminoris.arborealnature.ArborealNature;
+import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.world.gen.decorator.ModTreeDecorators;
 import net.minecraft.block.Blocks;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
@@ -15,15 +21,20 @@ import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
 
 public class CustomAlterGroundTreeDecorator extends TreeDecorator
 {
-    public static final MapCodec<CustomAlterGroundTreeDecorator> CODEC = BlockStateProvider.TYPE_CODEC
-            .fieldOf("provider")
-            .xmap(CustomAlterGroundTreeDecorator::new, decorator -> decorator.provider);
     private final BlockStateProvider provider;
 
     private final BlockStateProvider baseProvider = BlockStateProvider.of(Blocks.GRASS_BLOCK);
 
-    public CustomAlterGroundTreeDecorator(BlockStateProvider provider)
+    private float probability = 0.05f;
+
+    public static final MapCodec<CustomAlterGroundTreeDecorator> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+            Codec.floatRange(0.0F, 1.0F).fieldOf("probability").forGetter(decorator -> decorator.probability),
+            BlockStateProvider.TYPE_CODEC.fieldOf("block").forGetter(decorator -> decorator.provider)
+    ).apply(instance, CustomAlterGroundTreeDecorator::new));
+
+    public CustomAlterGroundTreeDecorator(float probability, BlockStateProvider provider)
     {
+        this.probability = probability;
         this.provider = provider;
     }
 
@@ -98,7 +109,8 @@ public class CustomAlterGroundTreeDecorator extends TreeDecorator
             BlockPos blockPos = origin.up(i);
             if (Feature.isSoil(generator.getWorld(), blockPos))
             {
-                if (random.nextFloat() < 0.05F)
+                ArborealNature.LOGGER.info("TEST " + probability);
+                if (random.nextFloat() < probability)
                     generator.replace(blockPos, this.provider.get(generator.getRandom(), origin));
                 else
                     generator.replace(blockPos, this.baseProvider.get(generator.getRandom(), origin));

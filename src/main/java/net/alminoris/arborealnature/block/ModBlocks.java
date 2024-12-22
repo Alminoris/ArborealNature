@@ -1,8 +1,11 @@
 package net.alminoris.arborealnature.block;
 
+import com.mojang.serialization.MapCodec;
 import net.alminoris.arborealnature.ArborealNature;
+import net.alminoris.arborealnature.block.custom.AnimalHideBlock;
 import net.alminoris.arborealnature.block.custom.BauhiniaLeavesBlock;
 import net.alminoris.arborealnature.block.custom.BerryBushBlock;
+import net.alminoris.arborealnature.block.custom.CustomVineBlock;
 import net.alminoris.arborealnature.world.ModConfiguredFeatures;
 import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
@@ -106,6 +109,29 @@ public class ModBlocks
     public static final Block CHERRY_CHISELED_STAIRS = registerBlock("cherry_chiseled_stairs",
             new StairsBlock(CHERRY_CHISELED.getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_STAIRS)));
 
+    public static final Block PINE_CONE_BLOCK = registerBlock("pine_cone_block",
+            new FallingBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_ROOTS).nonOpaque()) {
+                @Override
+                protected MapCodec<? extends FallingBlock> getCodec() {
+                    return null;
+                }
+            });
+
+    public static final Block PINE_RESIN_BLOCK = registerBlock("pine_resin_block",
+            new Block(AbstractBlock.Settings.copy(Blocks.OAK_WOOD).nonOpaque().sounds(BlockSoundGroup.CORAL)));
+
+    public static final Block PINE_RESIN_BRICKS = registerBlock("pine_resin_bricks",
+            new Block(AbstractBlock.Settings.copy(Blocks.OAK_WOOD).nonOpaque().sounds(BlockSoundGroup.CORAL)));
+
+    public static final Block PINE_RESIN_CHISELED = registerBlock("pine_resin_chiseled",
+            new Block(AbstractBlock.Settings.copy(Blocks.OAK_WOOD).nonOpaque().sounds(BlockSoundGroup.CORAL)));
+
+    public static final Block PINE_RESIN_BRICKS_SLAB = registerBlock("pine_resin_bricks_slab",
+            new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB).nonOpaque().sounds(BlockSoundGroup.CORAL)));
+
+    public static final Block PINE_RESIN_BRICKS_STAIRS = registerBlock("pine_resin_bricks_stairs",
+            new StairsBlock(PINE_RESIN_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_STAIRS).nonOpaque().sounds(BlockSoundGroup.CORAL)));
+
     public static final Block WOOD_ANEMONA = registerBlock("wood_anemona",
             new FlowerbedBlock(AbstractBlock.Settings.copy(Blocks.PINK_PETALS)));
 
@@ -118,6 +144,9 @@ public class ModBlocks
     public static final Block GERANIUM = registerBlock("geranium",
             new FlowerBlock(StatusEffects.HASTE, 0.35F, AbstractBlock.Settings.copy(Blocks.PEONY)));
 
+    public static final Block XEROCHRYSUM = registerBlock("xerochrysum",
+            new FlowerBlock(StatusEffects.REGENERATION, 0.45F, AbstractBlock.Settings.copy(Blocks.DANDELION)));
+
     public static final Block LARGE_ORCHID = registerBlock("large_orchid",
             new TallFlowerBlock(AbstractBlock.Settings.copy(Blocks.PEONY)));
 
@@ -127,8 +156,11 @@ public class ModBlocks
     public static final Block ORCHID_GRASS_BLOCK = registerBlock("orchid_grass_block",
             new GrassBlock(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK)));
 
+    public static final Block DIRTED_GRASS_BLOCK = registerBlock("dirted_grass_block",
+            new GrassBlock(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK)));
+
     public static final Block HAZELNUT_COVER = registerBlock("hazelnut_cover_block",
-            new CarpetBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)));
+            new CarpetBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).noCollision()));
 
     public static final Block WHITE_MUSHROOM = registerBlock("white_mushroom",
             new MushroomPlantBlock(ModConfiguredFeatures.HUGE_WHITE_MUSHROOM_KEY, AbstractBlock.Settings.copy(Blocks.BROWN_MUSHROOM)));
@@ -138,6 +170,9 @@ public class ModBlocks
 
     public static final Block POTTED_GERANIUM = registerBlock("potted_geranium",
             new FlowerPotBlock(GERANIUM, AbstractBlock.Settings.copy(Blocks.POTTED_DANDELION)));
+
+    public static final Block POTTED_XEROCHRYSUM = registerBlock("potted_xerochrysum",
+            new FlowerPotBlock(XEROCHRYSUM, AbstractBlock.Settings.copy(Blocks.POTTED_DANDELION)));
 
     public static final Block POTTED_ORCHID = registerBlock("potted_orchid",
             new FlowerPotBlock(ORCHID, AbstractBlock.Settings.copy(Blocks.POTTED_DANDELION)));
@@ -159,14 +194,33 @@ public class ModBlocks
                     .burnable()
                     .pistonBehavior(PistonBehavior.DESTROY)));
 
+    public static final Block PINE_RESIN = registerBlock("pine_resin",
+            new CustomVineBlock(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.YELLOW)
+                    .replaceable()
+                    .noCollision()
+                    .strength(0.2F)
+                    .sounds(BlockSoundGroup.CORAL)
+                    .burnable()
+                    .pistonBehavior(PistonBehavior.DESTROY)));
+
     public static final Block BAUHINIA_COVER_BLOCK = registerBlock("bauhinia_cover_block",
             new LeavesBlock(AbstractBlock.Settings.copy(Blocks.PINK_PETALS)));
 
     public static final Block BAUHINIA_COVER = registerBlock("bauhinia_cover",
             new CarpetBlock(AbstractBlock.Settings.copy(Blocks.PINK_PETALS)));
 
+    public static final Block PINE_COVER_BLOCK = registerBlock("pine_cover_block",
+            new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).noCollision()));
+
+    public static final Block PINE_COVER = registerBlock("pine_cover",
+            new CarpetBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).noCollision()));
+
     public static final Block ORCHID_LILY_PAD = registerBlock("orchid_lily_pad",
             new LilyPadBlock(AbstractBlock.Settings.copy(Blocks.LILY_PAD)));
+
+    public static final Block LYNX_HIDE = registerBlock("lynx_hide",
+            new AnimalHideBlock(AbstractBlock.Settings.copy(Blocks.BROWN_WOOL)));
 
     private static Block registerBlock(String name, Block block)
     {

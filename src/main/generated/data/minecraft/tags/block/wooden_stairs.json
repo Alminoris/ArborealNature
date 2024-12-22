@@ -22,6 +22,8 @@
     "arborealnature:white_mulberry_chiseled_stairs",
     "arborealnature:bauhinia_stairs",
     "arborealnature:bauhinia_chiseled_stairs",
+    "arborealnature:pine_stairs",
+    "arborealnature:pine_chiseled_stairs",
     "arborealnature:oak_chiseled_stairs",
     "arborealnature:birch_chiseled_stairs",
     "arborealnature:spruce_chiseled_stairs",
@@ -31,6 +33,7 @@
     "arborealnature:crimson_chiseled_stairs",
     "arborealnature:warped_chiseled_stairs",
     "arborealnature:mangrove_chiseled_stairs",
-    "arborealnature:cherry_chiseled_stairs"
+    "arborealnature:cherry_chiseled_stairs",
+    "arborealnature:pine_resin_bricks_stairs"
   ]
 }

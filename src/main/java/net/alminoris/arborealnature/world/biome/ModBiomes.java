@@ -30,6 +30,9 @@ public class ModBiomes
     public static final RegistryKey<Biome> ORCHID_OASIS = RegistryKey.of(RegistryKeys.BIOME,
             Identifier.of(ArborealNature.MOD_ID, "orchid_oasis_biome"));
 
+    public static final RegistryKey<Biome> PINE_FOREST = RegistryKey.of(RegistryKeys.BIOME,
+            Identifier.of(ArborealNature.MOD_ID, "pine_forest_biome"));
+
     public static void bootstrap(Registerable<Biome> context)
     {
         RegistryEntryLookup<PlacedFeature> placedFeatures = context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
@@ -40,6 +43,8 @@ public class ModBiomes
         context.register(MULBERRY_GROVE, mulberryGroveBiome(placedFeatures, configuredCarvers));
 
         context.register(ORCHID_OASIS, orchidOasisBiome(placedFeatures, configuredCarvers));
+
+        context.register(PINE_FOREST, pineForestBiome(placedFeatures, configuredCarvers));
     }
 
     public static void globalOverworldGeneration(GenerationSettings.LookupBackedBuilder builder)
@@ -65,7 +70,7 @@ public class ModBiomes
 
         globalOverworldGeneration(biomeBuilder);
 
-        biomeBuilder.feature(GenerationStep.Feature.LAKES, MiscPlacedFeatures.SPRING_WATER);
+        biomeBuilder.feature(GenerationStep.Feature.FLUID_SPRINGS, MiscPlacedFeatures.SPRING_WATER);
 
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.HAZELNUT_FOREST_PLACED_KEY);
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.HORNBEAM_PLACED_KEY);
@@ -104,7 +109,7 @@ public class ModBiomes
 
         globalOverworldGeneration(biomeBuilder);
 
-        biomeBuilder.feature(GenerationStep.Feature.LAKES, MiscPlacedFeatures.SPRING_WATER);
+        biomeBuilder.feature(GenerationStep.Feature.FLUID_SPRINGS, MiscPlacedFeatures.SPRING_WATER);
 
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.WHITE_MULBERRY_PLACED_KEY);
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.VIBURNUM_PLACED_KEY);
@@ -166,6 +171,53 @@ public class ModBiomes
                         .grassColor(0x7f922a)
                         .foliageColor(0x7f922a)
                         .fogColor(0Xc3e6b6)
+                        .moodSound(BiomeMoodSound.CAVE).build())
+                .build();
+    }
+
+    public static Biome pineForestBiome(RegistryEntryLookup<PlacedFeature> placedFeatures, RegistryEntryLookup<ConfiguredCarver<?>> configuredCarvers)
+    {
+        GenerationSettings.LookupBackedBuilder biomeBuilder = new GenerationSettings.LookupBackedBuilder(placedFeatures, configuredCarvers);
+        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
+
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.RABBIT, 5, 2, 3));
+
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.FOX, 5, 2, 2));
+
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.MOOSE, 75, 1, 1));
+
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.LYNX, 40, 1, 2));
+
+        DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
+
+        globalOverworldGeneration(biomeBuilder);
+
+        biomeBuilder.feature(GenerationStep.Feature.FLUID_SPRINGS, MiscPlacedFeatures.SPRING_WATER);
+
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.PINE_FOREST_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.MEGA_PINE_FOREST_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.PINE_FOREST_GRASS_PLACED_KEY);
+        DefaultBiomeFeatures.addPlainsTallGrass(biomeBuilder);
+        DefaultBiomeFeatures.addLargeFerns(biomeBuilder);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.PINE_FOREST_FLOWERS_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.XEROCHRYSUM_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.BLUEBERRY_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.WHITE_MUSHROOM_PINE_FOREST_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.BROWN_MUSHROOM_PINE_FOREST_PLACED_KEY);
+
+        return new Biome.Builder()
+                .precipitation(true)
+                .downfall(0.5f)
+                .temperature(0.6f)
+                .generationSettings(biomeBuilder.build())
+                .spawnSettings(spawnBuilder.build())
+                .effects((new BiomeEffects.Builder())
+                        .waterColor(0x2d64a4)
+                        .waterFogColor(0x003e79)
+                        .skyColor(0Xa6daf0)
+                        .grassColor(0x567d44)
+                        .foliageColor(0x567d44)
+                        .fogColor(0X95b290)
                         .moodSound(BiomeMoodSound.CAVE).build())
                 .build();
     }

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_pine_resin_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": "arborealnature:pine_resin_item"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arborealnature:pine_resin_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_pine_resin_item"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arborealnature:pine_resin_block"
+    ]
+  }
+}

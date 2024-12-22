@@ -43,6 +43,10 @@
     "arborealnature:bauhinia_log",
     "arborealnature:stripped_bauhinia_log",
     "arborealnature:bauhinia_wood",
-    "arborealnature:stripped_bauhinia_wood"
+    "arborealnature:stripped_bauhinia_wood",
+    "arborealnature:pine_log",
+    "arborealnature:stripped_pine_log",
+    "arborealnature:pine_wood",
+    "arborealnature:stripped_pine_wood"
   ]
 }

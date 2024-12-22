@@ -20,6 +20,10 @@ public class ModFoodComponents
 
     public static final FoodComponent WHITE_MULBERRY = new FoodComponent.Builder().nutrition(2).saturationModifier(0.4f).build();
 
+    public static final FoodComponent MOOSE_VENISON = new FoodComponent.Builder().nutrition(4).saturationModifier(0.4f).build();
+
+    public static final FoodComponent COOKED_MOOSE_VENISON = new FoodComponent.Builder().nutrition(10).saturationModifier(0.9f).build();
+
     public static FoodComponent registerFood(int nutrition, float saturation)
     {
         return new FoodComponent.Builder().nutrition(nutrition).saturationModifier(saturation).build();

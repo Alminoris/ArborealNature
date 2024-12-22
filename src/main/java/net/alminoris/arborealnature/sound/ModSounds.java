@@ -24,6 +24,16 @@ public class ModSounds
     public static final SoundEvent SOUND_ORCHID_MANTIS_HURT = registerSoundEvent("sound_orchid_mantis_hurt");
     public static final SoundEvent SOUND_ORCHID_MANTIS_DEATH = registerSoundEvent("sound_orchid_mantis_death");
 
+    public static final SoundEvent SOUND_MOOSE_AMBIENT = registerSoundEvent("sound_moose_ambient");
+    public static final SoundEvent SOUND_MOOSE_HURT = registerSoundEvent("sound_moose_hurt");
+    public static final SoundEvent SOUND_MOOSE_DEATH = registerSoundEvent("sound_moose_death");
+
+    public static final SoundEvent SOUND_LYNX_AMBIENT = registerSoundEvent("sound_lynx_ambient");
+    public static final SoundEvent SOUND_LYNX_GROWL = registerSoundEvent("sound_lynx_growl");
+    public static final SoundEvent SOUND_LYNX_WHINE = registerSoundEvent("sound_lynx_whine");
+    public static final SoundEvent SOUND_LYNX_HURT = registerSoundEvent("sound_lynx_hurt");
+    public static final SoundEvent SOUND_LYNX_DEATH = registerSoundEvent("sound_lynx_death");
+
     private static SoundEvent registerSoundEvent(String name)
     {
         Identifier id = Identifier.of(ArborealNature.MOD_ID, name);

@@ -25,16 +25,31 @@ public class ModSaplingGenerators
         put("wild_cherry", ModConfiguredFeatures.WILD_CHERRY_KEY);
         put("white_mulberry", ModConfiguredFeatures.WHITE_MULBERRY_KEY);
         put("bauhinia", ModConfiguredFeatures.BAUHINIA_KEY);
+        put("pine", ModConfiguredFeatures.PINE_KEY);
     }};
 
     public static final Dictionary<String, SaplingGenerator> saplingGenerators = new Hashtable<>()
     {{
         for(String name : ModBlockSetsHelper.WOOD_NAMES)
-            put(name, new SaplingGenerator(name, 0f, Optional.empty(),
-                    Optional.empty(),
-                    Optional.of(keys.get(name)),
-                    Optional.empty(),
-                    Optional.empty(),
-                    Optional.empty()));
+        {
+            if (name.equals("pine"))
+            {
+                put(name, new SaplingGenerator(name, 0f, Optional.of(ModConfiguredFeatures.MEGA_PINE_KEY),
+                        Optional.empty(),
+                        Optional.of(keys.get(name)),
+                        Optional.empty(),
+                        Optional.empty(),
+                        Optional.empty()));
+            }
+            else
+            {
+                put(name, new SaplingGenerator(name, 0f, Optional.empty(),
+                        Optional.empty(),
+                        Optional.of(keys.get(name)),
+                        Optional.empty(),
+                        Optional.empty(),
+                        Optional.empty()));
+            }
+        }
     }};
 }

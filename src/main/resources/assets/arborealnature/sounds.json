@@ -58,5 +58,45 @@
   {
     "subtitle": "sounds.arborealnature.sound_orchid_mantis_death",
     "sounds": [ "arborealnature:sound_orchid_mantis_death" ]
+  },
+  "sound_moose_ambient":
+  {
+    "subtitle": "sounds.arborealnature.sound_moose_ambient",
+    "sounds": [ "arborealnature:sound_moose_ambient" ]
+  },
+  "sound_moose_hurt":
+  {
+    "subtitle": "sounds.arborealnature.sound_moose_hurt",
+    "sounds": [ "arborealnature:sound_moose_hurt" ]
+  },
+  "sound_moose_death":
+  {
+    "subtitle": "sounds.arborealnature.sound_moose_death",
+    "sounds": [ "arborealnature:sound_moose_death" ]
+  },
+  "sound_lynx_ambient":
+  {
+    "subtitle": "sounds.arborealnature.sound_lynx_ambient",
+    "sounds": [ "arborealnature:sound_lynx_ambient" ]
+  },
+  "sound_lynx_growl":
+  {
+    "subtitle": "sounds.arborealnature.sound_lynx_growl",
+    "sounds": [ "arborealnature:sound_lynx_growl" ]
+  },
+  "sound_lynx_whine":
+  {
+    "subtitle": "sounds.arborealnature.sound_lynx_whine",
+    "sounds": [ "arborealnature:sound_lynx_whine" ]
+  },
+  "sound_lynx_hurt":
+  {
+    "subtitle": "sounds.arborealnature.sound_lynx_hurt",
+    "sounds": [ "arborealnature:sound_lynx_hurt" ]
+  },
+  "sound_lynx_death":
+  {
+    "subtitle": "sounds.arborealnature.sound_lynx_death",
+    "sounds": [ "arborealnature:sound_lynx_death" ]
   }
 }

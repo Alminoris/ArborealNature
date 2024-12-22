@@ -141,7 +141,7 @@ public class OrchidMantisEntity extends AnimalEntity implements GeoEntity
     }
 
     @Override
-    public @Nullable PassiveEntity createChild(ServerWorld world, PassiveEntity entity)
+    public @Nullable OrchidMantisEntity createChild(ServerWorld world, PassiveEntity entity)
     {
         return ModEntities.ORCHID_MANTIS.create(world);
     }

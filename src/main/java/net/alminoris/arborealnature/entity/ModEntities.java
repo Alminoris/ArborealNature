@@ -1,10 +1,7 @@
 package net.alminoris.arborealnature.entity;
 
 import net.alminoris.arborealnature.ArborealNature;
-import net.alminoris.arborealnature.entity.custom.FigeaterBeetleEntity;
-import net.alminoris.arborealnature.entity.custom.OrchidMantisEntity;
-import net.alminoris.arborealnature.entity.custom.SquirrelEntity;
-import net.alminoris.arborealnature.entity.custom.WoodMouseEntity;
+import net.alminoris.arborealnature.entity.custom.*;
 import net.alminoris.arborealnature.entity.custom.projectile.SilentArrowEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
@@ -35,6 +32,16 @@ public class ModEntities
             Registries.ENTITY_TYPE, Identifier.of(ArborealNature.MOD_ID, "orchid_mantis"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, OrchidMantisEntity::new)
                     .dimensions(EntityDimensions.fixed(0.5f, 1.6f)).build());
+
+    public static final EntityType<MooseEntity> MOOSE = Registry.register(
+            Registries.ENTITY_TYPE, Identifier.of(ArborealNature.MOD_ID, "moose"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, MooseEntity::new)
+                    .dimensions(EntityDimensions.fixed(1.8f, 1.9f)).build());
+
+    public static final EntityType<LynxEntity> LYNX = Registry.register(
+            Registries.ENTITY_TYPE, Identifier.of(ArborealNature.MOD_ID, "lynx"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, LynxEntity::new)
+                    .dimensions(EntityDimensions.fixed(1.6f, 1.3f)).build());
 
     public static final EntityType<SilentArrowEntity> SILENT_ARROW = Registry.register(
             Registries.ENTITY_TYPE, Identifier.of(ArborealNature.MOD_ID, "silent_arrow"),

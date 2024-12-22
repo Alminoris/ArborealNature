@@ -111,7 +111,7 @@ public class SquirrelEntity extends AnimalEntity implements GeoEntity
     }
 
     @Override
-    public @Nullable PassiveEntity createChild(ServerWorld world, PassiveEntity entity)
+    public @Nullable SquirrelEntity createChild(ServerWorld world, PassiveEntity entity)
     {
         return ModEntities.SQUIRREL.create(world);
     }

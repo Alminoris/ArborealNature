@@ -23,8 +23,14 @@ public class ModItemGroups
 
     public static final String[] HAZELNUT_WOODS = {"hazelnut", "hornbeam", "hawthorn"};
 
-    public static final String[] CONIFER_WOODS = {"pine", "cedar", "fir", "larch", "sequoia",
-            "thuja", "araucaria", "juniper", "yew", "bald_cypress"};
+    public static final String[] CONIFER_WOODS = {"pine"};
+
+    public static final String[] CONIFER_BERRIES = {"blueberry"};
+
+    public static final String[] ORCHARD_BERRIES = {"bilberry", "blackberry", "pink_currant"};
+
+    //"cedar", "fir", "larch", "sequoia",
+    //            "thuja", "araucaria", "juniper", "yew", "bald_cypress"
 
     public static final ItemGroup HAZELNUT_EXPANSION_TAB = Registry.register(Registries.ITEM_GROUP,
             Identifier.of(ArborealNature.MOD_ID, "hazelnutexptab"),
@@ -176,7 +182,7 @@ public class ModItemGroups
                         entries.add(ModItems.VIBURNUM);
                         entries.add(ModItems.WILD_CHERRY);
                         entries.add(ModItems.WHITE_MULBERRY);
-                        for (String name : BUSHES_NAMES)
+                        for (String name : ORCHARD_BERRIES)
                         {
                             entries.add(BERRIES.get(name));
                         }
@@ -185,6 +191,65 @@ public class ModItemGroups
                         entries.add(ModItems.FIGEATER_BEETLE_SHELL);
                         entries.add(ModItems.FIGEATER_BEETLE_SPAWN_EGG);
                         entries.add(ModItems.ORCHID_MANTIS_SPAWN_EGG);
+                    }).build());
+
+    public static final ItemGroup CONIFEROUS_EXPANSION_TAB = Registry.register(Registries.ITEM_GROUP,
+            Identifier.of(ArborealNature.MOD_ID, "coniferousexptab"),
+            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.coniferousexptab"))
+                    .icon(() -> new ItemStack(Blocks.SPRUCE_SAPLING)).entries((displayContext, entries) ->
+                    {
+                        entries.add(ModBlocks.DIRTED_GRASS_BLOCK);
+                        entries.add(ModBlocks.XEROCHRYSUM);
+                        entries.add(ModBlocks.PINE_COVER);
+                        entries.add(ModBlocks.PINE_COVER_BLOCK);
+                        entries.add(ModItems.PINE_CONE);
+                        entries.add(ModBlocks.PINE_CONE_BLOCK);
+                        for (String name : CONIFER_WOODS)
+                        {
+                            entries.add(WOODEN_SAPLINGS.get(name));
+                        }
+                        for (String name : CONIFER_WOODS)
+                        {
+                            entries.add(LEAVES.get(name));
+                        }
+                        for (String name : CONIFER_WOODS)
+                        {
+                            entries.add(LOGS.get(name));
+                            entries.add(WOODS.get(name));
+                            entries.add(STRIPPED_LOGS.get(name));
+                            entries.add(STRIPPED_WOODS.get(name));
+                            entries.add(WOODEN_PLANKS.get(name));
+                            entries.add(WOODEN_SLABS.get(name));
+                            entries.add(WOODEN_STAIRS.get(name));
+                            entries.add(WOODEN_FENCES.get(name));
+                            entries.add(WOODEN_FENCE_GATES.get(name));
+                            entries.add(WOODEN_DOORS.get(name));
+                            entries.add(WOODEN_TRAPDOORS.get(name));
+                            entries.add(WOODEN_BUTTONS.get(name));
+                            entries.add(WOODEN_PRESSURE_PLATES.get(name));
+                            entries.add(WOODEN_SIGN_ITEMS.get(name));
+                            entries.add(WOODEN_HANGING_SIGN_ITEMS.get(name));
+                            entries.add(WOODEN_BOATS.get(name));
+                            entries.add(WOODEN_CHEST_BOATS.get(name));
+                        }
+                        for (String name : CONIFER_BERRIES)
+                        {
+                            entries.add(BERRIES.get(name));
+                        }
+                        entries.add(ModBlocks.PINE_RESIN);
+                        entries.add(ModBlocks.PINE_RESIN_BLOCK);
+                        entries.add(ModBlocks.PINE_RESIN_CHISELED);
+                        entries.add(ModBlocks.PINE_RESIN_BRICKS);
+                        entries.add(ModBlocks.PINE_RESIN_BRICKS_SLAB);
+                        entries.add(ModBlocks.PINE_RESIN_BRICKS_STAIRS);
+                        entries.add(ModItems.HUNTING_KNIFE);
+                        entries.add(ModItems.MOOSE_HORN);
+                        entries.add(ModBlocks.LYNX_HIDE);
+                        entries.add(ModItems.PINE_RESIN);
+                        entries.add(ModItems.MOOSE_VENISON);
+                        entries.add(ModItems.COOKED_MOOSE_VENISON);
+                        entries.add(ModItems.MOOSE_SPAWN_EGG);
+                        entries.add(ModItems.LYNX_SPAWN_EGG);
                     }).build());
 
     public static void registerItemGroups()
@@ -210,6 +275,13 @@ public class ModItemGroups
                     WOODEN_TRAPDOORS.get("hazelnut"),
                     WOODEN_PRESSURE_PLATES.get("hazelnut"),
                     WOODEN_BUTTONS.get("hazelnut"));
+
+            entries.addAfter(Blocks.WAXED_OXIDIZED_COPPER_BULB,
+                    ModBlocks.PINE_RESIN_BLOCK,
+                    ModBlocks.PINE_RESIN_CHISELED,
+                    ModBlocks.PINE_RESIN_BRICKS,
+                    ModBlocks.PINE_RESIN_BRICKS_SLAB,
+                    ModBlocks.PINE_RESIN_BRICKS_STAIRS);
 
             String previousName = "hazelnut";
 
@@ -245,7 +317,7 @@ public class ModItemGroups
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries ->
         {
             entries.addAfter(Blocks.GRASS_BLOCK,
-                    ModBlocks.ORCHID_GRASS_BLOCK);
+                    ModBlocks.ORCHID_GRASS_BLOCK, ModBlocks.DIRTED_GRASS_BLOCK);
 
             entries.addAfter(Blocks.CHERRY_LEAVES,
                     LEAVES.get("hazelnut"));
@@ -267,7 +339,8 @@ public class ModItemGroups
 
             entries.addAfter(Blocks.LILY_OF_THE_VALLEY,
                     ModBlocks.GERANIUM,
-                    ModBlocks.ORCHID);
+                    ModBlocks.ORCHID,
+                    ModBlocks.XEROCHRYSUM);
 
             entries.addAfter(Blocks.PEONY,
                     ModBlocks.LARGE_CELANDINE,
@@ -275,7 +348,8 @@ public class ModItemGroups
                     ModBlocks.LARGE_ORCHID);
 
             entries.addAfter(Blocks.VINE,
-                    ModBlocks.BAUHINIA_VINES);
+                    ModBlocks.BAUHINIA_VINES,
+                    ModBlocks.PINE_RESIN);
 
             entries.addAfter(Blocks.LILY_PAD,
                     ModBlocks.ORCHID_LILY_PAD);
@@ -283,10 +357,15 @@ public class ModItemGroups
             entries.addAfter(Blocks.MOSS_CARPET,
                     ModBlocks.HAZELNUT_COVER,
                     ModBlocks.BAUHINIA_COVER_BLOCK,
-                    ModBlocks.BAUHINIA_COVER);
+                    ModBlocks.BAUHINIA_COVER,
+                    ModBlocks.PINE_COVER_BLOCK,
+                    ModBlocks.PINE_COVER);
 
             entries.addAfter(Blocks.PINK_PETALS,
                     ModBlocks.WOOD_ANEMONA);
+
+            entries.addAfter(Blocks.HAY_BLOCK,
+                    ModBlocks.PINE_CONE_BLOCK);
 
             String previousName = "hazelnut";
 
@@ -360,7 +439,7 @@ public class ModItemGroups
                     ModItems.FIGEATER_BEETLE_CHESTPLATE);
 
             entries.addAfter(Items.MACE,
-                    ModItems.ORCHID_MANTIS_INCISOR);
+                    ModItems.ORCHID_MANTIS_INCISOR, ModItems.HUNTING_KNIFE);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries ->
@@ -374,10 +453,15 @@ public class ModItemGroups
                     ModItems.WHITE_MULBERRY,
                     ModItems.WILD_CHERRY);
 
+            entries.addAfter(Items.COOKED_RABBIT,
+                    ModItems.MOOSE_VENISON,
+                    ModItems.COOKED_MOOSE_VENISON);
+
             entries.addAfter(Items.GLOW_BERRIES,
                     BERRIES.get("bilberry"),
                     BERRIES.get("blackberry"),
                     BERRIES.get("pink_currant"),
+                    BERRIES.get("blueberry"),
                     ModItems.HAZELNUT_PEELED);
         });
 
@@ -385,12 +469,16 @@ public class ModItemGroups
         {
             entries.addAfter(Items.RABBIT_HIDE,
                     ModItems.SQUIRREL_HIDE,
-                    ModItems.WOOD_MOUSE_TAIL);
+                    ModItems.WOOD_MOUSE_TAIL,
+                    ModItems.MOOSE_HORN,
+                    ModBlocks.LYNX_HIDE);
 
             entries.addAfter(Items.EGG,
                     ModItems.HAZELNUT,
                     ModItems.HAZELNUT_CRACKED,
-                    ModItems.HAZELNUT_SPOILED);
+                    ModItems.HAZELNUT_SPOILED,
+                    ModItems.PINE_CONE,
+                    ModItems.PINE_RESIN);
 
             entries.addAfter(Items.TURTLE_SCUTE,
                     ModItems.FIGEATER_BEETLE_SHELL);
@@ -400,6 +488,12 @@ public class ModItemGroups
         {
             entries.addAfter(Items.WOLF_SPAWN_EGG,
                     ModItems.WOOD_MOUSE_SPAWN_EGG);
+
+            entries.addAfter(Items.LLAMA_SPAWN_EGG,
+                    ModItems.LYNX_SPAWN_EGG);
+
+            entries.addAfter(Items.MAGMA_CUBE_SPAWN_EGG,
+                    ModItems.MOOSE_SPAWN_EGG);
 
             entries.addAfter(Items.OCELOT_SPAWN_EGG,
                     ModItems.ORCHID_MANTIS_SPAWN_EGG);

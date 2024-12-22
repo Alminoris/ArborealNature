@@ -1,7 +1,6 @@
 package net.alminoris.arborealnature.world.gen.feature.custom;
 
 import com.mojang.serialization.Codec;
-import net.alminoris.arborealnature.ArborealNature;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.MushroomBlock;
 import net.minecraft.util.math.BlockPos;
@@ -29,7 +28,7 @@ public class HugeWhiteMushroomFeature extends HugeMushroomFeature
         height = Math.min(height, 9);
 
         // Loop through each height level of the stem
-        for (int y = 0; y < height; y++)
+        for (int y = -5; y < height; y++)
         {
             int currentRadius = Math.max(baseRadius - (y / 2), topRadius);  // Gradually reduce the radius as the height increases
 
@@ -61,7 +60,7 @@ public class HugeWhiteMushroomFeature extends HugeMushroomFeature
     {
         int baseRadius = config.foliageRadius; // Initial cap radius
 
-        y = Math.max(y, 6);
+        y = Math.max(y-1, 6);
 
         for (int currentHeight = 0; currentHeight <= 2; currentHeight++)
         {
@@ -95,53 +94,6 @@ public class HugeWhiteMushroomFeature extends HugeMushroomFeature
             }
         }
     }
-
-    /*@Override
-    protected void generateCap(WorldAccess world, Random random, BlockPos start, int y, BlockPos.Mutable mutable, HugeMushroomFeatureConfig config)
-    {
-        int totalLayers = 3;  // Number of layers for the cap
-        int baseRadius = config.foliageRadius;  // Base radius of the bottom layer
-
-        // Loop through the layers from bottom to top
-        for (int layer = 0; layer < totalLayers; layer++)
-        {
-            int radius = baseRadius + layer;  // Decrease the radius as we go up the layers
-
-            // Place blocks for the current layer
-            for (int j = -radius; j <= radius; j++)
-            {
-                for (int k = -radius; k <= radius; k++)
-                {
-                    // Skip corners to create a rounder shape
-                    if (j * j + k * k <= radius * radius)
-                    {
-                        mutable.set(start, j, y - layer, k);  // Adjust y for each layer
-
-                        // Only place cap blocks where there's space
-                        if (!world.getBlockState(mutable).isOpaqueFullCube(world, mutable))
-                        {
-                            BlockState capState = config.capProvider.get(random, start);
-
-                            // Ensure the blockstate updates properly for the mushroom's cap
-                            if (capState.contains(MushroomBlock.WEST)
-                                    && capState.contains(MushroomBlock.EAST)
-                                    && capState.contains(MushroomBlock.NORTH)
-                                    && capState.contains(MushroomBlock.SOUTH))
-                            {
-                                capState = capState.with(MushroomBlock.WEST, j == -radius)
-                                        .with(MushroomBlock.EAST, j == radius)
-                                        .with(MushroomBlock.NORTH, k == -radius)
-                                        .with(MushroomBlock.SOUTH, k == radius);
-                            }
-
-                            this.setBlockState(world, mutable, capState);
-                        }
-                    }
-                }
-            }
-        }
-    }*/
-
 
     @Override
     protected int getCapSize(int i, int j, int capSize, int y)

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/carpet",
+  "textures": {
+    "wool": "arborealnature:block/pine_cover_block"
+  }
+}

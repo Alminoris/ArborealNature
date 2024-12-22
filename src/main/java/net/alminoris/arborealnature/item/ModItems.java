@@ -28,6 +28,18 @@ public class ModItems
     public static final Item ORCHID_MANTIS_SPAWN_EGG = registerItem("orchid_mantis_spawn_egg", new SpawnEggItem(
             ModEntities.ORCHID_MANTIS, 0xffedff, 0Xff74ff, new Item.Settings()));
 
+    public static final Item MOOSE_SPAWN_EGG = registerItem("moose_spawn_egg", new SpawnEggItem(
+            ModEntities.MOOSE, 0x110b08, 0X734c30, new Item.Settings()));
+
+    public static final Item LYNX_SPAWN_EGG = registerItem("lynx_spawn_egg", new SpawnEggItem(
+            ModEntities.LYNX, 0x926e4d, 0X533c25, new Item.Settings()));
+
+    public static final Item PINE_CONE = registerItem("pine_cone", new Item(
+            new Item.Settings().maxCount(16)));
+
+    public static final Item PINE_RESIN = registerItem("pine_resin_item", new Item(
+            new Item.Settings().maxCount(16)));
+
     public static final Item HAZELNUT_CRACKED = registerItem("hazelnut_cracked", new Item(
             new Item.Settings().maxCount(16)));
 
@@ -45,6 +57,12 @@ public class ModItems
 
     public static final Item HAZELNUT_PEELED = registerItem("hazelnut_peeled",
             new Item(new Item.Settings().maxCount(16).food(ModFoodComponents.HAZELNUT)));
+
+    public static final Item MOOSE_VENISON = registerItem("moose_venison",
+            new Item(new Item.Settings().food(ModFoodComponents.MOOSE_VENISON)));
+
+    public static final Item COOKED_MOOSE_VENISON = registerItem("cooked_moose_venison",
+            new Item(new Item.Settings().food(ModFoodComponents.COOKED_MOOSE_VENISON)));
 
     public static final Item QUINCE = registerItem("quince",
             new Item(new Item.Settings().maxCount(16).food(ModFoodComponents.QUINCE)));
@@ -76,9 +94,17 @@ public class ModItems
     public static final Item FIGEATER_BEETLE_SHELL = registerItem("figeater_beetle_shell", new Item(
             new Item.Settings().maxCount(16)));
 
+    public static final Item MOOSE_HORN = registerItem("moose_horn", new Item(
+            new Item.Settings().maxCount(16)));
+
     public static final Item ORCHID_MANTIS_INCISOR = registerItem("orchid_mantis_incisor", new OrchidMantisIncisorItem(
             ToolMaterials.STONE, new Item.Settings()
             .attributeModifiers(OrchidMantisIncisorItem.createAttributeModifiers(ToolMaterials.STONE, 4, -1.7f))
+            .maxCount(1)));
+
+    public static final Item HUNTING_KNIFE = registerItem("hunting_knife", new ToolItem(
+            ToolMaterials.STONE, new Item.Settings()
+            .attributeModifiers(OrchidMantisIncisorItem.createAttributeModifiers(ToolMaterials.STONE, 1, -1f))
             .maxCount(1)));
 
     public static final Item FIGEATER_BEETLE_CHESTPLATE = registerItem("figeater_beetle_chestplate",

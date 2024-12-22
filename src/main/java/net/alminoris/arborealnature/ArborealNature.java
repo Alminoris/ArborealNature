@@ -3,10 +3,7 @@ package net.alminoris.arborealnature;
 import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.entity.ModBoats;
 import net.alminoris.arborealnature.entity.ModEntities;
-import net.alminoris.arborealnature.entity.custom.FigeaterBeetleEntity;
-import net.alminoris.arborealnature.entity.custom.OrchidMantisEntity;
-import net.alminoris.arborealnature.entity.custom.SquirrelEntity;
-import net.alminoris.arborealnature.entity.custom.WoodMouseEntity;
+import net.alminoris.arborealnature.entity.custom.*;
 import net.alminoris.arborealnature.item.ModItemGroups;
 import net.alminoris.arborealnature.item.ModItems;
 import net.alminoris.arborealnature.particle.ModParticles;
@@ -19,8 +16,9 @@ import net.alminoris.arborealnature.world.tree.ModFoliagePlacerTypes;
 import net.alminoris.arborealnature.world.tree.ModTrunkPlacerTypes;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
-import net.fabricmc.fabric.api.event.player.UseBlockCallback;
+import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
@@ -28,17 +26,21 @@ import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.color.block.BlockColors;
+import net.minecraft.client.color.world.BiomeColors;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.biome.FoliageColors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.spongepowered.asm.mixin.Mixins;
-import org.spongepowered.asm.mixin.transformer.Config;
 
-import java.util.Set;
+import java.util.Random;
 
 import static net.alminoris.arborealnature.util.helper.ModBlockSetsHelper.*;
 
@@ -62,6 +64,8 @@ public class ArborealNature implements ModInitializer
 
 		FuelRegistry.INSTANCE.add(ModItems.HAZELNUT_SPOILED, 150);
 
+		FuelRegistry.INSTANCE.add(ModItems.PINE_RESIN, 800);
+
 		for (String name : WOOD_NAMES)
 		{
 			StrippableBlockRegistry.register(LOGS.get(name), STRIPPED_LOGS.get(name));
@@ -79,7 +83,15 @@ public class ArborealNature implements ModInitializer
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.HAZELNUT_COVER, 30, 60);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BAUHINIA_COVER, 30, 60);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BAUHINIA_COVER_BLOCK, 30, 60);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PINE_COVER, 30, 60);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PINE_COVER_BLOCK, 30, 60);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BAUHINIA_VINES, 30, 60);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PINE_RESIN, 60, 30);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PINE_RESIN_BLOCK, 60, 30);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PINE_RESIN_BRICKS, 60, 30);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PINE_RESIN_CHISELED, 60, 30);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PINE_RESIN_BRICKS_SLAB, 60, 30);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PINE_RESIN_BRICKS_STAIRS, 60, 30);
 
 		AttackBlockCallback.EVENT.register((player, world, hand, pos, direction) ->
 		{
@@ -108,6 +120,22 @@ public class ArborealNature implements ModInitializer
 			return ActionResult.PASS;
 		});
 
+		AttackEntityCallback.EVENT.register((player, world, hand, entity, hitResult) ->
+		{
+			if (!world.isClient && entity instanceof LivingEntity target)
+			{
+				ItemStack heldItem = player.getStackInHand(hand);
+				Random random = new Random();
+
+				if (heldItem.isOf(ModItems.HUNTING_KNIFE))
+				{
+					if (entity.getType().isIn(ModTags.Entities.LEATHER_DROPPERS))
+						target.dropStack(new ItemStack(Items.LEATHER, random.nextInt(2, 4)));
+				}
+			}
+			return ActionResult.PASS;
+		});
+
 		ModBoats.registerBoats();
 
 		ModItemGroups.registerItemGroups();
@@ -122,6 +150,8 @@ public class ArborealNature implements ModInitializer
 		FabricDefaultAttributeRegistry.register(ModEntities.WOOD_MOUSE, WoodMouseEntity.setAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.FIGEATER_BEETLE, FigeaterBeetleEntity.setAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.ORCHID_MANTIS, OrchidMantisEntity.setAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.MOOSE, MooseEntity.setAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.LYNX, LynxEntity.setAttributes());
 
 		ModWorldGeneration.generateModWorldGen();
 	}

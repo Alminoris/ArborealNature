@@ -9,7 +9,8 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.Heightmap;
+import net.minecraft.util.math.intprovider.ClampedIntProvider;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placementmodifier.*;
 import org.jetbrains.annotations.Nullable;
@@ -44,9 +45,19 @@ public class ModPlacedFeatures
 
     public static final RegistryKey<PlacedFeature> BAUHINIA_PLACED_KEY = registerKey("bauhinia_placed");
 
+    public static final RegistryKey<PlacedFeature> PINE_PLACED_KEY = registerKey("pine_placed");
+
+    public static final RegistryKey<PlacedFeature> MEGA_PINE_PLACED_KEY = registerKey("mega_pine_placed");
+
+    public static final RegistryKey<PlacedFeature> PINE_FOREST_PLACED_KEY = registerKey("pine_forest_placed");
+
+    public static final RegistryKey<PlacedFeature> MEGA_PINE_FOREST_PLACED_KEY = registerKey("mega_pine_forest_placed");
+
     public static final RegistryKey<PlacedFeature> BILBERRY_PLACED_KEY = registerKey("bilberry_placed");
 
     public static final RegistryKey<PlacedFeature> BLACKBERRY_PLACED_KEY = registerKey("blackberry_placed");
+
+    public static final RegistryKey<PlacedFeature> BLUEBERRY_PLACED_KEY = registerKey("blueberry_placed");
 
     public static final RegistryKey<PlacedFeature> PINK_CURRANT_PLACED_KEY = registerKey("pink_currant_placed");
 
@@ -55,6 +66,8 @@ public class ModPlacedFeatures
     public static final RegistryKey<PlacedFeature> BLUEGRASS_PLACED_KEY = registerKey("bluegrass_placed");
 
     public static final RegistryKey<PlacedFeature> GERANIUM_PLACED_KEY = registerKey("geranium_placed");
+
+    public static final RegistryKey<PlacedFeature> XEROCHRYSUM_PLACED_KEY = registerKey("xerochrysum_placed");
 
     public static final RegistryKey<PlacedFeature> LARGE_ORCHID_PLACED_KEY = registerKey("large_orchid_placed");
 
@@ -70,7 +83,15 @@ public class ModPlacedFeatures
 
     public static final RegistryKey<PlacedFeature> WHITE_MUSHROOM_PLACED_KEY = registerKey("white_mushroom_placed");
 
+    public static final RegistryKey<PlacedFeature> WHITE_MUSHROOM_PINE_FOREST_PLACED_KEY = registerKey("white_mushroom_pine_forest_placed");
+
+    public static final RegistryKey<PlacedFeature> BROWN_MUSHROOM_PINE_FOREST_PLACED_KEY = registerKey("brown_mushroom_pine_forest_placed");
+
     public static final RegistryKey<PlacedFeature> HUGE_WHITE_MUSHROOM_PLACED_KEY = registerKey("huge_white_mushroom_placed");
+
+    public static final RegistryKey<PlacedFeature> PINE_FOREST_FLOWERS_PLACED_KEY = registerKey("pine_forest_flowers_placed");
+
+    public static final RegistryKey<PlacedFeature> PINE_FOREST_GRASS_PLACED_KEY = registerKey("pine_forest_grass_placed");
 
     public static void bootstrap(Registerable<PlacedFeature> context)
     {
@@ -128,6 +149,34 @@ public class ModPlacedFeatures
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(30, 0.1f, 40),
                         ModBlockSetsHelper.WOODEN_SAPLINGS.get("bauhinia")));
 
+        register(context, PINE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.PINE_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(15, 0.1f, 1),
+                        ModBlockSetsHelper.WOODEN_SAPLINGS.get("pine")));
+
+        register(context, MEGA_PINE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.MEGA_PINE_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(2, 0.1f, 2),
+                        ModBlockSetsHelper.WOODEN_SAPLINGS.get("pine")));
+
+        register(context, PINE_FOREST_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.PINE_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(40, 0.1f, 20),
+                        ModBlockSetsHelper.WOODEN_SAPLINGS.get("pine")));
+
+        register(context, MEGA_PINE_FOREST_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.MEGA_PINE_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(15, 0.1f, 5),
+                        ModBlockSetsHelper.WOODEN_SAPLINGS.get("pine")));
+
+        register(context, PINE_FOREST_FLOWERS_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.PINE_FOREST_FLOWERS_KEY),
+                List.of(RarityFilterPlacementModifier.of(5),
+                        SquarePlacementModifier.of(),
+                        PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
+                        CountPlacementModifier.of(ClampedIntProvider.create(UniformIntProvider.create(-3, 1), 0, 1)),
+                        BiomePlacementModifier.of()));
+
+        register(context, PINE_FOREST_GRASS_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.PINE_FOREST_GRASS_KEY),
+                List.of(SquarePlacementModifier.of(),
+                        PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP,
+                        BiomePlacementModifier.of()));
+
         register(context, LARGE_CELANDINE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.LARGE_CELANDINE_KEY),
                 List.of(RarityFilterPlacementModifier.of(5),
                         SquarePlacementModifier.of(),
@@ -142,6 +191,12 @@ public class ModPlacedFeatures
 
         register(context, GERANIUM_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.GERANIUM_KEY),
                 List.of(RarityFilterPlacementModifier.of(3),
+                        SquarePlacementModifier.of(),
+                        PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
+                        BiomePlacementModifier.of()));
+
+        register(context, XEROCHRYSUM_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.XEROCHRYSUM_KEY),
+                List.of(RarityFilterPlacementModifier.of(5),
                         SquarePlacementModifier.of(),
                         PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
                         BiomePlacementModifier.of()));
@@ -188,6 +243,12 @@ public class ModPlacedFeatures
                         PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP,
                         BiomePlacementModifier.of()));
 
+        register(context, BLUEBERRY_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.BLUEBERRY_KEY),
+                List.of(RarityFilterPlacementModifier.of(48),
+                        SquarePlacementModifier.of(),
+                        PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP,
+                        BiomePlacementModifier.of()));
+
         register(context, PINK_CURRANT_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.PINK_CURRANT_KEY),
                 List.of(RarityFilterPlacementModifier.of(32),
                         SquarePlacementModifier.of(),
@@ -197,8 +258,18 @@ public class ModPlacedFeatures
         register(context, WHITE_MUSHROOM_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.WHITE_MUSHROOM_KEY),
                 mushroomModifiers(128, CountPlacementModifier.of(3)));
 
+        register(context, WHITE_MUSHROOM_PINE_FOREST_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.WHITE_MUSHROOM_KEY),
+                mushroomModifiers(64, CountPlacementModifier.of(2)));
+
+        register(context, BROWN_MUSHROOM_PINE_FOREST_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(VegetationConfiguredFeatures.PATCH_BROWN_MUSHROOM),
+                mushroomModifiers(64, CountPlacementModifier.of(2)));
+
         register(context, HUGE_WHITE_MUSHROOM_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.HUGE_WHITE_MUSHROOM_KEY),
-                List.of(SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()));
+                List.of(
+                        SquarePlacementModifier.of(),
+                        PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
+                        BiomePlacementModifier.of()
+                ));
 
         register(context, ORCHID_LILY_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ORCHID_LILY_KEY),
                 List.of(CountPlacementModifier.of(4), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.of()));

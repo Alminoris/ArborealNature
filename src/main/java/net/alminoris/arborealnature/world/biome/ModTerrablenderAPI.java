@@ -13,7 +13,9 @@ public class ModTerrablenderAPI implements TerraBlenderApi
     @Override
     public void onTerraBlenderInitialized()
     {
-        Regions.register(new ModOverworldRegion(Identifier.of(ArborealNature.MOD_ID, "overworld"), 4));
+        Regions.register(new ForestRegion(Identifier.of(ArborealNature.MOD_ID, "forest_region"), 5));
+        Regions.register(new PineRegion(Identifier.of(ArborealNature.MOD_ID, "pine_region"), 3));
+        Regions.register(new DesertRegion(Identifier.of(ArborealNature.MOD_ID, "desert_region"), 1));
 
         SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, ArborealNature.MOD_ID, ModMaterialRules.makeRules());
     }

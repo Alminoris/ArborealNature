@@ -6,6 +6,7 @@ import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.block.custom.BerryBushBlock;
 import net.alminoris.arborealnature.util.helper.ModBlockSetsHelper;
 import net.alminoris.arborealnature.world.gen.decorator.custom.CustomAlterGroundTreeDecorator;
+import net.alminoris.arborealnature.world.gen.decorator.custom.CustomVineLogDecorator;
 import net.alminoris.arborealnature.world.gen.decorator.custom.LeafCarpetDecorator;
 import net.alminoris.arborealnature.world.gen.decorator.custom.CustomVineDecorator;
 import net.alminoris.arborealnature.world.gen.feature.ModFeatures;
@@ -14,6 +15,7 @@ import net.minecraft.block.*;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.entry.RegistryEntryList;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.Direction;
@@ -21,16 +23,12 @@ import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
-import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
-import net.minecraft.world.gen.foliage.CherryFoliagePlacer;
-import net.minecraft.world.gen.foliage.LargeOakFoliagePlacer;
+import net.minecraft.world.gen.foliage.*;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
+import net.minecraft.world.gen.treedecorator.AlterGroundTreeDecorator;
 import net.minecraft.world.gen.treedecorator.LeavesVineTreeDecorator;
-import net.minecraft.world.gen.trunk.CherryTrunkPlacer;
-import net.minecraft.world.gen.trunk.ForkingTrunkPlacer;
-import net.minecraft.world.gen.trunk.LargeOakTrunkPlacer;
-import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
+import net.minecraft.world.gen.trunk.*;
 
 import java.util.List;
 
@@ -60,9 +58,15 @@ public class ModConfiguredFeatures
 
     public static RegistryKey<ConfiguredFeature<?, ?>> BAUHINIA_KEY = registerKey("bauhinia");
 
+    public static RegistryKey<ConfiguredFeature<?, ?>> PINE_KEY = registerKey("pine");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> MEGA_PINE_KEY = registerKey("mega_pine");
+
     public static RegistryKey<ConfiguredFeature<?, ?>> BILBERRY_KEY = registerKey("bilberry");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> BLACKBERRY_KEY = registerKey("blackberry");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> BLUEBERRY_KEY = registerKey("blueberry");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> PINK_CURRANT_KEY = registerKey("pink_currant");
 
@@ -71,6 +75,8 @@ public class ModConfiguredFeatures
     public static RegistryKey<ConfiguredFeature<?, ?>> BLUEGRASS_KEY = registerKey("bluegrass");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> GERANIUM_KEY = registerKey("geranium");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> XEROCHRYSUM_KEY = registerKey("xerochrysum");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> LARGE_ORCHID_KEY = registerKey("large_orchid");
 
@@ -83,6 +89,10 @@ public class ModConfiguredFeatures
     public static RegistryKey<ConfiguredFeature<?, ?>> WHITE_MUSHROOM_KEY = registerKey("white_mushroom");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> HUGE_WHITE_MUSHROOM_KEY = registerKey("huge_white_mushroom");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> PINE_FOREST_FLOWERS_KEY = registerKey("pine_forest_flowers");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> PINE_FOREST_GRASS_KEY = registerKey("pine_forest_grass");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context)
     {
@@ -217,9 +227,55 @@ public class ModConfiguredFeatures
         ).decorators(ImmutableList.of(
                 new CustomVineDecorator(0.05f, ModBlocks.BAUHINIA_VINES),
                 new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.BAUHINIA_COVER)),
-                new CustomAlterGroundTreeDecorator(BlockStateProvider.of(Blocks.WATER)),
-                new CustomAlterGroundTreeDecorator(BlockStateProvider.of(ModBlocks.ORCHID_GRASS_BLOCK)))).build());
+                new CustomAlterGroundTreeDecorator(0.05f, BlockStateProvider.of(Blocks.WATER)),
+                new CustomAlterGroundTreeDecorator(0.05f, BlockStateProvider.of(ModBlocks.ORCHID_GRASS_BLOCK)))).build());
 
+        register(context, PINE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("pine")),
+                new StraightTrunkPlacer(6, 4, 0),
+                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("pine")),
+                new PineFoliagePlacer(ConstantIntProvider.create(1), ConstantIntProvider.create(1), UniformIntProvider.create(3, 4)),
+                new TwoLayersFeatureSize(2, 0, 2)
+        ).decorators(ImmutableList.of(
+                new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.PINE_COVER)),
+                new CustomVineLogDecorator(0.5f, ModBlocks.PINE_RESIN),
+                new CustomAlterGroundTreeDecorator(0.15f, BlockStateProvider.of(ModBlocks.DIRTED_GRASS_BLOCK)))).build());
+
+        register(context, MEGA_PINE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("pine")),
+                new GiantTrunkPlacer(13, 2, 14),
+                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("pine")),
+                new MegaPineFoliagePlacer(ConstantIntProvider.create(0), ConstantIntProvider.create(0), UniformIntProvider.create(3, 7)),
+                new TwoLayersFeatureSize(1, 1, 2)
+        ).decorators(ImmutableList.of(
+                new CustomVineLogDecorator(0.5f, ModBlocks.PINE_RESIN),
+                new AlterGroundTreeDecorator(BlockStateProvider.of(Blocks.PODZOL)))).build());
+
+        register(context, PINE_FOREST_FLOWERS_KEY, Feature.SIMPLE_RANDOM_SELECTOR,
+                new SimpleRandomFeatureConfig(
+                        RegistryEntryList.of(
+                                PlacedFeatures.createEntry(
+                                        Feature.RANDOM_PATCH,
+                                        ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(Blocks.CORNFLOWER)))
+                                ),
+                                PlacedFeatures.createEntry(
+                                        Feature.RANDOM_PATCH,
+                                        ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(Blocks.OXEYE_DAISY)))
+                                ),
+                                PlacedFeatures.createEntry(
+                                        Feature.NO_BONEMEAL_FLOWER,
+                                        ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(Blocks.LILY_OF_THE_VALLEY)))
+                                )
+                        )
+                ));
+
+        register(context, PINE_FOREST_GRASS_KEY, Feature.RANDOM_PATCH,
+                createRandomPatchFeatureConfig(
+                        new WeightedBlockStateProvider(DataPool.<BlockState>builder().
+                                add(Blocks.SHORT_GRASS.getDefaultState(), 55).
+                                add(Blocks.FERN.getDefaultState(), 15).
+                                add(Blocks.TALL_GRASS.getDefaultState(), 30)), 128
+                ));
 
         register(context, WHITE_MUSHROOM_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
@@ -236,6 +292,10 @@ public class ModConfiguredFeatures
         register(context, GERANIUM_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
                         new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.GERANIUM))));
+
+        register(context, XEROCHRYSUM_KEY, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.XEROCHRYSUM))));
 
         register(context, LARGE_ORCHID_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
@@ -270,6 +330,13 @@ public class ModConfiguredFeatures
                 )
         );
 
+        register(context, BLUEBERRY_KEY, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(BUSHES.get("blueberry").getDefaultState().with(BerryBushBlock.AGE, Integer.valueOf(3)))),
+                        List.of(Blocks.GRASS_BLOCK)
+                )
+        );
+
         register(context, PINK_CURRANT_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
                         new SimpleBlockFeatureConfig(BlockStateProvider.of(BUSHES.get("pink_currant").getDefaultState().with(BerryBushBlock.AGE, Integer.valueOf(3)))),
@@ -296,6 +363,11 @@ public class ModConfiguredFeatures
                 )
         );
 
+    }
+
+    private static RandomPatchFeatureConfig createRandomPatchFeatureConfig(BlockStateProvider block, int tries)
+    {
+        return ConfiguredFeatures.createRandomPatchFeatureConfig(tries, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(block)));
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name)

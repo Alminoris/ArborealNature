@@ -17,9 +17,7 @@
   },
   "features": [
     [],
-    [
-      "minecraft:spring_water"
-    ],
+    [],
     [
       "minecraft:amethyst_geode"
     ],
@@ -58,7 +56,9 @@
       "minecraft:underwater_magma"
     ],
     [],
-    [],
+    [
+      "minecraft:spring_water"
+    ],
     [
       "minecraft:glow_lichen",
       "arborealnature:large_hazelnut_placed",

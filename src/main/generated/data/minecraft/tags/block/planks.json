@@ -22,6 +22,8 @@
     "arborealnature:white_mulberry_chiseled",
     "arborealnature:bauhinia_planks",
     "arborealnature:bauhinia_chiseled",
+    "arborealnature:pine_planks",
+    "arborealnature:pine_chiseled",
     "arborealnature:oak_chiseled",
     "arborealnature:birch_chiseled",
     "arborealnature:spruce_chiseled",
@@ -31,6 +33,7 @@
     "arborealnature:crimson_chiseled",
     "arborealnature:warped_chiseled",
     "arborealnature:mangrove_chiseled",
-    "arborealnature:cherry_chiseled"
+    "arborealnature:cherry_chiseled",
+    "arborealnature:pine_resin_bricks"
   ]
 }

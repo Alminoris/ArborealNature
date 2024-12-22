@@ -18,6 +18,7 @@ public class ArborealNatureDataGenerator implements DataGeneratorEntrypoint
 
 		pack.addProvider(ModBlockTagProvider::new);
 		pack.addProvider(ModItemTagProvider::new);
+		pack.addProvider(ModEntityTypeTagProvider::new);
 		pack.addProvider(ModLootTableProvider::new);
 		pack.addProvider(ModBiomeTagProvider::new);
 		pack.addProvider(ModRecipeProvider::new);

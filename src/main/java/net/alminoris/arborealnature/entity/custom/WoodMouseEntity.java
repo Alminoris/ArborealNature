@@ -103,7 +103,7 @@ public class WoodMouseEntity extends AnimalEntity implements GeoEntity
     }
 
     @Override
-    public @Nullable PassiveEntity createChild(ServerWorld world, PassiveEntity entity)
+    public @Nullable WoodMouseEntity createChild(ServerWorld world, PassiveEntity entity)
     {
         return ModEntities.WOOD_MOUSE.create(world);
     }
