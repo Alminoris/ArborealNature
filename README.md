@@ -4,7 +4,7 @@ Arboreal Nature adds many beautiful, interesting and useful vanilla-like trees t
 
 Arboreal Nature Mod consists of expansions. Every expansion is a bunch of 10 updates for this mod. The main features of every expansion you can see below.
 
-![image](https://github.com/user-attachments/assets/f6d43e19-026f-47af-bf3a-bcc1fc0516f0) ![image](https://github.com/user-attachments/assets/8a3cc8ae-c2df-4762-9365-c5f112c66b39)
+![зображення_2024-12-10_202722233 (1)](https://github.com/user-attachments/assets/9b2ece10-2a4f-4472-9f9d-738d80682616) ![image](https://github.com/user-attachments/assets/8a3cc8ae-c2df-4762-9365-c5f112c66b39)
 
 Future Plans
 - Adding new biomes with flora and fauna to match the new trees
