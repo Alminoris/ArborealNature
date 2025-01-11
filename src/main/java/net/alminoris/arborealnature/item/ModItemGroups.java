@@ -4,6 +4,7 @@ import net.alminoris.arborealnature.ArborealNature;
 import net.alminoris.arborealnature.block.ModBlocks;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
@@ -110,6 +111,15 @@ public class ModItemGroups
                             entries.add(WOODEN_CHISELED_SLABS.get(name));
                             entries.add(WOODEN_CHISELED_STAIRS.get(name));
                         }
+                        if (FabricLoader.getInstance().isModLoaded("wildfields"))
+                        {
+                            for(String name : WF_WOOD_NAMES)
+                            {
+                                entries.add(WOODEN_CHISELED.get(name));
+                                entries.add(WOODEN_CHISELED_SLABS.get(name));
+                                entries.add(WOODEN_CHISELED_STAIRS.get(name));
+                            }
+                        }
                         entries.add(ModItems.HAZELNUT_PEELED);
                         entries.add(ModItems.HAZELNUT);
                         entries.add(ModItems.HAZELNUT_CRACKED);
@@ -174,6 +184,14 @@ public class ModItemGroups
                         {
                             entries.add(BURNT_LOGS.get(name));
                             entries.add(BURNT_WOODS.get(name));
+                        }
+                        if (FabricLoader.getInstance().isModLoaded("wildfields"))
+                        {
+                            for(String name : WF_WOOD_NAMES)
+                            {
+                                entries.add(BURNT_LOGS.get(name));
+                                entries.add(BURNT_WOODS.get(name));
+                            }
                         }
                         entries.add(ModItems.QUINCE);
                         entries.add(ModItems.PLUM);

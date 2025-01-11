@@ -62,7 +62,7 @@ public class SquirrelEntity extends AnimalEntity implements GeoEntity
         return AnimalEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 8.0D)
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED, 4.0D)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.7D)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.5D)
                 .add(EntityAttributes.GENERIC_ARMOR, 0.5f)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 2);
     }

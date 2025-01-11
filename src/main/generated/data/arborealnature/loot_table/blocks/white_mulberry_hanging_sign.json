@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "arborealnature:white_mulberry_hanging_sign"
+          "name": "arborealnature:white_mulberry_hanging_sign_item"
         }
       ],
       "rolls": 1.0

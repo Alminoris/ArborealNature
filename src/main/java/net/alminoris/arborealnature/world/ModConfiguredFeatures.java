@@ -60,6 +60,10 @@ public class ModConfiguredFeatures
 
     public static RegistryKey<ConfiguredFeature<?, ?>> PINE_KEY = registerKey("pine");
 
+    public static RegistryKey<ConfiguredFeature<?, ?>> FIR_KEY = registerKey("fir");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> CEDAR_KEY = registerKey("cedar");
+
     public static RegistryKey<ConfiguredFeature<?, ?>> MEGA_PINE_KEY = registerKey("mega_pine");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> BILBERRY_KEY = registerKey("bilberry");
@@ -105,7 +109,7 @@ public class ModConfiguredFeatures
                         0.25F, 0.5F, 0.16666667F, 0.33333334F),
 
                 new TwoLayersFeatureSize(2, 2, 0)).decorators(ImmutableList.of(
-                        new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.HAZELNUT_COVER)))).ignoreVines().build());
+                        new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.HAZELNUT_COVER), 2))).ignoreVines().build());
 
         register(context, HORNBEAM_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("hornbeam")),
@@ -183,9 +187,9 @@ public class ModConfiguredFeatures
                 new ForkingTrunkPlacer(2, 2, 2),
                 BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("fig")),
                 new BlobFoliagePlacer(
-                        ConstantIntProvider.create(2),  // Canopy radius
-                        ConstantIntProvider.create(2),  // Increased height offset
-                        3  // Canopy height
+                        ConstantIntProvider.create(2),
+                        ConstantIntProvider.create(2),
+                        3
                 ),
                 new TwoLayersFeatureSize(1, 0, 1)
         ).ignoreVines().build());
@@ -226,7 +230,7 @@ public class ModConfiguredFeatures
                 new TwoLayersFeatureSize(1, 0, 2)
         ).decorators(ImmutableList.of(
                 new CustomVineDecorator(0.05f, ModBlocks.BAUHINIA_VINES),
-                new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.BAUHINIA_COVER)),
+                new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.BAUHINIA_COVER), 2),
                 new CustomAlterGroundTreeDecorator(0.05f, BlockStateProvider.of(Blocks.WATER)),
                 new CustomAlterGroundTreeDecorator(0.05f, BlockStateProvider.of(ModBlocks.ORCHID_GRASS_BLOCK)))).build());
 
@@ -237,9 +241,31 @@ public class ModConfiguredFeatures
                 new PineFoliagePlacer(ConstantIntProvider.create(1), ConstantIntProvider.create(1), UniformIntProvider.create(3, 4)),
                 new TwoLayersFeatureSize(2, 0, 2)
         ).decorators(ImmutableList.of(
-                new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.PINE_COVER)),
+                new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.PINE_COVER), 2),
                 new CustomVineLogDecorator(0.5f, ModBlocks.PINE_RESIN),
                 new CustomAlterGroundTreeDecorator(0.15f, BlockStateProvider.of(ModBlocks.DIRTED_GRASS_BLOCK)))).build());
+
+        /*register(context, FIR_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("fir")),
+                new FirTrunkPlacer(6),
+                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("fir")),
+                new FirFoliagePlacer(
+                        ConstantIntProvider.create(1),
+                        ConstantIntProvider.create(0),
+                        ConstantIntProvider.create(6)
+                ),
+                new TwoLayersFeatureSize(1, 0, 1))
+                .decorators(ImmutableList.of(new LeafCarpetDecorator(BlockStateProvider.of(Blocks.SNOW), 5))).build());
+
+        register(context, CEDAR_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("cedar")),
+                new CedarGiantTrunkPlacer(13, 3, 4),
+                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("cedar")),
+                new CedarGiantFoliagePlacer(ConstantIntProvider.create(0), ConstantIntProvider.create(0)),
+                new TwoLayersFeatureSize(2, 1, 2)
+        ).decorators(ImmutableList.of(
+                new AlterGroundTreeDecorator(BlockStateProvider.of(Blocks.PODZOL)),
+                new LeafCarpetDecorator(BlockStateProvider.of(Blocks.SNOW), 5))).build());*/
 
         register(context, MEGA_PINE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("pine")),

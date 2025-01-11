@@ -21,6 +21,10 @@ public class ModTags
 
         public static final TagKey<Block> LOGS_TO_BE_BURNT = createTag("logs_to_be_burnt");
 
+        public static final TagKey<Block> INTEGRATION_CHISELABLE_BLOCKS = createTag("integration_chiselable_blocks");
+
+        public static final TagKey<Block> INTEGRATION_LOGS_TO_BE_BURNT = createTag("integration_logs_to_be_burnt");
+
         private static TagKey<Block> createTag(String name)
         {
             return TagKey.of(RegistryKeys.BLOCK, Identifier.of(ArborealNature.MOD_ID, name));

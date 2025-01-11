@@ -2,7 +2,6 @@ package net.alminoris.arborealnature;
 
 import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import net.alminoris.arborealnature.block.ModBlocks;
-import net.alminoris.arborealnature.block.ModSigns;
 import net.alminoris.arborealnature.entity.ModBoats;
 import net.alminoris.arborealnature.entity.ModEntities;
 import net.alminoris.arborealnature.entity.client.*;
@@ -12,18 +11,19 @@ import net.alminoris.arborealnature.particle.ModParticles;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.world.biome.GrassColors;
 
 import static net.alminoris.arborealnature.util.helper.ModBlockSetsHelper.*;
 
 public class ArborealNatureClient implements ClientModInitializer
 {
-
     @Override
     public void onInitializeClient()
     {
-        ModSigns.registerModSigns();
 
         for (String name : WOOD_NAMES)
         {
@@ -62,6 +62,18 @@ public class ArborealNatureClient implements ClientModInitializer
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINE_RESIN_BRICKS_STAIRS, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINE_RESIN_BRICKS_SLAB, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINE_RESIN_CHISELED, RenderLayer.getTranslucent());
+
+        /*ColorProviderRegistry.BLOCK.register(
+                (state, world, pos, tintIndex) -> world != null && pos != null
+                        ? BiomeColors.getGrassColor(world, pos)
+                        : 0xa2c09b,
+                LEAVES.get("fir")
+        );
+
+        ColorProviderRegistry.ITEM.register(
+                (stack, tintIndex) -> 0xa2c09b,
+                LEAVES.get("fir").asItem()
+        );*/
 
         ParticleFactoryRegistry.getInstance().register(ModParticles.BAUHINIA_LEAVES,
                 spriteProvider -> (parameters, world, x, y, z, velocityX, velocityY, velocityZ) ->

@@ -26,6 +26,8 @@ public class ModBiomeTagProvider extends FabricTagProvider<Biome>
         this.getOrCreateTagBuilder(BiomeTags.IS_OVERWORLD).add(ModBiomes.MULBERRY_GROVE).setReplace(false);
         this.getOrCreateTagBuilder(BiomeTags.IS_TAIGA).add(ModBiomes.PINE_FOREST).setReplace(false);
         this.getOrCreateTagBuilder(BiomeTags.IS_OVERWORLD).add(ModBiomes.PINE_FOREST).setReplace(false);
+        //this.getOrCreateTagBuilder(BiomeTags.IS_FOREST).add(ModBiomes.FIR_FOREST).setReplace(false);
+        //this.getOrCreateTagBuilder(BiomeTags.IS_OVERWORLD).add(ModBiomes.FIR_FOREST).setReplace(false);
         this.getOrCreateTagBuilder(BiomeTags.IS_FOREST).add(ModBiomes.ORCHID_OASIS).setReplace(false);
         this.getOrCreateTagBuilder(BiomeTags.IS_OVERWORLD).add(ModBiomes.ORCHID_OASIS).setReplace(false);
     }

@@ -1,4 +1,4 @@
-// 1.21.1	2024-12-21T21:22:09.7056855	Arboreal Nature/Tags for minecraft:block
+// 1.21.1	2025-01-11T13:33:45.7138791	Arboreal Nature/Tags for minecraft:block
 1218408b40c98e75c765f57663360dda39b4a786 data\minecraft\tags\block\logs_that_burn.json
 1ebb84ddc567f811e6736c87adf01a5141e12d08 data\arborealnature\tags\block\moose_spawnable_on.json
 c52a79d24d4f4eaf354cad186b3082a4e80d1f9d data\minecraft\tags\block\wooden_pressure_plates.json
@@ -17,11 +17,11 @@ f22365221101f4651036b17f79cf7c02249acc5e data\minecraft\tags\block\wall_signs.js
 863413ef843829e82440740e9817e0a564244eb0 data\minecraft\tags\block\saplings.json
 52a2f43f5528fcf21d38f8852e98e7ccc0750587 data\minecraft\tags\block\flowers.json
 fc5f520f8f4629183ae98a12e29304546f30f585 data\arborealnature\tags\block\logs_to_be_burnt.json
-f70939cc5d4defe4afd2d6efd38a45850a7c283b data\minecraft\tags\block\planks.json
+2f387861a45678333b4f6b430ac20cf70e510902 data\minecraft\tags\block\planks.json
 3bb5d5fc2996fa1f553595cc3683b2d7bbfedb88 data\minecraft\tags\block\sword_efficient.json
 c26957397bb87631a1433809b21135156d8e4173 data\minecraft\tags\block\flower_pots.json
 f1a45f6e7937660f0dd29e02d6fc5e505caa803d data\minecraft\tags\block\tall_flowers.json
-27c9b163e782fc20454844810dba8817a127a831 data\minecraft\tags\block\wooden_fences.json
 a436f88e91a6bbf358712029f7ed9eab1c25bee0 data\minecraft\tags\block\wooden_trapdoors.json
+27c9b163e782fc20454844810dba8817a127a831 data\minecraft\tags\block\wooden_fences.json
 9bdb4012cd4dea39b47274ceeb08a7c0feb2f388 data\minecraft\tags\block\standing_signs.json
 4ae8cf338e03c5c608af76a049fb1248ed219386 data\minecraft\tags\block\wooden_slabs.json

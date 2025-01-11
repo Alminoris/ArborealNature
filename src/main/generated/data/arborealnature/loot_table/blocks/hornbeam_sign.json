@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "arborealnature:hornbeam_sign"
+          "name": "arborealnature:hornbeam_sign_item"
         }
       ],
       "rolls": 1.0

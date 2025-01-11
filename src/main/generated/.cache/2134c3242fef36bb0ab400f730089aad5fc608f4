@@ -1,8 +1,8 @@
-// 1.21.1	2024-12-21T21:22:09.6747703	Arboreal Nature/Tags for minecraft:item
+// 1.21.1	2025-01-11T13:33:45.6500463	Arboreal Nature/Tags for minecraft:item
 7a8aca13717dee5819fda50856760c417e49bfe2 data\minecraft\tags\item\meat.json
 ded5ed3195e1e2c0c369d6b4f45ac49f87401956 data\minecraft\tags\item\arrows.json
 321590fe98328a7bf13c32497b8b600068408d29 data\arborealnature\tags\item\squirrel_food.json
-e030b6c8f0e3f03561e2395cd9d58445a68d4a9a data\arborealnature\tags\item\moose_food.json
-9bdb4012cd4dea39b47274ceeb08a7c0feb2f388 data\minecraft\tags\item\signs.json
-6da983b7cef14ed615c9f457521a89c846b752ed data\minecraft\tags\item\hanging_signs.json
+11c70b365d998248e9a0c74e3ea54909a93f3392 data\arborealnature\tags\item\moose_food.json
+8aa589f95ffb4f9d73f8cf7af3fe364cae9b1db1 data\minecraft\tags\item\signs.json
+9c261ad409677addbc7f99110b47f8bdf217c10c data\minecraft\tags\item\hanging_signs.json
 2f3c061e9b32622b74b144903411efa22f0c5a77 data\minecraft\tags\item\trimmable_armor.json

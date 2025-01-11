@@ -36,5 +36,11 @@ public class ModBiomeModifications
 
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.OLD_GROWTH_PINE_TAIGA),
                 GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.MEGA_PINE_PLACED_KEY);
+
+        /*BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.SNOWY_TAIGA),
+                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.FIR_PLACED_KEY);
+
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.SNOWY_PLAINS),
+                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.CEDAR_PLACED_KEY);*/
     }
 }

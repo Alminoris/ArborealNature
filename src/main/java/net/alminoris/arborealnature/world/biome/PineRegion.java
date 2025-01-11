@@ -23,8 +23,6 @@ public class PineRegion extends Region
     @Override
     public void addBiomes(Registry<Biome> biomeRegistry, Consumer<com.mojang.datafixers.util.Pair<MultiNoiseUtil.NoiseHypercube, RegistryKey<Biome>>> mapper)
     {
-        ParameterUtils.ParameterPointListBuilder builder = new ParameterUtils.ParameterPointListBuilder();
-
         this.addModifiedVanillaOverworldBiomes(mapper, modifiedVanillaOverworldBuilder ->
         {
             modifiedVanillaOverworldBuilder.replaceBiome(BiomeKeys.TAIGA, ModBiomes.PINE_FOREST);

@@ -9,7 +9,8 @@
           "state": {
             "Name": "arborealnature:pine_cover"
           }
-        }
+        },
+        "radius": 2
       },
       {
         "type": "minecraft:custom_vine_log_decorator",

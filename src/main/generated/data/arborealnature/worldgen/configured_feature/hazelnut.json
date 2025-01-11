@@ -9,7 +9,8 @@
           "state": {
             "Name": "arborealnature:hazelnut_cover_block"
           }
-        }
+        },
+        "radius": 2
       }
     ],
     "dirt_provider": {

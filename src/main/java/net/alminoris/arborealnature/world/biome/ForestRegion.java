@@ -19,7 +19,8 @@ public class ForestRegion extends Region
     }
 
     @Override
-    public void addBiomes(Registry<Biome> biomeRegistry, Consumer<com.mojang.datafixers.util.Pair<MultiNoiseUtil.NoiseHypercube, RegistryKey<Biome>>> mapper) {
+    public void addBiomes(Registry<Biome> biomeRegistry, Consumer<com.mojang.datafixers.util.Pair<MultiNoiseUtil.NoiseHypercube, RegistryKey<Biome>>> mapper)
+    {
         this.addModifiedVanillaOverworldBiomes(mapper, modifiedVanillaOverworldBuilder ->
         {
             modifiedVanillaOverworldBuilder.replaceBiome(BiomeKeys.FOREST, ModBiomes.HAZELNUT_FOREST);

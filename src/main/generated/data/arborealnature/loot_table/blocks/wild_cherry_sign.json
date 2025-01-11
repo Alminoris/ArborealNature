@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "arborealnature:wild_cherry_sign"
+          "name": "arborealnature:wild_cherry_sign_item"
         }
       ],
       "rolls": 1.0

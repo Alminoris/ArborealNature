@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "arborealnature:mango_sign"
+          "name": "arborealnature:mango_sign_item"
         }
       ],
       "rolls": 1.0

@@ -55,7 +55,7 @@ public class ChiselTool extends ToolItem
 
     private Block getNewBlock(Block currentBlock)
     {
-        if (currentBlock.getRegistryEntry().isIn(ModTags.Blocks.CHISELABLE_BLOCKS))
+        if (currentBlock.getRegistryEntry().isIn(ModTags.Blocks.CHISELABLE_BLOCKS) || currentBlock.getRegistryEntry().isIn(ModTags.Blocks.INTEGRATION_CHISELABLE_BLOCKS))
         {
             String isThisBlock = currentBlock.getName().toString().split("_")[1];
             switch (isThisBlock)
@@ -84,6 +84,8 @@ public class ChiselTool extends ToolItem
                     return Blocks.BAMBOO_MOSAIC;
                 default:
                     for(String name : ModBlockSetsHelper.WOOD_NAMES)
+                        if (isThisBlock.equals(name)) return ModBlockSetsHelper.WOODEN_CHISELED.get(name);
+                    for(String name : ModBlockSetsHelper.WF_WOOD_NAMES)
                         if (isThisBlock.equals(name)) return ModBlockSetsHelper.WOODEN_CHISELED.get(name);
             }
         }

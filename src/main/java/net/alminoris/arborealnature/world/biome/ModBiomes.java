@@ -33,6 +33,9 @@ public class ModBiomes
     public static final RegistryKey<Biome> PINE_FOREST = RegistryKey.of(RegistryKeys.BIOME,
             Identifier.of(ArborealNature.MOD_ID, "pine_forest_biome"));
 
+    public static final RegistryKey<Biome> FIR_FOREST = RegistryKey.of(RegistryKeys.BIOME,
+            Identifier.of(ArborealNature.MOD_ID, "fir_forest_biome"));
+
     public static void bootstrap(Registerable<Biome> context)
     {
         RegistryEntryLookup<PlacedFeature> placedFeatures = context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
@@ -45,6 +48,8 @@ public class ModBiomes
         context.register(ORCHID_OASIS, orchidOasisBiome(placedFeatures, configuredCarvers));
 
         context.register(PINE_FOREST, pineForestBiome(placedFeatures, configuredCarvers));
+
+        context.register(FIR_FOREST, firForestBiome(placedFeatures, configuredCarvers));
     }
 
     public static void globalOverworldGeneration(GenerationSettings.LookupBackedBuilder builder)
@@ -95,6 +100,7 @@ public class ModBiomes
                         .grassColor(0x496c2b)
                         .foliageColor(0x496c2b)
                         .fogColor(0Xa7c5b5)
+                        .music(null)
                         .moodSound(BiomeMoodSound.CAVE).build())
                 .build();
     }
@@ -135,6 +141,7 @@ public class ModBiomes
                         .grassColor(0x529024)
                         .foliageColor(0x529024)
                         .fogColor(0Xb9c4a5)
+                        .music(null)
                         .moodSound(BiomeMoodSound.CAVE).build())
                 .build();
     }
@@ -171,6 +178,7 @@ public class ModBiomes
                         .grassColor(0x7f922a)
                         .foliageColor(0x7f922a)
                         .fogColor(0Xc3e6b6)
+                        .music(null)
                         .moodSound(BiomeMoodSound.CAVE).build())
                 .build();
     }
@@ -218,7 +226,44 @@ public class ModBiomes
                         .grassColor(0x567d44)
                         .foliageColor(0x567d44)
                         .fogColor(0X95b290)
+                        .music(null)
                         .moodSound(BiomeMoodSound.CAVE).build())
                 .build();
+    }
+
+    public static Biome firForestBiome(RegistryEntryLookup<PlacedFeature> placedFeatures, RegistryEntryLookup<ConfiguredCarver<?>> configuredCarvers)
+    {
+        GenerationSettings.LookupBackedBuilder biomeBuilder = new GenerationSettings.LookupBackedBuilder(placedFeatures, configuredCarvers);
+        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
+
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.RABBIT, 5, 2, 3));
+
+        DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
+
+        globalOverworldGeneration(biomeBuilder);
+
+        DefaultBiomeFeatures.addFrozenTopLayer(biomeBuilder);
+
+        biomeBuilder.feature(GenerationStep.Feature.FLUID_SPRINGS, MiscPlacedFeatures.SPRING_WATER);
+
+        //biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.FIR_FOREST_PLACED_KEY);
+
+        //biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.CEDAR_FOREST_PLACED_KEY);
+
+        return new Biome.Builder()
+                .precipitation(true)
+                .downfall(0.6f)
+                .temperature(-0.5f)
+                .generationSettings(biomeBuilder.build())
+                .spawnSettings(spawnBuilder.build())
+                .effects((new BiomeEffects.Builder())
+                        .waterColor(0x46578c)
+                        .waterFogColor(0x162d5d)
+                        .skyColor(0Xbddbdf)
+                        .grassColor(0x85a583)
+                        .foliageColor(0xa2c09b)
+                        .fogColor(0Xc0e2cb)
+                        .music(null)
+                        .moodSound(BiomeMoodSound.CAVE).build()).build();
     }
 }

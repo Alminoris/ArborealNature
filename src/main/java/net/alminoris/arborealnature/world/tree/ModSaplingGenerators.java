@@ -26,6 +26,8 @@ public class ModSaplingGenerators
         put("white_mulberry", ModConfiguredFeatures.WHITE_MULBERRY_KEY);
         put("bauhinia", ModConfiguredFeatures.BAUHINIA_KEY);
         put("pine", ModConfiguredFeatures.PINE_KEY);
+        put("fir", ModConfiguredFeatures.FIR_KEY);
+        put("cedar", ModConfiguredFeatures.CEDAR_KEY);
     }};
 
     public static final Dictionary<String, SaplingGenerator> saplingGenerators = new Hashtable<>()
@@ -37,6 +39,15 @@ public class ModSaplingGenerators
                 put(name, new SaplingGenerator(name, 0f, Optional.of(ModConfiguredFeatures.MEGA_PINE_KEY),
                         Optional.empty(),
                         Optional.of(keys.get(name)),
+                        Optional.empty(),
+                        Optional.empty(),
+                        Optional.empty()));
+            }
+            else if (name.equals("cedar"))
+            {
+                put(name, new SaplingGenerator(name, 0f, Optional.of(keys.get(name)),
+                        Optional.empty(),
+                        Optional.empty(),
                         Optional.empty(),
                         Optional.empty(),
                         Optional.empty()));

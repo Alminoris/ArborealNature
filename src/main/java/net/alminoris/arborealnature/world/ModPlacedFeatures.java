@@ -47,9 +47,17 @@ public class ModPlacedFeatures
 
     public static final RegistryKey<PlacedFeature> PINE_PLACED_KEY = registerKey("pine_placed");
 
+    public static final RegistryKey<PlacedFeature> FIR_PLACED_KEY = registerKey("fir_placed");
+
+    public static final RegistryKey<PlacedFeature> CEDAR_PLACED_KEY = registerKey("cedar_placed");
+
     public static final RegistryKey<PlacedFeature> MEGA_PINE_PLACED_KEY = registerKey("mega_pine_placed");
 
     public static final RegistryKey<PlacedFeature> PINE_FOREST_PLACED_KEY = registerKey("pine_forest_placed");
+
+    public static final RegistryKey<PlacedFeature> FIR_FOREST_PLACED_KEY = registerKey("fir_forest_placed");
+
+    public static final RegistryKey<PlacedFeature> CEDAR_FOREST_PLACED_KEY = registerKey("cedar_forest_placed");
 
     public static final RegistryKey<PlacedFeature> MEGA_PINE_FOREST_PLACED_KEY = registerKey("mega_pine_forest_placed");
 
@@ -160,6 +168,23 @@ public class ModPlacedFeatures
         register(context, PINE_FOREST_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.PINE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(40, 0.1f, 20),
                         ModBlockSetsHelper.WOODEN_SAPLINGS.get("pine")));
+
+        /*
+        register(context, FIR_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.FIR_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(5, 0.1f, 5),
+                        ModBlockSetsHelper.WOODEN_SAPLINGS.get("fir")));
+
+        register(context, FIR_FOREST_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.FIR_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(30, 0.1f, 15),
+                        ModBlockSetsHelper.WOODEN_SAPLINGS.get("fir")));
+
+        register(context, CEDAR_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.CEDAR_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(0, 0.01f, 1),
+                        ModBlockSetsHelper.WOODEN_SAPLINGS.get("cedar")));
+
+        register(context, CEDAR_FOREST_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.CEDAR_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(10, 0.1f, 5),
+                        ModBlockSetsHelper.WOODEN_SAPLINGS.get("cedar")));*/
 
         register(context, MEGA_PINE_FOREST_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.MEGA_PINE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(15, 0.1f, 5),

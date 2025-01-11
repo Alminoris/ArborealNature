@@ -79,6 +79,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                     .add(WOODEN_WALL_HANGING_SIGNS.get(name));
         }
 
+        for (String name : WF_WOOD_NAMES)
+        {
+            getOrCreateTagBuilder(BlockTags.PLANKS)
+                    .add(WOODEN_CHISELED.get(name));
+        }
+
         getOrCreateTagBuilder(ModTags.Blocks.LOGS_TO_BE_BURNT)
                 .add(Blocks.STRIPPED_BIRCH_LOG)
                 .add(Blocks.STRIPPED_BAMBOO_BLOCK)

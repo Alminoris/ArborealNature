@@ -1,16 +1,16 @@
 {
   "values": [
-    "arborealnature:hazelnut_hanging_sign",
-    "arborealnature:hornbeam_hanging_sign",
-    "arborealnature:hawthorn_hanging_sign",
-    "arborealnature:quince_hanging_sign",
-    "arborealnature:plum_hanging_sign",
-    "arborealnature:mango_hanging_sign",
-    "arborealnature:fig_hanging_sign",
-    "arborealnature:viburnum_hanging_sign",
-    "arborealnature:wild_cherry_hanging_sign",
-    "arborealnature:white_mulberry_hanging_sign",
-    "arborealnature:bauhinia_hanging_sign",
-    "arborealnature:pine_hanging_sign"
+    "arborealnature:hazelnut_hanging_sign_item",
+    "arborealnature:hornbeam_hanging_sign_item",
+    "arborealnature:hawthorn_hanging_sign_item",
+    "arborealnature:quince_hanging_sign_item",
+    "arborealnature:plum_hanging_sign_item",
+    "arborealnature:mango_hanging_sign_item",
+    "arborealnature:fig_hanging_sign_item",
+    "arborealnature:viburnum_hanging_sign_item",
+    "arborealnature:wild_cherry_hanging_sign_item",
+    "arborealnature:white_mulberry_hanging_sign_item",
+    "arborealnature:bauhinia_hanging_sign_item",
+    "arborealnature:pine_hanging_sign_item"
   ]
 }

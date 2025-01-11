@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "arborealnature:block/tamarisk_chiseled",
+    "side": "arborealnature:block/tamarisk_chiseled",
+    "top": "arborealnature:block/tamarisk_chiseled"
+  }
+}

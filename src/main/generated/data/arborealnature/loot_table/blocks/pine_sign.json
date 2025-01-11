@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "arborealnature:pine_sign"
+          "name": "arborealnature:pine_sign_item"
         }
       ],
       "rolls": 1.0

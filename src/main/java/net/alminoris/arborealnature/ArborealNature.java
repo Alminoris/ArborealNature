@@ -52,7 +52,7 @@ public class ArborealNature implements ModInitializer
 	@Override
 	public void onInitialize()
 	{
-		LOGGER.info("Initialization MOD");
+		LOGGER.info("Initialization Arboreal Nature MOD");
 
 		ModItems.registerModItems();
 
@@ -77,8 +77,23 @@ public class ArborealNature implements ModInitializer
 			FlammableBlockRegistry.getDefaultInstance().add(STRIPPED_WOODS.get(name), 5, 5);
 
 			FlammableBlockRegistry.getDefaultInstance().add(WOODEN_PLANKS.get(name), 5, 20);
+			FlammableBlockRegistry.getDefaultInstance().add(WOODEN_CHISELED.get(name), 5, 20);
 			FlammableBlockRegistry.getDefaultInstance().add(LEAVES.get(name), 30, 60);
 		}
+
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.OAK_CHISELED, 5, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BIRCH_CHISELED, 5, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.SPRUCE_CHISELED, 5, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.JUNGLE_CHISELED, 5, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.ACACIA_CHISELED, 5, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.DARK_OAK_CHISELED, 5, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.MANGROVE_CHISELED, 5, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.CHERRY_CHISELED, 5, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.WARPED_CHISELED, 5, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.CRIMSON_CHISELED, 5, 20);
+
+		for (String name : WF_WOOD_NAMES)
+			FlammableBlockRegistry.getDefaultInstance().add(WOODEN_CHISELED.get(name), 5, 20);
 
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.HAZELNUT_COVER, 30, 60);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BAUHINIA_COVER, 30, 60);
@@ -101,7 +116,8 @@ public class ArborealNature implements ModInitializer
 
 				if (world.getBlockState(pos).isOf(Blocks.FIRE))
 				{
-					if (world.getBlockState(blockBelow).isIn(ModTags.Blocks.LOGS_TO_BE_BURNT))
+					if (world.getBlockState(blockBelow).isIn(ModTags.Blocks.LOGS_TO_BE_BURNT) ||
+							world.getBlockState(blockBelow).isIn(ModTags.Blocks.INTEGRATION_LOGS_TO_BE_BURNT))
 					{
 						Block block = null;
 						String name = Registries.BLOCK.getId(world.getBlockState(blockBelow).getBlock()).getPath().split("_")[1];

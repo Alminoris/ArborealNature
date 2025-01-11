@@ -20,7 +20,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "arborealnature:bilberry"
+          "name": "arborealnature:bilberry_item"
         }
       ],
       "functions": [
@@ -58,7 +58,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "arborealnature:bilberry"
+          "name": "arborealnature:bilberry_item"
         }
       ],
       "functions": [

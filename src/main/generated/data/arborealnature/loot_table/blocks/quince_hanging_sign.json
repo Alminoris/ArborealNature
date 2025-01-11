@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "arborealnature:quince_hanging_sign"
+          "name": "arborealnature:quince_hanging_sign_item"
         }
       ],
       "rolls": 1.0

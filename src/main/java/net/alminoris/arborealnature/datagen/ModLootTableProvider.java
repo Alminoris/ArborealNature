@@ -7,6 +7,9 @@ import net.alminoris.arborealnature.util.helper.ModBlockSetsHelper;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.TallPlantBlock;
+import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
@@ -39,32 +42,41 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
     {
         RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
 
-        for (String name : ModBlockSetsHelper.WOOD_NAMES)
+        for (String name : WOOD_NAMES)
         {
-            addDrop(ModBlockSetsHelper.LOGS.get(name));
-            addDrop(ModBlockSetsHelper.STRIPPED_LOGS.get(name));
-            addDrop(ModBlockSetsHelper.BURNT_LOGS.get(name));
-            addDrop(ModBlockSetsHelper.WOODS.get(name));
-            addDrop(ModBlockSetsHelper.STRIPPED_WOODS.get(name));
-            addDrop(ModBlockSetsHelper.BURNT_WOODS.get(name));
-            addDrop(ModBlockSetsHelper.WOODEN_PLANKS.get(name));
-            addDrop(ModBlockSetsHelper.WOODEN_SLABS.get(name));
-            addDrop(ModBlockSetsHelper.WOODEN_STAIRS.get(name));
-            addDrop(ModBlockSetsHelper.WOODEN_CHISELED.get(name));
-            addDrop(ModBlockSetsHelper.WOODEN_CHISELED_SLABS.get(name));
-            addDrop(ModBlockSetsHelper.WOODEN_CHISELED_STAIRS.get(name));
-            addDrop(ModBlockSetsHelper.WOODEN_FENCES.get(name));
-            addDrop(ModBlockSetsHelper.WOODEN_FENCE_GATES.get(name));
-            addDrop(ModBlockSetsHelper.WOODEN_TRAPDOORS.get(name));
-            addDrop(ModBlockSetsHelper.WOODEN_BUTTONS.get(name));
-            addDrop(ModBlockSetsHelper.WOODEN_PRESSURE_PLATES.get(name));
-            addDrop(ModBlockSetsHelper.WOODEN_SIGNS.get(name), drops(ModBlockSetsHelper.WOODEN_WALL_SIGNS.get(name)));
-            addDrop(ModBlockSetsHelper.WOODEN_HANGING_SIGNS.get(name), drops(ModBlockSetsHelper.WOODEN_WALL_HANGING_SIGNS.get(name)));
-            addDrop(ModBlockSetsHelper.WOODEN_SAPLINGS.get(name));
+            addDrop(LOGS.get(name));
+            addDrop(STRIPPED_LOGS.get(name));
+            addDrop(BURNT_LOGS.get(name));
+            addDrop(WOODS.get(name));
+            addDrop(STRIPPED_WOODS.get(name));
+            addDrop(BURNT_WOODS.get(name));
+            addDrop(WOODEN_PLANKS.get(name));
+            addDrop(WOODEN_SLABS.get(name));
+            addDrop(WOODEN_STAIRS.get(name));
+            addDrop(WOODEN_CHISELED.get(name));
+            addDrop(WOODEN_CHISELED_SLABS.get(name));
+            addDrop(WOODEN_CHISELED_STAIRS.get(name));
+            addDrop(WOODEN_FENCES.get(name));
+            addDrop(WOODEN_FENCE_GATES.get(name));
+            addDrop(WOODEN_TRAPDOORS.get(name));
+            addDrop(WOODEN_BUTTONS.get(name));
+            addDrop(WOODEN_PRESSURE_PLATES.get(name));
+            addDrop(WOODEN_SIGNS.get(name), drops(ModBlockSetsHelper.WOODEN_WALL_SIGNS.get(name)));
+            addDrop(WOODEN_HANGING_SIGNS.get(name), drops(ModBlockSetsHelper.WOODEN_WALL_HANGING_SIGNS.get(name)));
+            addDrop(WOODEN_SAPLINGS.get(name));
         }
 
         for (String name : CLASSIC_WOOD_NAMES)
         {
+            addDrop(BURNT_LOGS.get(name));
+            addDrop(BURNT_WOODS.get(name));
+        }
+
+        for (String name : WF_WOOD_NAMES)
+        {
+            addDrop(WOODEN_CHISELED.get(name));
+            addDrop(WOODEN_CHISELED_SLABS.get(name));
+            addDrop(WOODEN_CHISELED_STAIRS.get(name));
             addDrop(BURNT_LOGS.get(name));
             addDrop(BURNT_WOODS.get(name));
         }
@@ -88,38 +100,38 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
                                                     .apply(ApplyBonusLootFunction.uniformBonusCount(impl.getOrThrow(Enchantments.FORTUNE))))));
         }
 
-        addDrop(ModBlockSetsHelper.LEAVES.get("hazelnut"), leavesItemDrops(ModBlockSetsHelper.LEAVES.get("hazelnut"),
-                ModBlockSetsHelper.WOODEN_SAPLINGS.get("hazelnut"), ModItems.HAZELNUT, 0.0025f));
+        addDrop(LEAVES.get("hazelnut"), leavesItemDrops(LEAVES.get("hazelnut"),
+                WOODEN_SAPLINGS.get("hazelnut"), ModItems.HAZELNUT, 0.0025f));
 
-        addDrop(ModBlockSetsHelper.LEAVES.get("hornbeam"), leavesDrops(ModBlockSetsHelper.LEAVES.get("hornbeam"),
-                ModBlockSetsHelper.WOODEN_SAPLINGS.get("hornbeam"), 0.0025f));
+        addDrop(LEAVES.get("hornbeam"), leavesDrops(LEAVES.get("hornbeam"),
+                WOODEN_SAPLINGS.get("hornbeam"), 0.0025f));
 
-        addDrop(ModBlockSetsHelper.LEAVES.get("hawthorn"), leavesDrops(ModBlockSetsHelper.LEAVES.get("hawthorn"),
-                ModBlockSetsHelper.WOODEN_SAPLINGS.get("hawthorn"), 0.0025f));
+        addDrop(LEAVES.get("hawthorn"), leavesDrops(LEAVES.get("hawthorn"),
+                WOODEN_SAPLINGS.get("hawthorn"), 0.0025f));
 
-        addDrop(ModBlockSetsHelper.LEAVES.get("quince"), leavesItemDrops(ModBlockSetsHelper.LEAVES.get("quince"),
-                ModBlockSetsHelper.WOODEN_SAPLINGS.get("quince"), ModItems.QUINCE, 0.0025f));
+        addDrop(LEAVES.get("quince"), leavesItemDrops(LEAVES.get("quince"),
+                WOODEN_SAPLINGS.get("quince"), ModItems.QUINCE, 0.0025f));
 
-        addDrop(ModBlockSetsHelper.LEAVES.get("plum"), leavesItemDrops(ModBlockSetsHelper.LEAVES.get("plum"),
-                ModBlockSetsHelper.WOODEN_SAPLINGS.get("plum"), ModItems.PLUM, 0.0025f));
+        addDrop(LEAVES.get("plum"), leavesItemDrops(LEAVES.get("plum"),
+                WOODEN_SAPLINGS.get("plum"), ModItems.PLUM, 0.0025f));
 
-        addDrop(ModBlockSetsHelper.LEAVES.get("mango"), leavesItemDrops(ModBlockSetsHelper.LEAVES.get("mango"),
-                ModBlockSetsHelper.WOODEN_SAPLINGS.get("mango"), ModItems.MANGO, 0.0025f));
+        addDrop(LEAVES.get("mango"), leavesItemDrops(LEAVES.get("mango"),
+                WOODEN_SAPLINGS.get("mango"), ModItems.MANGO, 0.0025f));
 
-        addDrop(ModBlockSetsHelper.LEAVES.get("fig"), leavesItemDrops(ModBlockSetsHelper.LEAVES.get("fig"),
-                ModBlockSetsHelper.WOODEN_SAPLINGS.get("fig"), ModItems.FIGS, 0.0025f));
+        addDrop(LEAVES.get("fig"), leavesItemDrops(LEAVES.get("fig"),
+                WOODEN_SAPLINGS.get("fig"), ModItems.FIGS, 0.0025f));
 
-        addDrop(ModBlockSetsHelper.LEAVES.get("viburnum"), leavesItemDrops(ModBlockSetsHelper.LEAVES.get("viburnum"),
-                ModBlockSetsHelper.WOODEN_SAPLINGS.get("viburnum"), ModItems.VIBURNUM, 0.0025f));
+        addDrop(LEAVES.get("viburnum"), leavesItemDrops(LEAVES.get("viburnum"),
+                WOODEN_SAPLINGS.get("viburnum"), ModItems.VIBURNUM, 0.0025f));
 
-        addDrop(ModBlockSetsHelper.LEAVES.get("wild_cherry"), leavesItemDrops(ModBlockSetsHelper.LEAVES.get("wild_cherry"),
-                ModBlockSetsHelper.WOODEN_SAPLINGS.get("wild_cherry"), ModItems.WILD_CHERRY, 0.0025f));
+        addDrop(LEAVES.get("wild_cherry"), leavesItemDrops(LEAVES.get("wild_cherry"),
+                WOODEN_SAPLINGS.get("wild_cherry"), ModItems.WILD_CHERRY, 0.0025f));
 
-        addDrop(ModBlockSetsHelper.LEAVES.get("white_mulberry"), leavesItemDrops(ModBlockSetsHelper.LEAVES.get("white_mulberry"),
-                ModBlockSetsHelper.WOODEN_SAPLINGS.get("white_mulberry"), ModItems.WHITE_MULBERRY, 0.0025f));
+        addDrop(LEAVES.get("white_mulberry"), leavesItemDrops(LEAVES.get("white_mulberry"),
+                WOODEN_SAPLINGS.get("white_mulberry"), ModItems.WHITE_MULBERRY, 0.0025f));
 
-        addDrop(ModBlockSetsHelper.LEAVES.get("bauhinia"), leavesDrops(ModBlockSetsHelper.LEAVES.get("bauhinia"),
-                ModBlockSetsHelper.WOODEN_SAPLINGS.get("bauhinia"), 0.0025f));
+        addDrop(LEAVES.get("bauhinia"), leavesDrops(LEAVES.get("bauhinia"),
+                WOODEN_SAPLINGS.get("bauhinia"), 0.0025f));
 
         addDrop(ModBlocks.OAK_CHISELED);
         addDrop(ModBlocks.OAK_CHISELED_SLAB);
@@ -172,11 +184,11 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         addDrop(ModBlocks.PINE_COVER, multipleOreDrops(ModBlocks.PINE_COVER, ModItems.PINE_CONE, 0, 3));
         addDrop(LEAVES.get("pine"), leavesItemDrops(ModBlockSetsHelper.LEAVES.get("pine"),
                 ModBlockSetsHelper.WOODEN_SAPLINGS.get("pine"), ModItems.PINE_CONE, 0.0025f));
-        addDrop(ModBlocks.LARGE_CELANDINE);
-        addDrop(ModBlocks.BLUEGRASS);
         addDrop(ModBlocks.GERANIUM);
         addDrop(ModBlocks.XEROCHRYSUM);
-        addDrop(ModBlocks.LARGE_ORCHID);
+        addDrop(ModBlocks.LARGE_CELANDINE, block -> this.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
+        addDrop(ModBlocks.BLUEGRASS, block -> this.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
+        addDrop(ModBlocks.LARGE_ORCHID, block -> this.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
         addDrop(ModBlocks.ORCHID);
         addDrop(ModBlocks.ORCHID_GRASS_BLOCK);
         addDrop(ModBlocks.DIRTED_GRASS_BLOCK);

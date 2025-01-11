@@ -1,6 +1,8 @@
 package net.alminoris.arborealnature.world.gen.decorator.custom;
 
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.alminoris.arborealnature.world.gen.decorator.ModTreeDecorators;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -18,14 +20,19 @@ import java.util.List;
 
 public class LeafCarpetDecorator extends TreeDecorator
 {
-    public static final MapCodec<LeafCarpetDecorator> CODEC = BlockStateProvider.TYPE_CODEC
-            .fieldOf("provider")
-            .xmap(LeafCarpetDecorator::new, decorator -> decorator.provider);
+    public static final MapCodec<LeafCarpetDecorator> CODEC = RecordCodecBuilder.mapCodec(
+            instance -> instance.group(
+                    BlockStateProvider.TYPE_CODEC.fieldOf("provider").forGetter(decorator -> decorator.provider),
+                    Codec.INT.fieldOf("radius").forGetter(decorator -> decorator.radius)
+            ).apply(instance, LeafCarpetDecorator::new)
+    );
     private final BlockStateProvider provider;
+    private final int radius;
 
-    public LeafCarpetDecorator(BlockStateProvider provider)
+    public LeafCarpetDecorator(BlockStateProvider provider, int radius)
     {
         this.provider = provider;
+        this.radius = radius;
     }
 
     @Override
@@ -55,9 +62,9 @@ public class LeafCarpetDecorator extends TreeDecorator
                 Blocks.GRAVEL, Blocks.SNOW_BLOCK, Blocks.MYCELIUM, Blocks.COARSE_DIRT, Blocks.ROOTED_DIRT, Blocks.WATER);
 
         BlockPos.Mutable mutable = new BlockPos.Mutable();
-        for (int x = -2; x <= 2; x++)
+        for (int x = -1*radius; x <= radius; x++)
         {
-            for (int z = -2; z <= 2; z++)
+            for (int z = -1*radius; z <= radius; z++)
             {
                 if (random.nextFloat() < 0.75f)
                 {

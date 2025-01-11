@@ -14,7 +14,8 @@
           "state": {
             "Name": "arborealnature:bauhinia_cover"
           }
-        }
+        },
+        "radius": 2
       },
       {
         "type": "minecraft:custom_alter_ground_decorator",

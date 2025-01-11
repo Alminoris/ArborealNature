@@ -131,6 +131,26 @@ public class ModRecipeProvider extends FabricRecipeProvider
                     .offerTo(recipeExporter);
         }
 
+        for (String name : WF_WOOD_NAMES)
+        {
+            offerSlabRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, WOODEN_CHISELED_SLABS.get(name), WOODEN_CHISELED.get(name));
+
+            ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_CHISELED_STAIRS.get(name), 4)
+                    .pattern("#  ")
+                    .pattern("## ")
+                    .pattern("###")
+                    .input('#', WOODEN_CHISELED.get(name))
+                    .criterion(hasItem(WOODEN_CHISELED.get(name)), conditionsFromItem(WOODEN_CHISELED.get(name)))
+                    .offerTo(recipeExporter);
+
+            ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BURNT_WOODS.get(name), 3)
+                    .pattern("##")
+                    .pattern("##")
+                    .input('#', BURNT_LOGS.get(name))
+                    .criterion(hasItem(BURNT_LOGS.get(name)), conditionsFromItem(BURNT_LOGS.get(name)))
+                    .offerTo(recipeExporter);
+        }
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BAUHINIA_COVER_BLOCK, 1)
                 .pattern("##")
                 .pattern("##")
