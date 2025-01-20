@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "textures": {
-    "bottom": "arborealnature:block/hornbeam_planks",
-    "side": "arborealnature:block/hornbeam_planks",
-    "top": "arborealnature:block/hornbeam_planks"
-  }
-}

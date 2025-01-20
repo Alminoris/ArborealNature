@@ -15,8 +15,6 @@ import net.alminoris.arborealnature.world.gen.feature.ModFeatures;
 import net.alminoris.arborealnature.world.tree.ModFoliagePlacerTypes;
 import net.alminoris.arborealnature.world.tree.ModTrunkPlacerTypes;
 import net.fabricmc.api.ModInitializer;
-
-import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -24,19 +22,13 @@ import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.client.color.block.BlockColors;
-import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.biome.FoliageColors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -168,6 +160,8 @@ public class ArborealNature implements ModInitializer
 		FabricDefaultAttributeRegistry.register(ModEntities.ORCHID_MANTIS, OrchidMantisEntity.setAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.MOOSE, MooseEntity.setAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.LYNX, LynxEntity.setAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.CARIBOU, CaribouEntity.setAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.WOLVERINE, WolverineEntity.setAttributes());
 
 		ModWorldGeneration.generateModWorldGen();
 	}

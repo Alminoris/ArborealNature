@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/door_top_right",
-  "textures": {
-    "bottom": "arborealnature:block/hornbeam_door_bottom",
-    "top": "arborealnature:block/hornbeam_door_top"
-  }
-}

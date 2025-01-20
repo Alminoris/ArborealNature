@@ -21,6 +21,7 @@ public class ModEntityTypeTagProvider extends FabricTagProvider.EntityTypeTagPro
     {
         getOrCreateTagBuilder(ModTags.Entities.LEATHER_DROPPERS)
                 .add(ModEntities.MOOSE)
+                .add(ModEntities.CARIBOU)
                 .add(EntityType.HORSE)
                 .add(EntityType.DONKEY)
                 .add(EntityType.MOOSHROOM)

@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "arborealnature:block/white_mulberry_chiseled"
-  }
-}

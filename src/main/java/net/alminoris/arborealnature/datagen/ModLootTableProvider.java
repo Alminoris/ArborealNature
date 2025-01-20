@@ -171,6 +171,9 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         addDrop(ModBlocks.PINE_RESIN_CHISELED);
 
         addDrop(ModBlocks.WOOD_ANEMONA);
+        addDrop(ModBlocks.BLUEBELL);
+        addDrop(ModBlocks.WOOD_SORREL);
+        addDrop(ModBlocks.REINDEER_LICHEN);
         addDrop(ModBlocks.ORCHID_LILY_PAD);
         addDrop(ModBlocks.HAZELNUT_COVER, dropsWithSilkTouch(ModBlocks.HAZELNUT_COVER));
         addDrop(ModBlocks.BAUHINIA_COVER, dropsWithSilkTouch(ModBlocks.BAUHINIA_COVER));
@@ -184,6 +187,10 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         addDrop(ModBlocks.PINE_COVER, multipleOreDrops(ModBlocks.PINE_COVER, ModItems.PINE_CONE, 0, 3));
         addDrop(LEAVES.get("pine"), leavesItemDrops(ModBlockSetsHelper.LEAVES.get("pine"),
                 ModBlockSetsHelper.WOODEN_SAPLINGS.get("pine"), ModItems.PINE_CONE, 0.0025f));
+        addDrop(LEAVES.get("fir"), leavesItemDrops(ModBlockSetsHelper.LEAVES.get("fir"),
+                ModBlockSetsHelper.WOODEN_SAPLINGS.get("fir"), ModItems.FIR_CONE, 0.0025f));
+        addDrop(LEAVES.get("cedar"), leavesItemDrops(ModBlockSetsHelper.LEAVES.get("cedar"),
+                ModBlockSetsHelper.WOODEN_SAPLINGS.get("cedar"), ModItems.CEDAR_CONE, 0.0025f));
         addDrop(ModBlocks.GERANIUM);
         addDrop(ModBlocks.XEROCHRYSUM);
         addDrop(ModBlocks.LARGE_CELANDINE, block -> this.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));

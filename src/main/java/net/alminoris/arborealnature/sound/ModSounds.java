@@ -34,6 +34,16 @@ public class ModSounds
     public static final SoundEvent SOUND_LYNX_HURT = registerSoundEvent("sound_lynx_hurt");
     public static final SoundEvent SOUND_LYNX_DEATH = registerSoundEvent("sound_lynx_death");
 
+    public static final SoundEvent SOUND_CARIBOU_AMBIENT = registerSoundEvent("sound_caribou_ambient");
+    public static final SoundEvent SOUND_CARIBOU_ANGRY = registerSoundEvent("sound_caribou_angry");
+    public static final SoundEvent SOUND_CARIBOU_HURT = registerSoundEvent("sound_caribou_hurt");
+    public static final SoundEvent SOUND_CARIBOU_DEATH = registerSoundEvent("sound_caribou_death");
+
+    public static final SoundEvent SOUND_WOLVERINE_AMBIENT = registerSoundEvent("sound_wolverine_ambient");
+    public static final SoundEvent SOUND_WOLVERINE_AMBIENT_PLUS = registerSoundEvent("sound_wolverine_ambient_plus");
+    public static final SoundEvent SOUND_WOLVERINE_HURT = registerSoundEvent("sound_wolverine_hurt");
+    public static final SoundEvent SOUND_WOLVERINE_DEATH = registerSoundEvent("sound_wolverine_death");
+
     private static SoundEvent registerSoundEvent(String name)
     {
         Identifier id = Identifier.of(ArborealNature.MOD_ID, name);

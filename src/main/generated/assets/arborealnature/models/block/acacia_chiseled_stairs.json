@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "arborealnature:block/acacia_chiseled",
-    "side": "arborealnature:block/acacia_chiseled",
-    "top": "arborealnature:block/acacia_chiseled"
-  }
-}

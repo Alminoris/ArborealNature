@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "textures": {
-    "cross": "arborealnature:block/large_celandine_top"
-  }
-}

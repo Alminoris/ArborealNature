@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "arborealnature:block/white_mulberry_chiseled",
-    "side": "arborealnature:block/white_mulberry_chiseled",
-    "top": "arborealnature:block/white_mulberry_chiseled"
-  }
-}

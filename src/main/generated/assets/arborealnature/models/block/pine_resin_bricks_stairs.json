@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "arborealnature:block/pine_resin_bricks",
-    "side": "arborealnature:block/pine_resin_bricks",
-    "top": "arborealnature:block/pine_resin_bricks"
-  }
-}

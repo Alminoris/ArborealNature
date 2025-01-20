@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/door_top_right_open",
-  "textures": {
-    "bottom": "arborealnature:block/quince_door_bottom",
-    "top": "arborealnature:block/quince_door_top"
-  }
-}

@@ -77,6 +77,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
 
             getOrCreateTagBuilder(BlockTags.WALL_HANGING_SIGNS)
                     .add(WOODEN_WALL_HANGING_SIGNS.get(name));
+
+            this.getOrCreateTagBuilder(BlockTags.HOE_MINEABLE).add(LEAVES.get(name));
         }
 
         for (String name : WF_WOOD_NAMES)
@@ -116,6 +118,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.ORCHID)
                 .add(ModBlocks.GERANIUM)
                 .add(ModBlocks.XEROCHRYSUM)
+                .add(ModBlocks.BLUEBELL)
+                .add(ModBlocks.WOOD_SORREL)
                 .add(LEAVES.get("hawthorn"));
 
         getOrCreateTagBuilder(BlockTags.TALL_FLOWERS)
@@ -126,6 +130,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
         getOrCreateTagBuilder(BlockTags.FLOWER_POTS)
                 .add(ModBlocks.POTTED_GERANIUM)
                 .add(ModBlocks.POTTED_XEROCHRYSUM)
+                .add(ModBlocks.POTTED_BLUEBELL)
                 .add(ModBlocks.POTTED_ORCHID)
                 .add(ModBlocks.POTTED_WHITE_MUSHROOM);
 
@@ -133,9 +138,15 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
 
         this.getOrCreateTagBuilder(BlockTags.AXE_MINEABLE).add(ModBlocks.ORCHID_LILY_PAD);
 
-        this.getOrCreateTagBuilder(BlockTags.SWORD_EFFICIENT).add(ModBlocks.ORCHID_LILY_PAD);
+        this.getOrCreateTagBuilder(BlockTags.SWORD_EFFICIENT).add(ModBlocks.ORCHID_LILY_PAD).add(ModBlocks.REINDEER_LICHEN, ModBlocks.REINDEER_LICHEN_CARPET);
 
         this.getOrCreateTagBuilder(BlockTags.FROG_PREFER_JUMP_TO).add(ModBlocks.ORCHID_LILY_PAD);
+
+        this.getOrCreateTagBuilder(BlockTags.HOE_MINEABLE).add(ModBlocks.REINDEER_LICHEN, ModBlocks.REINDEER_LICHEN_CARPET);
+
+        this.getOrCreateTagBuilder(BlockTags.DIRT).add(ModBlocks.REINDEER_LICHEN);
+
+        this.getOrCreateTagBuilder(BlockTags.COMBINATION_STEP_SOUND_BLOCKS).add(ModBlocks.REINDEER_LICHEN_CARPET);
 
         this.getOrCreateTagBuilder(BlockTags.CLIMBABLE)
                 .add(ModBlocks.BAUHINIA_VINES);
@@ -188,5 +199,15 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(Blocks.PODZOL)
                 .add(ModBlocks.DIRTED_GRASS_BLOCK)
                 .add(ModBlocks.PINE_COVER);
+
+        getOrCreateTagBuilder(ModTags.Blocks.CARIBOU_SPAWNABLE_ON)
+                .add(Blocks.GRASS_BLOCK)
+                .add(ModBlocks.REINDEER_LICHEN_CARPET)
+                .add(Blocks.SNOW);
+
+        getOrCreateTagBuilder(ModTags.Blocks.WOLVERINE_SPAWNABLE_ON)
+                .add(Blocks.GRASS_BLOCK)
+                .add(Blocks.PODZOL)
+                .add(Blocks.SNOW);
     }
 }

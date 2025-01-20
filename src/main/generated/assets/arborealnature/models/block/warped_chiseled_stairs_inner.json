@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "arborealnature:block/warped_chiseled",
-    "side": "arborealnature:block/warped_chiseled",
-    "top": "arborealnature:block/warped_chiseled"
-  }
-}

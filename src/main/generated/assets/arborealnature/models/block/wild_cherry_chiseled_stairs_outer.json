@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "textures": {
-    "bottom": "arborealnature:block/wild_cherry_chiseled",
-    "side": "arborealnature:block/wild_cherry_chiseled",
-    "top": "arborealnature:block/wild_cherry_chiseled"
-  }
-}

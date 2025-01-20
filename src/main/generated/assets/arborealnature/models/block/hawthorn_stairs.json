@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "arborealnature:block/hawthorn_planks",
-    "side": "arborealnature:block/hawthorn_planks",
-    "top": "arborealnature:block/hawthorn_planks"
-  }
-}

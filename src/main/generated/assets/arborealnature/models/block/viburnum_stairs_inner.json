@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "arborealnature:block/viburnum_planks",
-    "side": "arborealnature:block/viburnum_planks",
-    "top": "arborealnature:block/viburnum_planks"
-  }
-}

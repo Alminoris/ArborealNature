@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "arborealnature:block/bauhinia_chiseled",
-    "side": "arborealnature:block/bauhinia_chiseled",
-    "top": "arborealnature:block/bauhinia_chiseled"
-  }
-}
