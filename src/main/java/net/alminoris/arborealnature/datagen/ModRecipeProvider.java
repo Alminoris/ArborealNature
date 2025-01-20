@@ -174,10 +174,52 @@ public class ModRecipeProvider extends FabricRecipeProvider
                 .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
                 .offerTo(recipeExporter);
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.CARIBOU_SPEAR, 1)
+                .pattern("  #")
+                .pattern(" / ")
+                .pattern("/  ")
+                .input('#', ModItems.CARIBOU_HORN)
+                .input('/', Items.STICK)
+                .criterion(hasItem(ModItems.CARIBOU_HORN), conditionsFromItem(ModItems.CARIBOU_HORN))
+                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.CARIBOU_FUR_HELMET, 1)
+                .pattern("###")
+                .pattern("# #")
+                .input('#', ModItems.CARIBOU_FUR)
+                .criterion(hasItem(ModItems.CARIBOU_FUR), conditionsFromItem(ModItems.CARIBOU_FUR))
+                .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.CARIBOU_FUR_CHESTPLATE, 1)
+                .pattern("# #")
+                .pattern("###")
+                .pattern("###")
+                .input('#', ModItems.CARIBOU_FUR)
+                .criterion(hasItem(ModItems.CARIBOU_FUR), conditionsFromItem(ModItems.CARIBOU_FUR))
+                .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.CARIBOU_FUR_LEGGINGS, 1)
+                .pattern("###")
+                .pattern("# #")
+                .pattern("# #")
+                .input('#', ModItems.CARIBOU_FUR)
+                .criterion(hasItem(ModItems.CARIBOU_FUR), conditionsFromItem(ModItems.CARIBOU_FUR))
+                .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.CARIBOU_FUR_BOOTS, 1)
+                .pattern("# #")
+                .pattern("# #")
+                .input('#', ModItems.CARIBOU_FUR)
+                .criterion(hasItem(ModItems.CARIBOU_FUR), conditionsFromItem(ModItems.CARIBOU_FUR))
+                .offerTo(recipeExporter);
+
         offerSingleOutputShapelessRecipe(recipeExporter, Items.WHITE_DYE, ModBlocks.WOOD_ANEMONA, String.valueOf(RecipeCategory.MISC));
         offerSingleOutputShapelessRecipe(recipeExporter, Items.MAGENTA_DYE, ModBlocks.GERANIUM, String.valueOf(RecipeCategory.MISC));
         offerSingleOutputShapelessRecipe(recipeExporter, Items.YELLOW_DYE, ModBlocks.XEROCHRYSUM, String.valueOf(RecipeCategory.MISC));
         offerSingleOutputShapelessRecipe(recipeExporter, Items.PINK_DYE, ModBlocks.ORCHID, String.valueOf(RecipeCategory.MISC));
+        offerSingleOutputShapelessRecipe(recipeExporter, Items.WHITE_DYE, ModBlocks.WOOD_SORREL, String.valueOf(RecipeCategory.MISC));
+        offerSingleOutputShapelessRecipe(recipeExporter, Items.BLUE_DYE, ModBlocks.BLUEBELL, String.valueOf(RecipeCategory.MISC));
 
         offerFoodCookingRecipe(recipeExporter, "smoking", RecipeSerializer.SMOKING, SmokingRecipe::new,
                 100, ModItems.MOOSE_VENISON, ModItems.COOKED_MOOSE_VENISON, 0.35f);
@@ -189,6 +231,19 @@ public class ModRecipeProvider extends FabricRecipeProvider
                         ModItems.COOKED_MOOSE_VENISON, 0.35F, 200)
                 .criterion("has_beef", conditionsFromItem(ModItems.MOOSE_VENISON))
                 .offerTo(recipeExporter);
+
+        offerFoodCookingRecipe(recipeExporter, "smoking", RecipeSerializer.SMOKING, SmokingRecipe::new,
+                100, ModItems.CARIBOU_VENISON, ModItems.COOKED_CARIBOU_VENISON, 0.35f);
+
+        offerFoodCookingRecipe(recipeExporter, "campfire_cooking", RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new,
+                600, ModItems.CARIBOU_VENISON, ModItems.COOKED_CARIBOU_VENISON, 0.35f);
+
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(ModItems.CARIBOU_VENISON), RecipeCategory.FOOD,
+                        ModItems.COOKED_CARIBOU_VENISON, 0.35F, 200)
+                .criterion("has_beef", conditionsFromItem(ModItems.CARIBOU_VENISON))
+                .offerTo(recipeExporter);
+
+        offerCarpetRecipe(recipeExporter, ModBlocks.REINDEER_LICHEN_CARPET, ModBlocks.REINDEER_LICHEN);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.PINE_RESIN_BRICKS, 4)
                 .pattern("##")
@@ -219,6 +274,24 @@ public class ModRecipeProvider extends FabricRecipeProvider
                 .criterion(hasItem(ModItems.PINE_CONE), conditionsFromItem(ModItems.PINE_CONE))
                 .offerTo(recipeExporter);
         offerShapelessRecipe(recipeExporter, ModItems.PINE_CONE, ModBlocks.PINE_CONE_BLOCK, String.valueOf(RecipeCategory.MISC), 9);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.FIR_CONE_BLOCK, 1)
+                .pattern("###")
+                .pattern("###")
+                .pattern("###")
+                .input('#', ModItems.FIR_CONE)
+                .criterion(hasItem(ModItems.FIR_CONE), conditionsFromItem(ModItems.FIR_CONE))
+                .offerTo(recipeExporter);
+        offerShapelessRecipe(recipeExporter, ModItems.FIR_CONE, ModBlocks.FIR_CONE_BLOCK, String.valueOf(RecipeCategory.MISC), 9);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CEDAR_CONE_BLOCK, 1)
+                .pattern("###")
+                .pattern("###")
+                .pattern("###")
+                .input('#', ModItems.CEDAR_CONE)
+                .criterion(hasItem(ModItems.CEDAR_CONE), conditionsFromItem(ModItems.CEDAR_CONE))
+                .offerTo(recipeExporter);
+        offerShapelessRecipe(recipeExporter, ModItems.CEDAR_CONE, ModBlocks.CEDAR_CONE_BLOCK, String.valueOf(RecipeCategory.MISC), 9);
 
         offerShapelessRecipe(recipeExporter, Items.YELLOW_DYE, ModBlocks.LARGE_CELANDINE, String.valueOf(RecipeCategory.MISC), 2);
         offerShapelessRecipe(recipeExporter, Items.LIGHT_GRAY_DYE, ModBlocks.BLUEGRASS, String.valueOf(RecipeCategory.MISC), 2);

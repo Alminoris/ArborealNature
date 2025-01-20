@@ -98,5 +98,45 @@
   {
     "subtitle": "sounds.arborealnature.sound_lynx_death",
     "sounds": [ "arborealnature:sound_lynx_death" ]
+  },
+  "sound_caribou_ambient":
+  {
+    "subtitle": "sounds.arborealnature.sound_caribou_ambient",
+    "sounds": [ "arborealnature:sound_caribou_ambient" ]
+  },
+  "sound_caribou_angry":
+  {
+    "subtitle": "sounds.arborealnature.sound_caribou_angry",
+    "sounds": [ "arborealnature:sound_caribou_angry" ]
+  },
+  "sound_caribou_hurt":
+  {
+    "subtitle": "sounds.arborealnature.sound_caribou_hurt",
+    "sounds": [ "arborealnature:sound_caribou_hurt" ]
+  },
+  "sound_caribou_death":
+  {
+    "subtitle": "sounds.arborealnature.sound_caribou_death",
+    "sounds": [ "arborealnature:sound_caribou_death" ]
+  },
+  "sound_wolverine_ambient":
+  {
+    "subtitle": "sounds.arborealnature.sound_wolverine_ambient",
+    "sounds": [ "arborealnature:sound_wolverine_ambient" ]
+  },
+  "sound_wolverine_ambient_plus":
+  {
+    "subtitle": "sounds.arborealnature.sound_wolverine_ambient_plus",
+    "sounds": [ "arborealnature:sound_wolverine_ambient_plus" ]
+  },
+  "sound_wolverine_hurt":
+  {
+    "subtitle": "sounds.arborealnature.sound_wolverine_hurt",
+    "sounds": [ "arborealnature:sound_wolverine_hurt" ]
+  },
+  "sound_wolverine_death":
+  {
+    "subtitle": "sounds.arborealnature.sound_wolverine_death",
+    "sounds": [ "arborealnature:sound_wolverine_death" ]
   }
 }

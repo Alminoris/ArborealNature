@@ -23,16 +23,19 @@ public class LeafCarpetDecorator extends TreeDecorator
     public static final MapCodec<LeafCarpetDecorator> CODEC = RecordCodecBuilder.mapCodec(
             instance -> instance.group(
                     BlockStateProvider.TYPE_CODEC.fieldOf("provider").forGetter(decorator -> decorator.provider),
-                    Codec.INT.fieldOf("radius").forGetter(decorator -> decorator.radius)
+                    Codec.INT.fieldOf("radius").forGetter(decorator -> decorator.radius),
+                    Codec.floatRange(0.0F, 1.0F).fieldOf("probability").forGetter(decorator -> decorator.probability)
             ).apply(instance, LeafCarpetDecorator::new)
     );
     private final BlockStateProvider provider;
     private final int radius;
+    private final float probability;
 
-    public LeafCarpetDecorator(BlockStateProvider provider, int radius)
+    public LeafCarpetDecorator(BlockStateProvider provider, int radius, float probability)
     {
         this.provider = provider;
         this.radius = radius;
+        this.probability = probability;
     }
 
     @Override
@@ -66,7 +69,7 @@ public class LeafCarpetDecorator extends TreeDecorator
         {
             for (int z = -1*radius; z <= radius; z++)
             {
-                if (random.nextFloat() < 0.75f)
+                if (random.nextFloat() < probability)
                 {
                     mutable.set(basePos.getX() + x, basePos.getY()+1, basePos.getZ() + z);
                     if (world.testBlockState(mutable, BlockState::isAir) &&

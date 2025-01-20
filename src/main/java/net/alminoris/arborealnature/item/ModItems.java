@@ -7,6 +7,7 @@ import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.entity.ModEntities;
 import net.alminoris.arborealnature.item.custom.*;
 import net.minecraft.block.Block;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
@@ -34,7 +35,19 @@ public class ModItems
     public static final Item LYNX_SPAWN_EGG = registerItem("lynx_spawn_egg", new SpawnEggItem(
             ModEntities.LYNX, 0x926e4d, 0X533c25, new Item.Settings()));
 
+    public static final Item CARIBOU_SPAWN_EGG = registerItem("caribou_spawn_egg", new SpawnEggItem(
+            ModEntities.CARIBOU, 0x5a483d, 0Xa4a4a8, new Item.Settings()));
+
+    public static final Item WOLVERINE_SPAWN_EGG = registerItem("wolverine_spawn_egg", new SpawnEggItem(
+            ModEntities.WOLVERINE, 0x262c39, 0X4f3331, new Item.Settings()));
+
     public static final Item PINE_CONE = registerItem("pine_cone", new Item(
+            new Item.Settings().maxCount(16)));
+
+    public static final Item FIR_CONE = registerItem("fir_cone", new Item(
+            new Item.Settings().maxCount(16)));
+
+    public static final Item CEDAR_CONE = registerItem("cedar_cone", new Item(
             new Item.Settings().maxCount(16)));
 
     public static final Item PINE_RESIN = registerItem("pine_resin_item", new Item(
@@ -64,6 +77,12 @@ public class ModItems
     public static final Item COOKED_MOOSE_VENISON = registerItem("cooked_moose_venison",
             new Item(new Item.Settings().food(ModFoodComponents.COOKED_MOOSE_VENISON)));
 
+    public static final Item CARIBOU_VENISON = registerItem("caribou_venison",
+            new Item(new Item.Settings().food(ModFoodComponents.CARIBOU_VENISON)));
+
+    public static final Item COOKED_CARIBOU_VENISON = registerItem("cooked_caribou_venison",
+            new Item(new Item.Settings().food(ModFoodComponents.COOKED_CARIBOU_VENISON)));
+
     public static final Item QUINCE = registerItem("quince",
             new Item(new Item.Settings().maxCount(16).food(ModFoodComponents.QUINCE)));
 
@@ -88,6 +107,9 @@ public class ModItems
     public static final Item SQUIRREL_HIDE = registerItem("squirrel_hide", new Item(
             new Item.Settings().maxCount(16)));
 
+    public static final Item CARIBOU_FUR = registerItem("caribou_fur", new Item(
+            new Item.Settings().maxCount(16)));
+
     public static final Item WOOD_MOUSE_TAIL = registerItem("wood_mouse_tail", new Item(
             new Item.Settings().maxCount(16)));
 
@@ -97,9 +119,17 @@ public class ModItems
     public static final Item MOOSE_HORN = registerItem("moose_horn", new Item(
             new Item.Settings().maxCount(16)));
 
+    public static final Item CARIBOU_HORN = registerItem("caribou_horn", new Item(
+            new Item.Settings().maxCount(16)));
+
     public static final Item ORCHID_MANTIS_INCISOR = registerItem("orchid_mantis_incisor", new OrchidMantisIncisorItem(
             ToolMaterials.STONE, new Item.Settings()
             .attributeModifiers(OrchidMantisIncisorItem.createAttributeModifiers(ToolMaterials.STONE, 4, -1.7f))
+            .maxCount(1)));
+
+    public static final Item WOLVERINE_PAW = registerItem("wolverine_paw", new SwordItem(
+            ToolMaterials.STONE, new Item.Settings()
+            .attributeModifiers(OrchidMantisIncisorItem.createAttributeModifiers(ToolMaterials.STONE, 3, -1.0f))
             .maxCount(1)));
 
     public static final Item HUNTING_KNIFE = registerItem("hunting_knife", new ToolItem(
@@ -114,9 +144,37 @@ public class ModItems
                     StatusEffects.SLOW_FALLING,
                     new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(25))));
 
+    public static final Item CARIBOU_FUR_HELMET = registerItem("caribou_fur_helmet",
+            new ArmorItem(
+                    ModArmorMaterials.CARIBOU_FUR,
+                    ArmorItem.Type.HELMET,
+                    new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(10))));
+
+    public static final Item CARIBOU_FUR_CHESTPLATE = registerItem("caribou_fur_chestplate",
+            new ArmorItem(
+                    ModArmorMaterials.CARIBOU_FUR,
+                    ArmorItem.Type.CHESTPLATE,
+                    new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(10))));
+
+    public static final Item CARIBOU_FUR_LEGGINGS = registerItem("caribou_fur_leggings",
+            new ArmorItem(
+                    ModArmorMaterials.CARIBOU_FUR,
+                    ArmorItem.Type.LEGGINGS,
+                    new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(10))));
+
+    public static final Item CARIBOU_FUR_BOOTS = registerItem("caribou_fur_boots",
+            new ArmorItem(
+                    ModArmorMaterials.CARIBOU_FUR,
+                    ArmorItem.Type.BOOTS,
+                    new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(10))));
+
     public static final Item SILENT_ARROW = registerItem("silent_arrow", new SilentArrowItem(new Item.Settings()));
 
-    public static final Item ORCHID_LILY_PAD = registerItem("orchid_lily_pad", new PlaceableOnWaterItem(ModBlocks.ORCHID_LILY_PAD, new Item.Settings()));
+    public static final Item CARIBOU_SPEAR = registerItem("caribou_spear", new CaribouSpearItem(new Item.Settings().maxDamage(100)
+            .attributeModifiers(CaribouSpearItem.createAttributeModifiers())
+            .component(DataComponentTypes.TOOL, CaribouSpearItem.createToolComponent())));
+
+    public static final Item ORCHID_LILY_PAD = registerItem("orchid_lily_pad_item", new PlaceableOnWaterItem(ModBlocks.ORCHID_LILY_PAD, new Item.Settings()));
 
     private static Item registerItem(String name, Item item)
     {

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "arborealnature:block/fig_planks",
-    "side": "arborealnature:block/fig_planks",
-    "top": "arborealnature:block/fig_planks"
-  }
-}

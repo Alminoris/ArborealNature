@@ -7,9 +7,10 @@ import com.terraformersmc.terraform.sign.api.block.TerraformWallHangingSignBlock
 import com.terraformersmc.terraform.sign.api.block.TerraformWallSignBlock;
 import net.alminoris.arborealnature.ArborealNature;
 import net.alminoris.arborealnature.block.custom.AnimalHideBlock;
-import net.alminoris.arborealnature.block.custom.BauhiniaLeavesBlock;
+import net.alminoris.arborealnature.block.custom.FallingLeavesBlock;
 import net.alminoris.arborealnature.block.custom.BerryBushBlock;
 import net.alminoris.arborealnature.block.custom.CustomVineBlock;
+import net.alminoris.arborealnature.particle.ModParticles;
 import net.alminoris.arborealnature.world.ModConfiguredFeatures;
 import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
@@ -122,6 +123,22 @@ public class ModBlocks
                 }
             });
 
+    public static final Block FIR_CONE_BLOCK = registerBlock("fir_cone_block",
+            new FallingBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_ROOTS).nonOpaque()) {
+                @Override
+                protected MapCodec<? extends FallingBlock> getCodec() {
+                    return null;
+                }
+            });
+
+    public static final Block CEDAR_CONE_BLOCK = registerBlock("cedar_cone_block",
+            new FallingBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_ROOTS).nonOpaque()) {
+                @Override
+                protected MapCodec<? extends FallingBlock> getCodec() {
+                    return null;
+                }
+            });
+
     public static final Block PINE_RESIN_BLOCK = registerBlock("pine_resin_block",
             new Block(AbstractBlock.Settings.copy(Blocks.OAK_WOOD).nonOpaque().sounds(BlockSoundGroup.CORAL)));
 
@@ -158,6 +175,18 @@ public class ModBlocks
     public static final Block ORCHID = registerBlock("orchid",
             new FlowerBlock(StatusEffects.NAUSEA, 0.35F, AbstractBlock.Settings.copy(Blocks.PEONY)));
 
+    public static final Block BLUEBELL = registerBlock("bluebell",
+            new FlowerBlock(StatusEffects.RESISTANCE, 0.35F, AbstractBlock.Settings.copy(Blocks.LILY_OF_THE_VALLEY)));
+
+    public static final Block WOOD_SORREL = registerBlock("wood_sorrel",
+            new FlowerbedBlock(AbstractBlock.Settings.copy(Blocks.PINK_PETALS)));
+
+    public static final Block REINDEER_LICHEN = registerBlock("reindeer_lichen",
+            new MossBlock(AbstractBlock.Settings.copy(Blocks.MOSS_BLOCK).nonOpaque()));
+
+    public static final Block REINDEER_LICHEN_CARPET = registerBlock("reindeer_lichen_carpet",
+            new CarpetBlock(AbstractBlock.Settings.copy(Blocks.MOSS_CARPET).nonOpaque()));
+
     public static final Block ORCHID_GRASS_BLOCK = registerBlock("orchid_grass_block",
             new GrassBlock(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK)));
 
@@ -178,6 +207,9 @@ public class ModBlocks
 
     public static final Block POTTED_XEROCHRYSUM = registerBlock("potted_xerochrysum",
             new FlowerPotBlock(XEROCHRYSUM, AbstractBlock.Settings.copy(Blocks.POTTED_DANDELION)));
+
+    public static final Block POTTED_BLUEBELL = registerBlock("potted_bluebell",
+            new FlowerPotBlock(BLUEBELL, AbstractBlock.Settings.copy(Blocks.POTTED_LILY_OF_THE_VALLEY)));
 
     public static final Block POTTED_ORCHID = registerBlock("potted_orchid",
             new FlowerPotBlock(ORCHID, AbstractBlock.Settings.copy(Blocks.POTTED_DANDELION)));
@@ -251,10 +283,10 @@ public class ModBlocks
 
     public static Block registerLeavesBlock(String name)
     {
-        if (name.equals("bauhinia"))
+        return switch (name)
         {
-            return registerBlock(name+"_leaves",
-                    new BauhiniaLeavesBlock(AbstractBlock.Settings.create()
+            case "bauhinia" -> registerBlock(name + "_leaves",
+                    new FallingLeavesBlock(AbstractBlock.Settings.create()
                             .mapColor(MapColor.MAGENTA)
                             .strength(0.2F)
                             .ticksRandomly()
@@ -265,10 +297,35 @@ public class ModBlocks
                             .blockVision(Blocks::never)
                             .burnable()
                             .pistonBehavior(PistonBehavior.DESTROY)
-                            .solidBlock(Blocks::never)));
-        }
-        return registerBlock(name+"_leaves",
-                new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)));
+                            .solidBlock(Blocks::never), ModParticles.BAUHINIA_PETALS, 10));
+            case "pine" -> registerBlock(name + "_leaves",
+                    new FallingLeavesBlock(AbstractBlock.Settings.copy(Blocks.SPRUCE_LEAVES), ModParticles.PINE_NEEDLES, 60));
+            case "fir" -> registerBlock(name + "_leaves",
+                    new FallingLeavesBlock(AbstractBlock.Settings.copy(Blocks.SPRUCE_LEAVES), ModParticles.FIR_NEEDLES, 100));
+            case "cedar" -> registerBlock(name + "_leaves",
+                    new FallingLeavesBlock(AbstractBlock.Settings.copy(Blocks.SPRUCE_LEAVES), ModParticles.CEDAR_NEEDLES, 100));
+            case "hazelnut" -> registerBlock(name + "_leaves",
+                    new FallingLeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES), ModParticles.HAZELNUT_LEAVES, 30));
+            case "hornbeam" -> registerBlock(name + "_leaves",
+                    new FallingLeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES), ModParticles.HORNBEAM_LEAVES, 35));
+            case "hawthorn" -> registerBlock(name + "_leaves",
+                    new FallingLeavesBlock(AbstractBlock.Settings.create()
+                            .mapColor(MapColor.WHITE)
+                            .strength(0.2F)
+                            .ticksRandomly()
+                            .sounds(BlockSoundGroup.CHERRY_LEAVES)
+                            .nonOpaque()
+                            .allowsSpawning(Blocks::canSpawnOnLeaves)
+                            .suffocates(Blocks::never)
+                            .blockVision(Blocks::never)
+                            .burnable()
+                            .pistonBehavior(PistonBehavior.DESTROY)
+                            .solidBlock(Blocks::never), ModParticles.HAWTHORN_PETALS, 15));
+            case "fig" -> registerBlock(name + "_leaves",
+                    new FallingLeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES), ModParticles.FIG_LEAVES, 45));
+            default -> registerBlock(name + "_leaves",
+                    new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)));
+        };
     }
 
     public static Block registerLogsBlock(String name)

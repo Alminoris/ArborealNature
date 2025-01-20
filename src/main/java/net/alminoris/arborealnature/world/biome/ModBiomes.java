@@ -5,16 +5,14 @@ import net.alminoris.arborealnature.entity.ModEntities;
 import net.alminoris.arborealnature.world.ModPlacedFeatures;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryEntryLookup;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeEffects;
-import net.minecraft.world.biome.GenerationSettings;
-import net.minecraft.world.biome.SpawnSettings;
+import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.carver.ConfiguredCarver;
 import net.minecraft.world.gen.feature.*;
@@ -238,7 +236,13 @@ public class ModBiomes
 
         spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.RABBIT, 5, 2, 3));
 
-        DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.CARIBOU, 75, 2, 4));
+
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.WOLVERINE, 40, 1, 2));
+
+        DefaultBiomeFeatures.addCaveMobs(spawnBuilder);
+        DefaultBiomeFeatures.addMonsters(spawnBuilder, 15, 5, 20, false);
+        spawnBuilder.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.STRAY, 20, 4, 4));
 
         globalOverworldGeneration(biomeBuilder);
 
@@ -246,13 +250,23 @@ public class ModBiomes
 
         biomeBuilder.feature(GenerationStep.Feature.FLUID_SPRINGS, MiscPlacedFeatures.SPRING_WATER);
 
-        //biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.FIR_FOREST_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.COBBLESTONE_ROCK_PLACED_KEY);
 
-        //biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.CEDAR_FOREST_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.FIR_FOREST_PLACED_KEY);
+
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.CEDAR_FOREST_PLACED_KEY);
+
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.BLUEBELL_PLACED_KEY);
+
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.WOOD_SORREL_PLACED_KEY);
+
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.FIR_FOREST_GRASS_PLACED_KEY);
+
+        DefaultBiomeFeatures.addLargeFerns(biomeBuilder);
 
         return new Biome.Builder()
                 .precipitation(true)
-                .downfall(0.6f)
+                .downfall(0.7f)
                 .temperature(-0.5f)
                 .generationSettings(biomeBuilder.build())
                 .spawnSettings(spawnBuilder.build())
@@ -264,6 +278,7 @@ public class ModBiomes
                         .foliageColor(0xa2c09b)
                         .fogColor(0Xc0e2cb)
                         .music(null)
+                        .particleConfig(new BiomeParticleConfig(ParticleTypes.SNOWFLAKE, 0.01f))
                         .moodSound(BiomeMoodSound.CAVE).build()).build();
     }
 }

@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "arborealnature:item/hazelnut_chest_boat"
-  }
-}

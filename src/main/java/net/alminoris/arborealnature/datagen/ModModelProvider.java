@@ -168,6 +168,8 @@ public class ModModelProvider extends FabricModelProvider
         pineResinBricksPool.stairs(ModBlocks.PINE_RESIN_BRICKS_STAIRS);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PINE_CONE_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FIR_CONE_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CEDAR_CONE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PINE_RESIN_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PINE_RESIN_CHISELED);
 
@@ -177,8 +179,9 @@ public class ModModelProvider extends FabricModelProvider
         blockStateModelGenerator.registerParentedItemModel(ModItems.ORCHID_MANTIS_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
         blockStateModelGenerator.registerParentedItemModel(ModItems.MOOSE_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
         blockStateModelGenerator.registerParentedItemModel(ModItems.LYNX_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
+        blockStateModelGenerator.registerParentedItemModel(ModItems.CARIBOU_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
+        blockStateModelGenerator.registerParentedItemModel(ModItems.WOLVERINE_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
 
-        blockStateModelGenerator.registerFlowerbed(ModBlocks.WOOD_ANEMONA);
         registerCarpet(blockStateModelGenerator, LEAVES.get("hazelnut"), ModBlocks.HAZELNUT_COVER);
         blockStateModelGenerator.registerSingleton(ModBlocks.BAUHINIA_COVER_BLOCK, TexturedModel.LEAVES);
         registerCarpet(blockStateModelGenerator, ModBlocks.BAUHINIA_COVER_BLOCK, ModBlocks.BAUHINIA_COVER);
@@ -189,6 +192,10 @@ public class ModModelProvider extends FabricModelProvider
         blockStateModelGenerator.registerDoubleBlock(ModBlocks.LARGE_CELANDINE, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerDoubleBlock(ModBlocks.BLUEGRASS, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerDoubleBlock(ModBlocks.LARGE_ORCHID, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerWoolAndCarpet(ModBlocks.REINDEER_LICHEN, ModBlocks.REINDEER_LICHEN_CARPET);
+
+        blockStateModelGenerator.registerFlowerbed(ModBlocks.WOOD_ANEMONA);
+        blockStateModelGenerator.registerFlowerbed(ModBlocks.WOOD_SORREL);
 
         registerLilyPad(blockStateModelGenerator, ModBlocks.ORCHID_LILY_PAD);
 
@@ -201,6 +208,7 @@ public class ModModelProvider extends FabricModelProvider
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.WHITE_MUSHROOM, ModBlocks.POTTED_WHITE_MUSHROOM, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.ORCHID, ModBlocks.POTTED_ORCHID, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.GERANIUM, ModBlocks.POTTED_GERANIUM, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.BLUEBELL, ModBlocks.POTTED_BLUEBELL, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.XEROCHRYSUM, ModBlocks.POTTED_XEROCHRYSUM, BlockStateModelGenerator.TintType.NOT_TINTED);
     }
 
@@ -268,14 +276,24 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.MINIHAMMER, Models.GENERATED);
         itemModelGenerator.register(ModItems.CHISEL, Models.GENERATED);
         itemModelGenerator.register(ModItems.ORCHID_MANTIS_INCISOR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.WOLVERINE_PAW, Models.GENERATED);
         itemModelGenerator.register(ModItems.PINE_RESIN, Models.GENERATED);
         itemModelGenerator.register(ModItems.PINE_CONE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.FIR_CONE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CEDAR_CONE, Models.GENERATED);
         itemModelGenerator.register(ModItems.MOOSE_HORN, Models.GENERATED);
         itemModelGenerator.register(ModItems.MOOSE_VENISON, Models.GENERATED);
         itemModelGenerator.register(ModItems.COOKED_MOOSE_VENISON, Models.GENERATED);
         itemModelGenerator.register(ModItems.HUNTING_KNIFE, Models.GENERATED);
         itemModelGenerator.register(ModBlocks.LYNX_HIDE.asItem(), Models.GENERATED);
-
+        itemModelGenerator.register(ModItems.CARIBOU_FUR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CARIBOU_HORN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CARIBOU_VENISON, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COOKED_CARIBOU_VENISON, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CARIBOU_FUR_BOOTS, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CARIBOU_FUR_CHESTPLATE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CARIBOU_FUR_HELMET, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CARIBOU_FUR_LEGGINGS, Models.GENERATED);
 
         for(String name : WOOD_NAMES)
         {

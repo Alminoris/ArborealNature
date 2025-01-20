@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/flowerbed_3",
-  "textures": {
-    "flowerbed": "arborealnature:block/wood_anemona",
-    "stem": "arborealnature:block/wood_anemona_stem"
-  }
-}

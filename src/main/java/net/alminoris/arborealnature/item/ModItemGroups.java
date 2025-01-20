@@ -24,7 +24,7 @@ public class ModItemGroups
 
     public static final String[] HAZELNUT_WOODS = {"hazelnut", "hornbeam", "hawthorn"};
 
-    public static final String[] CONIFER_WOODS = {"pine"};
+    public static final String[] CONIFER_WOODS = {"pine", "fir", "cedar"};
 
     public static final String[] CONIFER_BERRIES = {"blueberry"};
 
@@ -218,10 +218,18 @@ public class ModItemGroups
                     {
                         entries.add(ModBlocks.DIRTED_GRASS_BLOCK);
                         entries.add(ModBlocks.XEROCHRYSUM);
+                        entries.add(ModBlocks.BLUEBELL);
+                        entries.add(ModBlocks.WOOD_SORREL);
+                        entries.add(ModBlocks.REINDEER_LICHEN_CARPET);
+                        entries.add(ModBlocks.REINDEER_LICHEN);
                         entries.add(ModBlocks.PINE_COVER);
                         entries.add(ModBlocks.PINE_COVER_BLOCK);
                         entries.add(ModItems.PINE_CONE);
                         entries.add(ModBlocks.PINE_CONE_BLOCK);
+                        entries.add(ModItems.FIR_CONE);
+                        entries.add(ModBlocks.FIR_CONE_BLOCK);
+                        entries.add(ModItems.CEDAR_CONE);
+                        entries.add(ModBlocks.CEDAR_CONE_BLOCK);
                         for (String name : CONIFER_WOODS)
                         {
                             entries.add(WOODEN_SAPLINGS.get(name));
@@ -263,11 +271,23 @@ public class ModItemGroups
                         entries.add(ModItems.HUNTING_KNIFE);
                         entries.add(ModItems.MOOSE_HORN);
                         entries.add(ModBlocks.LYNX_HIDE);
+                        entries.add(ModItems.CARIBOU_SPEAR);
+                        entries.add(ModItems.WOLVERINE_PAW);
+                        entries.add(ModItems.CARIBOU_FUR_HELMET);
+                        entries.add(ModItems.CARIBOU_FUR_CHESTPLATE);
+                        entries.add(ModItems.CARIBOU_FUR_LEGGINGS);
+                        entries.add(ModItems.CARIBOU_FUR_BOOTS);
+                        entries.add(ModItems.CARIBOU_HORN);
+                        entries.add(ModItems.CARIBOU_FUR);
                         entries.add(ModItems.PINE_RESIN);
                         entries.add(ModItems.MOOSE_VENISON);
                         entries.add(ModItems.COOKED_MOOSE_VENISON);
+                        entries.add(ModItems.CARIBOU_VENISON);
+                        entries.add(ModItems.COOKED_CARIBOU_VENISON);
                         entries.add(ModItems.MOOSE_SPAWN_EGG);
                         entries.add(ModItems.LYNX_SPAWN_EGG);
+                        entries.add(ModItems.CARIBOU_SPAWN_EGG);
+                        entries.add(ModItems.WOLVERINE_SPAWN_EGG);
                     }).build());
 
     public static void registerItemGroups()

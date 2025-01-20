@@ -109,7 +109,6 @@ public class CustomAlterGroundTreeDecorator extends TreeDecorator
             BlockPos blockPos = origin.up(i);
             if (Feature.isSoil(generator.getWorld(), blockPos))
             {
-                ArborealNature.LOGGER.info("TEST " + probability);
                 if (random.nextFloat() < probability)
                     generator.replace(blockPos, this.provider.get(generator.getRandom(), origin));
                 else

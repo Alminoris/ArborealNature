@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "arborealnature:block/cherry_chiseled",
-    "side": "arborealnature:block/cherry_chiseled",
-    "top": "arborealnature:block/cherry_chiseled"
-  }
-}

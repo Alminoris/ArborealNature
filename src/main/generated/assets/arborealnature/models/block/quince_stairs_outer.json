@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "textures": {
-    "bottom": "arborealnature:block/quince_planks",
-    "side": "arborealnature:block/quince_planks",
-    "top": "arborealnature:block/quince_planks"
-  }
-}

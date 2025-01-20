@@ -19,6 +19,10 @@ public class ModTags
 
         public static final TagKey<Block> MOOSE_SPAWNABLE_ON = createTag("moose_spawnable_on");
 
+        public static final TagKey<Block> CARIBOU_SPAWNABLE_ON = createTag("caribou_spawnable_on");
+
+        public static final TagKey<Block> WOLVERINE_SPAWNABLE_ON = createTag("wolverine_spawnable_on");
+
         public static final TagKey<Block> LOGS_TO_BE_BURNT = createTag("logs_to_be_burnt");
 
         public static final TagKey<Block> INTEGRATION_CHISELABLE_BLOCKS = createTag("integration_chiselable_blocks");
@@ -36,6 +40,10 @@ public class ModTags
         public static final TagKey<Item> SQUIRREL_FOOD = createTag("squirrel_food");
 
         public static final TagKey<Item> MOOSE_FOOD = createTag("moose_food");
+
+        public static final TagKey<Item> CARIBOU_FOOD = createTag("caribou_food");
+
+        public static final TagKey<Item> WOLVERINE_FOOD = createTag("wolverine_food");
 
         private static TagKey<Item> createTag(String name)
         {

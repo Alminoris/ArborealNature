@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "arborealnature:block/burnt_bauhinia_log",
-    "side": "arborealnature:block/burnt_bauhinia_log"
-  }
-}

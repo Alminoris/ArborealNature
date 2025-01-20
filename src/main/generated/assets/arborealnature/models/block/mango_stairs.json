@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "arborealnature:block/mango_planks",
-    "side": "arborealnature:block/mango_planks",
-    "top": "arborealnature:block/mango_planks"
-  }
-}

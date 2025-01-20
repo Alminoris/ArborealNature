@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "arborealnature:block/hornbeam_chiseled",
-    "side": "arborealnature:block/hornbeam_chiseled",
-    "top": "arborealnature:block/hornbeam_chiseled"
-  }
-}

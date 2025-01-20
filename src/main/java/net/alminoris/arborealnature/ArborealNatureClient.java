@@ -5,8 +5,11 @@ import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.entity.ModBoats;
 import net.alminoris.arborealnature.entity.ModEntities;
 import net.alminoris.arborealnature.entity.client.*;
+import net.alminoris.arborealnature.entity.client.projectile.CaribouSpearEntityRenderer;
 import net.alminoris.arborealnature.entity.client.projectile.SilentArrowRenderer;
-import net.alminoris.arborealnature.particle.BauhiniaLeavesParticle;
+import net.alminoris.arborealnature.particle.LeavesParticle;
+import net.alminoris.arborealnature.particle.NeedlesParticle;
+import net.alminoris.arborealnature.particle.PetalsParticle;
 import net.alminoris.arborealnature.particle.ModParticles;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -15,7 +18,6 @@ import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.world.biome.GrassColors;
 
 import static net.alminoris.arborealnature.util.helper.ModBlockSetsHelper.*;
 
@@ -48,6 +50,10 @@ public class ArborealNatureClient implements ClientModInitializer
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BAUHINIA_VINES, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINE_RESIN, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WOOD_ANEMONA, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WOOD_SORREL, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BLUEBELL, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.REINDEER_LICHEN, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.REINDEER_LICHEN_CARPET, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LARGE_CELANDINE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BLUEGRASS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GERANIUM, RenderLayer.getCutout());
@@ -63,7 +69,7 @@ public class ArborealNatureClient implements ClientModInitializer
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINE_RESIN_BRICKS_SLAB, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINE_RESIN_CHISELED, RenderLayer.getTranslucent());
 
-        /*ColorProviderRegistry.BLOCK.register(
+        ColorProviderRegistry.BLOCK.register(
                 (state, world, pos, tintIndex) -> world != null && pos != null
                         ? BiomeColors.getGrassColor(world, pos)
                         : 0xa2c09b,
@@ -73,11 +79,39 @@ public class ArborealNatureClient implements ClientModInitializer
         ColorProviderRegistry.ITEM.register(
                 (stack, tintIndex) -> 0xa2c09b,
                 LEAVES.get("fir").asItem()
-        );*/
+        );
 
-        ParticleFactoryRegistry.getInstance().register(ModParticles.BAUHINIA_LEAVES,
+        ParticleFactoryRegistry.getInstance().register(ModParticles.BAUHINIA_PETALS,
                 spriteProvider -> (parameters, world, x, y, z, velocityX, velocityY, velocityZ) ->
-                        new BauhiniaLeavesParticle(world, x, y, z, spriteProvider));
+                        new PetalsParticle(world, x, y, z, spriteProvider, 12));
+
+        ParticleFactoryRegistry.getInstance().register(ModParticles.PINE_NEEDLES,
+                spriteProvider -> (parameters, world, x, y, z, velocityX, velocityY, velocityZ) ->
+                        new NeedlesParticle(world, x, y, z, spriteProvider, 10));
+
+        ParticleFactoryRegistry.getInstance().register(ModParticles.FIR_NEEDLES,
+                spriteProvider -> (parameters, world, x, y, z, velocityX, velocityY, velocityZ) ->
+                        new NeedlesParticle(world, x, y, z, spriteProvider, 8));
+
+        ParticleFactoryRegistry.getInstance().register(ModParticles.CEDAR_NEEDLES,
+                spriteProvider -> (parameters, world, x, y, z, velocityX, velocityY, velocityZ) ->
+                        new NeedlesParticle(world, x, y, z, spriteProvider, 10));
+
+        ParticleFactoryRegistry.getInstance().register(ModParticles.HAZELNUT_LEAVES,
+                spriteProvider -> (parameters, world, x, y, z, velocityX, velocityY, velocityZ) ->
+                        new LeavesParticle(world, x, y, z, spriteProvider, 12));
+
+        ParticleFactoryRegistry.getInstance().register(ModParticles.HORNBEAM_LEAVES,
+                spriteProvider -> (parameters, world, x, y, z, velocityX, velocityY, velocityZ) ->
+                        new LeavesParticle(world, x, y, z, spriteProvider, 8));
+
+        ParticleFactoryRegistry.getInstance().register(ModParticles.HAWTHORN_PETALS,
+                spriteProvider -> (parameters, world, x, y, z, velocityX, velocityY, velocityZ) ->
+                        new PetalsParticle(world, x, y, z, spriteProvider, 12));
+
+        ParticleFactoryRegistry.getInstance().register(ModParticles.FIG_LEAVES,
+                spriteProvider -> (parameters, world, x, y, z, velocityX, velocityY, velocityZ) ->
+                        new LeavesParticle(world, x, y, z, spriteProvider, 12));
 
         EntityRendererRegistry.register(ModEntities.SQUIRREL, SquirrelRenderer::new);
         EntityRendererRegistry.register(ModEntities.WOOD_MOUSE, WoodMouseRenderer::new);
@@ -85,7 +119,10 @@ public class ArborealNatureClient implements ClientModInitializer
         EntityRendererRegistry.register(ModEntities.ORCHID_MANTIS, OrchidMantisRenderer::new);
         EntityRendererRegistry.register(ModEntities.MOOSE, MooseRenderer::new);
         EntityRendererRegistry.register(ModEntities.LYNX, LynxRenderer::new);
+        EntityRendererRegistry.register(ModEntities.CARIBOU, CaribouRenderer::new);
+        EntityRendererRegistry.register(ModEntities.WOLVERINE, WolverineRenderer::new);
 
         EntityRendererRegistry.register(ModEntities.SILENT_ARROW, SilentArrowRenderer::new);
+        EntityRendererRegistry.register(ModEntities.CARIBOU_SPEAR, CaribouSpearEntityRenderer::new);
     }
 }
