@@ -17,6 +17,7 @@ import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -26,9 +27,12 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animatable.instance.SingletonAnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.Animation;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.RawAnimation;
 
 public class MooseEntity extends AnimalEntity implements GeoEntity
 {
@@ -88,7 +92,7 @@ public class MooseEntity extends AnimalEntity implements GeoEntity
     {
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(1, new AnimalMateGoal(this, 0.85D));
-        this.goalSelector.add(2, new TemptGoal(this, 0.8, stack -> stack.isIn(ModTags.Items.MOOSE_FOOD), false));
+        this.goalSelector.add(2, new TemptGoal(this, 0.8, Ingredient.fromTag(ModTags.Items.MOOSE_FOOD), false));
         this.goalSelector.add(3, new FollowParentGoal(this, 0.75D));
         this.goalSelector.add(4, new MeleeAttackGoal(this, 1.0D, true)
         {
@@ -137,10 +141,10 @@ public class MooseEntity extends AnimalEntity implements GeoEntity
     }
 
     @Override
-    protected void initDataTracker(DataTracker.Builder builder)
+    protected void initDataTracker()
     {
-        super.initDataTracker(builder);
-        builder.add(IS_SITTING, false);
+        super.initDataTracker();
+        this.dataTracker.startTracking(IS_SITTING, false);
     }
 
     public boolean isSitting()
@@ -218,7 +222,7 @@ public class MooseEntity extends AnimalEntity implements GeoEntity
 
     public static boolean isValidNaturalSpawn(EntityType<? extends AnimalEntity> type, WorldAccess world, SpawnReason spawnReason, BlockPos pos, Random random)
     {
-        boolean bl = SpawnReason.isTrialSpawner(spawnReason) || isLightLevelValidForNaturalSpawn(world, pos);
+        boolean bl = isLightLevelValidForNaturalSpawn(world, pos);
         boolean isSpawnableBlock = world.getBlockState(pos.down()).isIn(ModTags.Blocks.MOOSE_SPAWNABLE_ON);
         return isSpawnableBlock && bl;
     }
@@ -242,12 +246,12 @@ public class MooseEntity extends AnimalEntity implements GeoEntity
     }
 
     @Override
-    public EntityDimensions getBaseDimensions(EntityPose pose)
+    public EntityDimensions getDimensions(EntityPose pose)
     {
         if (pose == EntityPose.SITTING)
             return EntityDimensions.changing(this.getType().getWidth(), this.getType().getHeight() - 0.5F);
 
-        return super.getBaseDimensions(pose);
+        return super.getDimensions(pose);
     }
 
     @Override

@@ -11,7 +11,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
 public class SilentArrowEntity extends PersistentProjectileEntity
 {
@@ -22,14 +21,9 @@ public class SilentArrowEntity extends PersistentProjectileEntity
         super(entityType, world);
     }
 
-    public SilentArrowEntity(World world, LivingEntity owner, ItemStack stack, @Nullable ItemStack shotFrom)
+    public SilentArrowEntity(World world, LivingEntity owner)
     {
-        super(ModEntities.SILENT_ARROW, owner, world, stack, shotFrom);
-    }
-
-    public SilentArrowEntity(World world, double x, double y, double z, ItemStack stack, @Nullable ItemStack shotFrom)
-    {
-        super(ModEntities.SILENT_ARROW, x, y, z, world, stack, shotFrom);
+        super(ModEntities.SILENT_ARROW, owner, world);
     }
 
     @Override
@@ -65,13 +59,14 @@ public class SilentArrowEntity extends PersistentProjectileEntity
     }
 
     @Override
-    public void writeCustomDataToNbt(NbtCompound nbt) {
-        super.writeCustomDataToNbt(nbt);
-        nbt.putInt("Duration", this.duration);
+    protected ItemStack asItemStack()
+    {
+        return new ItemStack(ModItems.SILENT_ARROW);
     }
 
     @Override
-    protected ItemStack getDefaultItemStack() {
-        return new ItemStack(ModItems.SILENT_ARROW);
+    public void writeCustomDataToNbt(NbtCompound nbt) {
+        super.writeCustomDataToNbt(nbt);
+        nbt.putInt("Duration", this.duration);
     }
 }

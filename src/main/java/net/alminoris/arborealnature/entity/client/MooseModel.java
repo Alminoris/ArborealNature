@@ -2,12 +2,11 @@ package net.alminoris.arborealnature.entity.client;
 
 import net.alminoris.arborealnature.ArborealNature;
 import net.alminoris.arborealnature.entity.custom.MooseEntity;
-import net.alminoris.arborealnature.entity.custom.SquirrelEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
-import software.bernie.geckolib.animation.AnimationState;
-import software.bernie.geckolib.cache.object.GeoBone;
 import software.bernie.geckolib.constant.DataTickets;
+import software.bernie.geckolib.core.animatable.model.CoreGeoBone;
+import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.model.data.EntityModelData;
 
@@ -32,11 +31,11 @@ public class MooseModel extends GeoModel<MooseEntity>
     }
 
     @Override
-    public void setCustomAnimations(MooseEntity entity, long instanceId, AnimationState<MooseEntity> animationState)
+    public void setCustomAnimations(MooseEntity animatable, long instanceId, AnimationState<MooseEntity> animationState)
     {
-        GeoBone head = getAnimationProcessor().getBone("head");
+        CoreGeoBone head = getAnimationProcessor().getBone("head");
 
-        if (head != null && !entity.isSitting())
+        if (head != null)
         {
             EntityModelData entityModelData = animationState.getData(DataTickets.ENTITY_MODEL_DATA);
             head.setRotX(entityModelData.headPitch() * MathHelper.RADIANS_PER_DEGREE);

@@ -25,7 +25,7 @@ public class LynxRenderer extends GeoEntityRenderer<LynxEntity>
     }
 
     @Override
-    public void preRender(MatrixStack poseStack, LynxEntity entity, BakedGeoModel model, @Nullable VertexConsumerProvider bufferSource, @Nullable VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, int colour)
+    public void preRender(MatrixStack poseStack, LynxEntity entity, BakedGeoModel model, VertexConsumerProvider bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha)
     {
         if (entity.isBaby())
         {
@@ -38,6 +38,6 @@ public class LynxRenderer extends GeoEntityRenderer<LynxEntity>
             model.getBone("head").get().updateScale(1.0f, 1.0f, 1.0f);
         }
 
-        super.preRender(poseStack, entity, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, colour);
+        super.preRender(poseStack, animatable, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, red, green, blue, alpha);
     }
 }

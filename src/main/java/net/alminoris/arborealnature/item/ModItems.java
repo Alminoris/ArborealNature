@@ -7,7 +7,6 @@ import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.entity.ModEntities;
 import net.alminoris.arborealnature.item.custom.*;
 import net.minecraft.block.Block;
-import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
@@ -123,56 +122,48 @@ public class ModItems
             new Item.Settings().maxCount(16)));
 
     public static final Item ORCHID_MANTIS_INCISOR = registerItem("orchid_mantis_incisor", new OrchidMantisIncisorItem(
-            ToolMaterials.STONE, new Item.Settings()
-            .attributeModifiers(OrchidMantisIncisorItem.createAttributeModifiers(ToolMaterials.STONE, 4, -1.7f))
-            .maxCount(1)));
+            ToolMaterials.STONE, 4, -1.7f, new Item.Settings().maxCount(1)));
 
     public static final Item WOLVERINE_PAW = registerItem("wolverine_paw", new SwordItem(
-            ToolMaterials.STONE, new Item.Settings()
-            .attributeModifiers(OrchidMantisIncisorItem.createAttributeModifiers(ToolMaterials.STONE, 3, -1.0f))
-            .maxCount(1)));
+            ToolMaterials.STONE, 3, -1.0f, new Item.Settings().maxCount(1)));
 
-    public static final Item HUNTING_KNIFE = registerItem("hunting_knife", new ToolItem(
-            ToolMaterials.STONE, new Item.Settings()
-            .attributeModifiers(OrchidMantisIncisorItem.createAttributeModifiers(ToolMaterials.STONE, 1, -1f))
-            .maxCount(1)));
+    public static final Item HUNTING_KNIFE = registerItem("hunting_knife", new SwordItem(
+            ToolMaterials.STONE, 1, -1f, new Item.Settings().maxCount(1)));
 
     public static final Item FIGEATER_BEETLE_CHESTPLATE = registerItem("figeater_beetle_chestplate",
             new StatusEffectArmorItem(
                     ModArmorMaterials.FIGEATER_BEETLE_SHELL,
                     ArmorItem.Type.CHESTPLATE,
                     StatusEffects.SLOW_FALLING,
-                    new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(25))));
+                    new Item.Settings().maxDamage(25)));
 
     public static final Item CARIBOU_FUR_HELMET = registerItem("caribou_fur_helmet",
             new ArmorItem(
                     ModArmorMaterials.CARIBOU_FUR,
                     ArmorItem.Type.HELMET,
-                    new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(10))));
+                    new Item.Settings().maxDamage(10)));
 
     public static final Item CARIBOU_FUR_CHESTPLATE = registerItem("caribou_fur_chestplate",
             new ArmorItem(
                     ModArmorMaterials.CARIBOU_FUR,
                     ArmorItem.Type.CHESTPLATE,
-                    new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(10))));
+                    new Item.Settings().maxDamage(10)));
 
     public static final Item CARIBOU_FUR_LEGGINGS = registerItem("caribou_fur_leggings",
             new ArmorItem(
                     ModArmorMaterials.CARIBOU_FUR,
                     ArmorItem.Type.LEGGINGS,
-                    new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(10))));
+                    new Item.Settings().maxDamage(10)));
 
     public static final Item CARIBOU_FUR_BOOTS = registerItem("caribou_fur_boots",
             new ArmorItem(
                     ModArmorMaterials.CARIBOU_FUR,
                     ArmorItem.Type.BOOTS,
-                    new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(10))));
+                    new Item.Settings().maxDamage(10)));
 
     public static final Item SILENT_ARROW = registerItem("silent_arrow", new SilentArrowItem(new Item.Settings()));
 
-    public static final Item CARIBOU_SPEAR = registerItem("caribou_spear", new CaribouSpearItem(new Item.Settings().maxDamage(100)
-            .attributeModifiers(CaribouSpearItem.createAttributeModifiers())
-            .component(DataComponentTypes.TOOL, CaribouSpearItem.createToolComponent())));
+    public static final Item CARIBOU_SPEAR = registerItem("caribou_spear", new CaribouSpearItem(new Item.Settings().maxDamage(100)));
 
     public static final Item ORCHID_LILY_PAD = registerItem("orchid_lily_pad_item", new PlaceableOnWaterItem(ModBlocks.ORCHID_LILY_PAD, new Item.Settings()));
 

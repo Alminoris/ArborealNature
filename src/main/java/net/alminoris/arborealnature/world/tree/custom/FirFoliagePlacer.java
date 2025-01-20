@@ -1,5 +1,6 @@
 package net.alminoris.arborealnature.world.tree.custom;
 
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.alminoris.arborealnature.world.tree.ModFoliagePlacerTypes;
@@ -15,7 +16,7 @@ public class FirFoliagePlacer extends FoliagePlacer
 {
     private final IntProvider trunkHeight;
 
-    public static final MapCodec<FirFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(
+    public static final Codec<FirFoliagePlacer> CODEC = RecordCodecBuilder.create(
             instance -> fillFoliagePlacerFields(instance)
                     .and(IntProvider.createValidatingCodec(0, 24).fieldOf("trunk_height").forGetter(placer -> placer.trunkHeight))
                     .apply(instance, FirFoliagePlacer::new)

@@ -21,7 +21,7 @@ import java.util.function.BiConsumer;
 
 public class LargeHornbeamTrunkPlacer extends TrunkPlacer
 {
-    public static final MapCodec<LargeHornbeamTrunkPlacer> CODEC = RecordCodecBuilder.mapCodec(
+    public static final Codec<LargeHornbeamTrunkPlacer> CODEC = RecordCodecBuilder.create(
             instance -> fillTrunkPlacerFields(instance).apply(instance, LargeHornbeamTrunkPlacer::new)
     );
 

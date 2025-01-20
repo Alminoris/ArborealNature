@@ -4,7 +4,6 @@ import net.alminoris.arborealnature.ArborealNature;
 import net.alminoris.arborealnature.entity.custom.projectile.SilentArrowEntity;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.ProjectileEntityRenderer;
-import net.minecraft.entity.projectile.SpectralArrowEntity;
 import net.minecraft.util.Identifier;
 
 public class SilentArrowRenderer extends ProjectileEntityRenderer<SilentArrowEntity>

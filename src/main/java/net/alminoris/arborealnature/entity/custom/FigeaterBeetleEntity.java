@@ -17,18 +17,19 @@ import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animatable.instance.SingletonAnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.animation.Animation;
-import software.bernie.geckolib.animation.AnimationController;
-import software.bernie.geckolib.animation.RawAnimation;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.Animation;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.RawAnimation;
 
 import java.util.EnumSet;
 
@@ -80,7 +81,7 @@ public class FigeaterBeetleEntity extends AnimalEntity implements GeoEntity, Flu
         this.goalSelector.add(1, new FlyAroundGoal(this, 1.0)); // Flying goal
         this.goalSelector.add(2, new WanderAroundGoal(this, 1.0)); // Walking goal
         this.goalSelector.add(3, new AnimalMateGoal(this, 0.5D));
-        this.goalSelector.add(4, new TemptGoal(this, 0.55D, stack -> stack.isOf(ModItems.FIGS), true));
+        this.goalSelector.add(4, new TemptGoal(this, 0.55D, Ingredient.ofItems(ModItems.FIGS), true));
         this.goalSelector.add(5, new FollowParentGoal(this, 0.5D));
         this.goalSelector.add(6, new EscapeDangerGoal(this, 0.6D));
         this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 5.0F));
@@ -94,7 +95,7 @@ public class FigeaterBeetleEntity extends AnimalEntity implements GeoEntity, Flu
         boolean damaged = super.damage(source, amount);
         if (damaged && this.isOnGround())
         {
-            startFlying(); // Take off and fly if damaged while on the ground
+            startFlying();
         }
         return damaged;
     }
@@ -108,7 +109,7 @@ public class FigeaterBeetleEntity extends AnimalEntity implements GeoEntity, Flu
     private void stopFlying()
     {
         this.isFlying = false;
-        this.moveControl = new MoveControl(this); // Reset to normal ground movement
+        this.moveControl = new MoveControl(this);
     }
 
     public boolean isFlying()

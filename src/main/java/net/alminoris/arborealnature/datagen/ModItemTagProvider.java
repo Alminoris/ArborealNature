@@ -38,7 +38,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
         getOrCreateTagBuilder(ModTags.Items.MOOSE_FOOD)
                 .add(Items.WHEAT)
                 .add(Items.WHEAT_SEEDS)
-                .add(Items.SHORT_GRASS)
+                .add(Items.GRASS)
                 .add(Items.TALL_GRASS)
                 .add(Items.SWEET_BERRIES)
                 .add(BERRIES.get("blueberry"));
@@ -46,8 +46,13 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
         getOrCreateTagBuilder(ModTags.Items.CARIBOU_FOOD)
                 .add(Items.LARGE_FERN)
                 .add(Items.FERN)
-                .add(Items.SHORT_GRASS)
+                .add(Items.GRASS)
                 .add(ModBlocks.REINDEER_LICHEN_CARPET.asItem());
+
+        getOrCreateTagBuilder(ModTags.Items.LYNX_FOOD)
+                .add(Items.RABBIT)
+                .add(ModItems.MOOSE_VENISON)
+                .add(Items.CHICKEN);
 
         getOrCreateTagBuilder(ModTags.Items.WOLVERINE_FOOD)
                 .add(Items.RABBIT)
@@ -65,26 +70,5 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
 
         getOrCreateTagBuilder(ItemTags.FREEZE_IMMUNE_WEARABLES)
                 .add(ModItems.CARIBOU_FUR_HELMET, ModItems.CARIBOU_FUR_CHESTPLATE, ModItems.CARIBOU_FUR_LEGGINGS, ModItems.CARIBOU_FUR_BOOTS);
-
-        getOrCreateTagBuilder(ItemTags.HEAD_ARMOR)
-                .add(ModItems.CARIBOU_FUR_HELMET);
-
-        getOrCreateTagBuilder(ItemTags.CHEST_ARMOR)
-                .add(ModItems.FIGEATER_BEETLE_CHESTPLATE)
-                .add(ModItems.CARIBOU_FUR_CHESTPLATE);
-
-        getOrCreateTagBuilder(ItemTags.LEG_ARMOR)
-                .add(ModItems.CARIBOU_FUR_LEGGINGS);
-
-        getOrCreateTagBuilder(ItemTags.FOOT_ARMOR)
-                .add(ModItems.CARIBOU_FUR_BOOTS);
-
-        this.getOrCreateTagBuilder(ItemTags.MEAT)
-                .add(
-                        ModItems.MOOSE_VENISON,
-                        ModItems.COOKED_MOOSE_VENISON,
-                        ModItems.CARIBOU_VENISON,
-                        ModItems.COOKED_CARIBOU_VENISON
-                );
     }
 }

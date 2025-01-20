@@ -2,13 +2,12 @@ package net.alminoris.arborealnature.world.tree;
 
 import net.alminoris.arborealnature.util.helper.ModBlockSetsHelper;
 import net.alminoris.arborealnature.world.ModConfiguredFeatures;
-import net.minecraft.block.SaplingGenerator;
+import net.minecraft.block.sapling.SaplingGenerator;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
-import java.util.Optional;
 
 public class ModSaplingGenerators
 {
@@ -36,30 +35,15 @@ public class ModSaplingGenerators
         {
             if (name.equals("pine"))
             {
-                put(name, new SaplingGenerator(name, 0f, Optional.of(ModConfiguredFeatures.MEGA_PINE_KEY),
-                        Optional.empty(),
-                        Optional.of(keys.get(name)),
-                        Optional.empty(),
-                        Optional.empty(),
-                        Optional.empty()));
+                put(name, new CustomLargeTreeSaplingGenerator(ModConfiguredFeatures.MEGA_PINE_KEY, keys.get(name)));
             }
             else if (name.equals("cedar"))
             {
-                put(name, new SaplingGenerator(name, 0f, Optional.of(keys.get(name)),
-                        Optional.empty(),
-                        Optional.empty(),
-                        Optional.empty(),
-                        Optional.empty(),
-                        Optional.empty()));
+                put(name, new CustomLargeTreeSaplingGenerator(keys.get(name)));
             }
             else
             {
-                put(name, new SaplingGenerator(name, 0f, Optional.empty(),
-                        Optional.empty(),
-                        Optional.of(keys.get(name)),
-                        Optional.empty(),
-                        Optional.empty(),
-                        Optional.empty()));
+                put(name, new CustomSaplingGenerator(keys.get(name)));
             }
         }
     }};

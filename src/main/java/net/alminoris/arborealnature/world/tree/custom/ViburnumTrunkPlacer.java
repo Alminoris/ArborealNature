@@ -1,5 +1,6 @@
 package net.alminoris.arborealnature.world.tree.custom;
 
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.alminoris.arborealnature.world.tree.ModTrunkPlacerTypes;
@@ -20,7 +21,7 @@ import java.util.function.BiConsumer;
 
 public class ViburnumTrunkPlacer extends TrunkPlacer
 {
-    public static final MapCodec<ViburnumTrunkPlacer> CODEC = RecordCodecBuilder.mapCodec(
+    public static final Codec<ViburnumTrunkPlacer> CODEC = RecordCodecBuilder.create(
             instance -> fillTrunkPlacerFields(instance).apply(instance, ViburnumTrunkPlacer::new)
     );
 

@@ -1,6 +1,7 @@
 package net.alminoris.arborealnature.world.tree.custom;
 
 import com.google.common.collect.ImmutableList;
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.alminoris.arborealnature.world.tree.ModTrunkPlacerTypes;
@@ -18,7 +19,7 @@ import java.util.function.BiConsumer;
 
 public class FirTrunkPlacer extends TrunkPlacer
 {
-    public static final MapCodec<FirTrunkPlacer> CODEC = RecordCodecBuilder.mapCodec(
+    public static final Codec<FirTrunkPlacer> CODEC = RecordCodecBuilder.create(
             instance -> fillTrunkPlacerFields(instance).apply(instance, FirTrunkPlacer::new)
     );
 

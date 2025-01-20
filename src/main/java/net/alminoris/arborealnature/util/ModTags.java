@@ -2,7 +2,6 @@ package net.alminoris.arborealnature.util;
 
 import net.alminoris.arborealnature.ArborealNature;
 import net.minecraft.block.Block;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKeys;
@@ -40,6 +39,8 @@ public class ModTags
         public static final TagKey<Item> SQUIRREL_FOOD = createTag("squirrel_food");
 
         public static final TagKey<Item> MOOSE_FOOD = createTag("moose_food");
+
+        public static final TagKey<Item> LYNX_FOOD = createTag("lynx_food");
 
         public static final TagKey<Item> CARIBOU_FOOD = createTag("caribou_food");
 

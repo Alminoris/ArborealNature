@@ -1,5 +1,6 @@
 package net.alminoris.arborealnature.world.tree.custom;
 
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.alminoris.arborealnature.world.tree.ModFoliagePlacerTypes;
@@ -13,7 +14,7 @@ import net.minecraft.world.gen.foliage.FoliagePlacerType;
 
 public class WhiteMulberryFoliagePlacer extends BlobFoliagePlacer
 {
-    public static final MapCodec<WhiteMulberryFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(
+    public static final Codec<WhiteMulberryFoliagePlacer> CODEC = RecordCodecBuilder.create(
             instance -> createCodec(instance).apply(instance, WhiteMulberryFoliagePlacer::new)
     );
 

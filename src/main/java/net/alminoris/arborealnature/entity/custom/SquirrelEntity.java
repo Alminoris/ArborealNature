@@ -16,14 +16,18 @@ import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animatable.instance.SingletonAnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.Animation;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.RawAnimation;
 
 public class SquirrelEntity extends AnimalEntity implements GeoEntity
 {
@@ -74,7 +78,7 @@ public class SquirrelEntity extends AnimalEntity implements GeoEntity
         this.goalSelector.add(1, new PickUpItemGoal(this, 1.0D, ModItems.HAZELNUT_PEELED, ModItems.HAZELNUT_CRACKED, ModItems.HAZELNUT));
         this.goalSelector.add(2, new EatHeldItemGoal(this,  ModItems.HAZELNUT_PEELED, ModItems.HAZELNUT_CRACKED));
         this.goalSelector.add(3, new AnimalMateGoal(this, 0.85D));
-        this.goalSelector.add(4, new TemptGoal(this, 0.8, stack -> stack.isIn(ModTags.Items.SQUIRREL_FOOD), false));
+        this.goalSelector.add(4, new TemptGoal(this, 0.8, Ingredient.fromTag(ModTags.Items.SQUIRREL_FOOD), false));
         this.goalSelector.add(5, new FollowParentGoal(this, 0.75));
         this.goalSelector.add(6, new PounceAtTargetGoal(this, 0.6f));
         this.goalSelector.add(7, new MeleeAttackGoal(this, 0.9D, true));

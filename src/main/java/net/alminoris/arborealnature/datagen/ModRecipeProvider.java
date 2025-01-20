@@ -5,29 +5,25 @@ import net.alminoris.arborealnature.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.CookingRecipeJsonBuilder;
-import net.minecraft.data.server.recipe.RecipeExporter;
+import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.item.Items;
-import net.minecraft.recipe.CampfireCookingRecipe;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
-import net.minecraft.recipe.SmokingRecipe;
 import net.minecraft.recipe.book.RecipeCategory;
-import net.minecraft.registry.RegistryWrapper;
-
-import java.util.concurrent.CompletableFuture;
+import java.util.function.Consumer;
 
 import static net.alminoris.arborealnature.util.helper.ModBlockSetsHelper.*;
 
 public class ModRecipeProvider extends FabricRecipeProvider
 {
-    public ModRecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture)
+    public ModRecipeProvider(FabricDataOutput output)
     {
-        super(output, registriesFuture);
+        super(output);
     }
 
     @Override
-    public void generate(RecipeExporter recipeExporter)
+    public void generate(Consumer<RecipeJsonProvider> recipeExporter)
     {
         for(String name : WOOD_NAMES)
         {
@@ -221,10 +217,10 @@ public class ModRecipeProvider extends FabricRecipeProvider
         offerSingleOutputShapelessRecipe(recipeExporter, Items.WHITE_DYE, ModBlocks.WOOD_SORREL, String.valueOf(RecipeCategory.MISC));
         offerSingleOutputShapelessRecipe(recipeExporter, Items.BLUE_DYE, ModBlocks.BLUEBELL, String.valueOf(RecipeCategory.MISC));
 
-        offerFoodCookingRecipe(recipeExporter, "smoking", RecipeSerializer.SMOKING, SmokingRecipe::new,
+        offerFoodCookingRecipe(recipeExporter, "smoking", RecipeSerializer.SMOKING,
                 100, ModItems.MOOSE_VENISON, ModItems.COOKED_MOOSE_VENISON, 0.35f);
 
-        offerFoodCookingRecipe(recipeExporter, "campfire_cooking", RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new,
+        offerFoodCookingRecipe(recipeExporter, "campfire_cooking", RecipeSerializer.CAMPFIRE_COOKING,
                 600, ModItems.MOOSE_VENISON, ModItems.COOKED_MOOSE_VENISON, 0.35f);
 
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(ModItems.MOOSE_VENISON), RecipeCategory.FOOD,
@@ -232,10 +228,10 @@ public class ModRecipeProvider extends FabricRecipeProvider
                 .criterion("has_beef", conditionsFromItem(ModItems.MOOSE_VENISON))
                 .offerTo(recipeExporter);
 
-        offerFoodCookingRecipe(recipeExporter, "smoking", RecipeSerializer.SMOKING, SmokingRecipe::new,
+        offerFoodCookingRecipe(recipeExporter, "smoking", RecipeSerializer.SMOKING,
                 100, ModItems.CARIBOU_VENISON, ModItems.COOKED_CARIBOU_VENISON, 0.35f);
 
-        offerFoodCookingRecipe(recipeExporter, "campfire_cooking", RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new,
+        offerFoodCookingRecipe(recipeExporter, "campfire_cooking", RecipeSerializer.CAMPFIRE_COOKING,
                 600, ModItems.CARIBOU_VENISON, ModItems.COOKED_CARIBOU_VENISON, 0.35f);
 
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(ModItems.CARIBOU_VENISON), RecipeCategory.FOOD,

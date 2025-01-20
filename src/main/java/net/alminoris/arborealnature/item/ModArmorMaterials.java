@@ -4,44 +4,79 @@ import net.alminoris.arborealnature.ArborealNature;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.recipe.Ingredient;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.Util;
 
-import java.util.EnumMap;
-import java.util.List;
 import java.util.function.Supplier;
 
-public class ModArmorMaterials
+public enum ModArmorMaterials implements ArmorMaterial
 {
-    public static final RegistryEntry<ArmorMaterial> FIGEATER_BEETLE_SHELL = registerArmorMaterial("figeater_beetle_shell",
-            () -> new ArmorMaterial(Util.make(new EnumMap<>(ArmorItem.Type.class), map ->
-            {
-                map.put(ArmorItem.Type.BOOTS, 2);
-                map.put(ArmorItem.Type.LEGGINGS, 4);
-                map.put(ArmorItem.Type.CHESTPLATE, 6);
-                map.put(ArmorItem.Type.HELMET, 2);
-                map.put(ArmorItem.Type.BODY, 4);
-            }), 10, SoundEvents.ITEM_ARMOR_EQUIP_TURTLE, () -> Ingredient.ofItems(ModItems.FIGEATER_BEETLE_SHELL),
-                    List.of(new ArmorMaterial.Layer(Identifier.of(ArborealNature.MOD_ID, "figeater_beetle_shell"))), 0,0));
+    FIGEATER_BEETLE_SHELL("figeater_beetle_shell", 25, new int[] { 2, 4, 6, 2 }, 10,
+            SoundEvents.ITEM_ARMOR_EQUIP_TURTLE, 0f, 0.0f, () -> Ingredient.ofItems(ModItems.FIGEATER_BEETLE_SHELL)),
 
-    public static final RegistryEntry<ArmorMaterial> CARIBOU_FUR = registerArmorMaterial("caribou_fur",
-            () -> new ArmorMaterial(Util.make(new EnumMap<>(ArmorItem.Type.class), map ->
-            {
-                map.put(ArmorItem.Type.BOOTS, 2);
-                map.put(ArmorItem.Type.LEGGINGS, 4);
-                map.put(ArmorItem.Type.CHESTPLATE, 5);
-                map.put(ArmorItem.Type.HELMET, 2);
-                map.put(ArmorItem.Type.BODY, 4);
-            }), 20, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, () -> Ingredient.ofItems(ModItems.CARIBOU_FUR),
-                    List.of(new ArmorMaterial.Layer(Identifier.of(ArborealNature.MOD_ID, "caribou_fur"))), 0.0f,0.0f));
+    CARIBOU_FUR("caribou_fur", 25, new int[] { 2, 4, 5, 2 }, 20,
+    SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0f, 0.0f, () -> Ingredient.ofItems(ModItems.CARIBOU_FUR));
 
+    private final String name;
+    private final int durabilityMultiplier;
+    private final int[] protectionAmounts;
+    private final int enchantability;
+    private final SoundEvent equipSound;
+    private final float toughness;
+    private final float knockbackResistance;
+    private final Supplier<Ingredient> repairIngredient;
 
-    public static RegistryEntry<ArmorMaterial> registerArmorMaterial(String name, Supplier<ArmorMaterial> material)
-    {
-        return Registry.registerReference(Registries.ARMOR_MATERIAL, Identifier.of(ArborealNature.MOD_ID, name), material.get());
+    private static final int[] BASE_DURABILITY = { 11, 16, 15, 13 };
+
+    ModArmorMaterials(String name, int durabilityMultiplier, int[] protectionAmounts, int enchantability, SoundEvent equipSound,
+                      float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
+        this.name = name;
+        this.durabilityMultiplier = durabilityMultiplier;
+        this.protectionAmounts = protectionAmounts;
+        this.enchantability = enchantability;
+        this.equipSound = equipSound;
+        this.toughness = toughness;
+        this.knockbackResistance = knockbackResistance;
+        this.repairIngredient = repairIngredient;
+    }
+
+    @Override
+    public int getDurability(ArmorItem.Type type) {
+        return BASE_DURABILITY[type.ordinal()] * this.durabilityMultiplier;
+    }
+
+    @Override
+    public int getProtection(ArmorItem.Type type) {
+        return protectionAmounts[type.ordinal()];
+    }
+
+    @Override
+    public int getEnchantability() {
+        return this.enchantability;
+    }
+
+    @Override
+    public SoundEvent getEquipSound() {
+        return this.equipSound;
+    }
+
+    @Override
+    public Ingredient getRepairIngredient() {
+        return this.repairIngredient.get();
+    }
+
+    @Override
+    public String getName() {
+        return ArborealNature.MOD_ID + ":" + this.name;
+    }
+
+    @Override
+    public float getToughness() {
+        return this.toughness;
+    }
+
+    @Override
+    public float getKnockbackResistance() {
+        return this.knockbackResistance;
     }
 }

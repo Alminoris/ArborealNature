@@ -290,10 +290,7 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.CARIBOU_HORN, Models.GENERATED);
         itemModelGenerator.register(ModItems.CARIBOU_VENISON, Models.GENERATED);
         itemModelGenerator.register(ModItems.COOKED_CARIBOU_VENISON, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CARIBOU_FUR_BOOTS, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CARIBOU_FUR_CHESTPLATE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CARIBOU_FUR_HELMET, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CARIBOU_FUR_LEGGINGS, Models.GENERATED);
+
 
         for(String name : WOOD_NAMES)
         {
@@ -303,5 +300,9 @@ public class ModModelProvider extends FabricModelProvider
         }
 
         itemModelGenerator.registerArmor((ArmorItem) ModItems.FIGEATER_BEETLE_CHESTPLATE);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.CARIBOU_FUR_BOOTS);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.CARIBOU_FUR_CHESTPLATE);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.CARIBOU_FUR_HELMET);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.CARIBOU_FUR_LEGGINGS);
     }
 }

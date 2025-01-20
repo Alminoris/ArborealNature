@@ -3,7 +3,6 @@ package net.alminoris.arborealnature.world.gen.decorator.custom;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.alminoris.arborealnature.block.custom.CustomVineBlock;
 import net.alminoris.arborealnature.world.gen.decorator.ModTreeDecorators;
 import net.minecraft.block.*;
 import net.minecraft.registry.Registries;
@@ -13,12 +12,10 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.gen.treedecorator.TreeDecorator;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
 
-import java.util.List;
-
 
 public class CustomVineLogDecorator extends TreeDecorator
 {
-    public static final MapCodec<CustomVineLogDecorator> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+    public static final Codec<CustomVineLogDecorator> CODEC = RecordCodecBuilder.create(instance -> instance.group(
             Codec.floatRange(0.0F, 1.0F).fieldOf("probability").forGetter(decorator -> decorator.probability),
             Registries.BLOCK.getCodec().fieldOf("block").forGetter(decorator -> decorator.block)
     ).apply(instance, CustomVineLogDecorator::new));

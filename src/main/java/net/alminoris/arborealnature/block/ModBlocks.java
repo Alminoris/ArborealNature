@@ -1,10 +1,9 @@
 package net.alminoris.arborealnature.block;
 
-import com.mojang.serialization.MapCodec;
-import com.terraformersmc.terraform.sign.api.block.TerraformHangingSignBlock;
-import com.terraformersmc.terraform.sign.api.block.TerraformSignBlock;
-import com.terraformersmc.terraform.sign.api.block.TerraformWallHangingSignBlock;
-import com.terraformersmc.terraform.sign.api.block.TerraformWallSignBlock;
+import com.terraformersmc.terraform.sign.block.TerraformHangingSignBlock;
+import com.terraformersmc.terraform.sign.block.TerraformSignBlock;
+import com.terraformersmc.terraform.sign.block.TerraformWallHangingSignBlock;
+import com.terraformersmc.terraform.sign.block.TerraformWallSignBlock;
 import net.alminoris.arborealnature.ArborealNature;
 import net.alminoris.arborealnature.block.custom.AnimalHideBlock;
 import net.alminoris.arborealnature.block.custom.FallingLeavesBlock;
@@ -14,6 +13,7 @@ import net.alminoris.arborealnature.particle.ModParticles;
 import net.alminoris.arborealnature.world.ModConfiguredFeatures;
 import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
+import net.minecraft.block.sapling.SaplingGenerator;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
@@ -116,28 +116,13 @@ public class ModBlocks
             new StairsBlock(CHERRY_CHISELED.getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_STAIRS)));
 
     public static final Block PINE_CONE_BLOCK = registerBlock("pine_cone_block",
-            new FallingBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_ROOTS).nonOpaque()) {
-                @Override
-                protected MapCodec<? extends FallingBlock> getCodec() {
-                    return null;
-                }
-            });
+            new FallingBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_ROOTS).nonOpaque()));
 
     public static final Block FIR_CONE_BLOCK = registerBlock("fir_cone_block",
-            new FallingBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_ROOTS).nonOpaque()) {
-                @Override
-                protected MapCodec<? extends FallingBlock> getCodec() {
-                    return null;
-                }
-            });
+            new FallingBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_ROOTS).nonOpaque()));
 
     public static final Block CEDAR_CONE_BLOCK = registerBlock("cedar_cone_block",
-            new FallingBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_ROOTS).nonOpaque()) {
-                @Override
-                protected MapCodec<? extends FallingBlock> getCodec() {
-                    return null;
-                }
-            });
+            new FallingBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_ROOTS).nonOpaque()));
 
     public static final Block PINE_RESIN_BLOCK = registerBlock("pine_resin_block",
             new Block(AbstractBlock.Settings.copy(Blocks.OAK_WOOD).nonOpaque().sounds(BlockSoundGroup.CORAL)));
@@ -164,19 +149,19 @@ public class ModBlocks
             new TallFlowerBlock(AbstractBlock.Settings.copy(Blocks.PEONY)));
 
     public static final Block GERANIUM = registerBlock("geranium",
-            new FlowerBlock(StatusEffects.HASTE, 0.35F, AbstractBlock.Settings.copy(Blocks.PEONY)));
+            new FlowerBlock(StatusEffects.HASTE, 12, AbstractBlock.Settings.copy(Blocks.PEONY)));
 
     public static final Block XEROCHRYSUM = registerBlock("xerochrysum",
-            new FlowerBlock(StatusEffects.REGENERATION, 0.45F, AbstractBlock.Settings.copy(Blocks.DANDELION)));
+            new FlowerBlock(StatusEffects.REGENERATION, 20, AbstractBlock.Settings.copy(Blocks.DANDELION)));
 
     public static final Block LARGE_ORCHID = registerBlock("large_orchid",
             new TallFlowerBlock(AbstractBlock.Settings.copy(Blocks.PEONY)));
 
     public static final Block ORCHID = registerBlock("orchid",
-            new FlowerBlock(StatusEffects.NAUSEA, 0.35F, AbstractBlock.Settings.copy(Blocks.PEONY)));
+            new FlowerBlock(StatusEffects.NAUSEA, 12, AbstractBlock.Settings.copy(Blocks.PEONY)));
 
     public static final Block BLUEBELL = registerBlock("bluebell",
-            new FlowerBlock(StatusEffects.RESISTANCE, 0.35F, AbstractBlock.Settings.copy(Blocks.LILY_OF_THE_VALLEY)));
+            new FlowerBlock(StatusEffects.RESISTANCE, 12, AbstractBlock.Settings.copy(Blocks.LILY_OF_THE_VALLEY)));
 
     public static final Block WOOD_SORREL = registerBlock("wood_sorrel",
             new FlowerbedBlock(AbstractBlock.Settings.copy(Blocks.PINK_PETALS)));
@@ -197,7 +182,7 @@ public class ModBlocks
             new CarpetBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).noCollision()));
 
     public static final Block WHITE_MUSHROOM = registerBlock("white_mushroom",
-            new MushroomPlantBlock(ModConfiguredFeatures.HUGE_WHITE_MUSHROOM_KEY, AbstractBlock.Settings.copy(Blocks.BROWN_MUSHROOM)));
+            new MushroomPlantBlock(AbstractBlock.Settings.copy(Blocks.BROWN_MUSHROOM), ModConfiguredFeatures.HUGE_WHITE_MUSHROOM_KEY));
 
     public static final Block POTTED_WHITE_MUSHROOM = registerBlock("potted_white_mushroom",
             new FlowerPotBlock(WHITE_MUSHROOM, AbstractBlock.Settings.copy(Blocks.POTTED_BROWN_MUSHROOM)));
@@ -409,31 +394,31 @@ public class ModBlocks
     public static Block registerFenceGateBlock(String name)
     {
         return registerBlock(name+"_fence_gate",
-                new FenceGateBlock(WoodType.OAK, AbstractBlock.Settings.copy(Blocks.OAK_FENCE_GATE)));
+                new FenceGateBlock(AbstractBlock.Settings.copy(Blocks.OAK_FENCE_GATE), WoodType.OAK));
     }
 
     public static Block registerDoorBlock(String name)
     {
         return registerBlock(name+"_door",
-                new DoorBlock(BlockSetType.OAK, AbstractBlock.Settings.copy(Blocks.OAK_DOOR)));
+                new DoorBlock(AbstractBlock.Settings.copy(Blocks.OAK_DOOR), BlockSetType.OAK));
     }
 
     public static Block registerTrapdoorBlock(String name)
     {
         return registerBlock(name+"_trapdoor",
-                new TrapdoorBlock(BlockSetType.OAK, AbstractBlock.Settings.copy(Blocks.OAK_TRAPDOOR)));
+                new TrapdoorBlock(AbstractBlock.Settings.copy(Blocks.OAK_TRAPDOOR), BlockSetType.OAK));
     }
 
     public static Block registerButtonBlock(String name)
     {
         return registerBlock(name+"_button",
-                new ButtonBlock(BlockSetType.OAK, 30, AbstractBlock.Settings.copy(Blocks.OAK_BUTTON)));
+                new ButtonBlock(AbstractBlock.Settings.copy(Blocks.OAK_BUTTON), BlockSetType.OAK, 30, true));
     }
 
     public static Block registerPressurePlateBlock(String name)
     {
         return registerBlock(name+"_pressure_plate",
-                new PressurePlateBlock(BlockSetType.OAK, AbstractBlock.Settings.copy(Blocks.OAK_PRESSURE_PLATE)));
+                new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, AbstractBlock.Settings.copy(Blocks.OAK_PRESSURE_PLATE), BlockSetType.OAK));
     }
 
     public static Block registerSaplingBlock(String name, SaplingGenerator saplingGenerator)

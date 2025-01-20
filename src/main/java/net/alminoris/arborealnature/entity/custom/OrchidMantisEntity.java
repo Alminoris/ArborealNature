@@ -17,21 +17,23 @@ import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animatable.instance.SingletonAnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.animation.Animation;
-import software.bernie.geckolib.animation.AnimationController;
-import software.bernie.geckolib.animation.RawAnimation;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.Animation;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.RawAnimation;
 
 import java.util.EnumSet;
 
@@ -61,33 +63,6 @@ public class OrchidMantisEntity extends AnimalEntity implements GeoEntity
         }
     }
 
-    public static boolean isValidNaturalSpawn(EntityType<? extends AnimalEntity> type, WorldAccess world, SpawnReason spawnReason, BlockPos pos, Random random)
-    {
-        boolean bl = SpawnReason.isTrialSpawner(spawnReason) || isLightLevelValidForNaturalSpawn(world, pos);
-
-        boolean isSpawnableBlock = world.getBlockState(pos.down()).isIn(BlockTags.ANIMALS_SPAWNABLE_ON);
-
-        boolean hasFlowersNearby = false;
-        BlockPos.Mutable mutablePos = new BlockPos.Mutable();
-
-        for (int dx = -3; dx <= 3; dx++)
-        {
-            for (int dz = -3; dz <= 3; dz++)
-            {
-                mutablePos.set(pos.getX() + dx, pos.getY() - 1, pos.getZ() + dz);
-                if (world.getBlockState(mutablePos.up()).isIn(ModTags.Blocks.ORCHID_MANTIS_FLOWERS))
-                {
-                    hasFlowersNearby = true;
-                    break;
-                }
-            }
-            if (hasFlowersNearby) break;
-        }
-
-        return isSpawnableBlock && hasFlowersNearby && bl;
-    }
-
-
     public static DefaultAttributeContainer.Builder setAttributes()
     {
         return AnimalEntity.createMobAttributes()
@@ -104,7 +79,7 @@ public class OrchidMantisEntity extends AnimalEntity implements GeoEntity
         this.goalSelector.add(1, new StayNearFlowersGoal(this, 1.0D));
         this.goalSelector.add(2, new OrchidMantisAttackGoal(this, 1.15D));
         this.goalSelector.add(3, new AnimalMateGoal(this, 1.1D));
-        this.goalSelector.add(4, new TemptGoal(this, 1.0, stack -> stack.isOf(Items.RABBIT), false));
+        this.goalSelector.add(4, new TemptGoal(this, 1.0, Ingredient.ofItems(Items.RABBIT), false));
         this.goalSelector.add(5, new FollowParentGoal(this, 1.1));
         this.goalSelector.add(6, new WanderAroundGoal(this, 1.0D));
         this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 5.0F));

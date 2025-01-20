@@ -1,5 +1,6 @@
 package net.alminoris.arborealnature.world.tree.custom;
 
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.alminoris.arborealnature.world.tree.ModFoliagePlacerTypes;
@@ -13,7 +14,7 @@ import net.minecraft.world.gen.foliage.FoliagePlacerType;
 
 public class CedarGiantFoliagePlacer extends FoliagePlacer
 {
-    public static final MapCodec<CedarGiantFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(
+    public static final Codec<CedarGiantFoliagePlacer> CODEC = RecordCodecBuilder.create(
             instance -> fillFoliagePlacerFields(instance).apply(instance, CedarGiantFoliagePlacer::new)
     );
 

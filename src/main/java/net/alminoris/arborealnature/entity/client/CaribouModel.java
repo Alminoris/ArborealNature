@@ -2,12 +2,10 @@ package net.alminoris.arborealnature.entity.client;
 
 import net.alminoris.arborealnature.ArborealNature;
 import net.alminoris.arborealnature.entity.custom.CaribouEntity;
-import net.alminoris.arborealnature.entity.custom.MooseEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
-import software.bernie.geckolib.animation.AnimationState;
-import software.bernie.geckolib.cache.object.GeoBone;
 import software.bernie.geckolib.constant.DataTickets;
+import software.bernie.geckolib.core.animatable.model.CoreGeoBone;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.model.data.EntityModelData;
 
@@ -32,9 +30,9 @@ public class CaribouModel extends GeoModel<CaribouEntity>
     }
 
     @Override
-    public void setCustomAnimations(CaribouEntity entity, long instanceId, AnimationState<CaribouEntity> animationState)
+    public void setCustomAnimations(CaribouEntity animatable, long instanceId, software.bernie.geckolib.core.animation.AnimationState<CaribouEntity> animationState)
     {
-        GeoBone head = getAnimationProcessor().getBone("head");
+        CoreGeoBone head = getAnimationProcessor().getBone("head");
 
         if (head != null)
         {

@@ -1,14 +1,12 @@
 package net.alminoris.arborealnature.entity.client;
 
 import net.alminoris.arborealnature.ArborealNature;
-import net.alminoris.arborealnature.entity.custom.MooseEntity;
 import net.alminoris.arborealnature.entity.custom.WolverineEntity;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
-import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
@@ -26,7 +24,7 @@ public class WolverineRenderer extends GeoEntityRenderer<WolverineEntity>
     }
 
     @Override
-    public void preRender(MatrixStack poseStack, WolverineEntity entity, BakedGeoModel model, @Nullable VertexConsumerProvider bufferSource, @Nullable VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, int colour)
+    public void preRender(MatrixStack poseStack, WolverineEntity entity, BakedGeoModel model, VertexConsumerProvider bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha)
     {
         if (entity.isBaby())
         {
@@ -36,7 +34,6 @@ public class WolverineRenderer extends GeoEntityRenderer<WolverineEntity>
         {
             poseStack.scale(1.2F, 1.2F, 1.2F);
         }
-
-        super.preRender(poseStack, entity, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, colour);
+        super.preRender(poseStack, animatable, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, red, green, blue, alpha);
     }
 }

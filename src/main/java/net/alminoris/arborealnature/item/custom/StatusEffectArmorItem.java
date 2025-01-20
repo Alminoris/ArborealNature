@@ -15,8 +15,8 @@ public class StatusEffectArmorItem extends ArmorItem
 {
     private static int durabilityDamageTime = 185;
 
-    private final RegistryEntry<StatusEffect> effect;
-    public StatusEffectArmorItem(RegistryEntry<ArmorMaterial> material, Type type, RegistryEntry<StatusEffect> effect, Settings settings)
+    private final StatusEffect effect;
+    public StatusEffectArmorItem(ArmorMaterial material, Type type, StatusEffect effect, Settings settings)
     {
         super(material, type, settings);
         this.effect = effect;

@@ -8,11 +8,8 @@ import java.util.Objects;
 import java.util.Random;
 
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.alminoris.arborealnature.ArborealNature;
-import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.world.gen.decorator.ModTreeDecorators;
 import net.minecraft.block.Blocks;
-import net.minecraft.registry.Registries;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
@@ -27,7 +24,7 @@ public class CustomAlterGroundTreeDecorator extends TreeDecorator
 
     private float probability = 0.05f;
 
-    public static final MapCodec<CustomAlterGroundTreeDecorator> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+    public static final Codec<CustomAlterGroundTreeDecorator> CODEC = RecordCodecBuilder.create(instance -> instance.group(
             Codec.floatRange(0.0F, 1.0F).fieldOf("probability").forGetter(decorator -> decorator.probability),
             BlockStateProvider.TYPE_CODEC.fieldOf("block").forGetter(decorator -> decorator.provider)
     ).apply(instance, CustomAlterGroundTreeDecorator::new));

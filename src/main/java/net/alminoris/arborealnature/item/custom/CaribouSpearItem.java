@@ -1,24 +1,21 @@
 package net.alminoris.arborealnature.item.custom;
 
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
 import net.alminoris.arborealnature.entity.custom.projectile.CaribouSpearEntity;
 import net.minecraft.block.BlockState;
-import net.minecraft.component.EnchantmentEffectComponentTypes;
-import net.minecraft.component.type.AttributeModifierSlot;
-import net.minecraft.component.type.AttributeModifiersComponent;
-import net.minecraft.component.type.ToolComponent;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MovementType;
+import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
-import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ProjectileItem;
-import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.item.Vanishable;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -29,33 +26,26 @@ import net.minecraft.util.UseAction;
 import net.minecraft.util.math.*;
 import net.minecraft.world.World;
 
-import java.util.List;
-
-public class CaribouSpearItem extends Item implements ProjectileItem
+public class CaribouSpearItem extends Item implements Vanishable
 {
+    public static final int field_30926 = 10;
+    public static final float ATTACK_DAMAGE = 8.0F;
+    public static final float field_30928 = 2.5F;
+    private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
+
     public CaribouSpearItem(Item.Settings settings)
     {
         super(settings);
-    }
-
-    public static AttributeModifiersComponent createAttributeModifiers()
-    {
-        return AttributeModifiersComponent.builder()
-                .add(
-                        EntityAttributes.GENERIC_ATTACK_DAMAGE,
-                        new EntityAttributeModifier(BASE_ATTACK_DAMAGE_MODIFIER_ID, 6.0, EntityAttributeModifier.Operation.ADD_VALUE),
-                        AttributeModifierSlot.MAINHAND
-                )
-                .add(
-                        EntityAttributes.GENERIC_ATTACK_SPEED,
-                        new EntityAttributeModifier(BASE_ATTACK_SPEED_MODIFIER_ID, -1.9F, EntityAttributeModifier.Operation.ADD_VALUE),
-                        AttributeModifierSlot.MAINHAND
-                )
-                .build();
-    }
-
-    public static ToolComponent createToolComponent() {
-        return new ToolComponent(List.of(), 1.0F, 2);
+        ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
+        builder.put(
+                EntityAttributes.GENERIC_ATTACK_DAMAGE,
+                new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Tool modifier", 6.0, EntityAttributeModifier.Operation.ADDITION)
+        );
+        builder.put(
+                EntityAttributes.GENERIC_ATTACK_SPEED,
+                new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Tool modifier", -1.9F, EntityAttributeModifier.Operation.ADDITION)
+        );
+        this.attributeModifiers = builder.build();
     }
 
     @Override
@@ -70,7 +60,7 @@ public class CaribouSpearItem extends Item implements ProjectileItem
     }
 
     @Override
-    public int getMaxUseTime(ItemStack stack, LivingEntity user) {
+    public int getMaxUseTime(ItemStack stack) {
         return 50000;
     }
 
@@ -79,59 +69,68 @@ public class CaribouSpearItem extends Item implements ProjectileItem
     {
         if (user instanceof PlayerEntity playerEntity)
         {
-            int i = this.getMaxUseTime(stack, user) - remainingUseTicks;
+            int i = this.getMaxUseTime(stack) - remainingUseTicks;
             if (i >= 10)
             {
-                float f = EnchantmentHelper.getTridentSpinAttackStrength(stack, playerEntity);
-                if (!(f > 0.0F) || playerEntity.isTouchingWaterOrRain())
+                int j = EnchantmentHelper.getRiptide(stack);
+                if (j <= 0 || playerEntity.isTouchingWaterOrRain())
                 {
-                    if (!isAboutToBreak(stack))
+                    if (!world.isClient)
                     {
-                        RegistryEntry<SoundEvent> registryEntry = (RegistryEntry<SoundEvent>)EnchantmentHelper.getEffect(stack, EnchantmentEffectComponentTypes.TRIDENT_SOUND)
-                                .orElse(SoundEvents.ITEM_TRIDENT_THROW);
-                        if (!world.isClient)
-                        {
-                            stack.damage(1, playerEntity, LivingEntity.getSlotForHand(user.getActiveHand()));
-                            if (f == 0.0F)
+                        stack.damage(1, playerEntity, p -> p.sendToolBreakStatus(user.getActiveHand()));
+                        if (j == 0) {
+                            CaribouSpearEntity caribouSpearEntity = new CaribouSpearEntity(world, playerEntity, stack);
+                            caribouSpearEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0F, 2.5F + (float)j * 0.5F, 1.0F);
+                            if (playerEntity.getAbilities().creativeMode)
                             {
-                                CaribouSpearEntity caribouSpearEntity = new CaribouSpearEntity(world, playerEntity, stack);
-                                caribouSpearEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0F, 2.5F, 1.0F);
-                                if (playerEntity.isInCreativeMode())
-                                {
-                                    caribouSpearEntity.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
-                                }
-
-                                world.spawnEntity(caribouSpearEntity);
-                                world.playSoundFromEntity(null, caribouSpearEntity, registryEntry.value(), SoundCategory.PLAYERS, 1.0F, 1.0F);
-                                if (!playerEntity.isInCreativeMode())
-                                {
-                                    playerEntity.getInventory().removeOne(stack);
-                                }
-                            }
-                        }
-
-                        playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
-                        if (f > 0.0F)
-                        {
-                            float g = playerEntity.getYaw();
-                            float h = playerEntity.getPitch();
-                            float j = -MathHelper.sin(g * (float) (Math.PI / 180.0)) * MathHelper.cos(h * (float) (Math.PI / 180.0));
-                            float k = -MathHelper.sin(h * (float) (Math.PI / 180.0));
-                            float l = MathHelper.cos(g * (float) (Math.PI / 180.0)) * MathHelper.cos(h * (float) (Math.PI / 180.0));
-                            float m = MathHelper.sqrt(j * j + k * k + l * l);
-                            j *= f / m;
-                            k *= f / m;
-                            l *= f / m;
-                            playerEntity.addVelocity((double)j, (double)k, (double)l);
-                            playerEntity.useRiptide(20, 8.0F, stack);
-                            if (playerEntity.isOnGround())
-                            {
-                                float n = 1.1999999F;
-                                playerEntity.move(MovementType.SELF, new Vec3d(0.0, 1.1999999F, 0.0));
+                                caribouSpearEntity.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
                             }
 
-                            world.playSoundFromEntity(null, playerEntity, registryEntry.value(), SoundCategory.PLAYERS, 1.0F, 1.0F);
+                            world.spawnEntity(caribouSpearEntity);
+                            world.playSoundFromEntity(null, caribouSpearEntity, SoundEvents.ITEM_TRIDENT_THROW, SoundCategory.PLAYERS, 1.0F, 1.0F);
+                            if (!playerEntity.getAbilities().creativeMode)
+                            {
+                                playerEntity.getInventory().removeOne(stack);
+                            }
                         }
+                    }
+
+                    playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
+                    if (j > 0)
+                    {
+                        float f = playerEntity.getYaw();
+                        float g = playerEntity.getPitch();
+                        float h = -MathHelper.sin(f * (float) (Math.PI / 180.0)) * MathHelper.cos(g * (float) (Math.PI / 180.0));
+                        float k = -MathHelper.sin(g * (float) (Math.PI / 180.0));
+                        float l = MathHelper.cos(f * (float) (Math.PI / 180.0)) * MathHelper.cos(g * (float) (Math.PI / 180.0));
+                        float m = MathHelper.sqrt(h * h + k * k + l * l);
+                        float n = 3.0F * ((1.0F + (float)j) / 4.0F);
+                        h *= n / m;
+                        k *= n / m;
+                        l *= n / m;
+                        playerEntity.addVelocity((double)h, (double)k, (double)l);
+                        playerEntity.useRiptide(20);
+                        if (playerEntity.isOnGround())
+                        {
+                            float o = 1.1999999F;
+                            playerEntity.move(MovementType.SELF, new Vec3d(0.0, 1.1999999F, 0.0));
+                        }
+
+                        SoundEvent soundEvent;
+                        if (j >= 3)
+                        {
+                            soundEvent = SoundEvents.ITEM_TRIDENT_RIPTIDE_3;
+                        }
+                        else if (j == 2)
+                        {
+                            soundEvent = SoundEvents.ITEM_TRIDENT_RIPTIDE_2;
+                        }
+                        else
+                        {
+                            soundEvent = SoundEvents.ITEM_TRIDENT_RIPTIDE_1;
+                        }
+
+                        world.playSoundFromEntity(null, playerEntity, soundEvent, SoundCategory.PLAYERS, 1.0F, 1.0F);
                     }
                 }
             }
@@ -142,11 +141,12 @@ public class CaribouSpearItem extends Item implements ProjectileItem
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand)
     {
         ItemStack itemStack = user.getStackInHand(hand);
-        if (isAboutToBreak(itemStack))
+        if (itemStack.getDamage() >= itemStack.getMaxDamage() - 1)
         {
+
             return TypedActionResult.fail(itemStack);
         }
-        else if (EnchantmentHelper.getTridentSpinAttackStrength(itemStack, user) > 0.0F && !user.isTouchingWaterOrRain())
+        else if (EnchantmentHelper.getRiptide(itemStack) > 0 && !user.isTouchingWaterOrRain())
         {
             return TypedActionResult.fail(itemStack);
         }
@@ -157,31 +157,33 @@ public class CaribouSpearItem extends Item implements ProjectileItem
         }
     }
 
-    private static boolean isAboutToBreak(ItemStack stack) {
-        return stack.getDamage() >= stack.getMaxDamage() - 1;
-    }
-
     @Override
-    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker)
+    {
+        stack.damage(1, attacker, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
         return true;
     }
 
     @Override
-    public void postDamageEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        stack.damage(1, attacker, EquipmentSlot.MAINHAND);
+    public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner)
+    {
+        if ((double)state.getHardness(world, pos) != 0.0)
+        {
+            stack.damage(2, miner, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
+        }
+
+        return true;
+    }
+
+    @Override
+    public Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(EquipmentSlot slot)
+    {
+        return slot == EquipmentSlot.MAINHAND ? this.attributeModifiers : super.getAttributeModifiers(slot);
     }
 
     @Override
     public int getEnchantability() {
         return 1;
-    }
-
-    @Override
-    public ProjectileEntity createEntity(World world, Position pos, ItemStack stack, Direction direction)
-    {
-        CaribouSpearEntity caribouSpearEntity = new CaribouSpearEntity(world, pos.getX(), pos.getY(), pos.getZ(), stack.copyWithCount(1));
-        caribouSpearEntity.pickupType = PersistentProjectileEntity.PickupPermission.ALLOWED;
-        return caribouSpearEntity;
     }
 }
 

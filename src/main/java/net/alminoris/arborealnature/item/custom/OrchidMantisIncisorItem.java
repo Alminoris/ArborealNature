@@ -17,9 +17,9 @@ public class OrchidMantisIncisorItem extends SwordItem
     private static final int COOLDOWN_SECONDS = 1800;
     private static final int INVISIBILITY_DURATION_SECONDS = 15;
 
-    public OrchidMantisIncisorItem(ToolMaterial material, Settings settings)
+    public OrchidMantisIncisorItem(ToolMaterial material, int damage, float attackSpeed, Settings settings)
     {
-        super(material, settings);
+        super(material, damage, attackSpeed, settings);
     }
 
     @Override

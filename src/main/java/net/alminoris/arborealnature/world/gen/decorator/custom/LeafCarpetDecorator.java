@@ -1,7 +1,6 @@
 package net.alminoris.arborealnature.world.gen.decorator.custom;
 
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.alminoris.arborealnature.world.gen.decorator.ModTreeDecorators;
 import net.minecraft.block.Block;
@@ -20,7 +19,7 @@ import java.util.List;
 
 public class LeafCarpetDecorator extends TreeDecorator
 {
-    public static final MapCodec<LeafCarpetDecorator> CODEC = RecordCodecBuilder.mapCodec(
+    public static final Codec<LeafCarpetDecorator> CODEC = RecordCodecBuilder.create(
             instance -> instance.group(
                     BlockStateProvider.TYPE_CODEC.fieldOf("provider").forGetter(decorator -> decorator.provider),
                     Codec.INT.fieldOf("radius").forGetter(decorator -> decorator.radius),

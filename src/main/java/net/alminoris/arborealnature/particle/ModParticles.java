@@ -2,21 +2,22 @@ package net.alminoris.arborealnature.particle;
 
 import net.alminoris.arborealnature.ArborealNature;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
-import net.minecraft.particle.SimpleParticleType;
+import net.minecraft.particle.DefaultParticleType;
+import net.minecraft.particle.ParticleType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ModParticles
 {
-    public static final SimpleParticleType BAUHINIA_PETALS = FabricParticleTypes.simple();
-    public static final SimpleParticleType PINE_NEEDLES = FabricParticleTypes.simple();
-    public static final SimpleParticleType FIR_NEEDLES = FabricParticleTypes.simple();
-    public static final SimpleParticleType CEDAR_NEEDLES = FabricParticleTypes.simple();
-    public static final SimpleParticleType HAZELNUT_LEAVES = FabricParticleTypes.simple();
-    public static final SimpleParticleType HORNBEAM_LEAVES = FabricParticleTypes.simple();
-    public static final SimpleParticleType HAWTHORN_PETALS = FabricParticleTypes.simple();
-    public static final SimpleParticleType FIG_LEAVES = FabricParticleTypes.simple();
+    public static final DefaultParticleType BAUHINIA_PETALS = FabricParticleTypes.simple();
+    public static final DefaultParticleType PINE_NEEDLES = FabricParticleTypes.simple();
+    public static final DefaultParticleType FIR_NEEDLES = FabricParticleTypes.simple();
+    public static final DefaultParticleType CEDAR_NEEDLES = FabricParticleTypes.simple();
+    public static final DefaultParticleType HAZELNUT_LEAVES = FabricParticleTypes.simple();
+    public static final DefaultParticleType HORNBEAM_LEAVES = FabricParticleTypes.simple();
+    public static final DefaultParticleType HAWTHORN_PETALS = FabricParticleTypes.simple();
+    public static final DefaultParticleType FIG_LEAVES = FabricParticleTypes.simple();
 
     public static void registerParticles()
     {

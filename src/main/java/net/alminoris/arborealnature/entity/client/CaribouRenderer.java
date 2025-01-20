@@ -26,7 +26,7 @@ public class CaribouRenderer extends GeoEntityRenderer<CaribouEntity>
     }
 
     @Override
-    public void preRender(MatrixStack poseStack, CaribouEntity entity, BakedGeoModel model, @Nullable VertexConsumerProvider bufferSource, @Nullable VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, int colour)
+    public void preRender(MatrixStack poseStack, CaribouEntity entity, BakedGeoModel model, VertexConsumerProvider bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha)
     {
         if (entity.isBaby())
         {
@@ -42,6 +42,6 @@ public class CaribouRenderer extends GeoEntityRenderer<CaribouEntity>
             model.getBone("horn2").get().setHidden(false);
         }
 
-        super.preRender(poseStack, entity, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, colour);
+        super.preRender(poseStack, animatable, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, red, green, blue, alpha);
     }
 }

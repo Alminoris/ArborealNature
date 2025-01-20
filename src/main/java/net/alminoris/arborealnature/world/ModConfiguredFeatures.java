@@ -291,7 +291,7 @@ public class ModConfiguredFeatures
         register(context, FIR_FOREST_GRASS_KEY, Feature.RANDOM_PATCH,
                 createRandomPatchFeatureConfig(
                         new WeightedBlockStateProvider(DataPool.<BlockState>builder().
-                                add(Blocks.SHORT_GRASS.getDefaultState(), 35).
+                                add(Blocks.GRASS.getDefaultState(), 35).
                                 add(Blocks.FERN.getDefaultState(), 55)), 512
                 ));
 
@@ -316,7 +316,7 @@ public class ModConfiguredFeatures
         register(context, PINE_FOREST_GRASS_KEY, Feature.RANDOM_PATCH,
                 createRandomPatchFeatureConfig(
                         new WeightedBlockStateProvider(DataPool.<BlockState>builder().
-                                add(Blocks.SHORT_GRASS.getDefaultState(), 55).
+                                add(Blocks.GRASS.getDefaultState(), 55).
                                 add(Blocks.FERN.getDefaultState(), 15).
                                 add(Blocks.TALL_GRASS.getDefaultState(), 30)), 128
                 ));

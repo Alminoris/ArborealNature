@@ -1,6 +1,7 @@
 package net.alminoris.arborealnature;
 
 import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
+import com.terraformersmc.terraform.sign.SpriteIdentifierRegistry;
 import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.entity.ModBoats;
 import net.alminoris.arborealnature.entity.ModEntities;
@@ -18,6 +19,9 @@ import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.TexturedRenderLayers;
+import net.minecraft.client.util.SpriteIdentifier;
+import net.minecraft.util.Identifier;
 
 import static net.alminoris.arborealnature.util.helper.ModBlockSetsHelper.*;
 
@@ -34,6 +38,8 @@ public class ArborealNatureClient implements ClientModInitializer
             BlockRenderLayerMap.INSTANCE.putBlock(WOODEN_DOORS.get(name), RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(WOODEN_TRAPDOORS.get(name), RenderLayer.getCutout());
             TerraformBoatClientHelper.registerModelLayers(ModBoats.boatIDs.get(name), false);
+            SpriteIdentifierRegistry.INSTANCE.addIdentifier(new SpriteIdentifier(TexturedRenderLayers.SIGNS_ATLAS_TEXTURE, Identifier.of(ArborealNature.MOD_ID, "entity/signs/"+name)));
+            SpriteIdentifierRegistry.INSTANCE.addIdentifier(new SpriteIdentifier(TexturedRenderLayers.SIGNS_ATLAS_TEXTURE, Identifier.of(ArborealNature.MOD_ID, "entity/signs/hanging/"+name)));
         }
 
         for (String name : BUSHES_NAMES)

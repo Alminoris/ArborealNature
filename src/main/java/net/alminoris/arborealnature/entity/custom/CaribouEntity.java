@@ -21,35 +21,33 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.world.EntityView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animatable.instance.SingletonAnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.animation.Animation;
-import software.bernie.geckolib.animation.AnimationController;
-import software.bernie.geckolib.animation.RawAnimation;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.*;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+
 
 import java.util.function.Predicate;
 
 public class CaribouEntity extends AbstractHorseEntity implements GeoEntity
 {
     private final AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
-    private static final EntityDimensions BABY_BASE_DIMENSIONS = ModEntities.CARIBOU
-            .getDimensions()
-            .withAttachments(EntityAttachments.builder().add(EntityAttachmentType.PASSENGER, 0.0F, ModEntities.CARIBOU.getHeight() + 0.125F, 0.0F))
-            .scaled(0.5F);
 
     public static final Predicate<LivingEntity> BABY_CARIBOU_FILTER = LivingEntity::isBaby;
 
@@ -91,7 +89,7 @@ public class CaribouEntity extends AbstractHorseEntity implements GeoEntity
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 30.0D)
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED, 1.25D)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.3D)
-                .add(EntityAttributes.GENERIC_JUMP_STRENGTH, 0.5D)
+                .add(EntityAttributes.HORSE_JUMP_STRENGTH, 0.5D)
                 .add(EntityAttributes.GENERIC_ARMOR, 2.0D)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 2.0D);
     }
@@ -101,7 +99,7 @@ public class CaribouEntity extends AbstractHorseEntity implements GeoEntity
     {
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(1, new AnimalMateGoal(this, 0.85D));
-        this.goalSelector.add(2, new TemptGoal(this, 0.8, stack -> stack.isIn(ModTags.Items.CARIBOU_FOOD), false));
+        this.goalSelector.add(2, new TemptGoal(this, 0.8, Ingredient.fromTag(ModTags.Items.CARIBOU_FOOD), false));
         this.goalSelector.add(3, new FollowParentGoal(this, 0.75D));
         this.goalSelector.add(4, new MeleeAttackGoal(this, 1.0D, true));
         this.goalSelector.add(5, new EscapeDangerGoal(this, 1.0D));
@@ -179,22 +177,29 @@ public class CaribouEntity extends AbstractHorseEntity implements GeoEntity
 
     public static boolean isValidNaturalSpawn(EntityType<? extends AnimalEntity> type, WorldAccess world, SpawnReason spawnReason, BlockPos pos, Random random)
     {
-        boolean bl = SpawnReason.isTrialSpawner(spawnReason) || isLightLevelValidForNaturalSpawn(world, pos);
+        boolean bl = isLightLevelValidForNaturalSpawn(world, pos);
         boolean isSpawnableBlock = world.getBlockState(pos.down()).isIn(ModTags.Blocks.CARIBOU_SPAWNABLE_ON);
         return isSpawnableBlock && bl;
     }
 
     @Override
-    public EntityDimensions getBaseDimensions(EntityPose pose)
+    protected void updatePassengerPosition(Entity passenger, Entity.PositionUpdater positionUpdater)
     {
-        return this.isBaby() ? BABY_BASE_DIMENSIONS : super.getBaseDimensions(pose);
-    }
-
-    @Override
-    protected Vec3d getPassengerAttachmentPos(Entity passenger, EntityDimensions dimensions, float scaleFactor)
-    {
-        return super.getPassengerAttachmentPos(passenger, dimensions, scaleFactor).add(new Vec3d(0.0, -0.30  * (double)scaleFactor, -0.15 * (double)scaleFactor)
-                                .rotateY(-this.getYaw() * (float) (Math.PI / 180.0)));
+        super.updatePassengerPosition(passenger, positionUpdater);
+        float f = MathHelper.sin(this.bodyYaw * (float) (Math.PI / 180.0));
+        float g = MathHelper.cos(this.bodyYaw * (float) (Math.PI / 180.0));
+        float h = -0.3F;
+        float i = -0.15F;
+        positionUpdater.accept(
+                passenger,
+                this.getX() + (double)(h * f),
+                this.getY() + this.getMountedHeightOffset() + passenger.getHeightOffset() + (double)i,
+                this.getZ() - (double)(h * g)
+        );
+        if (passenger instanceof LivingEntity)
+        {
+            ((LivingEntity)passenger).bodyYaw = this.bodyYaw;
+        }
     }
 
     @Override
@@ -291,5 +296,10 @@ public class CaribouEntity extends AbstractHorseEntity implements GeoEntity
     public int getLimitPerChunk()
     {
         return 12;
+    }
+
+    @Override
+    public EntityView method_48926() {
+        return null;
     }
 }

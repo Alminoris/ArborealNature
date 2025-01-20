@@ -4,9 +4,9 @@ import net.alminoris.arborealnature.ArborealNature;
 import net.alminoris.arborealnature.entity.custom.SquirrelEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
-import software.bernie.geckolib.animation.AnimationState;
-import software.bernie.geckolib.cache.object.GeoBone;
 import software.bernie.geckolib.constant.DataTickets;
+import software.bernie.geckolib.core.animatable.model.CoreGeoBone;
+import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.model.data.EntityModelData;
 
@@ -33,7 +33,7 @@ public class SquirrelModel extends GeoModel<SquirrelEntity>
     @Override
     public void setCustomAnimations(SquirrelEntity animatable, long instanceId, AnimationState<SquirrelEntity> animationState)
     {
-        GeoBone head = getAnimationProcessor().getBone("head");
+        CoreGeoBone head = getAnimationProcessor().getBone("head");
 
         if (head != null)
         {

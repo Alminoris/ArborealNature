@@ -14,17 +14,18 @@ import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animatable.instance.SingletonAnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.animation.Animation;
-import software.bernie.geckolib.animation.AnimationController;
-import software.bernie.geckolib.animation.RawAnimation;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.Animation;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.RawAnimation;
 
 public class WoodMouseEntity extends AnimalEntity implements GeoEntity
 {
@@ -69,7 +70,7 @@ public class WoodMouseEntity extends AnimalEntity implements GeoEntity
     {
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(1, new AnimalMateGoal(this, 1.0D));
-        this.goalSelector.add(2, new TemptGoal(this, 1.05, stack -> stack.isOf(Items.SWEET_BERRIES), true));
+        this.goalSelector.add(2, new TemptGoal(this, 1.05, Ingredient.ofItems(Items.SWEET_BERRIES), true));
         this.goalSelector.add(3, new FollowParentGoal(this, 1.0D));
         this.goalSelector.add(4, new EscapeDangerGoal(this, 1.2D));
         this.goalSelector.add(5, new WanderAroundGoal(this, 1.0D));

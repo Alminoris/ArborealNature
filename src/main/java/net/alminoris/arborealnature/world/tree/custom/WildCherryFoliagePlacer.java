@@ -14,7 +14,7 @@ import net.minecraft.world.gen.foliage.FoliagePlacerType;
 
 public class WildCherryFoliagePlacer extends BlobFoliagePlacer
 {
-    public static final MapCodec<WildCherryFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(
+    public static final Codec<WildCherryFoliagePlacer> CODEC = RecordCodecBuilder.create(
             instance -> createCodec(instance).apply(instance, WildCherryFoliagePlacer::new)
     );
 

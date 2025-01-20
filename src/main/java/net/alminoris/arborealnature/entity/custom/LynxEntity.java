@@ -4,9 +4,8 @@ import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.entity.ModEntities;
 import net.alminoris.arborealnature.item.ModItems;
 import net.alminoris.arborealnature.sound.ModSounds;
+import net.alminoris.arborealnature.util.ModTags;
 import net.minecraft.block.Blocks;
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.ai.pathing.PathNodeType;
@@ -22,27 +21,27 @@ import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.registry.tag.DamageTypeTags;
-import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TimeHelper;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.world.EntityView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animatable.instance.SingletonAnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.animation.Animation;
-import software.bernie.geckolib.animation.AnimationController;
-import software.bernie.geckolib.animation.RawAnimation;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.Animation;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.RawAnimation;
 
 import java.util.UUID;
 import java.util.function.Predicate;
@@ -72,7 +71,7 @@ public class LynxEntity extends TameableEntity implements GeoEntity, Angerable
     public LynxEntity(EntityType<? extends TameableEntity> entityType, World world)
     {
         super(entityType, world);
-        this.setTamed(false, false);
+        this.setTamed(false);
         this.setPathfindingPenalty(PathNodeType.POWDER_SNOW, -1.0F);
         this.setPathfindingPenalty(PathNodeType.DANGER_POWDER_SNOW, -1.0F);
     }
@@ -107,7 +106,7 @@ public class LynxEntity extends TameableEntity implements GeoEntity, Angerable
     protected void initGoals()
     {
         this.goalSelector.add(1, new SwimGoal(this));
-        this.goalSelector.add(1, new TameableEntity.TameableEscapeDangerGoal(1.5, DamageTypeTags.PANIC_ENVIRONMENTAL_CAUSES));
+        this.goalSelector.add(1, new LynxEntity.LynxEscapeDangerGoal(1.5f));
         this.goalSelector.add(2, new SitGoal(this));
         this.goalSelector.add(4, new PounceAtTargetGoal(this, 0.7F));
         this.goalSelector.add(5, new MeleeAttackGoal(this, 1.2D, true)
@@ -118,7 +117,7 @@ public class LynxEntity extends TameableEntity implements GeoEntity, Angerable
                 return !LynxEntity.this.isSleeping() && super.canStart();
             }
         });
-        this.goalSelector.add(6, new FollowOwnerGoal(this, 1.0, 10.0F, 2.0F));
+        this.goalSelector.add(6, new FollowOwnerGoal(this, 1.0, 10.0F, 2.0F, false));
         this.goalSelector.add(7, new AnimalMateGoal(this, 1.0));
         this.goalSelector.add(8, new WanderAroundFarGoal(this, 1.0));
         this.goalSelector.add(9, new LookAtEntityGoal(this, PlayerEntity.class, 12.0F));
@@ -167,15 +166,15 @@ public class LynxEntity extends TameableEntity implements GeoEntity, Angerable
     @Override
     public boolean isBreedingItem(ItemStack stack)
     {
-        return stack.isIn(ItemTags.MEAT);
+        return stack.isIn(ModTags.Items.LYNX_FOOD);
     }
 
     @Override
-    protected void initDataTracker(DataTracker.Builder builder)
+    protected void initDataTracker()
     {
-        super.initDataTracker(builder);
-        builder.add(ANGER_TIME, 0);
-        builder.add(IS_SLEEPING, false);
+        super.initDataTracker();
+        this.dataTracker.startTracking(ANGER_TIME, 0);
+        this.dataTracker.startTracking(IS_SLEEPING, false);
     }
 
     public boolean isSleeping()
@@ -256,32 +255,6 @@ public class LynxEntity extends TameableEntity implements GeoEntity, Angerable
         }
     }
 
-    public static boolean isValidNaturalSpawn(EntityType<? extends AnimalEntity> type, WorldAccess world, SpawnReason spawnReason, BlockPos pos, Random random)
-    {
-        boolean bl = SpawnReason.isTrialSpawner(spawnReason) || isLightLevelValidForNaturalSpawn(world, pos);
-
-        boolean isSpawnableBlock = world.getBlockState(pos.down()).isIn(BlockTags.ANIMALS_SPAWNABLE_ON);
-
-        boolean hasPlantsNearby = false;
-        BlockPos.Mutable mutablePos = new BlockPos.Mutable();
-
-        for (int dx = -3; dx <= 3; dx++)
-        {
-            for (int dz = -3; dz <= 3; dz++)
-            {
-                mutablePos.set(pos.getX() + dx, pos.getY() - 1, pos.getZ() + dz);
-                if (world.getBlockState(mutablePos.up()).isOf(Blocks.TALL_GRASS))
-                {
-                    hasPlantsNearby = true;
-                    break;
-                }
-            }
-            if (hasPlantsNearby) break;
-        }
-
-        return isSpawnableBlock && hasPlantsNearby && bl;
-    }
-
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar)
     {
@@ -304,12 +277,12 @@ public class LynxEntity extends TameableEntity implements GeoEntity, Angerable
     }
 
     @Override
-    public EntityDimensions getBaseDimensions(EntityPose pose)
+    public EntityDimensions getDimensions(EntityPose pose)
     {
         if (pose == EntityPose.SLEEPING)
             return EntityDimensions.changing(this.getType().getWidth(), this.getType().getHeight() - 0.5F);
 
-        return super.getBaseDimensions(pose);
+        return super.getDimensions(pose);
     }
 
     @Override
@@ -343,50 +316,66 @@ public class LynxEntity extends TameableEntity implements GeoEntity, Angerable
     public ActionResult interactMob(PlayerEntity player, Hand hand)
     {
         ItemStack itemStack = player.getStackInHand(hand);
-        if (!this.getWorld().isClient || this.isBaby() && this.isBreedingItem(itemStack))
+        Item item = itemStack.getItem();
+        if (this.getWorld().isClient)
         {
-            if (this.isTamed())
+            boolean bl = this.isOwner(player) || this.isTamed() || itemStack.isOf(ModItems.MOOSE_VENISON) && !this.isTamed() && !this.hasAngerTime();
+            return bl ? ActionResult.CONSUME : ActionResult.PASS;
+        }
+        else if (this.isTamed())
+        {
+            if (this.isBreedingItem(itemStack) && this.getHealth() < this.getMaxHealth())
             {
-                if (this.isBreedingItem(itemStack) && this.getHealth() < this.getMaxHealth())
+                if (!player.getAbilities().creativeMode)
                 {
-                    itemStack.decrementUnlessCreative(1, player);
-                    FoodComponent foodComponent = itemStack.get(DataComponentTypes.FOOD);
-                    float f = foodComponent != null ? (float)foodComponent.nutrition() : 1.0F;
-                    this.heal(2.0F * f);
-                    return ActionResult.success(this.getWorld().isClient());
+                    itemStack.decrement(1);
                 }
-                else
-                {
-                    ActionResult actionResult = super.interactMob(player, hand);
-                    if (!actionResult.isAccepted() && this.isOwner(player))
-                    {
-                        this.setSitting(!this.isSitting());
-                        this.jumping = false;
-                        this.navigation.stop();
-                        this.setTarget(null);
-                        return ActionResult.SUCCESS_NO_ITEM_USED;
-                    }
-                    else
-                    {
-                        return actionResult;
-                    }
-                }
-            }
-            else if (itemStack.isOf(ModItems.MOOSE_VENISON) && !this.hasAngerTime() && !this.isSleeping())
-            {
-                itemStack.decrementUnlessCreative(1, player);
-                this.tryTame(player);
+
+                this.heal((float)item.getFoodComponent().getHunger());
                 return ActionResult.SUCCESS;
             }
             else
             {
-                return super.interactMob(player, hand);
+                ActionResult actionResult = super.interactMob(player, hand);
+                if ((!actionResult.isAccepted() || this.isBaby()) && this.isOwner(player))
+                {
+                    this.setSitting(!this.isSitting());
+                    this.jumping = false;
+                    this.navigation.stop();
+                    this.setTarget(null);
+                    return ActionResult.SUCCESS;
+                }
+                else
+                {
+                    return actionResult;
+                }
             }
+        }
+        else if (itemStack.isOf(ModItems.MOOSE_VENISON) && !this.hasAngerTime())
+        {
+            if (!player.getAbilities().creativeMode)
+            {
+                itemStack.decrement(1);
+            }
+
+            if (this.random.nextInt(3) == 0)
+            {
+                this.setOwner(player);
+                this.navigation.stop();
+                this.setTarget(null);
+                this.setSitting(true);
+                this.getWorld().sendEntityStatus(this, EntityStatuses.ADD_POSITIVE_PLAYER_REACTION_PARTICLES);
+            }
+            else
+            {
+                this.getWorld().sendEntityStatus(this, EntityStatuses.ADD_NEGATIVE_PLAYER_REACTION_PARTICLES);
+            }
+
+            return ActionResult.SUCCESS;
         }
         else
         {
-            boolean bl = this.isOwner(player) || this.isTamed() || itemStack.isOf(ModItems.MOOSE_VENISON) && !this.isTamed() && !this.hasAngerTime();
-            return bl ? ActionResult.CONSUME : ActionResult.PASS;
+            return super.interactMob(player, hand);
         }
     }
 
@@ -452,7 +441,7 @@ public class LynxEntity extends TameableEntity implements GeoEntity, Angerable
             if (this.isTamed())
             {
                 lynxEntity.setOwnerUuid(this.getOwnerUuid());
-                lynxEntity.setTamed(true, true);
+                lynxEntity.setTamed(true);
             }
         }
 
@@ -499,8 +488,9 @@ public class LynxEntity extends TameableEntity implements GeoEntity, Angerable
     }
 
     @Override
-    public boolean canBeLeashed() {
-        return !this.hasAngerTime();
+    public boolean canBeLeashedBy(PlayerEntity player)
+    {
+        return !this.hasAngerTime() && super.canBeLeashedBy(player);
     }
 
     @Override
@@ -510,7 +500,26 @@ public class LynxEntity extends TameableEntity implements GeoEntity, Angerable
     }
 
     @Override
-    protected float getSoundVolume() {
+    protected float getSoundVolume()
+    {
         return 0.5F;
+    }
+
+    @Override
+    public EntityView method_48926()
+    {
+        return this.getWorld();
+    }
+
+    class LynxEscapeDangerGoal extends EscapeDangerGoal
+    {
+        public LynxEscapeDangerGoal(double speed) {
+            super(LynxEntity.this, speed);
+        }
+
+        @Override
+        protected boolean isInDanger() {
+            return this.mob.shouldEscapePowderSnow() || this.mob.isOnFire();
+        }
     }
 }
