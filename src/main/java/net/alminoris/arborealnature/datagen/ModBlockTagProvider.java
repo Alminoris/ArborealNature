@@ -2,25 +2,22 @@ package net.alminoris.arborealnature.datagen;
 
 import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.util.ModTags;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.block.Blocks;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.BlockTags;
-
-import java.util.concurrent.CompletableFuture;
+import net.minecraft.tag.BlockTags;
 
 import static net.alminoris.arborealnature.util.helper.ModBlockSetsHelper.*;
 
 public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
 {
-    public ModBlockTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture)
+    public ModBlockTagProvider(FabricDataGenerator dataGenerator)
     {
-        super(output, registriesFuture);
+        super(dataGenerator);
     }
 
     @Override
-    protected void configure(RegistryWrapper.WrapperLookup wrapperLookup)
+    protected void generateTags()
     {
         for (String name : WOOD_NAMES)
         {
@@ -72,12 +69,6 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
             getOrCreateTagBuilder(BlockTags.WALL_SIGNS)
                     .add(WOODEN_WALL_SIGNS.get(name));
 
-            getOrCreateTagBuilder(BlockTags.CEILING_HANGING_SIGNS)
-                    .add(WOODEN_HANGING_SIGNS.get(name));
-
-            getOrCreateTagBuilder(BlockTags.WALL_HANGING_SIGNS)
-                    .add(WOODEN_WALL_HANGING_SIGNS.get(name));
-
             this.getOrCreateTagBuilder(BlockTags.HOE_MINEABLE).add(LEAVES.get(name));
         }
 
@@ -89,7 +80,6 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
 
         getOrCreateTagBuilder(ModTags.Blocks.LOGS_TO_BE_BURNT)
                 .add(Blocks.STRIPPED_BIRCH_LOG)
-                .add(Blocks.STRIPPED_BAMBOO_BLOCK)
                 .add(Blocks.STRIPPED_OAK_LOG)
                 .add(Blocks.STRIPPED_DARK_OAK_LOG)
                 .add(Blocks.STRIPPED_ACACIA_LOG)
@@ -97,8 +87,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(Blocks.STRIPPED_JUNGLE_LOG)
                 .add(Blocks.STRIPPED_SPRUCE_LOG)
                 .add(Blocks.STRIPPED_CRIMSON_STEM)
-                .add(Blocks.STRIPPED_WARPED_STEM)
-                .add(Blocks.STRIPPED_CHERRY_LOG);
+                .add(Blocks.STRIPPED_WARPED_STEM);
 
         getOrCreateTagBuilder(ModTags.Blocks.CHISELABLE_BLOCKS)
                 .add(Blocks.STRIPPED_OAK_WOOD)
@@ -109,9 +98,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(Blocks.STRIPPED_DARK_OAK_WOOD)
                 .add(Blocks.STRIPPED_CRIMSON_HYPHAE)
                 .add(Blocks.STRIPPED_WARPED_HYPHAE)
-                .add(Blocks.STRIPPED_MANGROVE_WOOD)
-                .add(Blocks.STRIPPED_CHERRY_WOOD)
-                .add(Blocks.STRIPPED_BAMBOO_BLOCK);
+                .add(Blocks.STRIPPED_MANGROVE_WOOD);
 
         getOrCreateTagBuilder(BlockTags.FLOWERS)
                 .add(ModBlocks.WOOD_ANEMONA)

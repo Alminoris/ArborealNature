@@ -1,24 +1,25 @@
 package net.alminoris.arborealnature.datagen;
 
 import net.alminoris.arborealnature.world.biome.ModBiomes;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.BiomeTags;
+import net.minecraft.tag.BiomeTags;
+import net.minecraft.util.registry.BuiltinRegistries;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
 
 import java.util.concurrent.CompletableFuture;
 
 public class ModBiomeTagProvider extends FabricTagProvider<Biome>
 {
-    public ModBiomeTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture)
+    public ModBiomeTagProvider(FabricDataGenerator dataGenerator)
     {
-        super(output, RegistryKeys.BIOME, registriesFuture);
+        super(dataGenerator, BuiltinRegistries.BIOME);
     }
 
     @Override
-    protected void configure(RegistryWrapper.WrapperLookup wrapperLookup)
+    protected void generateTags()
     {
         this.getOrCreateTagBuilder(BiomeTags.IS_FOREST).add(ModBiomes.HAZELNUT_FOREST).setReplace(false);
         this.getOrCreateTagBuilder(BiomeTags.IS_OVERWORLD).add(ModBiomes.HAZELNUT_FOREST).setReplace(false);
@@ -31,4 +32,5 @@ public class ModBiomeTagProvider extends FabricTagProvider<Biome>
         this.getOrCreateTagBuilder(BiomeTags.IS_FOREST).add(ModBiomes.ORCHID_OASIS).setReplace(false);
         this.getOrCreateTagBuilder(BiomeTags.IS_OVERWORLD).add(ModBiomes.ORCHID_OASIS).setReplace(false);
     }
+
 }

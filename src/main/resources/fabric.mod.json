@@ -42,9 +42,9 @@
 	"depends":
 	{
 		"fabricloader": ">=0.16.10",
-		"minecraft": "~1.19.4",
+		"minecraft": "~1.19.2",
 		"java": ">=21",
-		"geckolib": ">=4.2",
+		"geckolib": ">=3.1.4.0",
 		"fabric-api": "*"
 	},
 	"suggests":

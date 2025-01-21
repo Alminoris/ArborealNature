@@ -1,10 +1,10 @@
 package net.alminoris.arborealnature.sound;
 
 import net.alminoris.arborealnature.ArborealNature;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 public class ModSounds
 {
@@ -44,10 +44,24 @@ public class ModSounds
     public static final SoundEvent SOUND_WOLVERINE_HURT = registerSoundEvent("sound_wolverine_hurt");
     public static final SoundEvent SOUND_WOLVERINE_DEATH = registerSoundEvent("sound_wolverine_death");
 
+    public static final SoundEvent BLOCK_PINK_PETALS_BREAK = registerSoundEvent("block_pink_petals_break");
+    public static final SoundEvent BLOCK_PINK_PETALS_STEP = registerSoundEvent("block_pink_petals_step");
+    public static final SoundEvent BLOCK_PINK_PETALS_PLACE = registerSoundEvent("block_pink_petals_place");
+    public static final SoundEvent BLOCK_PINK_PETALS_HIT = registerSoundEvent("block_pink_petals_hit");
+    public static final SoundEvent BLOCK_PINK_PETALS_FALL = registerSoundEvent("block_pink_petals_fall");
+
+    public static final BlockSoundGroup PINK_PETALS_SOUND_GROUP = new BlockSoundGroup(1.0f, 1.0f,
+            BLOCK_PINK_PETALS_BREAK,
+            BLOCK_PINK_PETALS_STEP,
+            BLOCK_PINK_PETALS_PLACE,
+            BLOCK_PINK_PETALS_HIT,
+            BLOCK_PINK_PETALS_FALL
+    );
+
     private static SoundEvent registerSoundEvent(String name)
     {
         Identifier id = Identifier.of(ArborealNature.MOD_ID, name);
-        return Registry.register(Registries.SOUND_EVENT, id, SoundEvent.of(id));
+        return Registry.register(Registry.SOUND_EVENT, id, new SoundEvent(id));
     }
 
     public static void registerSounds()

@@ -4,9 +4,10 @@ import net.alminoris.arborealnature.ArborealNature;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.tag.TagKey;
+import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryKey;
 
 public class ModTags
 {
@@ -30,7 +31,7 @@ public class ModTags
 
         private static TagKey<Block> createTag(String name)
         {
-            return TagKey.of(RegistryKeys.BLOCK, Identifier.of(ArborealNature.MOD_ID, name));
+            return TagKey.of(Registry.BLOCK_KEY, Identifier.of(ArborealNature.MOD_ID, name));
         }
     }
 
@@ -48,7 +49,7 @@ public class ModTags
 
         private static TagKey<Item> createTag(String name)
         {
-            return TagKey.of(RegistryKeys.ITEM, Identifier.of(ArborealNature.MOD_ID, name));
+            return TagKey.of(Registry.ITEM_KEY, Identifier.of(ArborealNature.MOD_ID, name));
         }
     }
 
@@ -58,7 +59,7 @@ public class ModTags
 
         private static TagKey<EntityType<?>> createTag(String name)
         {
-            return TagKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(ArborealNature.MOD_ID, name));
+            return TagKey.of(Registry.ENTITY_TYPE_KEY, Identifier.of(ArborealNature.MOD_ID, name));
         }
     }
 }

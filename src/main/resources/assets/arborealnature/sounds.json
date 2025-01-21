@@ -138,5 +138,30 @@
   {
     "subtitle": "sounds.arborealnature.sound_wolverine_death",
     "sounds": [ "arborealnature:sound_wolverine_death" ]
+  },
+  "block_pink_petals_break":
+  {
+    "subtitle": "sounds.arborealnature.block_pink_petals_break",
+    "sounds": [ "arborealnature:block_pink_petals_break" ]
+  },
+  "block_pink_petals_step":
+  {
+    "subtitle": "sounds.arborealnature.block_pink_petals_step",
+    "sounds": [ "arborealnature:block_pink_petals_step" ]
+  },
+  "block_pink_petals_place":
+  {
+    "subtitle": "sounds.arborealnature.block_pink_petals_place",
+    "sounds": [ "arborealnature:block_pink_petals_place" ]
+  },
+  "block_pink_petals_hit":
+  {
+    "subtitle": "sounds.arborealnature.block_pink_petals_hit",
+    "sounds": [ "arborealnature:block_pink_petals_hit" ]
+  },
+  "block_pink_petals_fall":
+  {
+    "subtitle": "sounds.arborealnature.block_pink_petals_fall",
+    "sounds": [ "arborealnature:block_pink_petals_fall" ]
   }
 }

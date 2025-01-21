@@ -165,10 +165,7 @@ public class ModBlockSetsHelper
 
     public static final Dictionary<String, Block> WOODEN_SIGNS = new Hashtable<>();
     public static final Dictionary<String, Block> WOODEN_WALL_SIGNS = new Hashtable<>();
-    public static final Dictionary<String, Block> WOODEN_HANGING_SIGNS = new Hashtable<>();
-    public static final Dictionary<String, Block> WOODEN_WALL_HANGING_SIGNS = new Hashtable<>();
     public static final Dictionary<String, Item> WOODEN_SIGN_ITEMS = new Hashtable<>();
-    public static final Dictionary<String, Item> WOODEN_HANGING_SIGN_ITEMS = new Hashtable<>();
 
     static
     {
@@ -176,10 +173,7 @@ public class ModBlockSetsHelper
         {
             WOODEN_SIGNS.put(name, registerSignBlock(name));
             WOODEN_WALL_SIGNS.put(name, registerWallSignBlock(name));
-            WOODEN_HANGING_SIGNS.put(name, registerHangingSignBlock(name));
-            WOODEN_WALL_HANGING_SIGNS.put(name, registerWallHangingSignBlock(name));
             WOODEN_SIGN_ITEMS.put(name, registerSignItem(name, WOODEN_SIGNS.get(name), WOODEN_WALL_SIGNS.get(name)));
-            WOODEN_HANGING_SIGN_ITEMS.put(name, registerHangingSignItem(name, WOODEN_HANGING_SIGNS.get(name), WOODEN_WALL_HANGING_SIGNS.get(name)));
         }
     }
 

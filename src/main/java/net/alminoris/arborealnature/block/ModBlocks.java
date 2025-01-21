@@ -1,15 +1,11 @@
 package net.alminoris.arborealnature.block;
 
-import com.terraformersmc.terraform.sign.block.TerraformHangingSignBlock;
 import com.terraformersmc.terraform.sign.block.TerraformSignBlock;
-import com.terraformersmc.terraform.sign.block.TerraformWallHangingSignBlock;
 import com.terraformersmc.terraform.sign.block.TerraformWallSignBlock;
 import net.alminoris.arborealnature.ArborealNature;
-import net.alminoris.arborealnature.block.custom.AnimalHideBlock;
-import net.alminoris.arborealnature.block.custom.FallingLeavesBlock;
-import net.alminoris.arborealnature.block.custom.BerryBushBlock;
-import net.alminoris.arborealnature.block.custom.CustomVineBlock;
+import net.alminoris.arborealnature.block.custom.*;
 import net.alminoris.arborealnature.particle.ModParticles;
+import net.alminoris.arborealnature.sound.ModSounds;
 import net.alminoris.arborealnature.world.ModConfiguredFeatures;
 import net.minecraft.block.*;
 import net.minecraft.block.sapling.SaplingGenerator;
@@ -17,10 +13,9 @@ import net.minecraft.data.family.BlockFamily;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 public class ModBlocks
 {
@@ -139,7 +134,7 @@ public class ModBlocks
             new StairsBlock(PINE_RESIN_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_STAIRS).nonOpaque().sounds(BlockSoundGroup.CORAL)));
 
     public static final Block WOOD_ANEMONA = registerBlock("wood_anemona",
-            new FlowerbedBlock(AbstractBlock.Settings.copy(Blocks.PINK_PETALS)));
+            new FlowerbedBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().sounds(ModSounds.PINK_PETALS_SOUND_GROUP)));
 
     public static final Block LARGE_CELANDINE = registerBlock("large_celandine",
             new TallFlowerBlock(AbstractBlock.Settings.copy(Blocks.PEONY)));
@@ -163,7 +158,7 @@ public class ModBlocks
             new FlowerBlock(StatusEffects.RESISTANCE, 12, AbstractBlock.Settings.copy(Blocks.LILY_OF_THE_VALLEY)));
 
     public static final Block WOOD_SORREL = registerBlock("wood_sorrel",
-            new FlowerbedBlock(AbstractBlock.Settings.copy(Blocks.PINK_PETALS)));
+            new FlowerbedBlock(AbstractBlock.Settings.copy(WOOD_ANEMONA)));
 
     public static final Block REINDEER_LICHEN = registerBlock("reindeer_lichen",
             new MossBlock(AbstractBlock.Settings.copy(Blocks.MOSS_BLOCK).nonOpaque()));
@@ -181,7 +176,7 @@ public class ModBlocks
             new CarpetBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).noCollision()));
 
     public static final Block WHITE_MUSHROOM = registerBlock("white_mushroom",
-            new MushroomPlantBlock(AbstractBlock.Settings.copy(Blocks.BROWN_MUSHROOM), ModConfiguredFeatures.HUGE_WHITE_MUSHROOM_KEY));
+            new MushroomPlantBlock(AbstractBlock.Settings.copy(Blocks.BROWN_MUSHROOM), () -> ModConfiguredFeatures.HUGE_WHITE_MUSHROOM));
 
     public static final Block POTTED_WHITE_MUSHROOM = registerBlock("potted_white_mushroom",
             new FlowerPotBlock(WHITE_MUSHROOM, AbstractBlock.Settings.copy(Blocks.POTTED_BROWN_MUSHROOM)));
@@ -220,10 +215,10 @@ public class ModBlocks
                     .sounds(BlockSoundGroup.CORAL)));
 
     public static final Block BAUHINIA_COVER_BLOCK = registerBlock("bauhinia_cover_block",
-            new LeavesBlock(AbstractBlock.Settings.copy(Blocks.PINK_PETALS)));
+            new LeavesBlock(AbstractBlock.Settings.copy(WOOD_ANEMONA)));
 
     public static final Block BAUHINIA_COVER = registerBlock("bauhinia_cover",
-            new CarpetBlock(AbstractBlock.Settings.copy(Blocks.PINK_PETALS)));
+            new CarpetBlock(AbstractBlock.Settings.copy(WOOD_ANEMONA)));
 
     public static final Block PINE_COVER_BLOCK = registerBlock("pine_cover_block",
             new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).noCollision()));
@@ -240,12 +235,12 @@ public class ModBlocks
     private static Block registerBlock(String name, Block block)
     {
         registerBlockItem(name, block);
-        return Registry.register(Registries.BLOCK, Identifier.of(ArborealNature.MOD_ID, name), block);
+        return Registry.register(Registry.BLOCK, Identifier.of(ArborealNature.MOD_ID, name), block);
     }
 
     private static void registerBlockItem(String name, Block block)
     {
-        Registry.register(Registries.ITEM, Identifier.of(ArborealNature.MOD_ID, name),
+        Registry.register(Registry.ITEM, Identifier.of(ArborealNature.MOD_ID, name),
                 new BlockItem(block, new Item.Settings()));
     }
 
@@ -264,15 +259,8 @@ public class ModBlocks
         return switch (name)
         {
             case "bauhinia" -> registerBlock(name + "_leaves",
-                    new FallingLeavesBlock(AbstractBlock.Settings.of(Material.LEAVES, MapColor.MAGENTA)
-                            .strength(0.2F)
-                            .ticksRandomly()
-                            .sounds(BlockSoundGroup.CHERRY_LEAVES)
-                            .nonOpaque()
-                            .allowsSpawning(Blocks::canSpawnOnLeaves)
-                            .suffocates(Blocks::never)
-                            .blockVision(Blocks::never)
-                            .solidBlock(Blocks::never), ModParticles.BAUHINIA_PETALS, 10));
+                    new FallingLeavesBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_LEAVES)
+                            .sounds(ModSounds.PINK_PETALS_SOUND_GROUP), ModParticles.BAUHINIA_PETALS, 10));
             case "pine" -> registerBlock(name + "_leaves",
                     new FallingLeavesBlock(AbstractBlock.Settings.copy(Blocks.SPRUCE_LEAVES), ModParticles.PINE_NEEDLES, 60));
             case "fir" -> registerBlock(name + "_leaves",
@@ -284,15 +272,8 @@ public class ModBlocks
             case "hornbeam" -> registerBlock(name + "_leaves",
                     new FallingLeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES), ModParticles.HORNBEAM_LEAVES, 35));
             case "hawthorn" -> registerBlock(name + "_leaves",
-                    new FallingLeavesBlock(AbstractBlock.Settings.of(Material.LEAVES, MapColor.WHITE)
-                            .strength(0.2F)
-                            .ticksRandomly()
-                            .sounds(BlockSoundGroup.CHERRY_LEAVES)
-                            .nonOpaque()
-                            .allowsSpawning(Blocks::canSpawnOnLeaves)
-                            .suffocates(Blocks::never)
-                            .blockVision(Blocks::never)
-                            .solidBlock(Blocks::never), ModParticles.HAWTHORN_PETALS, 15));
+                    new FallingLeavesBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_LEAVES)
+                            .sounds(ModSounds.PINK_PETALS_SOUND_GROUP), ModParticles.HAWTHORN_PETALS, 15));
             case "fig" -> registerBlock(name + "_leaves",
                     new FallingLeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES), ModParticles.FIG_LEAVES, 45));
             default -> registerBlock(name + "_leaves",
@@ -381,31 +362,31 @@ public class ModBlocks
     public static Block registerFenceGateBlock(String name)
     {
         return registerBlock(name+"_fence_gate",
-                new FenceGateBlock(AbstractBlock.Settings.copy(Blocks.OAK_FENCE_GATE), WoodType.OAK));
+                new FenceGateBlock(AbstractBlock.Settings.copy(Blocks.OAK_FENCE_GATE)));
     }
 
     public static Block registerDoorBlock(String name)
     {
         return registerBlock(name+"_door",
-                new DoorBlock(AbstractBlock.Settings.copy(Blocks.OAK_DOOR), BlockSetType.OAK));
+                new DoorBlock(AbstractBlock.Settings.copy(Blocks.OAK_DOOR)));
     }
 
     public static Block registerTrapdoorBlock(String name)
     {
         return registerBlock(name+"_trapdoor",
-                new TrapdoorBlock(AbstractBlock.Settings.copy(Blocks.OAK_TRAPDOOR), BlockSetType.OAK));
+                new TrapdoorBlock(AbstractBlock.Settings.copy(Blocks.OAK_TRAPDOOR)));
     }
 
     public static Block registerButtonBlock(String name)
     {
         return registerBlock(name+"_button",
-                new ButtonBlock(AbstractBlock.Settings.copy(Blocks.OAK_BUTTON), BlockSetType.OAK, 30, true));
+                new WoodenButtonBlock(AbstractBlock.Settings.copy(Blocks.OAK_BUTTON)));
     }
 
     public static Block registerPressurePlateBlock(String name)
     {
         return registerBlock(name+"_pressure_plate",
-                new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, AbstractBlock.Settings.copy(Blocks.OAK_PRESSURE_PLATE), BlockSetType.OAK));
+                new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, AbstractBlock.Settings.copy(Blocks.OAK_PRESSURE_PLATE)));
     }
 
     public static Block registerSaplingBlock(String name, SaplingGenerator saplingGenerator)
@@ -424,20 +405,6 @@ public class ModBlocks
     {
         return registerBlock(name+"_wall_sign",
                 new TerraformWallSignBlock(Identifier.of(ArborealNature.MOD_ID, "entity/signs/"+name), AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN)));
-    }
-
-    public static Block registerHangingSignBlock(String name)
-    {
-        return registerBlock(name+"_hanging_sign",
-                new TerraformHangingSignBlock(Identifier.of(ArborealNature.MOD_ID, "entity/signs/hanging/"+name),
-                        Identifier.of(ArborealNature.MOD_ID, "textures/gui/hanging_signs/"+name), AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN)));
-    }
-
-    public static Block registerWallHangingSignBlock(String name)
-    {
-        return registerBlock(name+"_wall_hanging_sign",
-                new TerraformWallHangingSignBlock(Identifier.of(ArborealNature.MOD_ID, "entity/signs/hanging/"+name),
-                        Identifier.of(ArborealNature.MOD_ID, "textures/gui/hanging_signs/"+name), AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN)));
     }
 
     public static BlockFamily registerBlockFamily(Block planks, Block sign, Block wallSign)

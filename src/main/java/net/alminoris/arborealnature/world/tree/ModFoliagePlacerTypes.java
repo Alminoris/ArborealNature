@@ -14,6 +14,7 @@ public class ModFoliagePlacerTypes
 
     public static final FoliagePlacerType<?> CEDAR_GIANT_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("cedar_giant_foliage_placer", CedarGiantFoliagePlacer.CODEC);
 
+    public static final FoliagePlacerType<?> CHERRY_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("cherry_foliage_placer", CherryFoliagePlacer.CODEC);
 
     public static final FoliagePlacerType<?> WILD_CHERRY_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("wild_cherry_foliage_placer", WildCherryFoliagePlacer.CODEC);
 

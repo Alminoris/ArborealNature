@@ -6,12 +6,11 @@ import net.alminoris.arborealnature.world.ModPlacedFeatures;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.registry.Registerable;
-import net.minecraft.registry.RegistryEntryLookup;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryEntry;
+import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.carver.ConfiguredCarver;
@@ -19,38 +18,35 @@ import net.minecraft.world.gen.feature.*;
 
 public class ModBiomes
 {
-    public static final RegistryKey<Biome> HAZELNUT_FOREST = RegistryKey.of(RegistryKeys.BIOME,
+    public static final RegistryKey<Biome> HAZELNUT_FOREST = RegistryKey.of(Registry.BIOME_KEY,
             Identifier.of(ArborealNature.MOD_ID, "hazelnut_forest_biome"));
 
-    public static final RegistryKey<Biome> MULBERRY_GROVE = RegistryKey.of(RegistryKeys.BIOME,
+    public static final RegistryKey<Biome> MULBERRY_GROVE = RegistryKey.of(Registry.BIOME_KEY,
             Identifier.of(ArborealNature.MOD_ID, "mulberry_grove_biome"));
 
-    public static final RegistryKey<Biome> ORCHID_OASIS = RegistryKey.of(RegistryKeys.BIOME,
+    public static final RegistryKey<Biome> ORCHID_OASIS = RegistryKey.of(Registry.BIOME_KEY,
             Identifier.of(ArborealNature.MOD_ID, "orchid_oasis_biome"));
 
-    public static final RegistryKey<Biome> PINE_FOREST = RegistryKey.of(RegistryKeys.BIOME,
+    public static final RegistryKey<Biome> PINE_FOREST = RegistryKey.of(Registry.BIOME_KEY,
             Identifier.of(ArborealNature.MOD_ID, "pine_forest_biome"));
 
-    public static final RegistryKey<Biome> FIR_FOREST = RegistryKey.of(RegistryKeys.BIOME,
+    public static final RegistryKey<Biome> FIR_FOREST = RegistryKey.of(Registry.BIOME_KEY,
             Identifier.of(ArborealNature.MOD_ID, "fir_forest_biome"));
 
-    public static void bootstrap(Registerable<Biome> context)
+    public static void bootstrap(Registry<Biome> context)
     {
-        RegistryEntryLookup<PlacedFeature> placedFeatures = context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
-        RegistryEntryLookup<ConfiguredCarver<?>> configuredCarvers = context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER);
+        context.register(HAZELNUT_FOREST, hazelnutForestBiome());
 
-        context.register(HAZELNUT_FOREST, hazelnutForestBiome(placedFeatures, configuredCarvers));
+        context.register(MULBERRY_GROVE, mulberryGroveBiome());
 
-        context.register(MULBERRY_GROVE, mulberryGroveBiome(placedFeatures, configuredCarvers));
+        context.register(ORCHID_OASIS, orchidOasisBiome());
 
-        context.register(ORCHID_OASIS, orchidOasisBiome(placedFeatures, configuredCarvers));
+        context.register(PINE_FOREST, pineForestBiome());
 
-        context.register(PINE_FOREST, pineForestBiome(placedFeatures, configuredCarvers));
-
-        context.register(FIR_FOREST, firForestBiome(placedFeatures, configuredCarvers));
+        context.register(FIR_FOREST, firForestBiome());
     }
 
-    public static void globalOverworldGeneration(GenerationSettings.LookupBackedBuilder builder)
+    public static void globalOverworldGeneration(GenerationSettings.Builder builder)
     {
         DefaultBiomeFeatures.addAmethystGeodes(builder);
         DefaultBiomeFeatures.addDungeons(builder);
@@ -58,9 +54,9 @@ public class ModBiomes
         DefaultBiomeFeatures.addDefaultOres(builder);
     }
 
-    public static Biome hazelnutForestBiome(RegistryEntryLookup<PlacedFeature> placedFeatures, RegistryEntryLookup<ConfiguredCarver<?>> configuredCarvers)
+    public static Biome hazelnutForestBiome()
     {
-        GenerationSettings.LookupBackedBuilder biomeBuilder = new GenerationSettings.LookupBackedBuilder(placedFeatures, configuredCarvers);
+        GenerationSettings.Builder biomeBuilder = new GenerationSettings.Builder();
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
 
         spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.SQUIRREL, 35, 3, 5));
@@ -86,7 +82,7 @@ public class ModBiomes
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.WOOD_ANEMONA_PLACED_KEY);
 
         return new Biome.Builder()
-                .precipitation(true)
+                .precipitation(Biome.Precipitation.RAIN)
                 .downfall(0.4f)
                 .temperature(0.7f)
                 .generationSettings(biomeBuilder.build())
@@ -103,9 +99,9 @@ public class ModBiomes
                 .build();
     }
 
-    public static Biome mulberryGroveBiome(RegistryEntryLookup<PlacedFeature> placedFeatures, RegistryEntryLookup<ConfiguredCarver<?>> configuredCarvers)
+    public static Biome mulberryGroveBiome()
     {
-        GenerationSettings.LookupBackedBuilder biomeBuilder = new GenerationSettings.LookupBackedBuilder(placedFeatures, configuredCarvers);
+        GenerationSettings.Builder biomeBuilder = new GenerationSettings.Builder();
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
 
         DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
@@ -127,7 +123,7 @@ public class ModBiomes
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.PINK_CURRANT_PLACED_KEY);
 
         return new Biome.Builder()
-                .precipitation(true)
+                .precipitation(Biome.Precipitation.RAIN)
                 .downfall(0.6f)
                 .temperature(0.75f)
                 .generationSettings(biomeBuilder.build())
@@ -144,9 +140,9 @@ public class ModBiomes
                 .build();
     }
 
-    public static Biome orchidOasisBiome(RegistryEntryLookup<PlacedFeature> placedFeatures, RegistryEntryLookup<ConfiguredCarver<?>> configuredCarvers)
+    public static Biome orchidOasisBiome()
     {
-        GenerationSettings.LookupBackedBuilder biomeBuilder = new GenerationSettings.LookupBackedBuilder(placedFeatures, configuredCarvers);
+        GenerationSettings.Builder biomeBuilder = new GenerationSettings.Builder();
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
 
         spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.ORCHID_MANTIS, 75, 1, 3));
@@ -164,7 +160,7 @@ public class ModBiomes
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.ORCHID_LILY_PLACED_KEY);
 
         return new Biome.Builder()
-                .precipitation(true)
+                .precipitation(Biome.Precipitation.RAIN)
                 .downfall(0.3f)
                 .temperature(0.75f)
                 .generationSettings(biomeBuilder.build())
@@ -181,9 +177,9 @@ public class ModBiomes
                 .build();
     }
 
-    public static Biome pineForestBiome(RegistryEntryLookup<PlacedFeature> placedFeatures, RegistryEntryLookup<ConfiguredCarver<?>> configuredCarvers)
+    public static Biome pineForestBiome()
     {
-        GenerationSettings.LookupBackedBuilder biomeBuilder = new GenerationSettings.LookupBackedBuilder(placedFeatures, configuredCarvers);
+        GenerationSettings.Builder biomeBuilder = new GenerationSettings.Builder();
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
 
         spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.RABBIT, 5, 2, 3));
@@ -212,7 +208,7 @@ public class ModBiomes
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.BROWN_MUSHROOM_PINE_FOREST_PLACED_KEY);
 
         return new Biome.Builder()
-                .precipitation(true)
+                .precipitation(Biome.Precipitation.RAIN)
                 .downfall(0.5f)
                 .temperature(0.6f)
                 .generationSettings(biomeBuilder.build())
@@ -229,9 +225,9 @@ public class ModBiomes
                 .build();
     }
 
-    public static Biome firForestBiome(RegistryEntryLookup<PlacedFeature> placedFeatures, RegistryEntryLookup<ConfiguredCarver<?>> configuredCarvers)
+    public static Biome firForestBiome()
     {
-        GenerationSettings.LookupBackedBuilder biomeBuilder = new GenerationSettings.LookupBackedBuilder(placedFeatures, configuredCarvers);
+        GenerationSettings.Builder biomeBuilder = new GenerationSettings.Builder();
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
 
         spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.RABBIT, 5, 2, 3));
@@ -265,7 +261,7 @@ public class ModBiomes
         DefaultBiomeFeatures.addLargeFerns(biomeBuilder);
 
         return new Biome.Builder()
-                .precipitation(true)
+                .precipitation(Biome.Precipitation.SNOW)
                 .downfall(0.7f)
                 .temperature(-0.5f)
                 .generationSettings(biomeBuilder.build())
