@@ -188,8 +188,8 @@ public class CaribouEntity extends AbstractHorseEntity implements GeoEntity
         super.updatePassengerPosition(passenger, positionUpdater);
         float f = MathHelper.sin(this.bodyYaw * (float) (Math.PI / 180.0));
         float g = MathHelper.cos(this.bodyYaw * (float) (Math.PI / 180.0));
-        float h = -0.3F;
-        float i = -0.15F;
+        float h = 0.0F;
+        float i = (this.isAngry()) ? 0.2F : -0.15f;
         positionUpdater.accept(
                 passenger,
                 this.getX() + (double)(h * f),
