@@ -4,7 +4,6 @@ import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.util.ModTags;
 import net.alminoris.arborealnature.util.helper.ModBlockSetsHelper;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.ToolItem;
@@ -78,10 +77,6 @@ public class ChiselTool extends ToolItem
                     return ModBlocks.WARPED_CHISELED;
                 case "mangrove":
                     return ModBlocks.MANGROVE_CHISELED;
-                case "cherry":
-                    return ModBlocks.CHERRY_CHISELED;
-                case "bamboo":
-                    return Blocks.BAMBOO_MOSAIC;
                 default:
                     for(String name : ModBlockSetsHelper.WOOD_NAMES)
                         if (isThisBlock.equals(name)) return ModBlockSetsHelper.WOODEN_CHISELED.get(name);

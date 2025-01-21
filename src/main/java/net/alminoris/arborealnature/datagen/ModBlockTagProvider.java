@@ -157,7 +157,6 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.CRIMSON_CHISELED)
                 .add(ModBlocks.WARPED_CHISELED)
                 .add(ModBlocks.MANGROVE_CHISELED)
-                .add(ModBlocks.CHERRY_CHISELED)
                 .add(ModBlocks.PINE_RESIN_BRICKS);
 
         getOrCreateTagBuilder(BlockTags.WOODEN_SLABS)
@@ -170,7 +169,6 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.CRIMSON_CHISELED_SLAB)
                 .add(ModBlocks.WARPED_CHISELED_SLAB)
                 .add(ModBlocks.MANGROVE_CHISELED_SLAB)
-                .add(ModBlocks.CHERRY_CHISELED_SLAB)
                 .add(ModBlocks.PINE_RESIN_BRICKS_SLAB);
 
         getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS)
@@ -183,7 +181,6 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.CRIMSON_CHISELED_STAIRS)
                 .add(ModBlocks.WARPED_CHISELED_STAIRS)
                 .add(ModBlocks.MANGROVE_CHISELED_STAIRS)
-                .add(ModBlocks.CHERRY_CHISELED_STAIRS)
                 .add(ModBlocks.PINE_RESIN_BRICKS_STAIRS);
 
         getOrCreateTagBuilder(ModTags.Blocks.ORCHID_MANTIS_FLOWERS)

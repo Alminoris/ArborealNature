@@ -105,15 +105,6 @@ public class ModBlocks
     public static final Block MANGROVE_CHISELED_STAIRS = registerBlock("mangrove_chiseled_stairs",
             new StairsBlock(MANGROVE_CHISELED.getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_STAIRS)));
 
-    public static final Block CHERRY_CHISELED = registerBlock("cherry_chiseled",
-            new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS)));
-
-    public static final Block CHERRY_CHISELED_SLAB = registerBlock("cherry_chiseled_slab",
-            new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)));
-
-    public static final Block CHERRY_CHISELED_STAIRS = registerBlock("cherry_chiseled_stairs",
-            new StairsBlock(CHERRY_CHISELED.getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_STAIRS)));
-
     public static final Block PINE_CONE_BLOCK = registerBlock("pine_cone_block",
             new FallingBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_ROOTS).nonOpaque()));
 

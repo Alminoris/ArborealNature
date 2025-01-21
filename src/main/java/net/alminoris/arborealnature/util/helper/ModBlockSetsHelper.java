@@ -14,7 +14,7 @@ import static net.alminoris.arborealnature.item.ModItems.*;
 
 public class ModBlockSetsHelper
 {
-    public static final String[] CLASSIC_WOOD_NAMES = new String[] { "acacia", "birch", "dark_oak", "cherry", "bamboo", "jungle",
+    public static final String[] CLASSIC_WOOD_NAMES = new String[] { "acacia", "birch", "dark_oak", "jungle",
             "mangrove", "crimson", "warped", "spruce", "oak" };
 
     public static final String[] WOOD_NAMES = new String[] { "hazelnut", "hornbeam", "hawthorn", "quince", "plum", "mango",

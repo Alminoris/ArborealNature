@@ -80,7 +80,6 @@ public class ArborealNature implements ModInitializer
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.ACACIA_CHISELED, 5, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.DARK_OAK_CHISELED, 5, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.MANGROVE_CHISELED, 5, 20);
-		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.CHERRY_CHISELED, 5, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.WARPED_CHISELED, 5, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.CRIMSON_CHISELED, 5, 20);
 

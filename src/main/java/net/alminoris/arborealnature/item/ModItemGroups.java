@@ -95,9 +95,6 @@ public class ModItemGroups
                         entries.add(ModBlocks.MANGROVE_CHISELED);
                         entries.add(ModBlocks.MANGROVE_CHISELED_STAIRS);
                         entries.add(ModBlocks.MANGROVE_CHISELED_SLAB);
-                        entries.add(ModBlocks.CHERRY_CHISELED);
-                        entries.add(ModBlocks.CHERRY_CHISELED_STAIRS);
-                        entries.add(ModBlocks.CHERRY_CHISELED_SLAB);
                         entries.add(Blocks.BAMBOO_MOSAIC);
                         entries.add(Blocks.BAMBOO_MOSAIC_STAIRS);
                         entries.add(Blocks.BAMBOO_MOSAIC_SLAB);

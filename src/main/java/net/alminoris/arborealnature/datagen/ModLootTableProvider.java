@@ -165,9 +165,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         addDrop(ModBlocks.MANGROVE_CHISELED);
         addDrop(ModBlocks.MANGROVE_CHISELED_SLAB);
         addDrop(ModBlocks.MANGROVE_CHISELED_STAIRS);
-        addDrop(ModBlocks.CHERRY_CHISELED);
-        addDrop(ModBlocks.CHERRY_CHISELED_SLAB);
-        addDrop(ModBlocks.CHERRY_CHISELED_STAIRS);
         addDrop(ModBlocks.PINE_CONE_BLOCK);
         addDrop(ModBlocks.PINE_RESIN_BLOCK);
         addDrop(ModBlocks.PINE_RESIN_BRICKS);

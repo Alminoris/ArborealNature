@@ -130,7 +130,6 @@ public class ModModelProvider extends FabricModelProvider
         BlockStateModelGenerator.BlockTexturePool crimsonChiseledPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.CRIMSON_CHISELED);
         BlockStateModelGenerator.BlockTexturePool warpedChiseledPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.WARPED_CHISELED);
         BlockStateModelGenerator.BlockTexturePool mangroveChiseledPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.MANGROVE_CHISELED);
-        BlockStateModelGenerator.BlockTexturePool cherryChiseledPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.CHERRY_CHISELED);
 
         BlockStateModelGenerator.BlockTexturePool pineResinBricksPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.PINE_RESIN_BRICKS);
 
@@ -160,9 +159,6 @@ public class ModModelProvider extends FabricModelProvider
 
         mangroveChiseledPool.slab(ModBlocks.MANGROVE_CHISELED_SLAB);
         mangroveChiseledPool.stairs(ModBlocks.MANGROVE_CHISELED_STAIRS);
-
-        cherryChiseledPool.slab(ModBlocks.CHERRY_CHISELED_SLAB);
-        cherryChiseledPool.stairs(ModBlocks.CHERRY_CHISELED_STAIRS);
 
         pineResinBricksPool.slab(ModBlocks.PINE_RESIN_BRICKS_SLAB);
         pineResinBricksPool.stairs(ModBlocks.PINE_RESIN_BRICKS_STAIRS);
