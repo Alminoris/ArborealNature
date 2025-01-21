@@ -5,15 +5,12 @@ import net.alminoris.arborealnature.entity.ModEntities;
 import net.alminoris.arborealnature.item.ModItems;
 import net.alminoris.arborealnature.sound.ModSounds;
 import net.alminoris.arborealnature.util.ModTags;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.data.DataTracker;
-import net.minecraft.entity.data.TrackedData;
-import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AbstractHorseEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
@@ -24,12 +21,10 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.EntityView;
 import net.minecraft.world.World;
@@ -183,22 +178,29 @@ public class CaribouEntity extends AbstractHorseEntity implements GeoEntity
     }
 
     @Override
-    protected void updatePassengerPosition(Entity passenger, Entity.PositionUpdater positionUpdater)
+    public void updatePassengerPosition(Entity passenger)
     {
-        super.updatePassengerPosition(passenger, positionUpdater);
+        super.updatePassengerPosition(passenger);
+        if (passenger instanceof MobEntity mobEntity)
+        {
+            this.bodyYaw = mobEntity.bodyYaw;
+        }
+
         float f = MathHelper.sin(this.bodyYaw * (float) (Math.PI / 180.0));
         float g = MathHelper.cos(this.bodyYaw * (float) (Math.PI / 180.0));
-        float h = -0.3F;
-        float i = -0.15F;
-        positionUpdater.accept(
-                passenger,
-                this.getX() + (double)(h * f),
-                this.getY() + this.getMountedHeightOffset() + passenger.getHeightOffset() + (double)i,
-                this.getZ() - (double)(h * g)
+        float h = 0.0F;
+        float i = (this.isAngry()) ? 0.2F : -0.15f;
+        passenger.setPosition(
+                this.getX() + (double)(h * f), this.getY() + this.getMountedHeightOffset() + passenger.getHeightOffset() + (double)i, this.getZ() - (double)(h * g)
         );
         if (passenger instanceof LivingEntity)
         {
             ((LivingEntity)passenger).bodyYaw = this.bodyYaw;
+        }
+
+        if (this.isAngry())
+        {
+
         }
     }
 
