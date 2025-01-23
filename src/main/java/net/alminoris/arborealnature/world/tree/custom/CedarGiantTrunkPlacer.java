@@ -66,17 +66,17 @@ public class CedarGiantTrunkPlacer extends GiantTrunkPlacer
                     Direction direction = Direction.byId(r);
                     switch (direction)
                     {
-                        case Direction.NORTH:
+                        case NORTH:
                             this.setLog(world, replacer, random, mutable, config, startPos, -1, i, 1);
                             this.setLog(world, replacer, random, mutable, config, startPos, -2, i+1, 1);
                             pos = new BlockPos(startPos.getX()-2, startPos.getY()+(i+1), startPos.getZ()+1);
                             break;
-                        case Direction.SOUTH:
+                        case SOUTH:
                             this.setLog(world, replacer, random, mutable, config, startPos, 2, i, 0);
                             this.setLog(world, replacer, random, mutable, config, startPos, 3, i+1, 0);
                             pos = new BlockPos(startPos.getX()+3, startPos.getY()+(i+1), startPos.getZ());
                             break;
-                        case Direction.WEST:
+                        case WEST:
                             this.setLog(world, replacer, random, mutable, config, startPos, 0, i, -1);
                             this.setLog(world, replacer, random, mutable, config, startPos, 0, i+1, -2);
                             pos = new BlockPos(startPos.getX(), startPos.getY()+(i+1), startPos.getZ()-2);
