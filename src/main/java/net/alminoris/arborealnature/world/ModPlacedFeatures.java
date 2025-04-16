@@ -49,6 +49,10 @@ public class ModPlacedFeatures
 
     public static final RegistryKey<PlacedFeature> FIR_PLACED_KEY = registerKey("fir_placed");
 
+    public static final RegistryKey<PlacedFeature> ARAUCARIA_PLACED_KEY = registerKey("araucaria_placed");
+
+    public static final RegistryKey<PlacedFeature> JUNIPER_PLACED_KEY = registerKey("juniper_placed");
+
     public static final RegistryKey<PlacedFeature> CEDAR_PLACED_KEY = registerKey("cedar_placed");
 
     public static final RegistryKey<PlacedFeature> MEGA_PINE_PLACED_KEY = registerKey("mega_pine_placed");
@@ -77,6 +81,10 @@ public class ModPlacedFeatures
 
     public static final RegistryKey<PlacedFeature> XEROCHRYSUM_PLACED_KEY = registerKey("xerochrysum_placed");
 
+    public static final RegistryKey<PlacedFeature> THISTLE_PLACED_KEY = registerKey("thistle_placed");
+
+    public static final RegistryKey<PlacedFeature> PRICKLY_GRASS_PLACED_KEY = registerKey("prickly_grass_placed");
+
     public static final RegistryKey<PlacedFeature> BLUEBELL_PLACED_KEY = registerKey("bluebell_placed");
 
     public static final RegistryKey<PlacedFeature> LARGE_ORCHID_PLACED_KEY = registerKey("large_orchid_placed");
@@ -104,6 +112,8 @@ public class ModPlacedFeatures
     public static final RegistryKey<PlacedFeature> PINE_FOREST_FLOWERS_PLACED_KEY = registerKey("pine_forest_flowers_placed");
 
     public static final RegistryKey<PlacedFeature> PINE_FOREST_GRASS_PLACED_KEY = registerKey("pine_forest_grass_placed");
+
+    public static final RegistryKey<PlacedFeature> ARAUCARIA_SAVANNA_GRASS_PLACED_KEY = registerKey("araucaria_savanna_grass_placed");
 
     public static final RegistryKey<PlacedFeature> FIR_FOREST_GRASS_PLACED_KEY = registerKey("fir_forest_grass_placed");
 
@@ -181,6 +191,14 @@ public class ModPlacedFeatures
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(1, 0.1f, 3),
                         ModBlockSetsHelper.WOODEN_SAPLINGS.get("fir")));
 
+        register(context, ARAUCARIA_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ARAUCARIA_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(1, 0.01f, 3),
+                        ModBlockSetsHelper.WOODEN_SAPLINGS.get("araucaria")));
+
+        register(context, JUNIPER_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.JUNIPER_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(1, 0.005f, 1),
+                        ModBlockSetsHelper.WOODEN_SAPLINGS.get("juniper")));
+
         register(context, FIR_FOREST_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.FIR_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(30, 0.1f, 15),
                         ModBlockSetsHelper.WOODEN_SAPLINGS.get("fir")));
@@ -205,6 +223,11 @@ public class ModPlacedFeatures
                         BiomePlacementModifier.of()));
 
         register(context, PINE_FOREST_GRASS_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.PINE_FOREST_GRASS_KEY),
+                List.of(SquarePlacementModifier.of(),
+                        PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP,
+                        BiomePlacementModifier.of()));
+
+        register(context, ARAUCARIA_SAVANNA_GRASS_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ARAUCARIA_SAVANNA_GRASS_KEY),
                 List.of(SquarePlacementModifier.of(),
                         PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP,
                         BiomePlacementModifier.of()));
@@ -240,6 +263,18 @@ public class ModPlacedFeatures
 
         register(context, BLUEBELL_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.BLUEBELL_KEY),
                 List.of(RarityFilterPlacementModifier.of(15),
+                        SquarePlacementModifier.of(),
+                        PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
+                        BiomePlacementModifier.of()));
+
+        register(context, THISTLE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.THISTLE_KEY),
+                List.of(RarityFilterPlacementModifier.of(5),
+                        SquarePlacementModifier.of(),
+                        PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
+                        BiomePlacementModifier.of()));
+
+        register(context, PRICKLY_GRASS_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.PRICKLY_GRASS_KEY),
+                List.of(RarityFilterPlacementModifier.of(1),
                         SquarePlacementModifier.of(),
                         PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
                         BiomePlacementModifier.of()));

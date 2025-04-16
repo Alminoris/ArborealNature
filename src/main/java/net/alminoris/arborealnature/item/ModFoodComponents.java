@@ -6,6 +6,8 @@ public class ModFoodComponents
 {
     public static final FoodComponent HAZELNUT = new FoodComponent.Builder().nutrition(3).saturationModifier(0.5f).build();
 
+    public static final FoodComponent JUNIPER_BERRY = new FoodComponent.Builder().nutrition(2).saturationModifier(0.3f).build();
+
     public static final FoodComponent QUINCE = new FoodComponent.Builder().nutrition(3).saturationModifier(0.35f).build();
 
     public static final FoodComponent PLUM = new FoodComponent.Builder().nutrition(3).saturationModifier(0.5f).build();

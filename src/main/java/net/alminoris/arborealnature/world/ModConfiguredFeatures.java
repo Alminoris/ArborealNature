@@ -64,6 +64,10 @@ public class ModConfiguredFeatures
 
     public static RegistryKey<ConfiguredFeature<?, ?>> FIR_KEY = registerKey("fir");
 
+    public static RegistryKey<ConfiguredFeature<?, ?>> ARAUCARIA_KEY = registerKey("araucaria");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> JUNIPER_KEY = registerKey("juniper");
+
     public static RegistryKey<ConfiguredFeature<?, ?>> CEDAR_KEY = registerKey("cedar");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> MEGA_PINE_KEY = registerKey("mega_pine");
@@ -83,6 +87,10 @@ public class ModConfiguredFeatures
     public static RegistryKey<ConfiguredFeature<?, ?>> GERANIUM_KEY = registerKey("geranium");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> XEROCHRYSUM_KEY = registerKey("xerochrysum");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> THISTLE_KEY = registerKey("thistle");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> PRICKLY_GRASS_KEY = registerKey("prickly_grass");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> BLUEBELL_KEY = registerKey("bluebell");
 
@@ -105,6 +113,8 @@ public class ModConfiguredFeatures
     public static RegistryKey<ConfiguredFeature<?, ?>> PINE_FOREST_FLOWERS_KEY = registerKey("pine_forest_flowers");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> PINE_FOREST_GRASS_KEY = registerKey("pine_forest_grass");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> ARAUCARIA_SAVANNA_GRASS_KEY = registerKey("araucaria_savanna_grass");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> COBBLESTONE_ROCK_KEY = registerKey("cobblestone_rock");
 
@@ -268,6 +278,27 @@ public class ModConfiguredFeatures
                 .ignoreVines().decorators(ImmutableList.of(new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.REINDEER_LICHEN_CARPET), 0, 0.05f),
                         new LeafCarpetDecorator(BlockStateProvider.of(Blocks.SNOW), 5, 0.35f))).build());
 
+        register(context, ARAUCARIA_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("araucaria")),
+                new StraightTrunkPlacer(6, 2, 0),
+                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("araucaria")),
+                new AraucariaFoliagePlacer(
+                        ConstantIntProvider.create(3),
+                        ConstantIntProvider.create(0)
+                ),
+                new TwoLayersFeatureSize(1, 0, 1)
+        ).ignoreVines().build());
+
+        register(context, JUNIPER_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("juniper")),
+                new ForkingTrunkPlacer(4, 2, 1),
+                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("juniper")),
+                new DarkOakFoliagePlacer(ConstantIntProvider.create(1), ConstantIntProvider.create(0)),
+                new TwoLayersFeatureSize(1, 0, 2)
+        ).ignoreVines().decorators(ImmutableList.of(
+                new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.JUNIPER_COVER), 2, 0.75f))).build());
+
+
         register(context, CEDAR_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("cedar")),
                 new CedarGiantTrunkPlacer(13, 3, 4),
@@ -321,6 +352,12 @@ public class ModConfiguredFeatures
                                 add(Blocks.TALL_GRASS.getDefaultState(), 30)), 128
                 ));
 
+        register(context, ARAUCARIA_SAVANNA_GRASS_KEY, Feature.RANDOM_PATCH,
+                createRandomPatchFeatureConfig(
+                        new WeightedBlockStateProvider(DataPool.<BlockState>builder().
+                                add(Blocks.SHORT_GRASS.getDefaultState(), 1)), 1024
+                ));
+
         register(context, WHITE_MUSHROOM_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
                         new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.WHITE_MUSHROOM))));
@@ -340,6 +377,14 @@ public class ModConfiguredFeatures
         register(context, XEROCHRYSUM_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
                         new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.XEROCHRYSUM))));
+
+        register(context, THISTLE_KEY, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.THISTLE))));
+
+        register(context, PRICKLY_GRASS_KEY, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.PRICKLY_GRASS))));
 
         register(context, BLUEBELL_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,

@@ -64,4 +64,9 @@ public class ModEntities
             FabricEntityTypeBuilder.<CaribouSpearEntity>create(SpawnGroup.MISC, CaribouSpearEntity::new)
                     .dimensions(EntityDimensions.fixed(0.5f, 0.5f))
                     .trackable(4, 20).build());
+
+    public static final EntityType<TenrecEntity> TENREC = Registry.register(
+            Registries.ENTITY_TYPE, Identifier.of(ArborealNature.MOD_ID, "tenrec"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, TenrecEntity::new)
+                    .dimensions(EntityDimensions.fixed(1f, 0.625f)).build());
 }

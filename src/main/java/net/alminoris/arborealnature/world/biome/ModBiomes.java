@@ -34,6 +34,9 @@ public class ModBiomes
     public static final RegistryKey<Biome> FIR_FOREST = RegistryKey.of(RegistryKeys.BIOME,
             Identifier.of(ArborealNature.MOD_ID, "fir_forest_biome"));
 
+    public static final RegistryKey<Biome> ARAUCARIA_SAVANNA = RegistryKey.of(RegistryKeys.BIOME,
+            Identifier.of(ArborealNature.MOD_ID, "araucaria_savanna_biome"));
+
     public static void bootstrap(Registerable<Biome> context)
     {
         RegistryEntryLookup<PlacedFeature> placedFeatures = context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
@@ -48,6 +51,8 @@ public class ModBiomes
         context.register(PINE_FOREST, pineForestBiome(placedFeatures, configuredCarvers));
 
         context.register(FIR_FOREST, firForestBiome(placedFeatures, configuredCarvers));
+
+        context.register(ARAUCARIA_SAVANNA, araucariaSavannaBiome(placedFeatures, configuredCarvers));
     }
 
     public static void globalOverworldGeneration(GenerationSettings.LookupBackedBuilder builder)
@@ -176,6 +181,41 @@ public class ModBiomes
                         .grassColor(0x7f922a)
                         .foliageColor(0x7f922a)
                         .fogColor(0Xc3e6b6)
+                        .music(null)
+                        .moodSound(BiomeMoodSound.CAVE).build())
+                .build();
+    }
+
+    public static Biome araucariaSavannaBiome(RegistryEntryLookup<PlacedFeature> placedFeatures, RegistryEntryLookup<ConfiguredCarver<?>> configuredCarvers)
+    {
+        GenerationSettings.LookupBackedBuilder biomeBuilder = new GenerationSettings.LookupBackedBuilder(placedFeatures, configuredCarvers);
+        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
+
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.TENREC, 75, 1, 2));
+
+        DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
+
+        globalOverworldGeneration(biomeBuilder);
+
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.ARAUCARIA_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.JUNIPER_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.ARAUCARIA_SAVANNA_GRASS_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.THISTLE_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.PRICKLY_GRASS_PLACED_KEY);
+
+        return new Biome.Builder()
+                .precipitation(true)
+                .downfall(0.3f)
+                .temperature(0.8f)
+                .generationSettings(biomeBuilder.build())
+                .spawnSettings(spawnBuilder.build())
+                .effects((new BiomeEffects.Builder())
+                        .waterColor(0x406866)
+                        .waterFogColor(0x1f4746)
+                        .skyColor(0Xb7c8c8)
+                        .grassColor(0x9dab6b)
+                        .foliageColor(0x7f8d4e)
+                        .fogColor(0Xb7bea0)
                         .music(null)
                         .moodSound(BiomeMoodSound.CAVE).build())
                 .build();

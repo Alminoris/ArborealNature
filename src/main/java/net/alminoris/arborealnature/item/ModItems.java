@@ -41,6 +41,9 @@ public class ModItems
     public static final Item WOLVERINE_SPAWN_EGG = registerItem("wolverine_spawn_egg", new SpawnEggItem(
             ModEntities.WOLVERINE, 0x262c39, 0X4f3331, new Item.Settings()));
 
+    public static final Item TENREC_SPAWN_EGG = registerItem("tenrec_spawn_egg", new SpawnEggItem(
+            ModEntities.TENREC, 0x220f0b, 0Xd58728, new Item.Settings()));
+
     public static final Item PINE_CONE = registerItem("pine_cone", new Item(
             new Item.Settings().maxCount(16)));
 
@@ -48,6 +51,9 @@ public class ModItems
             new Item.Settings().maxCount(16)));
 
     public static final Item CEDAR_CONE = registerItem("cedar_cone", new Item(
+            new Item.Settings().maxCount(16)));
+
+    public static final Item ARAUCARIA_CONE = registerItem("araucaria_cone", new Item(
             new Item.Settings().maxCount(16)));
 
     public static final Item PINE_RESIN = registerItem("pine_resin_item", new Item(
@@ -70,6 +76,9 @@ public class ModItems
 
     public static final Item HAZELNUT_PEELED = registerItem("hazelnut_peeled",
             new Item(new Item.Settings().maxCount(16).food(ModFoodComponents.HAZELNUT)));
+
+    public static final Item JUNIPER_BERRY = registerItem("juniper_berry",
+            new Item(new Item.Settings().maxCount(16).food(ModFoodComponents.JUNIPER_BERRY)));
 
     public static final Item MOOSE_VENISON = registerItem("moose_venison",
             new Item(new Item.Settings().food(ModFoodComponents.MOOSE_VENISON)));
@@ -169,6 +178,11 @@ public class ModItems
                     new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(10))));
 
     public static final Item SILENT_ARROW = registerItem("silent_arrow", new SilentArrowItem(new Item.Settings()));
+
+    public static final Item TENREC_NEEDLE = registerItem("tenrec_needle", new SwordItem(
+            ToolMaterials.WOOD, new Item.Settings()
+            .attributeModifiers(OrchidMantisIncisorItem.createAttributeModifiers(ToolMaterials.WOOD, 2, -2.0f))
+            .maxCount(1)));
 
     public static final Item CARIBOU_SPEAR = registerItem("caribou_spear", new CaribouSpearItem(new Item.Settings().maxDamage(100)
             .attributeModifiers(CaribouSpearItem.createAttributeModifiers())
