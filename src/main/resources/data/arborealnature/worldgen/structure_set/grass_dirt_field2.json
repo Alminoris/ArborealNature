@@ -1,0 +1,16 @@
+{
+  "structures":
+  [
+    {
+      "structure": "arborealnature:grass_dirt_field2",
+      "weight": 1
+    }
+  ],
+  "placement":
+  {
+    "type": "minecraft:random_spread",
+    "salt": 217136684,
+    "spacing": 5,
+    "separation": 2
+  }
+}

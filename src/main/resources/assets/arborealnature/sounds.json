@@ -138,5 +138,20 @@
   {
     "subtitle": "sounds.arborealnature.sound_wolverine_death",
     "sounds": [ "arborealnature:sound_wolverine_death" ]
+  },
+  "sound_tenrec_ambient":
+  {
+    "subtitle": "sounds.arborealnature.sound_tenrec_ambient",
+    "sounds": [ "arborealnature:sound_tenrec_ambient" ]
+  },
+  "sound_tenrec_hurt":
+  {
+    "subtitle": "sounds.arborealnature.sound_tenrec_hurt",
+    "sounds": [ "arborealnature:sound_tenrec_hurt" ]
+  },
+  "sound_tenrec_death":
+  {
+    "subtitle": "sounds.arborealnature.sound_tenrec_death",
+    "sounds": [ "arborealnature:sound_tenrec_death" ]
   }
 }

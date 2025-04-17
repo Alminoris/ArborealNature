@@ -1,0 +1,16 @@
+{
+  "name": "arborealnature:grass_dirt_field5/start_pool",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "element":
+      {
+        "location": "arborealnature:grass_dirt_field5",
+        "processors": "minecraft:empty",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:single_pool_element"
+      },
+      "weight": 1
+    }
+  ]
+}
