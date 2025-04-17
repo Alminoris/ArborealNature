@@ -120,6 +120,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.XEROCHRYSUM)
                 .add(ModBlocks.BLUEBELL)
                 .add(ModBlocks.WOOD_SORREL)
+                .add(ModBlocks.PRICKLY_GRASS)
+                .add(ModBlocks.THISTLE)
                 .add(LEAVES.get("hawthorn"));
 
         getOrCreateTagBuilder(BlockTags.TALL_FLOWERS)
@@ -131,6 +133,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.POTTED_GERANIUM)
                 .add(ModBlocks.POTTED_XEROCHRYSUM)
                 .add(ModBlocks.POTTED_BLUEBELL)
+                .add(ModBlocks.POTTED_THISTLE)
+                .add(ModBlocks.POTTED_PRICKLY_GRASS)
                 .add(ModBlocks.POTTED_ORCHID)
                 .add(ModBlocks.POTTED_WHITE_MUSHROOM);
 

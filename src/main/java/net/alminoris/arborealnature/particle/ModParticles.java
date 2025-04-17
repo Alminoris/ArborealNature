@@ -13,6 +13,8 @@ public class ModParticles
     public static final SimpleParticleType PINE_NEEDLES = FabricParticleTypes.simple();
     public static final SimpleParticleType FIR_NEEDLES = FabricParticleTypes.simple();
     public static final SimpleParticleType CEDAR_NEEDLES = FabricParticleTypes.simple();
+    public static final SimpleParticleType ARAUCARIA_NEEDLES = FabricParticleTypes.simple();
+    public static final SimpleParticleType JUNIPER_NEEDLES = FabricParticleTypes.simple();
     public static final SimpleParticleType HAZELNUT_LEAVES = FabricParticleTypes.simple();
     public static final SimpleParticleType HORNBEAM_LEAVES = FabricParticleTypes.simple();
     public static final SimpleParticleType HAWTHORN_PETALS = FabricParticleTypes.simple();
@@ -42,6 +44,18 @@ public class ModParticles
                 Registries.PARTICLE_TYPE,
                 Identifier.of(ArborealNature.MOD_ID, "cedar_needles"),
                 CEDAR_NEEDLES
+        );
+
+        Registry.register(
+                Registries.PARTICLE_TYPE,
+                Identifier.of(ArborealNature.MOD_ID, "araucaria_needles"),
+                ARAUCARIA_NEEDLES
+        );
+
+        Registry.register(
+                Registries.PARTICLE_TYPE,
+                Identifier.of(ArborealNature.MOD_ID, "juniper_needles"),
+                JUNIPER_NEEDLES
         );
 
         Registry.register(
