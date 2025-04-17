@@ -80,6 +80,7 @@ public class ArborealNature implements ModInitializer
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.ACACIA_CHISELED, 5, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.DARK_OAK_CHISELED, 5, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.MANGROVE_CHISELED, 5, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.CHERRY_CHISELED, 5, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.WARPED_CHISELED, 5, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.CRIMSON_CHISELED, 5, 20);
 
@@ -91,6 +92,8 @@ public class ArborealNature implements ModInitializer
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BAUHINIA_COVER_BLOCK, 30, 60);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PINE_COVER, 30, 60);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PINE_COVER_BLOCK, 30, 60);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.JUNIPER_COVER, 30, 60);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.JUNIPER_COVER_BLOCK, 30, 60);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BAUHINIA_VINES, 30, 60);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PINE_RESIN, 60, 30);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PINE_RESIN_BLOCK, 60, 30);
@@ -161,6 +164,7 @@ public class ArborealNature implements ModInitializer
 		FabricDefaultAttributeRegistry.register(ModEntities.LYNX, LynxEntity.setAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.CARIBOU, CaribouEntity.setAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.WOLVERINE, WolverineEntity.setAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.TENREC, TenrecEntity.setAttributes());
 
 		ModWorldGeneration.generateModWorldGen();
 	}

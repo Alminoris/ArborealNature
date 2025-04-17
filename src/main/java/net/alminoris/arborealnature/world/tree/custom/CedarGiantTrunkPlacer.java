@@ -1,9 +1,7 @@
 package net.alminoris.arborealnature.world.tree.custom;
 
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.alminoris.arborealnature.world.tree.ModTrunkPlacerTypes;
 import net.minecraft.block.BlockState;

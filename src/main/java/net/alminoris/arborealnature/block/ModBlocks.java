@@ -5,10 +5,7 @@ import com.terraformersmc.terraform.sign.block.TerraformSignBlock;
 import com.terraformersmc.terraform.sign.block.TerraformWallHangingSignBlock;
 import com.terraformersmc.terraform.sign.block.TerraformWallSignBlock;
 import net.alminoris.arborealnature.ArborealNature;
-import net.alminoris.arborealnature.block.custom.AnimalHideBlock;
-import net.alminoris.arborealnature.block.custom.FallingLeavesBlock;
-import net.alminoris.arborealnature.block.custom.BerryBushBlock;
-import net.alminoris.arborealnature.block.custom.CustomVineBlock;
+import net.alminoris.arborealnature.block.custom.*;
 import net.alminoris.arborealnature.particle.ModParticles;
 import net.alminoris.arborealnature.world.ModConfiguredFeatures;
 import net.minecraft.block.*;
@@ -105,6 +102,15 @@ public class ModBlocks
     public static final Block MANGROVE_CHISELED_STAIRS = registerBlock("mangrove_chiseled_stairs",
             new StairsBlock(MANGROVE_CHISELED.getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_STAIRS)));
 
+    public static final Block CHERRY_CHISELED = registerBlock("cherry_chiseled",
+            new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS)));
+
+    public static final Block CHERRY_CHISELED_SLAB = registerBlock("cherry_chiseled_slab",
+            new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)));
+
+    public static final Block CHERRY_CHISELED_STAIRS = registerBlock("cherry_chiseled_stairs",
+            new StairsBlock(CHERRY_CHISELED.getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_STAIRS)));
+
     public static final Block PINE_CONE_BLOCK = registerBlock("pine_cone_block",
             new FallingBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_ROOTS).nonOpaque()));
 
@@ -112,6 +118,9 @@ public class ModBlocks
             new FallingBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_ROOTS).nonOpaque()));
 
     public static final Block CEDAR_CONE_BLOCK = registerBlock("cedar_cone_block",
+            new FallingBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_ROOTS).nonOpaque()));
+
+    public static final Block ARAUCARIA_CONE_BLOCK = registerBlock("araucaria_cone_block",
             new FallingBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_ROOTS).nonOpaque()));
 
     public static final Block PINE_RESIN_BLOCK = registerBlock("pine_resin_block",
@@ -140,6 +149,12 @@ public class ModBlocks
 
     public static final Block GERANIUM = registerBlock("geranium",
             new FlowerBlock(StatusEffects.HASTE, 12, AbstractBlock.Settings.copy(Blocks.PEONY)));
+
+    public static final Block THISTLE = registerBlock("thistle",
+            new FlowerBlock(StatusEffects.HASTE, 12, AbstractBlock.Settings.copy(Blocks.PEONY)));
+
+    public static final Block PRICKLY_GRASS = registerBlock("prickly_grass",
+            new PricklyGrassBlock(AbstractBlock.Settings.copy(Blocks.PEONY)));
 
     public static final Block XEROCHRYSUM = registerBlock("xerochrysum",
             new FlowerBlock(StatusEffects.REGENERATION, 20, AbstractBlock.Settings.copy(Blocks.DANDELION)));
@@ -178,6 +193,12 @@ public class ModBlocks
             new FlowerPotBlock(WHITE_MUSHROOM, AbstractBlock.Settings.copy(Blocks.POTTED_BROWN_MUSHROOM)));
 
     public static final Block POTTED_GERANIUM = registerBlock("potted_geranium",
+            new FlowerPotBlock(GERANIUM, AbstractBlock.Settings.copy(Blocks.POTTED_DANDELION)));
+
+    public static final Block POTTED_THISTLE = registerBlock("potted_thistle",
+            new FlowerPotBlock(GERANIUM, AbstractBlock.Settings.copy(Blocks.POTTED_DANDELION)));
+
+    public static final Block POTTED_PRICKLY_GRASS = registerBlock("potted_prickly-grass",
             new FlowerPotBlock(GERANIUM, AbstractBlock.Settings.copy(Blocks.POTTED_DANDELION)));
 
     public static final Block POTTED_XEROCHRYSUM = registerBlock("potted_xerochrysum",
@@ -220,6 +241,18 @@ public class ModBlocks
             new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).noCollision()));
 
     public static final Block PINE_COVER = registerBlock("pine_cover",
+            new CarpetBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).noCollision()));
+
+    public static final Block JUNIPER_COVER_BLOCK = registerBlock("juniper_cover_block",
+            new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).noCollision()));
+
+    public static final Block JUNIPER_COVER = registerBlock("juniper_cover",
+            new CarpetBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).noCollision()));
+
+    public static final Block FLAT_GRASS_BLOCK = registerBlock("flat_grass_block",
+            new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).noCollision()));
+
+    public static final Block FLAT_GRASS = registerBlock("flat_grass",
             new CarpetBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).noCollision()));
 
     public static final Block ORCHID_LILY_PAD = registerBlock("orchid_lily_pad",
@@ -270,6 +303,10 @@ public class ModBlocks
                     new FallingLeavesBlock(AbstractBlock.Settings.copy(Blocks.SPRUCE_LEAVES), ModParticles.FIR_NEEDLES, 100));
             case "cedar" -> registerBlock(name + "_leaves",
                     new FallingLeavesBlock(AbstractBlock.Settings.copy(Blocks.SPRUCE_LEAVES), ModParticles.CEDAR_NEEDLES, 100));
+            case "araucaria" -> registerBlock(name + "_leaves",
+                    new FallingLeavesBlock(AbstractBlock.Settings.copy(Blocks.SPRUCE_LEAVES), ModParticles.ARAUCARIA_NEEDLES, 15));
+            case "juniper" -> registerBlock(name + "_leaves",
+                    new FallingLeavesBlock(AbstractBlock.Settings.copy(Blocks.SPRUCE_LEAVES), ModParticles.JUNIPER_NEEDLES, 5));
             case "hazelnut" -> registerBlock(name + "_leaves",
                     new FallingLeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES), ModParticles.HAZELNUT_LEAVES, 30));
             case "hornbeam" -> registerBlock(name + "_leaves",

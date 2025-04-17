@@ -80,4 +80,3 @@ public class PickUpItemGoal extends Goal
         return this.targetItem != null && !this.targetItem.isRemoved();
     }
 }
-

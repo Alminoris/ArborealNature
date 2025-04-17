@@ -23,7 +23,6 @@ public class ModMaterialRules
         );
     }
 
-
     private static MaterialRules.MaterialRule makeStateRule(Block block)
     {
         return MaterialRules.block(block.getDefaultState());

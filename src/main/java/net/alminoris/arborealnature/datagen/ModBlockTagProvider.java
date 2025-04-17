@@ -120,6 +120,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.XEROCHRYSUM)
                 .add(ModBlocks.BLUEBELL)
                 .add(ModBlocks.WOOD_SORREL)
+                .add(ModBlocks.PRICKLY_GRASS)
+                .add(ModBlocks.THISTLE)
                 .add(LEAVES.get("hawthorn"));
 
         getOrCreateTagBuilder(BlockTags.TALL_FLOWERS)
@@ -131,6 +133,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.POTTED_GERANIUM)
                 .add(ModBlocks.POTTED_XEROCHRYSUM)
                 .add(ModBlocks.POTTED_BLUEBELL)
+                .add(ModBlocks.POTTED_THISTLE)
+                .add(ModBlocks.POTTED_PRICKLY_GRASS)
                 .add(ModBlocks.POTTED_ORCHID)
                 .add(ModBlocks.POTTED_WHITE_MUSHROOM);
 
@@ -157,6 +161,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.CRIMSON_CHISELED)
                 .add(ModBlocks.WARPED_CHISELED)
                 .add(ModBlocks.MANGROVE_CHISELED)
+                .add(ModBlocks.CHERRY_CHISELED)
                 .add(ModBlocks.PINE_RESIN_BRICKS);
 
         getOrCreateTagBuilder(BlockTags.WOODEN_SLABS)
@@ -169,6 +174,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.CRIMSON_CHISELED_SLAB)
                 .add(ModBlocks.WARPED_CHISELED_SLAB)
                 .add(ModBlocks.MANGROVE_CHISELED_SLAB)
+                .add(ModBlocks.CHERRY_CHISELED_SLAB)
                 .add(ModBlocks.PINE_RESIN_BRICKS_SLAB);
 
         getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS)
@@ -181,6 +187,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.CRIMSON_CHISELED_STAIRS)
                 .add(ModBlocks.WARPED_CHISELED_STAIRS)
                 .add(ModBlocks.MANGROVE_CHISELED_STAIRS)
+                .add(ModBlocks.CHERRY_CHISELED_STAIRS)
                 .add(ModBlocks.PINE_RESIN_BRICKS_STAIRS);
 
         getOrCreateTagBuilder(ModTags.Blocks.ORCHID_MANTIS_FLOWERS)

@@ -1,16 +1,18 @@
 package net.alminoris.arborealnature.world.tree;
 
 import net.alminoris.arborealnature.mixin.FoliagePlacerTypeInvoker;
-import net.alminoris.arborealnature.mixin.TrunkPlacerTypeInvoker;
 import net.alminoris.arborealnature.world.tree.custom.*;
 import net.minecraft.world.gen.foliage.FoliagePlacerType;
-import net.minecraft.world.gen.trunk.TrunkPlacerType;
 
 public class ModFoliagePlacerTypes
 {
     public static final FoliagePlacerType<?> LARGE_HORNBEAM_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("large_hornbeam_foliage_placer", LargeHornbeamFoliagePlacer.CODEC);
 
     public static final FoliagePlacerType<?> FIR_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("fir_foliage_placer", FirFoliagePlacer.CODEC);
+
+    public static final FoliagePlacerType<?> ARAUCARIA_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("araucaria_foliage_placer", AraucariaFoliagePlacer.CODEC);
+
+    public static final FoliagePlacerType<?> JUNIPER_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("juniper_foliage_placer", JuniperFoliagePlacer.CODEC);
 
     public static final FoliagePlacerType<?> CEDAR_GIANT_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("cedar_giant_foliage_placer", CedarGiantFoliagePlacer.CODEC);
 

@@ -186,4 +186,3 @@ public class CaribouSpearItem extends Item implements Vanishable
         return 1;
     }
 }
-

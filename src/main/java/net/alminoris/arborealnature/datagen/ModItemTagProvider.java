@@ -49,11 +49,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(Items.GRASS)
                 .add(ModBlocks.REINDEER_LICHEN_CARPET.asItem());
 
-        getOrCreateTagBuilder(ModTags.Items.LYNX_FOOD)
-                .add(Items.RABBIT)
-                .add(ModItems.MOOSE_VENISON)
-                .add(Items.CHICKEN);
-
         getOrCreateTagBuilder(ModTags.Items.WOLVERINE_FOOD)
                 .add(Items.RABBIT)
                 .add(ModItems.CARIBOU_VENISON);

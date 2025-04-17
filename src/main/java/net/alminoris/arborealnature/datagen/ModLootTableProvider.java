@@ -1,14 +1,17 @@
 package net.alminoris.arborealnature.datagen;
 
 import net.alminoris.arborealnature.block.ModBlocks;
+import net.alminoris.arborealnature.block.custom.BerryBushBlock;
 import net.alminoris.arborealnature.item.ModItems;
 import net.alminoris.arborealnature.util.helper.ModBlockSetsHelper;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.SweetBerryBushBlock;
 import net.minecraft.block.TallPlantBlock;
 import net.minecraft.block.enums.DoubleBlockHalf;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
@@ -24,6 +27,9 @@ import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.RegistryWrapper;
+import java.util.concurrent.CompletableFuture;
 
 import static net.alminoris.arborealnature.util.helper.ModBlockSetsHelper.*;
 
@@ -165,6 +171,9 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         addDrop(ModBlocks.MANGROVE_CHISELED);
         addDrop(ModBlocks.MANGROVE_CHISELED_SLAB);
         addDrop(ModBlocks.MANGROVE_CHISELED_STAIRS);
+        addDrop(ModBlocks.CHERRY_CHISELED);
+        addDrop(ModBlocks.CHERRY_CHISELED_SLAB);
+        addDrop(ModBlocks.CHERRY_CHISELED_STAIRS);
         addDrop(ModBlocks.PINE_CONE_BLOCK);
         addDrop(ModBlocks.PINE_RESIN_BLOCK);
         addDrop(ModBlocks.PINE_RESIN_BRICKS);
@@ -182,10 +191,15 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         addDrop(ModBlocks.BAUHINIA_COVER_BLOCK, dropsWithSilkTouch(ModBlocks.BAUHINIA_COVER_BLOCK));
         addDrop(ModBlocks.PINE_COVER, dropsWithSilkTouch(ModBlocks.PINE_COVER));
         addDrop(ModBlocks.PINE_COVER_BLOCK, dropsWithSilkTouch(ModBlocks.PINE_COVER_BLOCK));
+        addDrop(ModBlocks.JUNIPER_COVER, dropsWithSilkTouch(ModBlocks.JUNIPER_COVER));
+        addDrop(ModBlocks.JUNIPER_COVER_BLOCK, dropsWithSilkTouch(ModBlocks.JUNIPER_COVER_BLOCK));
+        addDrop(ModBlocks.FLAT_GRASS, dropsWithSilkTouch(ModBlocks.FLAT_GRASS));
+        addDrop(ModBlocks.FLAT_GRASS_BLOCK, dropsWithSilkTouch(ModBlocks.FLAT_GRASS_BLOCK));
         addDrop(ModBlocks.LYNX_HIDE, dropsWithSilkTouch(ModBlocks.LYNX_HIDE));
         addDrop(ModBlocks.BAUHINIA_VINES, dropsWithSilkTouch(ModBlocks.BAUHINIA_VINES));
         addDrop(ModBlocks.PINE_RESIN, dropsWithSilkTouch(ModBlocks.PINE_RESIN));
         addDrop(ModBlocks.HAZELNUT_COVER, multipleOreDrops(ModBlocks.HAZELNUT_COVER, ModItems.HAZELNUT, 0, 3));
+        addDrop(ModBlocks.JUNIPER_COVER, multipleOreDrops(ModBlocks.JUNIPER_COVER, ModItems.JUNIPER_BERRY, 0, 3));
         addDrop(ModBlocks.PINE_COVER, multipleOreDrops(ModBlocks.PINE_COVER, ModItems.PINE_CONE, 0, 3));
         addDrop(LEAVES.get("pine"), leavesItemDrops(ModBlockSetsHelper.LEAVES.get("pine"),
                 ModBlockSetsHelper.WOODEN_SAPLINGS.get("pine"), ModItems.PINE_CONE, 0.0025f));
@@ -193,6 +207,10 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
                 ModBlockSetsHelper.WOODEN_SAPLINGS.get("fir"), ModItems.FIR_CONE, 0.0025f));
         addDrop(LEAVES.get("cedar"), leavesItemDrops(ModBlockSetsHelper.LEAVES.get("cedar"),
                 ModBlockSetsHelper.WOODEN_SAPLINGS.get("cedar"), ModItems.CEDAR_CONE, 0.0025f));
+        addDrop(LEAVES.get("araucaria"), leavesItemDrops(ModBlockSetsHelper.LEAVES.get("araucaria"),
+                ModBlockSetsHelper.WOODEN_SAPLINGS.get("araucaria"), ModItems.ARAUCARIA_CONE, 0.0025f));
+        addDrop(LEAVES.get("juniper"), leavesItemDrops(ModBlockSetsHelper.LEAVES.get("juniper"),
+                ModBlockSetsHelper.WOODEN_SAPLINGS.get("juniper"), ModItems.JUNIPER_BERRY, 0.0025f));
         addDrop(ModBlocks.GERANIUM);
         addDrop(ModBlocks.XEROCHRYSUM);
         addDrop(ModBlocks.LARGE_CELANDINE, block -> this.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));

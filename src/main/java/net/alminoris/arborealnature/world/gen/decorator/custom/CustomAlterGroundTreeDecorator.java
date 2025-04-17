@@ -8,8 +8,11 @@ import java.util.Objects;
 import java.util.Random;
 
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.alminoris.arborealnature.ArborealNature;
+import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.world.gen.decorator.ModTreeDecorators;
 import net.minecraft.block.Blocks;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
