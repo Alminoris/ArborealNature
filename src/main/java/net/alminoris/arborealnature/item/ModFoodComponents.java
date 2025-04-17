@@ -1,11 +1,12 @@
 package net.alminoris.arborealnature.item;
 
-
 import net.minecraft.item.FoodComponent;
 
 public class ModFoodComponents
 {
     public static final FoodComponent HAZELNUT = new FoodComponent.Builder().hunger(3).saturationModifier(0.5f).build();
+
+    public static final FoodComponent JUNIPER_BERRY = new FoodComponent.Builder().hunger(2).saturationModifier(0.3f).build();
 
     public static final FoodComponent QUINCE = new FoodComponent.Builder().hunger(3).saturationModifier(0.35f).build();
 

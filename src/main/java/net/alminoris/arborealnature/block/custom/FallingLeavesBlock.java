@@ -36,5 +36,4 @@ public class FallingLeavesBlock extends LeavesBlock
             }
         }
     }
-
 }

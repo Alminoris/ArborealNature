@@ -21,7 +21,7 @@ public class ModItemGroups
 
     public static final String[] HAZELNUT_WOODS = {"hazelnut", "hornbeam", "hawthorn"};
 
-    public static final String[] CONIFER_WOODS = {"pine", "fir", "cedar"};
+    public static final String[] CONIFER_WOODS = {"pine", "fir", "cedar", "araucaria", "juniper"};
 
     public static final String[] CONIFER_BERRIES = {"blueberry"};
 
@@ -216,17 +216,23 @@ public class ModItemGroups
                         entries.add(ModBlocks.DIRTED_GRASS_BLOCK);
                         entries.add(ModBlocks.XEROCHRYSUM);
                         entries.add(ModBlocks.BLUEBELL);
+                        entries.add(ModBlocks.THISTLE);
+                        entries.add(ModBlocks.PRICKLY_GRASS);
                         entries.add(ModBlocks.WOOD_SORREL);
                         entries.add(ModBlocks.REINDEER_LICHEN_CARPET);
                         entries.add(ModBlocks.REINDEER_LICHEN);
+                        entries.add(ModBlocks.FLAT_GRASS);
                         entries.add(ModBlocks.PINE_COVER);
                         entries.add(ModBlocks.PINE_COVER_BLOCK);
+                        entries.add(ModBlocks.JUNIPER_COVER);
                         entries.add(ModItems.PINE_CONE);
                         entries.add(ModBlocks.PINE_CONE_BLOCK);
                         entries.add(ModItems.FIR_CONE);
                         entries.add(ModBlocks.FIR_CONE_BLOCK);
                         entries.add(ModItems.CEDAR_CONE);
                         entries.add(ModBlocks.CEDAR_CONE_BLOCK);
+                        entries.add(ModItems.ARAUCARIA_CONE);
+                        entries.add(ModBlocks.ARAUCARIA_CONE_BLOCK);
                         for (String name : CONIFER_WOODS)
                         {
                             entries.add(WOODEN_SAPLINGS.get(name));
@@ -259,6 +265,7 @@ public class ModItemGroups
                         {
                             entries.add(BERRIES.get(name));
                         }
+                        entries.add(ModItems.JUNIPER_BERRY);
                         entries.add(ModBlocks.PINE_RESIN);
                         entries.add(ModBlocks.PINE_RESIN_BLOCK);
                         entries.add(ModBlocks.PINE_RESIN_CHISELED);
@@ -270,6 +277,7 @@ public class ModItemGroups
                         entries.add(ModBlocks.LYNX_HIDE);
                         entries.add(ModItems.CARIBOU_SPEAR);
                         entries.add(ModItems.WOLVERINE_PAW);
+                        entries.add(ModItems.TENREC_NEEDLE);
                         entries.add(ModItems.CARIBOU_FUR_HELMET);
                         entries.add(ModItems.CARIBOU_FUR_CHESTPLATE);
                         entries.add(ModItems.CARIBOU_FUR_LEGGINGS);
@@ -285,6 +293,7 @@ public class ModItemGroups
                         entries.add(ModItems.LYNX_SPAWN_EGG);
                         entries.add(ModItems.CARIBOU_SPAWN_EGG);
                         entries.add(ModItems.WOLVERINE_SPAWN_EGG);
+                        entries.add(ModItems.TENREC_SPAWN_EGG);
                     }).build());
 
     public static void registerItemGroups()

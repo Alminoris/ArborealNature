@@ -1,5 +1,6 @@
 package net.alminoris.arborealnature.world.biome;
 
+
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
@@ -11,9 +12,9 @@ import terrablender.api.RegionType;
 
 import java.util.function.Consumer;
 
-public class SnowRegion extends Region
+public class DryRegion extends Region
 {
-    public SnowRegion(Identifier name, int weight)
+    public DryRegion(Identifier name, int weight)
     {
         super(name, RegionType.OVERWORLD, weight);
     }
@@ -23,7 +24,7 @@ public class SnowRegion extends Region
     {
         this.addModifiedVanillaOverworldBiomes(mapper, modifiedVanillaOverworldBuilder ->
         {
-            modifiedVanillaOverworldBuilder.replaceBiome(BiomeKeys.SNOWY_TAIGA, ModBiomes.FIR_FOREST);
+            modifiedVanillaOverworldBuilder.replaceBiome(BiomeKeys.SAVANNA, ModBiomes.ARAUCARIA_SAVANNA);
         });
     }
 }

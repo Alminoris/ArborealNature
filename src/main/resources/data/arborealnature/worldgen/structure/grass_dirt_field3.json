@@ -1,7 +1,7 @@
 {
   "type": "minecraft:jigsaw",
   "start_pool": "arborealnature:grass_dirt_field3/start_pool",
-  "size": 10,
+  "size": 7,
   "max_distance_from_center": 80,
   "biomes": "arborealnature:araucaria_savanna_biome",
   "step": "surface_structures",

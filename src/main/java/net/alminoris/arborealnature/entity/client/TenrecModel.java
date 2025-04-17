@@ -1,7 +1,8 @@
 package net.alminoris.arborealnature.entity.client;
 
 import net.alminoris.arborealnature.ArborealNature;
-import net.alminoris.arborealnature.entity.custom.SquirrelEntity;
+import net.alminoris.arborealnature.entity.custom.TenrecEntity;
+import net.alminoris.arborealnature.entity.custom.WoodMouseEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import software.bernie.geckolib.constant.DataTickets;
@@ -10,28 +11,28 @@ import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.model.data.EntityModelData;
 
-public class SquirrelModel extends GeoModel<SquirrelEntity>
+public class TenrecModel extends GeoModel<TenrecEntity>
 {
     @Override
-    public Identifier getModelResource(SquirrelEntity animatable)
+    public Identifier getModelResource(TenrecEntity animatable)
     {
-        return Identifier.of(ArborealNature.MOD_ID, "geo/squirrel.geo.json");
+        return Identifier.of(ArborealNature.MOD_ID, "geo/tenrec.geo.json");
     }
 
     @Override
-    public Identifier getTextureResource(SquirrelEntity animatable)
+    public Identifier getTextureResource(TenrecEntity animatable)
     {
-        return Identifier.of(ArborealNature.MOD_ID, "textures/entity/squirrel.png");
+        return Identifier.of(ArborealNature.MOD_ID, "textures/entity/tenrec.png");
     }
 
     @Override
-    public Identifier getAnimationResource(SquirrelEntity animatable)
+    public Identifier getAnimationResource(TenrecEntity animatable)
     {
-        return Identifier.of(ArborealNature.MOD_ID, "animations/squirrel.animation.json");
+        return Identifier.of(ArborealNature.MOD_ID, "animations/tenrec.animation.json");
     }
 
     @Override
-    public void setCustomAnimations(SquirrelEntity animatable, long instanceId, AnimationState<SquirrelEntity> animationState)
+    public void setCustomAnimations(TenrecEntity animatable, long instanceId, AnimationState<TenrecEntity> animationState)
     {
         CoreGeoBone head = getAnimationProcessor().getBone("head");
 

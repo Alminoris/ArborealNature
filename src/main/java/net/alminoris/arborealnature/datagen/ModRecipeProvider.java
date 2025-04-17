@@ -11,6 +11,7 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.book.RecipeCategory;
+
 import java.util.function.Consumer;
 
 import static net.alminoris.arborealnature.util.helper.ModBlockSetsHelper.*;
@@ -161,6 +162,20 @@ public class ModRecipeProvider extends FabricRecipeProvider
                 .criterion(hasItem(ModBlocks.PINE_COVER), conditionsFromItem(ModBlocks.PINE_COVER))
                 .offerTo(recipeExporter);
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.JUNIPER_COVER_BLOCK, 1)
+                .pattern("##")
+                .pattern("##")
+                .input('#', ModBlocks.JUNIPER_COVER)
+                .criterion(hasItem(ModBlocks.JUNIPER_COVER), conditionsFromItem(ModBlocks.JUNIPER_COVER))
+                .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.FLAT_GRASS_BLOCK, 1)
+                .pattern("##")
+                .pattern("##")
+                .input('#', ModBlocks.FLAT_GRASS)
+                .criterion(hasItem(ModBlocks.FLAT_GRASS), conditionsFromItem(ModBlocks.FLAT_GRASS))
+                .offerTo(recipeExporter);
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.HUNTING_KNIFE, 1)
                 .pattern(" # ")
                 .pattern("/  ")
@@ -288,6 +303,15 @@ public class ModRecipeProvider extends FabricRecipeProvider
                 .criterion(hasItem(ModItems.CEDAR_CONE), conditionsFromItem(ModItems.CEDAR_CONE))
                 .offerTo(recipeExporter);
         offerShapelessRecipe(recipeExporter, ModItems.CEDAR_CONE, ModBlocks.CEDAR_CONE_BLOCK, String.valueOf(RecipeCategory.MISC), 9);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ARAUCARIA_CONE_BLOCK, 1)
+                .pattern("###")
+                .pattern("###")
+                .pattern("###")
+                .input('#', ModItems.ARAUCARIA_CONE)
+                .criterion(hasItem(ModItems.ARAUCARIA_CONE), conditionsFromItem(ModItems.ARAUCARIA_CONE))
+                .offerTo(recipeExporter);
+        offerShapelessRecipe(recipeExporter, ModItems.ARAUCARIA_CONE, ModBlocks.ARAUCARIA_CONE_BLOCK, String.valueOf(RecipeCategory.MISC), 9);
 
         offerShapelessRecipe(recipeExporter, Items.YELLOW_DYE, ModBlocks.LARGE_CELANDINE, String.valueOf(RecipeCategory.MISC), 2);
         offerShapelessRecipe(recipeExporter, Items.LIGHT_GRAY_DYE, ModBlocks.BLUEGRASS, String.valueOf(RecipeCategory.MISC), 2);

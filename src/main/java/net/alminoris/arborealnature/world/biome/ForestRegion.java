@@ -27,5 +27,4 @@ public class ForestRegion extends Region
             modifiedVanillaOverworldBuilder.replaceBiome(BiomeKeys.MEADOW, ModBiomes.MULBERRY_GROVE);
         });
     }
-
 }

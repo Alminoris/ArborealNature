@@ -304,5 +304,3 @@ public class OrchidMantisEntity extends AnimalEntity implements GeoEntity
         }
     }
 }
-
-

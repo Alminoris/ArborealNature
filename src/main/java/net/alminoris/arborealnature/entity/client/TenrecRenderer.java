@@ -1,6 +1,7 @@
 package net.alminoris.arborealnature.entity.client;
 
 import net.alminoris.arborealnature.ArborealNature;
+import net.alminoris.arborealnature.entity.custom.TenrecEntity;
 import net.alminoris.arborealnature.entity.custom.WoodMouseEntity;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -10,25 +11,25 @@ import net.minecraft.util.Identifier;
 import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
-public class WoodMouseRenderer extends GeoEntityRenderer<WoodMouseEntity>
+public class TenrecRenderer extends GeoEntityRenderer<TenrecEntity>
 {
-    public WoodMouseRenderer(EntityRendererFactory.Context renderManager)
+    public TenrecRenderer(EntityRendererFactory.Context renderManager)
     {
-        super(renderManager, new WoodMouseModel());
+        super(renderManager, new TenrecModel());
     }
 
     @Override
-    public Identifier getTextureLocation(WoodMouseEntity animatable)
+    public Identifier getTextureLocation(TenrecEntity animatable)
     {
-        return Identifier.of(ArborealNature.MOD_ID, "textures/entity/wood_mouse.png");
+        return Identifier.of(ArborealNature.MOD_ID, "textures/entity/tenrec.png");
     }
 
     @Override
-    public void preRender(MatrixStack poseStack, WoodMouseEntity entity, BakedGeoModel model, VertexConsumerProvider bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha)
+    public void preRender(MatrixStack poseStack, TenrecEntity entity, BakedGeoModel model, VertexConsumerProvider bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha)
     {
         if (entity.isBaby())
             poseStack.scale(0.4f, 0.4f, 0.4f);
-        else { poseStack.scale(1.0F, 1.0F, 1.0F); }
+        else { poseStack.scale(0.8F, 0.8F, 0.8F); }
 
         super.preRender(poseStack, animatable, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, red, green, blue, alpha);
     }

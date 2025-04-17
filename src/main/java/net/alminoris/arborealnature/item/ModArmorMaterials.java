@@ -15,7 +15,7 @@ public enum ModArmorMaterials implements ArmorMaterial
             SoundEvents.ITEM_ARMOR_EQUIP_TURTLE, 0f, 0.0f, () -> Ingredient.ofItems(ModItems.FIGEATER_BEETLE_SHELL)),
 
     CARIBOU_FUR("caribou_fur", 25, new int[] { 2, 4, 5, 2 }, 20,
-    SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0f, 0.0f, () -> Ingredient.ofItems(ModItems.CARIBOU_FUR));
+            SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0f, 0.0f, () -> Ingredient.ofItems(ModItems.CARIBOU_FUR));
 
     private final String name;
     private final int durabilityMultiplier;

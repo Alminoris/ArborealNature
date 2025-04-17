@@ -3,7 +3,6 @@ package net.alminoris.arborealnature.particle;
 import net.alminoris.arborealnature.ArborealNature;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.particle.DefaultParticleType;
-import net.minecraft.particle.ParticleType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -14,6 +13,8 @@ public class ModParticles
     public static final DefaultParticleType PINE_NEEDLES = FabricParticleTypes.simple();
     public static final DefaultParticleType FIR_NEEDLES = FabricParticleTypes.simple();
     public static final DefaultParticleType CEDAR_NEEDLES = FabricParticleTypes.simple();
+    public static final DefaultParticleType ARAUCARIA_NEEDLES = FabricParticleTypes.simple();
+    public static final DefaultParticleType JUNIPER_NEEDLES = FabricParticleTypes.simple();
     public static final DefaultParticleType HAZELNUT_LEAVES = FabricParticleTypes.simple();
     public static final DefaultParticleType HORNBEAM_LEAVES = FabricParticleTypes.simple();
     public static final DefaultParticleType HAWTHORN_PETALS = FabricParticleTypes.simple();
@@ -43,6 +44,18 @@ public class ModParticles
                 Registries.PARTICLE_TYPE,
                 Identifier.of(ArborealNature.MOD_ID, "cedar_needles"),
                 CEDAR_NEEDLES
+        );
+
+        Registry.register(
+                Registries.PARTICLE_TYPE,
+                Identifier.of(ArborealNature.MOD_ID, "araucaria_needles"),
+                ARAUCARIA_NEEDLES
+        );
+
+        Registry.register(
+                Registries.PARTICLE_TYPE,
+                Identifier.of(ArborealNature.MOD_ID, "juniper_needles"),
+                JUNIPER_NEEDLES
         );
 
         Registry.register(

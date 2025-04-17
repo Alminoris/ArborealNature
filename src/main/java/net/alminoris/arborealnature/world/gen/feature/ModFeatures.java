@@ -16,6 +16,7 @@ public abstract class ModFeatures<FC extends FeatureConfig>
 
     public static void registerFeatures()
     {
+        // Ensure registration happens early, before the registry is frozen
         Registry.register(Registries.FEATURE, Identifier.of(ArborealNature.MOD_ID, "huge_white_mushroom"), HUGE_WHITE_MUSHROOM);
     }
 }

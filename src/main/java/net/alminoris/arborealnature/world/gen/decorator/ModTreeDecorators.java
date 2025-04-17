@@ -1,13 +1,11 @@
 package net.alminoris.arborealnature.world.gen.decorator;
 
-import net.alminoris.arborealnature.ArborealNature;
 import net.alminoris.arborealnature.world.gen.decorator.custom.CustomAlterGroundTreeDecorator;
 import net.alminoris.arborealnature.world.gen.decorator.custom.CustomVineDecorator;
 import net.alminoris.arborealnature.world.gen.decorator.custom.CustomVineLogDecorator;
 import net.alminoris.arborealnature.world.gen.decorator.custom.LeafCarpetDecorator;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
 
 public class ModTreeDecorators
@@ -22,9 +20,9 @@ public class ModTreeDecorators
 
     public static void register()
     {
-        Registry.register(Registries.TREE_DECORATOR_TYPE, new Identifier(ArborealNature.MOD_ID, "leaf_carpet_decorator"), LEAF_CARPET_DECORATOR);
-        Registry.register(Registries.TREE_DECORATOR_TYPE, new Identifier(ArborealNature.MOD_ID, "custom_vine_decorator"), CUSTOM_VINE_DECORATOR);
-        Registry.register(Registries.TREE_DECORATOR_TYPE, new Identifier(ArborealNature.MOD_ID, "custom_vine_log_decorator"), CUSTOM_VINE_LOG_DECORATOR);
-        Registry.register(Registries.TREE_DECORATOR_TYPE, new Identifier(ArborealNature.MOD_ID, "custom_alter_ground_decorator"), CUSTOM_ALTER_GROUND_DECORATOR);
+        Registry.register(Registries.TREE_DECORATOR_TYPE, "leaf_carpet_decorator", LEAF_CARPET_DECORATOR);
+        Registry.register(Registries.TREE_DECORATOR_TYPE, "custom_vine_decorator", CUSTOM_VINE_DECORATOR);
+        Registry.register(Registries.TREE_DECORATOR_TYPE, "custom_vine_log_decorator", CUSTOM_VINE_LOG_DECORATOR);
+        Registry.register(Registries.TREE_DECORATOR_TYPE, "custom_alter_ground_decorator", CUSTOM_ALTER_GROUND_DECORATOR);
     }
 }
