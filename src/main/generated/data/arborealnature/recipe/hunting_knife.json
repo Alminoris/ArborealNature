@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "arborealnature:moose_horn"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " # ",
+    "/  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "arborealnature:hunting_knife"
+  }
+}

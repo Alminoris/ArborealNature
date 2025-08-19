@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_burnt_alder_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "arborealnature:burnt_alder_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arborealnature:burnt_alder_wood"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_burnt_alder_log"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arborealnature:burnt_alder_wood"
+    ]
+  }
+}

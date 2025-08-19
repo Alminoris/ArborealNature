@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_araucaria_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "arborealnature:araucaria_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arborealnature:araucaria_planks_from_araucaria_log"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_araucaria_log"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arborealnature:araucaria_planks_from_araucaria_log"
+    ]
+  }
+}

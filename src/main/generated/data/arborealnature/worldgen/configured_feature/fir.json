@@ -1,0 +1,78 @@
+{
+  "type": "minecraft:tree",
+  "config": {
+    "decorators": [
+      {
+        "type": "minecraft:leaf_carpet_decorator",
+        "probability": 0.05,
+        "provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "arborealnature:reindeer_lichen_carpet"
+          }
+        },
+        "radius": 0
+      },
+      {
+        "type": "minecraft:leaf_carpet_decorator",
+        "probability": 0.35,
+        "provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "minecraft:snow",
+            "Properties": {
+              "layers": "1"
+            }
+          }
+        },
+        "radius": 5
+      }
+    ],
+    "dirt_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:dirt"
+      }
+    },
+    "foliage_placer": {
+      "type": "minecraft:fir_foliage_placer",
+      "offset": 0,
+      "radius": 1,
+      "trunk_height": 6
+    },
+    "foliage_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "arborealnature:fir_leaves",
+        "Properties": {
+          "distance": "7",
+          "persistent": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "force_dirt": false,
+    "ignore_vines": true,
+    "minimum_size": {
+      "type": "minecraft:two_layers_feature_size",
+      "limit": 3,
+      "lower_size": 0,
+      "upper_size": 3
+    },
+    "trunk_placer": {
+      "type": "minecraft:fir_trunk_placer",
+      "base_height": 6,
+      "height_rand_a": 0,
+      "height_rand_b": 0
+    },
+    "trunk_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "arborealnature:fir_log",
+        "Properties": {
+          "axis": "y"
+        }
+      }
+    }
+  }
+}

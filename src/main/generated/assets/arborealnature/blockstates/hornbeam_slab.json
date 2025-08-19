@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "arborealnature:block/hornbeam_slab"
+    },
+    "type=double": {
+      "model": "arborealnature:block/hornbeam_planks"
+    },
+    "type=top": {
+      "model": "arborealnature:block/hornbeam_slab_top"
+    }
+  }
+}

@@ -87,6 +87,12 @@ public class ChiselTool extends ToolItem
                         if (isThisBlock.equals(name)) return ModBlockSetsHelper.WOODEN_CHISELED.get(name);
                     for(String name : ModBlockSetsHelper.WF_WOOD_NAMES)
                         if (isThisBlock.equals(name)) return ModBlockSetsHelper.WOODEN_CHISELED.get(name);
+                    for(String name : ModBlockSetsHelper.ST_WOOD_NAMES)
+                        if (isThisBlock.equals(name)) return ModBlockSetsHelper.WOODEN_CHISELED.get(name);
+                    for(String name : ModBlockSetsHelper.WT_WOOD_NAMES)
+                        if (isThisBlock.equals(name)) return ModBlockSetsHelper.WOODEN_CHISELED.get(name);
+                    for(String name : ModBlockSetsHelper.MT_WOOD_NAMES)
+                        if (isThisBlock.equals(name)) return ModBlockSetsHelper.WOODEN_CHISELED.get(name);
             }
         }
         return null;

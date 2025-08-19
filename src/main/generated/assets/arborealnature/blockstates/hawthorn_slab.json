@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "arborealnature:block/hawthorn_slab"
+    },
+    "type=double": {
+      "model": "arborealnature:block/hawthorn_planks"
+    },
+    "type=top": {
+      "model": "arborealnature:block/hawthorn_slab_top"
+    }
+  }
+}

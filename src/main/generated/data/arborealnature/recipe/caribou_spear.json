@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "arborealnature:caribou_horn"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "  #",
+    " / ",
+    "/  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "arborealnature:caribou_spear"
+  }
+}

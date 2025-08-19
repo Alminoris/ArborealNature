@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cedar_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "arborealnature:cedar_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arborealnature:cedar_planks_from_cedar_log"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cedar_log"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arborealnature:cedar_planks_from_cedar_log"
+    ]
+  }
+}

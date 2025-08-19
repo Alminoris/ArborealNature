@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_quince_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "arborealnature:quince_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arborealnature:quince_planks_from_quince_log"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_quince_log"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arborealnature:quince_planks_from_quince_log"
+    ]
+  }
+}

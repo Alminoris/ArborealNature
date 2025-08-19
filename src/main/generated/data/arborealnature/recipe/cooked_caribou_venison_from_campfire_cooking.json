@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "cookingtime": 600,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "arborealnature:caribou_venison"
+  },
+  "result": {
+    "id": "arborealnature:cooked_caribou_venison"
+  }
+}

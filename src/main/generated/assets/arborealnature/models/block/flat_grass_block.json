@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "arborealnature:block/flat_grass_block"
+  }
+}

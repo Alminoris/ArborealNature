@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "arborealnature:block/western_serviceberry_chiseled",
+    "side": "arborealnature:block/western_serviceberry_chiseled",
+    "top": "arborealnature:block/western_serviceberry_chiseled"
+  }
+}

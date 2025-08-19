@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cedar_chiseled": {
+      "conditions": {
+        "items": [
+          {
+            "items": "arborealnature:cedar_chiseled"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arborealnature:cedar_chiseled_stairs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cedar_chiseled"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arborealnature:cedar_chiseled_stairs"
+    ]
+  }
+}

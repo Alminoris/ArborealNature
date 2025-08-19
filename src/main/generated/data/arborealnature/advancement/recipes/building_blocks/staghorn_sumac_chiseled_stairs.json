@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_staghorn_sumac_chiseled": {
+      "conditions": {
+        "items": [
+          {
+            "items": "arborealnature:staghorn_sumac_chiseled"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arborealnature:staghorn_sumac_chiseled_stairs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_staghorn_sumac_chiseled"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arborealnature:staghorn_sumac_chiseled_stairs"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arborealnature:yellow_dye_from_xerochrysum"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_xerochrysum": {
+      "conditions": {
+        "items": [
+          {
+            "items": "arborealnature:xerochrysum"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_xerochrysum"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arborealnature:yellow_dye_from_xerochrysum"
+    ]
+  }
+}

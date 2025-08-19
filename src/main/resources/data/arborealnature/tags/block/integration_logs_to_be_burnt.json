@@ -1,6 +1,19 @@
 {
   "values": [
     "wildfields:stripped_olive_log",
-    "wildfields:stripped_tamarisk_log"
+    "wildfields:stripped_tamarisk_log",
+    "wildfields:stripped_western_serviceberry_log",
+    "silverwoodtrees:stripped_walnut_log",
+    "silverwoodtrees:stripped_silver_maple_log",
+    "silverwoodtrees:stripped_staghorn_sumac_log",
+    "silverwoodtrees:stripped_silverberry_log",
+    "whisperleaftrees:stripped_willow_log",
+    "whisperleaftrees:stripped_poplar_log",
+    "whisperleaftrees:stripped_alder_log",
+    "whisperleaftrees:stripped_aspen_log",
+    "missingtrees:stripped_azalea_log",
+    "missingtrees:stripped_apple_log",
+    "missingtrees:stripped_scots_pine_log",
+    "missingtrees:stripped_swamp_oak_log"
   ]
 }

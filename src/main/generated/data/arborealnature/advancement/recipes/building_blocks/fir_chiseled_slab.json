@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fir_chiseled": {
+      "conditions": {
+        "items": [
+          {
+            "items": "arborealnature:fir_chiseled"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arborealnature:fir_chiseled_slab"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fir_chiseled"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arborealnature:fir_chiseled_slab"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_burnt_bamboo_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "arborealnature:burnt_bamboo_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arborealnature:burnt_bamboo_wood"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_burnt_bamboo_log"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arborealnature:burnt_bamboo_wood"
+    ]
+  }
+}

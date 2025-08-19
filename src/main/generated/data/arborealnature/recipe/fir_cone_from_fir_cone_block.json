@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "MISC",
+  "ingredients": [
+    {
+      "item": "arborealnature:fir_cone_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "arborealnature:fir_cone"
+  }
+}

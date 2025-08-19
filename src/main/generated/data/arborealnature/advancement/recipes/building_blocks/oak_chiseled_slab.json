@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_oak_chiseled": {
+      "conditions": {
+        "items": [
+          {
+            "items": "arborealnature:oak_chiseled"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arborealnature:oak_chiseled_slab"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_oak_chiseled"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arborealnature:oak_chiseled_slab"
+    ]
+  }
+}
