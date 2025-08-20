@@ -1,15 +1,25 @@
-// 1.21.1	2025-08-20T06:59:03.243093	Arboreal Nature/Tags for minecraft:item
-c5b45e584d3bc8c060bdd32fc8ce0fdcc9767431 data\arborealnature\tags\item\wolverine_food.json
-ded5ed3195e1e2c0c369d6b4f45ac49f87401956 data\minecraft\tags\item\arrows.json
+// 1.21.1	2025-08-20T12:18:06.3734605	Arboreal Nature/Tags for minecraft:item
 11c70b365d998248e9a0c74e3ea54909a93f3392 data\arborealnature\tags\item\moose_food.json
 8585f019dd5507dd6fec9e6dac1e6a1992d2f88c data\arborealnature\tags\item\caribou_food.json
+7e21206c944342dfc2c26efb314853d9058657fa data\minecraft\tags\item\wooden_pressure_plates.json
+ea190d7ce398995fad1d65484e002f8030692f64 data\minecraft\tags\item\saplings.json
+4762ec7f402dca61e9dde92f2d96a93d220194fa data\minecraft\tags\item\wooden_buttons.json
+321590fe98328a7bf13c32497b8b600068408d29 data\arborealnature\tags\item\squirrel_food.json
+ff6da4ed244a4fa923ec144713982c91e495b5b0 data\minecraft\tags\item\leg_armor.json
+6f7f74ffe5d6ea517249031950e15d5ec6f26e6e data\minecraft\tags\item\logs_that_burn.json
+9c507f79bcaac5f5624281dffdab7bed70ed9ca3 data\minecraft\tags\item\wooden_doors.json
+3706549119ca001a77b9c772a82458ddf9d121c6 data\minecraft\tags\item\trimmable_armor.json
+8fcd6a810f4f13d2a8f2ce97051896d153283557 data\minecraft\tags\item\wooden_fences.json
+c5b45e584d3bc8c060bdd32fc8ce0fdcc9767431 data\arborealnature\tags\item\wolverine_food.json
+ded5ed3195e1e2c0c369d6b4f45ac49f87401956 data\minecraft\tags\item\arrows.json
 49b1a51456b5322debbfcb3e63b0991dfb5253c8 data\minecraft\tags\item\signs.json
 add25f3d8eaeebdb34a5b71b6cb5b918173ac3c7 data\minecraft\tags\item\head_armor.json
+f87ac569826d0dc117cb784841c1f3fde1e40194 data\minecraft\tags\item\wooden_stairs.json
 c81b359290e684c38086affe9dd9e2a640be8792 data\minecraft\tags\item\foot_armor.json
 a690cc67180bfc491f7d12604115864e1377304e data\minecraft\tags\item\meat.json
-321590fe98328a7bf13c32497b8b600068408d29 data\arborealnature\tags\item\squirrel_food.json
+e3836894a04a5aeea43bc925d7eb3e32346659fa data\minecraft\tags\item\wooden_trapdoors.json
 dd46d6dee964908ef04c1c4d4327308435949856 data\minecraft\tags\item\chest_armor.json
-ff6da4ed244a4fa923ec144713982c91e495b5b0 data\minecraft\tags\item\leg_armor.json
 b89784d44c46fcda54b224f27892cafedeca855f data\minecraft\tags\item\freeze_immune_wearables.json
+d71560d3ad03b7bc071fae9be5c8cd30486ddaac data\minecraft\tags\item\wooden_slabs.json
 9da583f689cb32025d29f535c4d67357a0563b90 data\minecraft\tags\item\hanging_signs.json
-3706549119ca001a77b9c772a82458ddf9d121c6 data\minecraft\tags\item\trimmable_armor.json
+c18adad193687870cb2697a1401a0b88d61e210a data\minecraft\tags\item\planks.json
