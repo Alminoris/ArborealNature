@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_mangrove_chiseled": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "arborealnature:mangrove_chiseled"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arborealnature:mangrove_chiseled_stairs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_mangrove_chiseled",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arborealnature:mangrove_chiseled_stairs"
+    ]
+  },
+  "sends_telemetry_event": false
+}

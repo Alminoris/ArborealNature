@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:wheat",
+    "minecraft:wheat_seeds",
+    "minecraft:grass",
+    "minecraft:tall_grass",
+    "minecraft:sweet_berries",
+    "arborealnature:blueberry_item"
+  ]
+}

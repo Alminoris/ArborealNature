@@ -119,6 +119,14 @@ public class ModPlacedFeatures
 
     public static final RegistryKey<PlacedFeature> COBBLESTONE_ROCK_PLACED_KEY = registerKey("cobblestone_rock_placed");
 
+    public static final RegistryKey<PlacedFeature> ORCHID_BIOME_GRASS_1_PLACED_KEY = registerKey("orchid_biome_grass_1_placed");
+
+    public static final RegistryKey<PlacedFeature> ORCHID_BIOME_GRASS_2_PLACED_KEY = registerKey("orchid_biome_grass_2_placed");
+
+    public static final RegistryKey<PlacedFeature> MULBERRY_GROVE_BIOME_GRASS_1_PLACED_KEY = registerKey("mulberry_grove_biome_grass_1_placed");
+
+    public static final RegistryKey<PlacedFeature> MULBERRY_GROVE_BIOME_GRASS_2_PLACED_KEY = registerKey("mulberry_grove_biome_grass_2_placed");
+
     public static void bootstrap(Registerable<PlacedFeature> context)
     {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
@@ -369,6 +377,34 @@ public class ModPlacedFeatures
                         BiomePlacementModifier.of()
                 )
         );
+
+        register(context, ORCHID_BIOME_GRASS_1_PLACED_KEY,
+                configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ORCHID_BIOME_GRASS_1_KEY),
+                List.of(
+                        SquarePlacementModifier.of(),
+                        PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP,
+                        BiomePlacementModifier.of()));
+
+        register(context, ORCHID_BIOME_GRASS_2_PLACED_KEY,
+                configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ORCHID_BIOME_GRASS_2_KEY),
+                List.of(
+                        SquarePlacementModifier.of(),
+                        PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP,
+                        BiomePlacementModifier.of()));
+
+        register(context, MULBERRY_GROVE_BIOME_GRASS_1_PLACED_KEY,
+                configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.MULBERRY_GROVE_BIOME_GRASS_1_KEY),
+                List.of(
+                        SquarePlacementModifier.of(),
+                        PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP,
+                        BiomePlacementModifier.of()));
+
+        register(context, MULBERRY_GROVE_BIOME_GRASS_2_PLACED_KEY,
+                configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.MULBERRY_GROVE_BIOME_GRASS_2_KEY),
+                List.of(
+                        SquarePlacementModifier.of(),
+                        PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP,
+                        BiomePlacementModifier.of()));
     }
 
     private static List<PlacementModifier> mushroomModifiers(int chance, @Nullable PlacementModifier modifier)

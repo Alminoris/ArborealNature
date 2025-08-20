@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_plum_chiseled": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "arborealnature:plum_chiseled"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arborealnature:plum_chiseled_slab"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_plum_chiseled",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arborealnature:plum_chiseled_slab"
+    ]
+  },
+  "sends_telemetry_event": false
+}

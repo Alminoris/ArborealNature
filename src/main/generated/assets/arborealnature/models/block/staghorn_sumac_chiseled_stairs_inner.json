@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "arborealnature:block/staghorn_sumac_chiseled",
+    "side": "arborealnature:block/staghorn_sumac_chiseled",
+    "top": "arborealnature:block/staghorn_sumac_chiseled"
+  }
+}

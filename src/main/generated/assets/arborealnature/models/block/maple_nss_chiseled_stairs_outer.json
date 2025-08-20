@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "arborealnature:block/maple_nss_chiseled",
+    "side": "arborealnature:block/maple_nss_chiseled",
+    "top": "arborealnature:block/maple_nss_chiseled"
+  }
+}

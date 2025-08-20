@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "arborealnature:block/fir_slab"
+    },
+    "type=double": {
+      "model": "arborealnature:block/fir_planks"
+    },
+    "type=top": {
+      "model": "arborealnature:block/fir_slab_top"
+    }
+  }
+}

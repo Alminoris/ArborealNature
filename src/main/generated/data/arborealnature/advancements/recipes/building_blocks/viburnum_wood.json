@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arborealnature:viburnum_wood"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_viburnum_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "arborealnature:viburnum_log"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_viburnum_log",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arborealnature:viburnum_wood"
+    ]
+  },
+  "sends_telemetry_event": false
+}

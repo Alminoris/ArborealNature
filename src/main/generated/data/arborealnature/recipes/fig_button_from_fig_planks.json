@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "MISC",
+  "ingredients": [
+    {
+      "item": "arborealnature:fig_planks"
+    }
+  ],
+  "result": {
+    "item": "arborealnature:fig_button"
+  }
+}

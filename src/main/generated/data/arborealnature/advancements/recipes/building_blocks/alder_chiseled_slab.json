@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_alder_chiseled": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "arborealnature:alder_chiseled"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arborealnature:alder_chiseled_slab"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_alder_chiseled",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arborealnature:alder_chiseled_slab"
+    ]
+  },
+  "sends_telemetry_event": false
+}

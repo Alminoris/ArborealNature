@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "arborealnature:block/plum_slab"
+    },
+    "type=double": {
+      "model": "arborealnature:block/plum_planks"
+    },
+    "type=top": {
+      "model": "arborealnature:block/plum_slab_top"
+    }
+  }
+}

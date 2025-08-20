@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_juniper_cover": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "arborealnature:juniper_cover"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arborealnature:juniper_cover_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_juniper_cover",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arborealnature:juniper_cover_block"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_burnt_palo_verde_nss_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "arborealnature:burnt_palo_verde_nss_log"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arborealnature:burnt_palo_verde_nss_wood"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_burnt_palo_verde_nss_log",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arborealnature:burnt_palo_verde_nss_wood"
+    ]
+  },
+  "sends_telemetry_event": false
+}

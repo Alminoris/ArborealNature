@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "arborealnature:block/burnt_wisteria_nss_log_top",
+    "side": "arborealnature:block/burnt_wisteria_nss_log"
+  }
+}

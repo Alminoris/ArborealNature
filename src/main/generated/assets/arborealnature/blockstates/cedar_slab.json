@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "arborealnature:block/cedar_slab"
+    },
+    "type=double": {
+      "model": "arborealnature:block/cedar_planks"
+    },
+    "type=top": {
+      "model": "arborealnature:block/cedar_slab_top"
+    }
+  }
+}

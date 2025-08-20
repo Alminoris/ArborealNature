@@ -1,0 +1,4 @@
+// 1.20.1	2025-08-20T11:44:27.0028673	Arboreal Nature/Tags for minecraft:worldgen/biome
+52516ac2a69afca1ce0de01a32b5d7a730e3f758 data\minecraft\tags\worldgen\biome\is_forest.json
+a063e2724ed0db8f85e638f91a15b4966849892c data\minecraft\tags\worldgen\biome\is_taiga.json
+5a830afcb526227a7c1333946bd0cdc8fe471e3b data\minecraft\tags\worldgen\biome\is_overworld.json

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_figeater_beetle_shell": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "arborealnature:figeater_beetle_shell"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arborealnature:figeater_beetle_chestplate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_figeater_beetle_shell",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arborealnature:figeater_beetle_chestplate"
+    ]
+  },
+  "sends_telemetry_event": false
+}

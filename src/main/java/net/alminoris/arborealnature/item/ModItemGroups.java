@@ -117,6 +117,42 @@ public class ModItemGroups
                                 entries.add(WOODEN_CHISELED_STAIRS.get(name));
                             }
                         }
+                        if (FabricLoader.getInstance().isModLoaded("silverwoodtrees"))
+                        {
+                            for(String name : ST_WOOD_NAMES)
+                            {
+                                entries.add(WOODEN_CHISELED.get(name));
+                                entries.add(WOODEN_CHISELED_SLABS.get(name));
+                                entries.add(WOODEN_CHISELED_STAIRS.get(name));
+                            }
+                        }
+                        if (FabricLoader.getInstance().isModLoaded("whisperleaftrees"))
+                        {
+                            for(String name : WT_WOOD_NAMES)
+                            {
+                                entries.add(WOODEN_CHISELED.get(name));
+                                entries.add(WOODEN_CHISELED_SLABS.get(name));
+                                entries.add(WOODEN_CHISELED_STAIRS.get(name));
+                            }
+                        }
+                        if (FabricLoader.getInstance().isModLoaded("missingtrees"))
+                        {
+                            for(String name : MT_WOOD_NAMES)
+                            {
+                                entries.add(WOODEN_CHISELED.get(name));
+                                entries.add(WOODEN_CHISELED_SLABS.get(name));
+                                entries.add(WOODEN_CHISELED_STAIRS.get(name));
+                            }
+                        }
+                        if (FabricLoader.getInstance().isModLoaded("natures_spirit"))
+                        {
+                            for(String name : NSS_WOOD_NAMES)
+                            {
+                                entries.add(WOODEN_CHISELED.get(name));
+                                entries.add(WOODEN_CHISELED_SLABS.get(name));
+                                entries.add(WOODEN_CHISELED_STAIRS.get(name));
+                            }
+                        }
                         entries.add(ModItems.HAZELNUT_PEELED);
                         entries.add(ModItems.HAZELNUT);
                         entries.add(ModItems.HAZELNUT_CRACKED);
@@ -185,6 +221,38 @@ public class ModItemGroups
                         if (FabricLoader.getInstance().isModLoaded("wildfields"))
                         {
                             for(String name : WF_WOOD_NAMES)
+                            {
+                                entries.add(BURNT_LOGS.get(name));
+                                entries.add(BURNT_WOODS.get(name));
+                            }
+                        }
+                        if (FabricLoader.getInstance().isModLoaded("silverwoodtrees"))
+                        {
+                            for(String name : ST_WOOD_NAMES)
+                            {
+                                entries.add(BURNT_LOGS.get(name));
+                                entries.add(BURNT_WOODS.get(name));
+                            }
+                        }
+                        if (FabricLoader.getInstance().isModLoaded("whisperleaftrees"))
+                        {
+                            for(String name : WT_WOOD_NAMES)
+                            {
+                                entries.add(BURNT_LOGS.get(name));
+                                entries.add(BURNT_WOODS.get(name));
+                            }
+                        }
+                        if (FabricLoader.getInstance().isModLoaded("missingtrees"))
+                        {
+                            for(String name : MT_WOOD_NAMES)
+                            {
+                                entries.add(BURNT_LOGS.get(name));
+                                entries.add(BURNT_WOODS.get(name));
+                            }
+                        }
+                        if (FabricLoader.getInstance().isModLoaded("natures_spirit"))
+                        {
+                            for(String name : NSS_WOOD_NAMES)
                             {
                                 entries.add(BURNT_LOGS.get(name));
                                 entries.add(BURNT_WOODS.get(name));

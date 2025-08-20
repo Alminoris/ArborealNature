@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "arborealnature:hazelnut_sign_item",
+    "arborealnature:hornbeam_sign_item",
+    "arborealnature:hawthorn_sign_item",
+    "arborealnature:quince_sign_item",
+    "arborealnature:plum_sign_item",
+    "arborealnature:mango_sign_item",
+    "arborealnature:fig_sign_item",
+    "arborealnature:viburnum_sign_item",
+    "arborealnature:wild_cherry_sign_item",
+    "arborealnature:white_mulberry_sign_item",
+    "arborealnature:bauhinia_sign_item",
+    "arborealnature:pine_sign_item",
+    "arborealnature:fir_sign_item",
+    "arborealnature:cedar_sign_item",
+    "arborealnature:araucaria_sign_item",
+    "arborealnature:juniper_sign_item"
+  ]
+}

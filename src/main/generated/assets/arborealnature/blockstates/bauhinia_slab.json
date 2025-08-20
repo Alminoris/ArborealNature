@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "arborealnature:block/bauhinia_slab"
+    },
+    "type=double": {
+      "model": "arborealnature:block/bauhinia_planks"
+    },
+    "type=top": {
+      "model": "arborealnature:block/bauhinia_slab_top"
+    }
+  }
+}

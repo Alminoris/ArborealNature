@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:white_dye_from_wood_anemona"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wood_anemona": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "arborealnature:wood_anemona"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_wood_anemona",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:white_dye_from_wood_anemona"
+    ]
+  },
+  "sends_telemetry_event": false
+}

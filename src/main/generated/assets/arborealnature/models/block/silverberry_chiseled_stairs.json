@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "arborealnature:block/silverberry_chiseled",
+    "side": "arborealnature:block/silverberry_chiseled",
+    "top": "arborealnature:block/silverberry_chiseled"
+  }
+}

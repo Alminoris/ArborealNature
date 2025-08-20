@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_swamp_oak_chiseled": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "arborealnature:swamp_oak_chiseled"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arborealnature:swamp_oak_chiseled_stairs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_swamp_oak_chiseled",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arborealnature:swamp_oak_chiseled_stairs"
+    ]
+  },
+  "sends_telemetry_event": false
+}
