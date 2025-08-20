@@ -129,6 +129,18 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                     .add(WOODEN_CHISELED_SLABS.get(name));
         }
 
+        for (String name : NSS_WOOD_NAMES)
+        {
+            getOrCreateTagBuilder(BlockTags.PLANKS)
+                    .add(WOODEN_CHISELED.get(name));
+
+            getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS)
+                    .add(WOODEN_CHISELED_STAIRS.get(name));
+
+            getOrCreateTagBuilder(BlockTags.WOODEN_SLABS)
+                    .add(WOODEN_CHISELED_SLABS.get(name));
+        }
+
         getOrCreateTagBuilder(ModTags.Blocks.LOGS_TO_BE_BURNT)
                 .add(Blocks.STRIPPED_BIRCH_LOG)
                 .add(Blocks.STRIPPED_BAMBOO_BLOCK)

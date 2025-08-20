@@ -96,6 +96,9 @@ public class ArborealNature implements ModInitializer
 		for (String name : MT_WOOD_NAMES)
 			FlammableBlockRegistry.getDefaultInstance().add(WOODEN_CHISELED.get(name), 5, 20);
 
+		for (String name : NSS_WOOD_NAMES)
+			FlammableBlockRegistry.getDefaultInstance().add(WOODEN_CHISELED.get(name), 5, 20);
+
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.HAZELNUT_COVER, 30, 60);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BAUHINIA_COVER, 30, 60);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BAUHINIA_COVER_BLOCK, 30, 60);

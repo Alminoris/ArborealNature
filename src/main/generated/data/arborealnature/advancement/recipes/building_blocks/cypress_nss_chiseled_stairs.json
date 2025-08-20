@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cypress_nss_chiseled": {
+      "conditions": {
+        "items": [
+          {
+            "items": "arborealnature:cypress_nss_chiseled"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arborealnature:cypress_nss_chiseled_stairs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cypress_nss_chiseled"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arborealnature:cypress_nss_chiseled_stairs"
+    ]
+  }
+}

@@ -60,8 +60,8 @@
     [
       "minecraft:glow_lichen",
       "arborealnature:bauhinia_placed",
-      "minecraft:patch_grass_forest",
-      "minecraft:patch_tall_grass",
+      "arborealnature:orchid_biome_grass_2_placed",
+      "arborealnature:orchid_biome_grass_1_placed",
       "arborealnature:orchid_biome_placed",
       "arborealnature:large_orchid_biome_placed",
       "arborealnature:pink_currant_placed",

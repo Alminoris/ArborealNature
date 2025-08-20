@@ -1,4 +1,4 @@
-// 1.21.1	2025-08-19T16:41:14.6363887	Arboreal Nature/Tags for minecraft:block
+// 1.21.1	2025-08-20T06:59:03.31841	Arboreal Nature/Tags for minecraft:block
 6f7f74ffe5d6ea517249031950e15d5ec6f26e6e data\minecraft\tags\block\logs_that_burn.json
 1ebb84ddc567f811e6736c87adf01a5141e12d08 data\arborealnature\tags\block\moose_spawnable_on.json
 7e21206c944342dfc2c26efb314853d9058657fa data\minecraft\tags\block\wooden_pressure_plates.json
@@ -15,18 +15,18 @@ d7d7459bd645d30932e8ff448c048cc56e3ab860 data\minecraft\tags\block\ceiling_hangi
 fe5ca2198f58326fd3ae48996a7626662e1c934f data\minecraft\tags\block\climbable.json
 60d9f2751e2f837c49ef424ed4e476e9b2fe5725 data\arborealnature\tags\block\caribou_spawnable_on.json
 25dbf1978795e6b63ab0a5027da5b47eff3d8a20 data\minecraft\tags\block\wall_signs.json
-7b76e01ed689d35342cf8b983605d3f04dcc67fa data\minecraft\tags\block\wooden_stairs.json
 6ccfb2711945e62745587abaa882ed661d576cd9 data\arborealnature\tags\block\wolverine_spawnable_on.json
+955850a51eb445adbcb83aa027e975253d72ca5f data\minecraft\tags\block\wooden_stairs.json
 ea190d7ce398995fad1d65484e002f8030692f64 data\minecraft\tags\block\saplings.json
 eaf04206608c559804a7921404a05e1d6de74f64 data\minecraft\tags\block\flowers.json
 6eb964dc850c9977626f0304cdf2f558660896ba data\arborealnature\tags\block\logs_to_be_burnt.json
-8961e5b725687154bece7d44fb3c6e3b5a525375 data\minecraft\tags\block\planks.json
+19733910580b4236290b6c8c7733979fb8c34541 data\minecraft\tags\block\planks.json
 0054f203e739826ee7f9e41a9e455aee54099066 data\minecraft\tags\block\sword_efficient.json
 5f4f84eb239c64338b949d3371605436d5b1644e data\minecraft\tags\block\flower_pots.json
 f1a45f6e7937660f0dd29e02d6fc5e505caa803d data\minecraft\tags\block\tall_flowers.json
 8fcd6a810f4f13d2a8f2ce97051896d153283557 data\minecraft\tags\block\wooden_fences.json
 e3836894a04a5aeea43bc925d7eb3e32346659fa data\minecraft\tags\block\wooden_trapdoors.json
-748a3c20f8038b4c2c4e94bcf816c1b07b036b14 data\minecraft\tags\block\dirt.json
 692a37aab7d8b576c89593e41e74fedb87da96bb data\minecraft\tags\block\standing_signs.json
-644aae9aff5a9687efc9cc3b7e8a740f88395c40 data\minecraft\tags\block\wooden_slabs.json
+748a3c20f8038b4c2c4e94bcf816c1b07b036b14 data\minecraft\tags\block\dirt.json
+0fb84ec3120bc0e9c8d370ba81d688070d29c091 data\minecraft\tags\block\wooden_slabs.json
 fe1ed2929b113c0f067af022d024646c121967cf data\minecraft\tags\block\combination_step_sound_blocks.json

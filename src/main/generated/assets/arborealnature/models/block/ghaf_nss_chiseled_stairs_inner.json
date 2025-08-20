@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "arborealnature:block/ghaf_nss_chiseled",
+    "side": "arborealnature:block/ghaf_nss_chiseled",
+    "top": "arborealnature:block/ghaf_nss_chiseled"
+  }
+}

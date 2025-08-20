@@ -1,4 +1,4 @@
-// 1.21.1	2025-08-19T16:41:14.1720398	Arboreal Nature/Tags for minecraft:item
+// 1.21.1	2025-08-20T06:59:03.243093	Arboreal Nature/Tags for minecraft:item
 c5b45e584d3bc8c060bdd32fc8ce0fdcc9767431 data\arborealnature\tags\item\wolverine_food.json
 ded5ed3195e1e2c0c369d6b4f45ac49f87401956 data\minecraft\tags\item\arrows.json
 11c70b365d998248e9a0c74e3ea54909a93f3392 data\arborealnature\tags\item\moose_food.json
@@ -8,8 +8,8 @@ add25f3d8eaeebdb34a5b71b6cb5b918173ac3c7 data\minecraft\tags\item\head_armor.jso
 c81b359290e684c38086affe9dd9e2a640be8792 data\minecraft\tags\item\foot_armor.json
 a690cc67180bfc491f7d12604115864e1377304e data\minecraft\tags\item\meat.json
 321590fe98328a7bf13c32497b8b600068408d29 data\arborealnature\tags\item\squirrel_food.json
-ff6da4ed244a4fa923ec144713982c91e495b5b0 data\minecraft\tags\item\leg_armor.json
 dd46d6dee964908ef04c1c4d4327308435949856 data\minecraft\tags\item\chest_armor.json
+ff6da4ed244a4fa923ec144713982c91e495b5b0 data\minecraft\tags\item\leg_armor.json
 b89784d44c46fcda54b224f27892cafedeca855f data\minecraft\tags\item\freeze_immune_wearables.json
 9da583f689cb32025d29f535c4d67357a0563b90 data\minecraft\tags\item\hanging_signs.json
 3706549119ca001a77b9c772a82458ddf9d121c6 data\minecraft\tags\item\trimmable_armor.json

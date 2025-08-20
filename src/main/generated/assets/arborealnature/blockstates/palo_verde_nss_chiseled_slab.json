@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "arborealnature:block/palo_verde_nss_chiseled_slab"
+    },
+    "type=double": {
+      "model": "arborealnature:block/palo_verde_nss_chiseled"
+    },
+    "type=top": {
+      "model": "arborealnature:block/palo_verde_nss_chiseled_slab_top"
+    }
+  }
+}

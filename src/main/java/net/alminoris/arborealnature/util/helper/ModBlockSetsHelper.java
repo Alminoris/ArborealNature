@@ -28,6 +28,9 @@ public class ModBlockSetsHelper
 
     public static final String[] MT_WOOD_NAMES = new String[] { "azalea", "apple", "scots_pine", "swamp_oak" };
 
+    public static final String[] NSS_WOOD_NAMES = new String[] { "aspen_nss", "cedar_nss", "coconut_nss", "cypress_nss", "fir_nss", "ghaf_nss",
+            "larch_nss", "mahogany_nss", "maple_nss", "olive_nss", "palo_verde_nss", "redwood_nss", "saxaul_nss", "sugi_nss", "willow_nss", "wisteria_nss" };
+
     public static final String[] BUSHES_NAMES = new String[] { "bilberry", "blackberry", "pink_currant", "blueberry" };
 
     public static final Dictionary<String, Block> BUSHES = new Hashtable<>();
@@ -85,6 +88,8 @@ public class ModBlockSetsHelper
             put(name, registerBurntLogsBlock(name));
         for(String name : MT_WOOD_NAMES)
             put(name, registerBurntLogsBlock(name));
+        for(String name : NSS_WOOD_NAMES)
+            put(name, registerBurntLogsBlock(name));
     }};
 
     public static final Dictionary<String, Block> BURNT_WOODS = new Hashtable<>()
@@ -100,6 +105,8 @@ public class ModBlockSetsHelper
         for(String name : WT_WOOD_NAMES)
             put(name, registerBurntWoodsBlock(name));
         for(String name : MT_WOOD_NAMES)
+            put(name, registerBurntWoodsBlock(name));
+        for(String name : NSS_WOOD_NAMES)
             put(name, registerBurntWoodsBlock(name));
     }};
 
@@ -133,6 +140,8 @@ public class ModBlockSetsHelper
             put(name, registerChiseledBlock(name));
         for(String name : MT_WOOD_NAMES)
             put(name, registerChiseledBlock(name));
+        for(String name : NSS_WOOD_NAMES)
+            put(name, registerChiseledBlock(name));
     }};
 
     public static final Dictionary<String, Block> WOODEN_CHISELED_SLABS = new Hashtable<>()
@@ -147,6 +156,8 @@ public class ModBlockSetsHelper
             put(name, registerChiseledSlabBlock(name));
         for(String name : MT_WOOD_NAMES)
             put(name, registerChiseledSlabBlock(name));
+        for(String name : NSS_WOOD_NAMES)
+            put(name, registerChiseledSlabBlock(name));
     }};
 
     public static final Dictionary<String, Block> WOODEN_CHISELED_STAIRS = new Hashtable<>()
@@ -160,6 +171,8 @@ public class ModBlockSetsHelper
         for(String name : WT_WOOD_NAMES)
             put(name, registerChiseledStairsBlock(name, WOODEN_CHISELED.get(name)));
         for(String name : MT_WOOD_NAMES)
+            put(name, registerChiseledStairsBlock(name, WOODEN_CHISELED.get(name)));
+        for(String name : NSS_WOOD_NAMES)
             put(name, registerChiseledStairsBlock(name, WOODEN_CHISELED.get(name)));
     }};
 

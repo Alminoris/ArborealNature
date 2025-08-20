@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "arborealnature:block/palo_verde_nss_chiseled"
+  }
+}

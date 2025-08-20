@@ -118,6 +118,14 @@ public class ModConfiguredFeatures
 
     public static RegistryKey<ConfiguredFeature<?, ?>> COBBLESTONE_ROCK_KEY = registerKey("cobblestone_rock");
 
+    public static RegistryKey<ConfiguredFeature<?, ?>> ORCHID_BIOME_GRASS_1_KEY = registerKey("orchid_biome_grass_1");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> ORCHID_BIOME_GRASS_2_KEY = registerKey("orchid_biome_grass_2");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> MULBERRY_GROVE_BIOME_GRASS_1_KEY = registerKey("mulberry_grove_biome_grass_1");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> MULBERRY_GROVE_BIOME_GRASS_2_KEY = registerKey("mulberry_grove_biome_grass_2");
+
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context)
     {
         register(context, HAZELNUT_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
@@ -466,6 +474,26 @@ public class ModConfiguredFeatures
         );
 
         register(context, COBBLESTONE_ROCK_KEY, Feature.FOREST_ROCK, new SingleStateFeatureConfig(Blocks.COBBLESTONE.getDefaultState()));
+
+        register(context, ORCHID_BIOME_GRASS_1_KEY, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig(
+                        Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(Blocks.TALL_GRASS)), List.of(Blocks.GRASS_BLOCK),256));
+
+        register(context, ORCHID_BIOME_GRASS_2_KEY, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig(
+                        Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(Blocks.SHORT_GRASS)), List.of(Blocks.GRASS_BLOCK),512));
+
+        register(context, MULBERRY_GROVE_BIOME_GRASS_1_KEY, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig(
+                        Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(Blocks.TALL_GRASS)), List.of(Blocks.GRASS_BLOCK),512));
+
+        register(context, MULBERRY_GROVE_BIOME_GRASS_2_KEY, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig(
+                        Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(Blocks.SHORT_GRASS)), List.of(Blocks.GRASS_BLOCK),1024));
     }
 
     private static RandomPatchFeatureConfig createRandomPatchFeatureConfig(BlockStateProvider block, int tries)
