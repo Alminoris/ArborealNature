@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "MISC",
+  "ingredients": [
+    {
+      "item": "arborealnature:hawthorn_log"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "arborealnature:hawthorn_planks"
+  }
+}

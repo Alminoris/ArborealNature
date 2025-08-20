@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "arborealnature:hazelnut_sapling",
+    "arborealnature:hornbeam_sapling",
+    "arborealnature:hawthorn_sapling",
+    "arborealnature:quince_sapling",
+    "arborealnature:plum_sapling",
+    "arborealnature:mango_sapling",
+    "arborealnature:fig_sapling",
+    "arborealnature:viburnum_sapling",
+    "arborealnature:wild_cherry_sapling",
+    "arborealnature:white_mulberry_sapling",
+    "arborealnature:bauhinia_sapling",
+    "arborealnature:pine_sapling",
+    "arborealnature:fir_sapling",
+    "arborealnature:cedar_sapling",
+    "arborealnature:araucaria_sapling",
+    "arborealnature:juniper_sapling"
+  ]
+}

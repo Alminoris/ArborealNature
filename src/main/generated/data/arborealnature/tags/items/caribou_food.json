@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:large_fern",
+    "minecraft:fern",
+    "minecraft:grass",
+    "arborealnature:reindeer_lichen_carpet"
+  ]
+}

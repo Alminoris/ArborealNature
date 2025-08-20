@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arborealnature:white_mulberry_chiseled_stairs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_white_mulberry_chiseled": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "arborealnature:white_mulberry_chiseled"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_white_mulberry_chiseled",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arborealnature:white_mulberry_chiseled_stairs"
+    ]
+  }
+}

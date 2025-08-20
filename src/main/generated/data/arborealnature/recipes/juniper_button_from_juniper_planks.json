@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "MISC",
+  "ingredients": [
+    {
+      "item": "arborealnature:juniper_planks"
+    }
+  ],
+  "result": {
+    "item": "arborealnature:juniper_button"
+  }
+}

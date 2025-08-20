@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arborealnature:white_mulberry_stairs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_white_mulberry_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "arborealnature:white_mulberry_planks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_white_mulberry_planks",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arborealnature:white_mulberry_stairs"
+    ]
+  }
+}

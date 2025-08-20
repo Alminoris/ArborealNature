@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "arborealnature:block/white_mulberry_chiseled_slab"
+    },
+    "type=double": {
+      "model": "arborealnature:block/white_mulberry_chiseled"
+    },
+    "type=top": {
+      "model": "arborealnature:block/white_mulberry_chiseled_slab_top"
+    }
+  }
+}

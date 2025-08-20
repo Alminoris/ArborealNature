@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "MISC",
+  "ingredients": [
+    {
+      "item": "arborealnature:bluegrass"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "minecraft:light_gray_dye"
+  }
+}

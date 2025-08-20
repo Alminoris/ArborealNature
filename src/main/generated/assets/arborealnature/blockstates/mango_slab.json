@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "arborealnature:block/mango_slab"
+    },
+    "type=double": {
+      "model": "arborealnature:block/mango_planks"
+    },
+    "type=top": {
+      "model": "arborealnature:block/mango_slab_top"
+    }
+  }
+}

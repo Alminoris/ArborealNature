@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arborealnature:walnut_chiseled_slab"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_walnut_chiseled": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "arborealnature:walnut_chiseled"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_walnut_chiseled",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arborealnature:walnut_chiseled_slab"
+    ]
+  }
+}

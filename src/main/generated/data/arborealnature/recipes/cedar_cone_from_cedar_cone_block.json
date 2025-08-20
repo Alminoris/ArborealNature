@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "MISC",
+  "ingredients": [
+    {
+      "item": "arborealnature:cedar_cone_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "arborealnature:cedar_cone"
+  }
+}

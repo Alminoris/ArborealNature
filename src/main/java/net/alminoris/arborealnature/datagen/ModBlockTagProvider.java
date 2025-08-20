@@ -85,6 +85,60 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
         {
             getOrCreateTagBuilder(BlockTags.PLANKS)
                     .add(WOODEN_CHISELED.get(name));
+
+            getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS)
+                    .add(WOODEN_CHISELED_STAIRS.get(name));
+
+            getOrCreateTagBuilder(BlockTags.WOODEN_SLABS)
+                    .add(WOODEN_CHISELED_SLABS.get(name));
+        }
+
+        for (String name : ST_WOOD_NAMES)
+        {
+            getOrCreateTagBuilder(BlockTags.PLANKS)
+                    .add(WOODEN_CHISELED.get(name));
+
+            getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS)
+                    .add(WOODEN_CHISELED_STAIRS.get(name));
+
+            getOrCreateTagBuilder(BlockTags.WOODEN_SLABS)
+                    .add(WOODEN_CHISELED_SLABS.get(name));
+        }
+
+        for (String name : WT_WOOD_NAMES)
+        {
+            getOrCreateTagBuilder(BlockTags.PLANKS)
+                    .add(WOODEN_CHISELED.get(name));
+
+            getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS)
+                    .add(WOODEN_CHISELED_STAIRS.get(name));
+
+            getOrCreateTagBuilder(BlockTags.WOODEN_SLABS)
+                    .add(WOODEN_CHISELED_SLABS.get(name));
+        }
+
+        for (String name : MT_WOOD_NAMES)
+        {
+            getOrCreateTagBuilder(BlockTags.PLANKS)
+                    .add(WOODEN_CHISELED.get(name));
+
+            getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS)
+                    .add(WOODEN_CHISELED_STAIRS.get(name));
+
+            getOrCreateTagBuilder(BlockTags.WOODEN_SLABS)
+                    .add(WOODEN_CHISELED_SLABS.get(name));
+        }
+
+        for (String name : NSS_WOOD_NAMES)
+        {
+            getOrCreateTagBuilder(BlockTags.PLANKS)
+                    .add(WOODEN_CHISELED.get(name));
+
+            getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS)
+                    .add(WOODEN_CHISELED_STAIRS.get(name));
+
+            getOrCreateTagBuilder(BlockTags.WOODEN_SLABS)
+                    .add(WOODEN_CHISELED_SLABS.get(name));
         }
 
         getOrCreateTagBuilder(ModTags.Blocks.LOGS_TO_BE_BURNT)

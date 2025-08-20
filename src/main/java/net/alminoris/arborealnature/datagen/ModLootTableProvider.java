@@ -82,6 +82,43 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
             addDrop(BURNT_WOODS.get(name));
         }
 
+
+        for (String name : ST_WOOD_NAMES)
+        {
+            addDrop(WOODEN_CHISELED.get(name));
+            addDrop(WOODEN_CHISELED_SLABS.get(name));
+            addDrop(WOODEN_CHISELED_STAIRS.get(name));
+            addDrop(BURNT_LOGS.get(name));
+            addDrop(BURNT_WOODS.get(name));
+        }
+
+        for (String name : WT_WOOD_NAMES)
+        {
+            addDrop(WOODEN_CHISELED.get(name));
+            addDrop(WOODEN_CHISELED_SLABS.get(name));
+            addDrop(WOODEN_CHISELED_STAIRS.get(name));
+            addDrop(BURNT_LOGS.get(name));
+            addDrop(BURNT_WOODS.get(name));
+        }
+
+        for (String name : MT_WOOD_NAMES)
+        {
+            addDrop(WOODEN_CHISELED.get(name));
+            addDrop(WOODEN_CHISELED_SLABS.get(name));
+            addDrop(WOODEN_CHISELED_STAIRS.get(name));
+            addDrop(BURNT_LOGS.get(name));
+            addDrop(BURNT_WOODS.get(name));
+        }
+
+        for (String name : NSS_WOOD_NAMES)
+        {
+            addDrop(WOODEN_CHISELED.get(name));
+            addDrop(WOODEN_CHISELED_SLABS.get(name));
+            addDrop(WOODEN_CHISELED_STAIRS.get(name));
+            addDrop(BURNT_LOGS.get(name));
+            addDrop(BURNT_WOODS.get(name));
+        }
+
         for (String name : BUSHES_NAMES)
         {
             addDrop(

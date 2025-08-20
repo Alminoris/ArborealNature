@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "arborealnature:block/araucaria_chiseled_slab"
+    },
+    "type=double": {
+      "model": "arborealnature:block/araucaria_chiseled"
+    },
+    "type=top": {
+      "model": "arborealnature:block/araucaria_chiseled_slab_top"
+    }
+  }
+}

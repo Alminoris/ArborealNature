@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "arborealnature:block/viburnum_chiseled",
+    "side": "arborealnature:block/viburnum_chiseled",
+    "top": "arborealnature:block/viburnum_chiseled"
+  }
+}

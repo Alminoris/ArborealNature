@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "arborealnature:block/fir_log_top",
+    "side": "arborealnature:block/fir_log"
+  }
+}

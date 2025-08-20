@@ -42,6 +42,14 @@ public class ModModelProvider extends FabricModelProvider
                 put(name, blockStateModelGenerator.registerCubeAllModelTexturePool(WOODEN_CHISELED.get(name)));
             for(String name : WF_WOOD_NAMES)
                 put(name, blockStateModelGenerator.registerCubeAllModelTexturePool(WOODEN_CHISELED.get(name)));
+            for(String name : ST_WOOD_NAMES)
+                put(name, blockStateModelGenerator.registerCubeAllModelTexturePool(WOODEN_CHISELED.get(name)));
+            for(String name : WT_WOOD_NAMES)
+                put(name, blockStateModelGenerator.registerCubeAllModelTexturePool(WOODEN_CHISELED.get(name)));
+            for(String name : MT_WOOD_NAMES)
+                put(name, blockStateModelGenerator.registerCubeAllModelTexturePool(WOODEN_CHISELED.get(name)));
+            for(String name : NSS_WOOD_NAMES)
+                put(name, blockStateModelGenerator.registerCubeAllModelTexturePool(WOODEN_CHISELED.get(name)));
         }};
 
         for(String name : WOOD_NAMES)
@@ -103,6 +111,58 @@ public class ModModelProvider extends FabricModelProvider
         }
 
         for (String name : WF_WOOD_NAMES)
+        {
+            woodenChiseledPool.get(name).slab(WOODEN_CHISELED_SLABS.get(name));
+            woodenChiseledPool.get(name).stairs(WOODEN_CHISELED_STAIRS.get(name));
+
+            registerLogBlock(blockStateModelGenerator, BURNT_LOGS.get(name),
+                    Identifier.of(ArborealNature.MOD_ID, "block/burnt_"+name+"_log_top"),
+                    Identifier.of(ArborealNature.MOD_ID, "block/burnt_"+name+"_log"));
+            registerLogBlock(blockStateModelGenerator, BURNT_WOODS.get(name),
+                    Identifier.of(ArborealNature.MOD_ID, "block/burnt_"+name+"_log"),
+                    Identifier.of(ArborealNature.MOD_ID, "block/burnt_"+name+"_log"));
+        }
+
+        for (String name : ST_WOOD_NAMES)
+        {
+            woodenChiseledPool.get(name).slab(WOODEN_CHISELED_SLABS.get(name));
+            woodenChiseledPool.get(name).stairs(WOODEN_CHISELED_STAIRS.get(name));
+
+            registerLogBlock(blockStateModelGenerator, BURNT_LOGS.get(name),
+                    Identifier.of(ArborealNature.MOD_ID, "block/burnt_"+name+"_log_top"),
+                    Identifier.of(ArborealNature.MOD_ID, "block/burnt_"+name+"_log"));
+            registerLogBlock(blockStateModelGenerator, BURNT_WOODS.get(name),
+                    Identifier.of(ArborealNature.MOD_ID, "block/burnt_"+name+"_log"),
+                    Identifier.of(ArborealNature.MOD_ID, "block/burnt_"+name+"_log"));
+        }
+
+        for (String name : WT_WOOD_NAMES)
+        {
+            woodenChiseledPool.get(name).slab(WOODEN_CHISELED_SLABS.get(name));
+            woodenChiseledPool.get(name).stairs(WOODEN_CHISELED_STAIRS.get(name));
+
+            registerLogBlock(blockStateModelGenerator, BURNT_LOGS.get(name),
+                    Identifier.of(ArborealNature.MOD_ID, "block/burnt_"+name+"_log_top"),
+                    Identifier.of(ArborealNature.MOD_ID, "block/burnt_"+name+"_log"));
+            registerLogBlock(blockStateModelGenerator, BURNT_WOODS.get(name),
+                    Identifier.of(ArborealNature.MOD_ID, "block/burnt_"+name+"_log"),
+                    Identifier.of(ArborealNature.MOD_ID, "block/burnt_"+name+"_log"));
+        }
+
+        for (String name : MT_WOOD_NAMES)
+        {
+            woodenChiseledPool.get(name).slab(WOODEN_CHISELED_SLABS.get(name));
+            woodenChiseledPool.get(name).stairs(WOODEN_CHISELED_STAIRS.get(name));
+
+            registerLogBlock(blockStateModelGenerator, BURNT_LOGS.get(name),
+                    Identifier.of(ArborealNature.MOD_ID, "block/burnt_"+name+"_log_top"),
+                    Identifier.of(ArborealNature.MOD_ID, "block/burnt_"+name+"_log"));
+            registerLogBlock(blockStateModelGenerator, BURNT_WOODS.get(name),
+                    Identifier.of(ArborealNature.MOD_ID, "block/burnt_"+name+"_log"),
+                    Identifier.of(ArborealNature.MOD_ID, "block/burnt_"+name+"_log"));
+        }
+
+        for (String name : NSS_WOOD_NAMES)
         {
             woodenChiseledPool.get(name).slab(WOODEN_CHISELED_SLABS.get(name));
             woodenChiseledPool.get(name).stairs(WOODEN_CHISELED_STAIRS.get(name));

@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "arborealnature:hazelnut_trapdoor",
+    "arborealnature:hornbeam_trapdoor",
+    "arborealnature:hawthorn_trapdoor",
+    "arborealnature:quince_trapdoor",
+    "arborealnature:plum_trapdoor",
+    "arborealnature:mango_trapdoor",
+    "arborealnature:fig_trapdoor",
+    "arborealnature:viburnum_trapdoor",
+    "arborealnature:wild_cherry_trapdoor",
+    "arborealnature:white_mulberry_trapdoor",
+    "arborealnature:bauhinia_trapdoor",
+    "arborealnature:pine_trapdoor",
+    "arborealnature:fir_trapdoor",
+    "arborealnature:cedar_trapdoor",
+    "arborealnature:araucaria_trapdoor",
+    "arborealnature:juniper_trapdoor"
+  ]
+}

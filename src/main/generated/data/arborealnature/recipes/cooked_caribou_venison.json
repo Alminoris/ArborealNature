@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "arborealnature:caribou_venison"
+  },
+  "result": "arborealnature:cooked_caribou_venison"
+}

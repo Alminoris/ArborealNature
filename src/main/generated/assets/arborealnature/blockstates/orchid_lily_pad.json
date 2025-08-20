@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "arborealnature:block/orchid_lily_pad"
+      },
+      {
+        "model": "arborealnature:block/orchid_lily_pad",
+        "y": 90
+      },
+      {
+        "model": "arborealnature:block/orchid_lily_pad",
+        "y": 180
+      },
+      {
+        "model": "arborealnature:block/orchid_lily_pad",
+        "y": 270
+      }
+    ]
+  }
+}

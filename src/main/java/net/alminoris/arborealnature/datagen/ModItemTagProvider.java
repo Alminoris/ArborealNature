@@ -25,6 +25,83 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
     {
         for (String name : WOOD_NAMES)
         {
+            getOrCreateTagBuilder(ItemTags.SAPLINGS)
+                    .add(WOODEN_SAPLINGS.get(name).asItem());
+
+            getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN)
+                    .add(LOGS.get(name).asItem())
+                    .add(STRIPPED_LOGS.get(name).asItem())
+                    .add(WOODS.get(name).asItem())
+                    .add(STRIPPED_WOODS.get(name).asItem());
+
+            getOrCreateTagBuilder(ItemTags.PLANKS)
+                    .add(WOODEN_PLANKS.get(name).asItem())
+                    .add(WOODEN_CHISELED.get(name).asItem());
+
+            getOrCreateTagBuilder(ItemTags.WOODEN_FENCES)
+                    .add(WOODEN_FENCES.get(name).asItem());
+
+            getOrCreateTagBuilder(ItemTags.WOODEN_SLABS)
+                    .add(WOODEN_SLABS.get(name).asItem())
+                    .add(WOODEN_CHISELED_SLABS.get(name).asItem());
+
+            getOrCreateTagBuilder(ItemTags.WOODEN_STAIRS)
+                    .add(WOODEN_STAIRS.get(name).asItem())
+                    .add(WOODEN_CHISELED_STAIRS.get(name).asItem());
+
+            getOrCreateTagBuilder(ItemTags.WOODEN_BUTTONS)
+                    .add(WOODEN_BUTTONS.get(name).asItem());
+
+            getOrCreateTagBuilder(ItemTags.WOODEN_PRESSURE_PLATES)
+                    .add(WOODEN_PRESSURE_PLATES.get(name).asItem());
+
+            getOrCreateTagBuilder(ItemTags.WOODEN_TRAPDOORS)
+                    .add(WOODEN_TRAPDOORS.get(name).asItem());
+
+            getOrCreateTagBuilder(ItemTags.WOODEN_DOORS)
+                    .add(WOODEN_DOORS.get(name).asItem());
+        }
+
+        getOrCreateTagBuilder(ItemTags.PLANKS)
+                .add(ModBlocks.OAK_CHISELED.asItem())
+                .add(ModBlocks.BIRCH_CHISELED.asItem())
+                .add(ModBlocks.SPRUCE_CHISELED.asItem())
+                .add(ModBlocks.JUNGLE_CHISELED.asItem())
+                .add(ModBlocks.ACACIA_CHISELED.asItem())
+                .add(ModBlocks.DARK_OAK_CHISELED.asItem())
+                .add(ModBlocks.CRIMSON_CHISELED.asItem())
+                .add(ModBlocks.WARPED_CHISELED.asItem())
+                .add(ModBlocks.MANGROVE_CHISELED.asItem())
+                .add(ModBlocks.CHERRY_CHISELED.asItem());
+
+        getOrCreateTagBuilder(ItemTags.WOODEN_SLABS)
+                .add(ModBlocks.OAK_CHISELED_SLAB.asItem())
+                .add(ModBlocks.BIRCH_CHISELED_SLAB.asItem())
+                .add(ModBlocks.SPRUCE_CHISELED_SLAB.asItem())
+                .add(ModBlocks.JUNGLE_CHISELED_SLAB.asItem())
+                .add(ModBlocks.ACACIA_CHISELED_SLAB.asItem())
+                .add(ModBlocks.DARK_OAK_CHISELED_SLAB.asItem())
+                .add(ModBlocks.CRIMSON_CHISELED_SLAB.asItem())
+                .add(ModBlocks.WARPED_CHISELED_SLAB.asItem())
+                .add(ModBlocks.MANGROVE_CHISELED_SLAB.asItem())
+                .add(ModBlocks.CHERRY_CHISELED_SLAB.asItem())
+                .add(ModBlocks.PINE_RESIN_BRICKS_SLAB.asItem());
+
+        getOrCreateTagBuilder(ItemTags.WOODEN_STAIRS)
+                .add(ModBlocks.OAK_CHISELED_STAIRS.asItem())
+                .add(ModBlocks.BIRCH_CHISELED_STAIRS.asItem())
+                .add(ModBlocks.SPRUCE_CHISELED_STAIRS.asItem())
+                .add(ModBlocks.JUNGLE_CHISELED_STAIRS.asItem())
+                .add(ModBlocks.ACACIA_CHISELED_STAIRS.asItem())
+                .add(ModBlocks.DARK_OAK_CHISELED_STAIRS.asItem())
+                .add(ModBlocks.CRIMSON_CHISELED_STAIRS.asItem())
+                .add(ModBlocks.WARPED_CHISELED_STAIRS.asItem())
+                .add(ModBlocks.MANGROVE_CHISELED_STAIRS.asItem())
+                .add(ModBlocks.CHERRY_CHISELED_STAIRS.asItem())
+                .add(ModBlocks.PINE_RESIN_BRICKS_STAIRS.asItem());
+
+        for (String name : WOOD_NAMES)
+        {
             getOrCreateTagBuilder(ItemTags.HANGING_SIGNS)
                     .add(WOODEN_HANGING_SIGN_ITEMS.get(name));
 

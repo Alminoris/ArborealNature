@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "MISC",
+  "ingredients": [
+    {
+      "item": "arborealnature:hornbeam_planks"
+    }
+  ],
+  "result": {
+    "item": "arborealnature:hornbeam_button"
+  }
+}

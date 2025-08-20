@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "MISC",
+  "ingredients": [
+    {
+      "item": "arborealnature:large_celandine"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "minecraft:yellow_dye"
+  }
+}

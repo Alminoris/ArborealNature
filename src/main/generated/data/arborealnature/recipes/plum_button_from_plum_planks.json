@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "MISC",
+  "ingredients": [
+    {
+      "item": "arborealnature:plum_planks"
+    }
+  ],
+  "result": {
+    "item": "arborealnature:plum_button"
+  }
+}

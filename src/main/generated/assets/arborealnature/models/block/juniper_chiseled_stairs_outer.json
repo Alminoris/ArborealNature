@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "arborealnature:block/juniper_chiseled",
+    "side": "arborealnature:block/juniper_chiseled",
+    "top": "arborealnature:block/juniper_chiseled"
+  }
+}

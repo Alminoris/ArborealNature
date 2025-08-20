@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:viburnum_button_from_viburnum_planks"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_viburnum_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "arborealnature:viburnum_planks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_viburnum_planks",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:viburnum_button_from_viburnum_planks"
+    ]
+  }
+}
