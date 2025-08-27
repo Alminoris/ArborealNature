@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "arborealnature:item/bald_cypress_hanging_sign_item"
+  }
+}

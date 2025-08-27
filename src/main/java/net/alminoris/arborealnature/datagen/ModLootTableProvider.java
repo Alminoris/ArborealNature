@@ -169,6 +169,12 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         addDrop(LEAVES.get("bauhinia"), leavesDrops(LEAVES.get("bauhinia"),
                 WOODEN_SAPLINGS.get("bauhinia"), 0.0025f));
 
+        addDrop(LEAVES.get("bald_cypress"), leavesDrops(LEAVES.get("bald_cypress"),
+                WOODEN_SAPLINGS.get("bald_cypress"), 0.0025f));
+
+        addDrop(LEAVES.get("thuja"), leavesDrops(LEAVES.get("thuja"),
+                WOODEN_SAPLINGS.get("thuja"), 0.0025f));
+
         addDrop(ModBlocks.OAK_CHISELED);
         addDrop(ModBlocks.OAK_CHISELED_SLAB);
         addDrop(ModBlocks.OAK_CHISELED_STAIRS);
@@ -207,10 +213,13 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         addDrop(ModBlocks.PINE_RESIN_CHISELED);
 
         addDrop(ModBlocks.WOOD_ANEMONA);
+        addDrop(ModBlocks.MARSH_MOSS);
         addDrop(ModBlocks.BLUEBELL);
         addDrop(ModBlocks.WOOD_SORREL);
         addDrop(ModBlocks.REINDEER_LICHEN);
         addDrop(ModBlocks.ORCHID_LILY_PAD);
+        addDrop(ModBlocks.WHITE_LILY_PAD);
+        addDrop(ModBlocks.SPANISH_MOSS);
         addDrop(ModBlocks.HAZELNUT_COVER, dropsWithSilkTouch(ModBlocks.HAZELNUT_COVER));
         addDrop(ModBlocks.BAUHINIA_COVER, dropsWithSilkTouch(ModBlocks.BAUHINIA_COVER));
         addDrop(ModBlocks.BAUHINIA_COVER_BLOCK, dropsWithSilkTouch(ModBlocks.BAUHINIA_COVER_BLOCK));
@@ -218,6 +227,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         addDrop(ModBlocks.PINE_COVER_BLOCK, dropsWithSilkTouch(ModBlocks.PINE_COVER_BLOCK));
         addDrop(ModBlocks.JUNIPER_COVER, dropsWithSilkTouch(ModBlocks.JUNIPER_COVER));
         addDrop(ModBlocks.JUNIPER_COVER_BLOCK, dropsWithSilkTouch(ModBlocks.JUNIPER_COVER_BLOCK));
+        addDrop(ModBlocks.MARSH_MOSS_PLANT, dropsWithSilkTouch(ModBlocks.MARSH_MOSS_PLANT));
+        addDrop(ModBlocks.MARSH_MOSS_PLANT_BLOCK, dropsWithSilkTouch(ModBlocks.MARSH_MOSS_PLANT_BLOCK));
         addDrop(ModBlocks.FLAT_GRASS, dropsWithSilkTouch(ModBlocks.FLAT_GRASS));
         addDrop(ModBlocks.FLAT_GRASS_BLOCK, dropsWithSilkTouch(ModBlocks.FLAT_GRASS_BLOCK));
         addDrop(ModBlocks.LYNX_HIDE, dropsWithSilkTouch(ModBlocks.LYNX_HIDE));
@@ -241,9 +252,12 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         addDrop(ModBlocks.LARGE_CELANDINE, block -> this.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
         addDrop(ModBlocks.BLUEGRASS, block -> this.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
         addDrop(ModBlocks.LARGE_ORCHID, block -> this.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
+        addDrop(ModBlocks.SEDGE, block -> this.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
         addDrop(ModBlocks.ORCHID);
         addDrop(ModBlocks.ORCHID_GRASS_BLOCK);
         addDrop(ModBlocks.DIRTED_GRASS_BLOCK);
+        addDrop(ModBlocks.BOG_SOIL_COVER);
+        addDrop(ModBlocks.BOG_SOIL);
         addDrop(ModBlocks.WHITE_MUSHROOM);
         addDrop(ModBlocks.WHITE_MUSHROOM_BLOCK);
         addDrop(ModBlocks.WHITE_MUSHROOM_STEM);

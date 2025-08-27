@@ -37,6 +37,9 @@ public class ModBiomes
     public static final RegistryKey<Biome> ARAUCARIA_SAVANNA = RegistryKey.of(RegistryKeys.BIOME,
             Identifier.of(ArborealNature.MOD_ID, "araucaria_savanna_biome"));
 
+    public static final RegistryKey<Biome> BOREAL_MARSH = RegistryKey.of(RegistryKeys.BIOME,
+            Identifier.of(ArborealNature.MOD_ID, "boreal_marsh_biome"));
+
     public static void bootstrap(Registerable<Biome> context)
     {
         RegistryEntryLookup<PlacedFeature> placedFeatures = context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
@@ -53,6 +56,8 @@ public class ModBiomes
         context.register(FIR_FOREST, firForestBiome(placedFeatures, configuredCarvers));
 
         context.register(ARAUCARIA_SAVANNA, araucariaSavannaBiome(placedFeatures, configuredCarvers));
+
+        context.register(BOREAL_MARSH, borealMarshBiome(placedFeatures, configuredCarvers));
     }
 
     public static void globalOverworldGeneration(GenerationSettings.LookupBackedBuilder builder)
@@ -183,6 +188,47 @@ public class ModBiomes
                         .fogColor(0Xc3e6b6)
                         .music(null)
                         .moodSound(BiomeMoodSound.CAVE).build())
+                .build();
+    }
+
+    public static Biome borealMarshBiome(RegistryEntryLookup<PlacedFeature> placedFeatures,
+                                         RegistryEntryLookup<ConfiguredCarver<?>> configuredCarvers)
+    {
+        GenerationSettings.LookupBackedBuilder biomeBuilder =
+                new GenerationSettings.LookupBackedBuilder(placedFeatures, configuredCarvers);
+        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
+
+        globalOverworldGeneration(biomeBuilder);
+
+        biomeBuilder.feature(GenerationStep.Feature.FLUID_SPRINGS, MiscPlacedFeatures.SPRING_WATER);
+        biomeBuilder.feature(GenerationStep.Feature.LAKES, MiscPlacedFeatures.SPRING_WATER);
+
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.BALD_CYPRESS_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.THUJA_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.BOREAL_MARSH_GRASS_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.MARSH_MOSS_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.SEDGE_PLACED_KEY);
+
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.WHITE_LILY_PLACED_KEY);
+
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, OceanPlacedFeatures.SEAGRASS_SWAMP);
+
+        return new Biome.Builder()
+                .precipitation(true)
+                .temperature(0.65f)
+                .downfall(0.9f)
+                .generationSettings(biomeBuilder.build())
+                .spawnSettings(spawnBuilder.build())
+                .effects((new BiomeEffects.Builder())
+                        .waterColor(0x3a5f42)
+                        .waterFogColor(0x1f3a2f)
+                        .skyColor(0x84b4b2)
+                        .grassColor(0x617b3f)
+                        .foliageColor(0x4f6325)
+                        .fogColor(0xa5c6a1)
+                        .music(null)
+                        .moodSound(BiomeMoodSound.CAVE)
+                        .build())
                 .build();
     }
 

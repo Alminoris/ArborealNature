@@ -162,6 +162,9 @@ public class ModBlocks
     public static final Block WOOD_ANEMONA = registerBlock("wood_anemona",
             new FlowerbedBlock(AbstractBlock.Settings.copy(Blocks.PINK_PETALS)));
 
+    public static final Block MARSH_MOSS = registerBlock("marsh_moss",
+            new FlowerbedBlock(AbstractBlock.Settings.copy(Blocks.PINK_PETALS)));
+
     public static final Block LARGE_CELANDINE = registerBlock("large_celandine",
             new TallFlowerBlock(AbstractBlock.Settings.copy(Blocks.PEONY)));
 
@@ -183,6 +186,9 @@ public class ModBlocks
     public static final Block LARGE_ORCHID = registerBlock("large_orchid",
             new TallFlowerBlock(AbstractBlock.Settings.copy(Blocks.PEONY)));
 
+    public static final Block SEDGE = registerBlock("sedge",
+            new SedgeBlock(AbstractBlock.Settings.copy(Blocks.SEAGRASS)));
+
     public static final Block ORCHID = registerBlock("orchid",
             new FlowerBlock(StatusEffects.NAUSEA, 0.35F, AbstractBlock.Settings.copy(Blocks.PEONY)));
 
@@ -203,6 +209,12 @@ public class ModBlocks
 
     public static final Block DIRTED_GRASS_BLOCK = registerBlock("dirted_grass_block",
             new GrassBlock(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK)));
+
+    public static final Block BOG_SOIL = registerBlock("bog_soil",
+            new Block(AbstractBlock.Settings.copy(Blocks.DIRT)));
+
+    public static final Block BOG_SOIL_COVER = registerBlock("bog_soil_cover",
+            new CustomSpreadableBlock(AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK), BOG_SOIL));
 
     public static final Block HAZELNUT_COVER = registerBlock("hazelnut_cover_block",
             new CarpetBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).noCollision()));
@@ -276,6 +288,12 @@ public class ModBlocks
     public static final Block JUNIPER_COVER = registerBlock("juniper_cover",
             new CarpetBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).noCollision()));
 
+    public static final Block MARSH_MOSS_PLANT_BLOCK = registerBlock("marsh_moss_plant_block",
+            new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).noCollision()));
+
+    public static final Block MARSH_MOSS_PLANT = registerBlock("marsh_moss_plant",
+            new CarpetBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).noCollision()));
+
     public static final Block FLAT_GRASS_BLOCK = registerBlock("flat_grass_block",
             new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).noCollision()));
 
@@ -284,6 +302,12 @@ public class ModBlocks
 
     public static final Block ORCHID_LILY_PAD = registerBlock("orchid_lily_pad",
             new LilyPadBlock(AbstractBlock.Settings.copy(Blocks.LILY_PAD)));
+
+    public static final Block WHITE_LILY_PAD = registerBlock("white_lily_pad",
+            new RandomLilyPadBlock(AbstractBlock.Settings.copy(Blocks.LILY_PAD), 5));
+
+    public static final Block SPANISH_MOSS = registerBlock("spanish_moss",
+            new SpanishMossBlock(AbstractBlock.Settings.copy(Blocks.VINE)));
 
     public static final Block LYNX_HIDE = registerBlock("lynx_hide",
             new AnimalHideBlock(AbstractBlock.Settings.copy(Blocks.BROWN_WOOL)));
@@ -337,6 +361,10 @@ public class ModBlocks
                     new FallingLeavesBlock(AbstractBlock.Settings.copy(Blocks.SPRUCE_LEAVES), ModParticles.ARAUCARIA_NEEDLES, 15));
             case "juniper" -> registerBlock(name + "_leaves",
                     new FallingLeavesBlock(AbstractBlock.Settings.copy(Blocks.SPRUCE_LEAVES), ModParticles.JUNIPER_NEEDLES, 5));
+            case "bald_cypress" -> registerBlock(name + "_leaves",
+                    new FallingLeavesBlock(AbstractBlock.Settings.copy(Blocks.SPRUCE_LEAVES), ModParticles.BALD_CYPRESS_NEEDLES, 25));
+            case "thuja" -> registerBlock(name + "_leaves",
+                    new FallingLeavesBlock(AbstractBlock.Settings.copy(Blocks.SPRUCE_LEAVES), ModParticles.THUJA_NEEDLES, 15));
             case "hazelnut" -> registerBlock(name + "_leaves",
                     new FallingLeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES), ModParticles.HAZELNUT_LEAVES, 30));
             case "hornbeam" -> registerBlock(name + "_leaves",
@@ -471,6 +499,22 @@ public class ModBlocks
 
     public static Block registerSaplingBlock(String name, SaplingGenerator saplingGenerator)
     {
+        if (name.equals("bald_cypress"))
+        {
+            return registerBlock(name+"_sapling",
+                    new BaldCypressSaplingBlock(
+                            saplingGenerator,
+                            AbstractBlock.Settings.create()
+                                    .mapColor(MapColor.DARK_GREEN)
+                                    .noCollision()
+                                    .ticksRandomly()
+                                    .breakInstantly()
+                                    .sounds(BlockSoundGroup.GRASS)
+                                    .offset(AbstractBlock.OffsetType.XZ)
+                                    .pistonBehavior(PistonBehavior.DESTROY)
+                    ));
+        }
+
         return registerBlock(name+"_sapling",
                 new SaplingBlock(saplingGenerator, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
     }

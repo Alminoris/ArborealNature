@@ -18,6 +18,7 @@ public class ModTerrablenderAPI implements TerraBlenderApi
         Regions.register(new SnowRegion(Identifier.of(ArborealNature.MOD_ID, "snow_region"), 5));
         Regions.register(new DesertRegion(Identifier.of(ArborealNature.MOD_ID, "desert_region"), 1));
         Regions.register(new DryRegion(Identifier.of(ArborealNature.MOD_ID, "dry_region"), 4));
+        Regions.register(new MarshRegion(Identifier.of(ArborealNature.MOD_ID, "marsh_region"), 5));
 
         SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, ArborealNature.MOD_ID, ModMaterialRules.makeRules());
     }

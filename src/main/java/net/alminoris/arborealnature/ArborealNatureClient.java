@@ -44,6 +44,9 @@ public class ArborealNatureClient implements ClientModInitializer
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HAZELNUT_COVER, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ORCHID_LILY_PAD, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WHITE_LILY_PAD, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SEDGE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SPANISH_MOSS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BAUHINIA_COVER_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BAUHINIA_COVER, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINE_COVER_BLOCK, RenderLayer.getCutout());
@@ -54,6 +57,9 @@ public class ArborealNatureClient implements ClientModInitializer
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINE_RESIN, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WOOD_ANEMONA, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WOOD_SORREL, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MARSH_MOSS, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MARSH_MOSS_PLANT, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MARSH_MOSS_PLANT_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BLUEBELL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.REINDEER_LICHEN, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.REINDEER_LICHEN_CARPET, RenderLayer.getCutout());
@@ -154,6 +160,14 @@ public class ArborealNatureClient implements ClientModInitializer
         ParticleFactoryRegistry.getInstance().register(ModParticles.FIG_LEAVES,
                 spriteProvider -> (parameters, world, x, y, z, velocityX, velocityY, velocityZ) ->
                         new LeavesParticle(world, x, y, z, spriteProvider, 12));
+
+        ParticleFactoryRegistry.getInstance().register(ModParticles.BALD_CYPRESS_NEEDLES,
+                spriteProvider -> (parameters, world, x, y, z, velocityX, velocityY, velocityZ) ->
+                        new NeedlesParticle(world, x, y, z, spriteProvider, 12));
+
+        ParticleFactoryRegistry.getInstance().register(ModParticles.THUJA_NEEDLES,
+                spriteProvider -> (parameters, world, x, y, z, velocityX, velocityY, velocityZ) ->
+                        new NeedlesParticle(world, x, y, z, spriteProvider, 10));
 
         EntityRendererRegistry.register(ModEntities.SQUIRREL, SquirrelRenderer::new);
         EntityRendererRegistry.register(ModEntities.WOOD_MOUSE, WoodMouseRenderer::new);

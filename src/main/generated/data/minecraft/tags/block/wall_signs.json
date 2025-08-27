@@ -15,6 +15,8 @@
     "arborealnature:fir_wall_sign",
     "arborealnature:cedar_wall_sign",
     "arborealnature:araucaria_wall_sign",
-    "arborealnature:juniper_wall_sign"
+    "arborealnature:juniper_wall_sign",
+    "arborealnature:bald_cypress_wall_sign",
+    "arborealnature:thuja_wall_sign"
   ]
 }

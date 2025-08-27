@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "arborealnature:block/bald_cypress_chiseled",
+    "side": "arborealnature:block/bald_cypress_chiseled",
+    "top": "arborealnature:block/bald_cypress_chiseled"
+  }
+}

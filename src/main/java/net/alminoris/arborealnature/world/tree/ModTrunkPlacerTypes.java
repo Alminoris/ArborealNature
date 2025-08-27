@@ -18,7 +18,11 @@ public class ModTrunkPlacerTypes
 
     public static final TrunkPlacerType<?> JUNIPER_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("juniper_trunk_placer", JuniperTrunkPlacer.CODEC);
 
+    public static final TrunkPlacerType<?> THUJA_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("thuja_trunk_placer", ThujaTrunkPlacer.CODEC);
+
     public static final TrunkPlacerType<?> CEDAR_GIANT_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("cedar_giant_trunk_placer", CedarGiantTrunkPlacer.CODEC);
+
+    public static final TrunkPlacerType<?> CEDAR_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("cedar_trunk_placer", CedarTrunkPlacer.CODEC);
 
     public static void register()
     {

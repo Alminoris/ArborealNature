@@ -20,7 +20,17 @@
       },
       {
         "type": "minecraft:custom_alter_ground_decorator",
-        "block": {
+        "baseProvider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "minecraft:grass_block",
+            "Properties": {
+              "snowy": "false"
+            }
+          }
+        },
+        "probability": 0.05,
+        "provider": {
           "type": "minecraft:simple_state_provider",
           "state": {
             "Name": "minecraft:water",
@@ -28,12 +38,21 @@
               "level": "0"
             }
           }
-        },
-        "probability": 0.05
+        }
       },
       {
         "type": "minecraft:custom_alter_ground_decorator",
-        "block": {
+        "baseProvider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "minecraft:grass_block",
+            "Properties": {
+              "snowy": "false"
+            }
+          }
+        },
+        "probability": 0.05,
+        "provider": {
           "type": "minecraft:simple_state_provider",
           "state": {
             "Name": "arborealnature:orchid_grass_block",
@@ -41,8 +60,7 @@
               "snowy": "false"
             }
           }
-        },
-        "probability": 0.05
+        }
       }
     ],
     "dirt_provider": {

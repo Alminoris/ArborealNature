@@ -63,6 +63,14 @@
     "arborealnature:juniper_log",
     "arborealnature:stripped_juniper_log",
     "arborealnature:juniper_wood",
-    "arborealnature:stripped_juniper_wood"
+    "arborealnature:stripped_juniper_wood",
+    "arborealnature:bald_cypress_log",
+    "arborealnature:stripped_bald_cypress_log",
+    "arborealnature:bald_cypress_wood",
+    "arborealnature:stripped_bald_cypress_wood",
+    "arborealnature:thuja_log",
+    "arborealnature:stripped_thuja_log",
+    "arborealnature:thuja_wood",
+    "arborealnature:stripped_thuja_wood"
   ]
 }

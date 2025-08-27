@@ -190,6 +190,8 @@ public class ModItems
 
     public static final Item ORCHID_LILY_PAD = registerItem("orchid_lily_pad_item", new PlaceableOnWaterItem(ModBlocks.ORCHID_LILY_PAD, new Item.Settings()));
 
+    public static final Item WHITE_LILY_PAD = registerItem("white_lily_pad_item", new PlaceableOnWaterItem(ModBlocks.WHITE_LILY_PAD, new Item.Settings()));
+
     private static Item registerItem(String name, Item item)
     {
         return Registry.register(Registries.ITEM, Identifier.of(ArborealNature.MOD_ID, name), item);

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "MISC",
+  "ingredients": [
+    {
+      "item": "arborealnature:bald_cypress_log"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "arborealnature:bald_cypress_planks"
+  }
+}

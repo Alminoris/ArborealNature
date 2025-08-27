@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "arborealnature:block/bald_cypress_slab"
+    },
+    "type=double": {
+      "model": "arborealnature:block/bald_cypress_planks"
+    },
+    "type=top": {
+      "model": "arborealnature:block/bald_cypress_slab_top"
+    }
+  }
+}

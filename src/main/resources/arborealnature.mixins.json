@@ -5,6 +5,7 @@
   "mixins": [
     "ExampleMixin",
     "FoliagePlacerTypeInvoker",
+    "RootPlacerTypeInvoker",
     "TrunkPlacerTypeInvoker"
   ],
   "injectors": {

@@ -15,6 +15,8 @@
     "arborealnature:fir_door",
     "arborealnature:cedar_door",
     "arborealnature:araucaria_door",
-    "arborealnature:juniper_door"
+    "arborealnature:juniper_door",
+    "arborealnature:bald_cypress_door",
+    "arborealnature:thuja_door"
   ]
 }

@@ -252,6 +252,13 @@ public class ModRecipeProvider extends FabricRecipeProvider
                 .criterion(hasItem(ModBlocks.JUNIPER_COVER), conditionsFromItem(ModBlocks.JUNIPER_COVER))
                 .offerTo(recipeExporter);
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.MARSH_MOSS_PLANT_BLOCK, 1)
+                .pattern("##")
+                .pattern("##")
+                .input('#', ModBlocks.MARSH_MOSS_PLANT)
+                .criterion(hasItem(ModBlocks.MARSH_MOSS_PLANT), conditionsFromItem(ModBlocks.MARSH_MOSS_PLANT))
+                .offerTo(recipeExporter);
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.FLAT_GRASS_BLOCK, 1)
                 .pattern("##")
                 .pattern("##")

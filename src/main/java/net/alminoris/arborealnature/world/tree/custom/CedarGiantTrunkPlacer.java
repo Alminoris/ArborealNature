@@ -52,10 +52,6 @@ public class CedarGiantTrunkPlacer extends GiantTrunkPlacer
         int prev = -1;
         for (int i = 0; i < height; i++)
         {
-            //this.setLog(world, replacer, random, mutable, config, startPos, 0, i, 0);
-            //this.setLog(world, replacer, random, mutable, config, startPos, 1, i, 0);
-            //this.setLog(world, replacer, random, mutable, config, startPos, 1, i, 1);
-            //this.setLog(world, replacer, random, mutable, config, startPos, 0, i, 1);
             if ((i+1) % 3 == 0 && i > 2)
             {
 

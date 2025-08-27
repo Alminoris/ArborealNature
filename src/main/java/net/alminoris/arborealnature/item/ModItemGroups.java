@@ -21,14 +21,11 @@ public class ModItemGroups
 
     public static final String[] HAZELNUT_WOODS = {"hazelnut", "hornbeam", "hawthorn"};
 
-    public static final String[] CONIFER_WOODS = {"pine", "fir", "cedar", "araucaria", "juniper"};
+    public static final String[] CONIFER_WOODS = {"pine", "fir", "cedar", "araucaria", "juniper", "bald_cypress", "thuja"};
 
     public static final String[] CONIFER_BERRIES = {"blueberry"};
 
     public static final String[] ORCHARD_BERRIES = {"bilberry", "blackberry", "pink_currant"};
-
-    //"cedar", "fir", "larch", "sequoia",
-    //            "thuja", "araucaria", "juniper", "yew", "bald_cypress"
 
     public static final ItemGroup HAZELNUT_EXPANSION_TAB = Registry.register(Registries.ITEM_GROUP,
             Identifier.of(ArborealNature.MOD_ID, "hazelnutexptab"),
@@ -282,17 +279,25 @@ public class ModItemGroups
                     .icon(() -> new ItemStack(Blocks.SPRUCE_SAPLING)).entries((displayContext, entries) ->
                     {
                         entries.add(ModBlocks.DIRTED_GRASS_BLOCK);
+                        entries.add(ModBlocks.BOG_SOIL_COVER);
+                        entries.add(ModBlocks.BOG_SOIL);
                         entries.add(ModBlocks.XEROCHRYSUM);
                         entries.add(ModBlocks.BLUEBELL);
                         entries.add(ModBlocks.THISTLE);
                         entries.add(ModBlocks.PRICKLY_GRASS);
+                        entries.add(ModBlocks.SEDGE);
+                        entries.add(ModItems.WHITE_LILY_PAD);
                         entries.add(ModBlocks.WOOD_SORREL);
+                        entries.add(ModBlocks.MARSH_MOSS);
+                        entries.add(ModBlocks.SPANISH_MOSS);
                         entries.add(ModBlocks.REINDEER_LICHEN_CARPET);
                         entries.add(ModBlocks.REINDEER_LICHEN);
                         entries.add(ModBlocks.FLAT_GRASS);
                         entries.add(ModBlocks.PINE_COVER);
                         entries.add(ModBlocks.PINE_COVER_BLOCK);
                         entries.add(ModBlocks.JUNIPER_COVER);
+                        entries.add(ModBlocks.MARSH_MOSS_PLANT);
+                        entries.add(ModBlocks.MARSH_MOSS_PLANT_BLOCK);
                         entries.add(ModItems.PINE_CONE);
                         entries.add(ModBlocks.PINE_CONE_BLOCK);
                         entries.add(ModItems.FIR_CONE);

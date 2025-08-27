@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "arborealnature:block/sedge_bottom"
+    },
+    "half=upper": {
+      "model": "arborealnature:block/sedge_top"
+    }
+  }
+}

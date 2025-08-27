@@ -9,9 +9,11 @@ import net.alminoris.arborealnature.item.ModItems;
 import net.alminoris.arborealnature.particle.ModParticles;
 import net.alminoris.arborealnature.sound.ModSounds;
 import net.alminoris.arborealnature.util.ModTags;
+import net.alminoris.arborealnature.util.helper.ModIntProviderTypes;
 import net.alminoris.arborealnature.world.gen.ModWorldGeneration;
 import net.alminoris.arborealnature.world.gen.decorator.ModTreeDecorators;
 import net.alminoris.arborealnature.world.gen.feature.ModFeatures;
+import net.alminoris.arborealnature.world.gen.root.ModRootPlacerTypes;
 import net.alminoris.arborealnature.world.tree.ModFoliagePlacerTypes;
 import net.alminoris.arborealnature.world.tree.ModTrunkPlacerTypes;
 import net.fabricmc.api.ModInitializer;
@@ -45,6 +47,8 @@ public class ArborealNature implements ModInitializer
 	public void onInitialize()
 	{
 		LOGGER.info("Initialization Arboreal Nature MOD");
+
+		ModIntProviderTypes.init();
 
 		ModItems.registerModItems();
 
@@ -164,6 +168,7 @@ public class ArborealNature implements ModInitializer
 
 		ModFeatures.registerFeatures();
 
+		ModRootPlacerTypes.register();
 		ModTrunkPlacerTypes.register();
 		ModFoliagePlacerTypes.register();
 		ModTreeDecorators.register();

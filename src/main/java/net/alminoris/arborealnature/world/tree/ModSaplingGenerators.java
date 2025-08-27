@@ -30,6 +30,8 @@ public class ModSaplingGenerators
         put("cedar", ModConfiguredFeatures.CEDAR_KEY);
         put("araucaria", ModConfiguredFeatures.ARAUCARIA_KEY);
         put("juniper", ModConfiguredFeatures.JUNIPER_KEY);
+        put("bald_cypress", ModConfiguredFeatures.BALD_CYPRESS_KEY);
+        put("thuja", ModConfiguredFeatures.THUJA_KEY);
     }};
 
     public static final Dictionary<String, SaplingGenerator> saplingGenerators = new Hashtable<>()

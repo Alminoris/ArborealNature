@@ -15,6 +15,8 @@
     "arborealnature:fir_pressure_plate",
     "arborealnature:cedar_pressure_plate",
     "arborealnature:araucaria_pressure_plate",
-    "arborealnature:juniper_pressure_plate"
+    "arborealnature:juniper_pressure_plate",
+    "arborealnature:bald_cypress_pressure_plate",
+    "arborealnature:thuja_pressure_plate"
   ]
 }

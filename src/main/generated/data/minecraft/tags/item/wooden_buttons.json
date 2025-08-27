@@ -15,6 +15,8 @@
     "arborealnature:fir_button",
     "arborealnature:cedar_button",
     "arborealnature:araucaria_button",
-    "arborealnature:juniper_button"
+    "arborealnature:juniper_button",
+    "arborealnature:bald_cypress_button",
+    "arborealnature:thuja_button"
   ]
 }

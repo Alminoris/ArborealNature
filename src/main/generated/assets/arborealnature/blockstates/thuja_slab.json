@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "arborealnature:block/thuja_slab"
+    },
+    "type=double": {
+      "model": "arborealnature:block/thuja_planks"
+    },
+    "type=top": {
+      "model": "arborealnature:block/thuja_slab_top"
+    }
+  }
+}

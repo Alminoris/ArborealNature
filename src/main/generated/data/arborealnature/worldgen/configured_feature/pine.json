@@ -20,7 +20,17 @@
       },
       {
         "type": "minecraft:custom_alter_ground_decorator",
-        "block": {
+        "baseProvider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "minecraft:grass_block",
+            "Properties": {
+              "snowy": "false"
+            }
+          }
+        },
+        "probability": 0.15,
+        "provider": {
           "type": "minecraft:simple_state_provider",
           "state": {
             "Name": "arborealnature:dirted_grass_block",
@@ -28,8 +38,7 @@
               "snowy": "false"
             }
           }
-        },
-        "probability": 0.15
+        }
       }
     ],
     "dirt_provider": {

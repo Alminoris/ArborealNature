@@ -227,6 +227,8 @@ public class ModModelProvider extends FabricModelProvider
         pineResinBricksPool.slab(ModBlocks.PINE_RESIN_BRICKS_SLAB);
         pineResinBricksPool.stairs(ModBlocks.PINE_RESIN_BRICKS_STAIRS);
 
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BOG_SOIL);
+
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PINE_CONE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FIR_CONE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CEDAR_CONE_BLOCK);
@@ -249,24 +251,29 @@ public class ModModelProvider extends FabricModelProvider
         registerCarpet(blockStateModelGenerator, ModBlocks.BAUHINIA_COVER_BLOCK, ModBlocks.BAUHINIA_COVER);
         blockStateModelGenerator.registerSingleton(ModBlocks.PINE_COVER_BLOCK, TexturedModel.LEAVES);
         blockStateModelGenerator.registerSingleton(ModBlocks.JUNIPER_COVER_BLOCK, TexturedModel.LEAVES);
+        blockStateModelGenerator.registerSingleton(ModBlocks.MARSH_MOSS_PLANT_BLOCK, TexturedModel.LEAVES);
         blockStateModelGenerator.registerSingleton(ModBlocks.FLAT_GRASS_BLOCK, TexturedModel.LEAVES);
         registerCarpet(blockStateModelGenerator, ModBlocks.PINE_COVER_BLOCK, ModBlocks.PINE_COVER);
         registerCarpet(blockStateModelGenerator, ModBlocks.JUNIPER_COVER_BLOCK, ModBlocks.JUNIPER_COVER);
+        registerCarpet(blockStateModelGenerator, ModBlocks.MARSH_MOSS_PLANT_BLOCK, ModBlocks.MARSH_MOSS_PLANT);
         registerTintedCarpet(blockStateModelGenerator, ModBlocks.FLAT_GRASS);
         blockStateModelGenerator.registerWallPlant(ModBlocks.BAUHINIA_VINES);
         blockStateModelGenerator.registerWallPlant(ModBlocks.PINE_RESIN);
         blockStateModelGenerator.registerDoubleBlock(ModBlocks.LARGE_CELANDINE, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerDoubleBlock(ModBlocks.SEDGE, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerDoubleBlock(ModBlocks.BLUEGRASS, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerDoubleBlock(ModBlocks.LARGE_ORCHID, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerWoolAndCarpet(ModBlocks.REINDEER_LICHEN, ModBlocks.REINDEER_LICHEN_CARPET);
 
         blockStateModelGenerator.registerFlowerbed(ModBlocks.WOOD_ANEMONA);
         blockStateModelGenerator.registerFlowerbed(ModBlocks.WOOD_SORREL);
+        blockStateModelGenerator.registerFlowerbed(ModBlocks.MARSH_MOSS);
 
         registerLilyPad(blockStateModelGenerator, ModBlocks.ORCHID_LILY_PAD);
 
-        registerGrassBlock(blockStateModelGenerator, ModBlocks.ORCHID_GRASS_BLOCK);
-        registerGrassBlock(blockStateModelGenerator, ModBlocks.DIRTED_GRASS_BLOCK);
+        registerGrassBlock(blockStateModelGenerator, ModBlocks.ORCHID_GRASS_BLOCK, Blocks.DIRT);
+        registerGrassBlock(blockStateModelGenerator, ModBlocks.DIRTED_GRASS_BLOCK, Blocks.DIRT);
+        registerGrassBlock(blockStateModelGenerator, ModBlocks.BOG_SOIL_COVER, ModBlocks.BOG_SOIL);
 
         blockStateModelGenerator.registerMushroomBlock(ModBlocks.WHITE_MUSHROOM_BLOCK);
         blockStateModelGenerator.registerMushroomBlock(ModBlocks.WHITE_MUSHROOM_STEM);
@@ -286,10 +293,10 @@ public class ModModelProvider extends FabricModelProvider
         blockStateModelGenerator.blockStateCollector.accept(createBlockStateWithRandomHorizontalRotations(block, ModelIds.getBlockModelId(block)));
     }
 
-    private void registerGrassBlock(BlockStateModelGenerator generator, Block grassBlock)
+    private void registerGrassBlock(BlockStateModelGenerator generator, Block grassBlock, Block dirtBlock)
     {
         TextureMap textureMap = new TextureMap()
-                .put(TextureKey.BOTTOM, TextureMap.getId(Blocks.DIRT))
+                .put(TextureKey.BOTTOM, TextureMap.getId(dirtBlock))
                 .put(TextureKey.TOP, TextureMap.getSubId(grassBlock, "_top"))
                 .put(TextureKey.SIDE, TextureMap.getSubId(grassBlock, "_side"));
         generator.blockStateCollector.accept(createSingletonBlockState(grassBlock, Models.CUBE_BOTTOM_TOP.upload(grassBlock, textureMap, generator.modelCollector)));
@@ -369,6 +376,8 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.CARIBOU_VENISON, Models.GENERATED);
         itemModelGenerator.register(ModItems.COOKED_CARIBOU_VENISON, Models.GENERATED);
         itemModelGenerator.register(ModItems.TENREC_NEEDLE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.WHITE_LILY_PAD, Models.GENERATED);
+        itemModelGenerator.register(ModBlocks.SPANISH_MOSS.asItem(), Models.GENERATED);
 
         for(String name : WOOD_NAMES)
         {

@@ -4,34 +4,43 @@ import com.google.common.collect.ImmutableList;
 import net.alminoris.arborealnature.ArborealNature;
 import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.block.custom.BerryBushBlock;
+import net.alminoris.arborealnature.block.custom.RandomLilyPadBlock;
+import net.alminoris.arborealnature.block.custom.SpanishMossBlock;
+import net.alminoris.arborealnature.util.helper.BiasedIntProvider;
 import net.alminoris.arborealnature.util.helper.ModBlockSetsHelper;
-import net.alminoris.arborealnature.world.gen.decorator.custom.CustomAlterGroundTreeDecorator;
-import net.alminoris.arborealnature.world.gen.decorator.custom.CustomVineLogDecorator;
-import net.alminoris.arborealnature.world.gen.decorator.custom.LeafCarpetDecorator;
-import net.alminoris.arborealnature.world.gen.decorator.custom.CustomVineDecorator;
+import net.alminoris.arborealnature.world.gen.decorator.custom.*;
 import net.alminoris.arborealnature.world.gen.feature.ModFeatures;
+import net.alminoris.arborealnature.world.gen.root.custom.FluidLevelAdaptiveMangroveRootPlacer;
 import net.alminoris.arborealnature.world.tree.custom.*;
 import net.minecraft.block.*;
 import net.minecraft.registry.Registerable;
+import net.minecraft.registry.RegistryEntryLookup;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntryList;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
+import net.minecraft.world.gen.ProbabilityConfig;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.ThreeLayersFeatureSize;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.*;
+import net.minecraft.world.gen.root.AboveRootPlacement;
+import net.minecraft.world.gen.root.MangroveRootPlacement;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
+import net.minecraft.world.gen.stateprovider.RandomizedIntBlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.treedecorator.AlterGroundTreeDecorator;
+import net.minecraft.world.gen.treedecorator.AttachedToLeavesTreeDecorator;
 import net.minecraft.world.gen.treedecorator.LeavesVineTreeDecorator;
 import net.minecraft.world.gen.trunk.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.OptionalInt;
 
 import static net.alminoris.arborealnature.util.helper.ModBlockSetsHelper.BUSHES;
@@ -68,6 +77,10 @@ public class ModConfiguredFeatures
 
     public static RegistryKey<ConfiguredFeature<?, ?>> JUNIPER_KEY = registerKey("juniper");
 
+    public static RegistryKey<ConfiguredFeature<?, ?>> BALD_CYPRESS_KEY = registerKey("bald_cypress");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> THUJA_KEY = registerKey("thuja");
+
     public static RegistryKey<ConfiguredFeature<?, ?>> CEDAR_KEY = registerKey("cedar");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> MEGA_PINE_KEY = registerKey("mega_pine");
@@ -81,6 +94,8 @@ public class ModConfiguredFeatures
     public static RegistryKey<ConfiguredFeature<?, ?>> PINK_CURRANT_KEY = registerKey("pink_currant");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> LARGE_CELANDINE_KEY = registerKey("large_celandine");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> SEDGE_KEY = registerKey("sedge");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> BLUEGRASS_KEY = registerKey("bluegrass");
 
@@ -100,9 +115,13 @@ public class ModConfiguredFeatures
 
     public static RegistryKey<ConfiguredFeature<?, ?>> ORCHID_LILY_KEY = registerKey("orchid_lily");
 
+    public static RegistryKey<ConfiguredFeature<?, ?>> WHITE_LILY_KEY = registerKey("white_lily");
+
     public static RegistryKey<ConfiguredFeature<?, ?>> WOOD_ANEMONA_KEY = registerKey("wood_anemona");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> WOOD_SORREL_KEY = registerKey("wood_sorrel");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> MARSH_MOSS_KEY = registerKey("marsh_moss");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> FIR_FOREST_GRASS_KEY = registerKey("fir_forest_grass");
 
@@ -113,6 +132,8 @@ public class ModConfiguredFeatures
     public static RegistryKey<ConfiguredFeature<?, ?>> PINE_FOREST_FLOWERS_KEY = registerKey("pine_forest_flowers");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> PINE_FOREST_GRASS_KEY = registerKey("pine_forest_grass");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> BOREAL_MARSH_GRASS_KEY = registerKey("boreal_marsh_grass");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> ARAUCARIA_SAVANNA_GRASS_KEY = registerKey("araucaria_savanna_grass");
 
@@ -128,6 +149,8 @@ public class ModConfiguredFeatures
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context)
     {
+        RegistryEntryLookup<Block> registryEntryLookup = context.getRegistryLookup(RegistryKeys.BLOCK);
+
         register(context, HAZELNUT_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("hazelnut")),
                 new LargeHazelnutTrunkPlacer(5, 3, 5),
@@ -259,8 +282,8 @@ public class ModConfiguredFeatures
         ).decorators(ImmutableList.of(
                 new CustomVineDecorator(0.05f, ModBlocks.BAUHINIA_VINES),
                 new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.BAUHINIA_COVER), 2, 0.75f),
-                new CustomAlterGroundTreeDecorator(0.05f, BlockStateProvider.of(Blocks.WATER)),
-                new CustomAlterGroundTreeDecorator(0.05f, BlockStateProvider.of(ModBlocks.ORCHID_GRASS_BLOCK)))).build());
+                new CustomAlterGroundTreeDecorator(0.05f, BlockStateProvider.of(Blocks.WATER), BlockStateProvider.of(Blocks.GRASS_BLOCK)),
+                new CustomAlterGroundTreeDecorator(0.05f, BlockStateProvider.of(ModBlocks.ORCHID_GRASS_BLOCK), BlockStateProvider.of(Blocks.GRASS_BLOCK)))).build());
 
         register(context, PINE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("pine")),
@@ -271,7 +294,7 @@ public class ModConfiguredFeatures
         ).ignoreVines().decorators(ImmutableList.of(
                 new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.PINE_COVER), 2, 0.75f),
                 new CustomVineLogDecorator(0.5f, ModBlocks.PINE_RESIN),
-                new CustomAlterGroundTreeDecorator(0.15f, BlockStateProvider.of(ModBlocks.DIRTED_GRASS_BLOCK)))).build());
+                new CustomAlterGroundTreeDecorator(0.15f, BlockStateProvider.of(ModBlocks.DIRTED_GRASS_BLOCK), BlockStateProvider.of(Blocks.GRASS_BLOCK)))).build());
 
         register(context, FIR_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("fir")),
@@ -306,12 +329,72 @@ public class ModConfiguredFeatures
         ).ignoreVines().decorators(ImmutableList.of(
                 new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.JUNIPER_COVER), 2, 0.75f))).build());
 
+        register(context, BALD_CYPRESS_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("bald_cypress")),
+
+                new CedarTrunkPlacer(
+                        10,
+                        3,
+                        3
+                ),
+
+                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("bald_cypress")),
+                new CedarFoliagePlacer(
+                        ConstantIntProvider.create(1),
+                        ConstantIntProvider.create(0)
+                ),
+
+                Optional.of(
+                        new FluidLevelAdaptiveMangroveRootPlacer(
+                                UniformIntProvider.create(0,1),
+                                BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("bald_cypress")),
+                                Optional.of(new AboveRootPlacement(BlockStateProvider.of(Blocks.MOSS_CARPET), 0.5F)),
+                                new MangroveRootPlacement(
+                                        RegistryEntryList.of(Block::getRegistryEntry,
+                                                Blocks.MOSS_CARPET,
+                                                ModBlockSetsHelper.WOODEN_SAPLINGS.get("bald_cypress"),
+                                                Blocks.WATER,
+                                                Blocks.MUD
+                                        ),
+                                        RegistryEntryList.of(Block::getRegistryEntry,
+                                                Blocks.DIRT,
+                                                Blocks.WATER,
+                                                Blocks.MUD,
+                                                ModBlockSetsHelper.LOGS.get("bald_cypress")
+                                        ),
+                                        BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("bald_cypress")),
+                                        3,
+                                        15,
+                                        0.0F
+                                )
+
+                        )
+                ),
+
+                new TwoLayersFeatureSize(3, 0, 2)
+        ).decorators(ImmutableList.of(
+                new SpanishMossTreeDecorator(0.15f),
+                new CustomAlterGroundTreeDecorator(1f, BlockStateProvider.of(Blocks.WATER), BlockStateProvider.of(ModBlocks.BOG_SOIL_COVER)),
+                new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.MARSH_MOSS_PLANT), 5, 0.35f)
+        )).ignoreVines().build());
+
+        register(context, THUJA_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("thuja")),
+                new ThujaTrunkPlacer(6),
+                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("thuja")),
+                new ThujaFoliagePlacer(
+                        ConstantIntProvider.create(1),
+                        ConstantIntProvider.create(0),
+                        ConstantIntProvider.create(6)
+                ),
+                new TwoLayersFeatureSize(1, 0, 1))
+                .ignoreVines().decorators(ImmutableList.of(new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.MARSH_MOSS_PLANT), 2, 0.75f))).build());
 
         register(context, CEDAR_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("cedar")),
                 new CedarGiantTrunkPlacer(13, 3, 4),
                 BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("cedar")),
-                new CedarGiantFoliagePlacer(ConstantIntProvider.create(0), ConstantIntProvider.create(0)),
+                new CedarFoliagePlacer(ConstantIntProvider.create(0), ConstantIntProvider.create(0)),
                 new ThreeLayersFeatureSize(1, 1, 0, 1, 2, OptionalInt.empty())
         ).ignoreVines().decorators(ImmutableList.of(
                 new AlterGroundTreeDecorator(BlockStateProvider.of(Blocks.PODZOL)),
@@ -360,6 +443,13 @@ public class ModConfiguredFeatures
                                 add(Blocks.TALL_GRASS.getDefaultState(), 30)), 128
                 ));
 
+        register(context, BOREAL_MARSH_GRASS_KEY, Feature.RANDOM_PATCH,
+                createRandomPatchFeatureConfig(
+                        new WeightedBlockStateProvider(DataPool.<BlockState>builder().
+                                add(Blocks.SHORT_GRASS.getDefaultState(), 30).
+                                add(Blocks.FERN.getDefaultState(), 70)), 128
+                ));
+
         register(context, ARAUCARIA_SAVANNA_GRASS_KEY, Feature.RANDOM_PATCH,
                 createRandomPatchFeatureConfig(
                         new WeightedBlockStateProvider(DataPool.<BlockState>builder().
@@ -373,6 +463,8 @@ public class ModConfiguredFeatures
         register(context, LARGE_CELANDINE_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
                         new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.LARGE_CELANDINE))));
+
+        register(context, SEDGE_KEY, ModFeatures.SEDGE, new ProbabilityConfig(1f));
 
         register(context, BLUEGRASS_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
@@ -426,6 +518,15 @@ public class ModConfiguredFeatures
                 new RandomPatchFeatureConfig(96, 6, 2, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
                         new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(builder1)))));
 
+        DataPool.Builder<BlockState> builder2 = DataPool.builder();
+        for (int i = 1; i <= 4; i++)
+            for (Direction direction : Direction.Type.HORIZONTAL)
+                builder2.add(ModBlocks.MARSH_MOSS.getDefaultState().with(FlowerbedBlock.FLOWER_AMOUNT, Integer.valueOf(i)).with(FlowerbedBlock.FACING, direction), 1);
+
+        register(context, MARSH_MOSS_KEY, Feature.RANDOM_PATCH,
+                new RandomPatchFeatureConfig(96, 6, 2, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(builder2)))));
+
         register(context, BILBERRY_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
                         new SimpleBlockFeatureConfig(BlockStateProvider.of(BUSHES.get("bilberry").getDefaultState().with(BerryBushBlock.AGE, Integer.valueOf(3)))),
@@ -472,6 +573,15 @@ public class ModConfiguredFeatures
                         new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.ORCHID_LILY_PAD)))
                 )
         );
+
+        register(context, WHITE_LILY_KEY, Feature.RANDOM_PATCH,
+                new RandomPatchFeatureConfig(
+                        5, 3, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(new RandomizedIntBlockStateProvider(
+                                BlockStateProvider.of(ModBlocks.WHITE_LILY_PAD),
+                                RandomLilyPadBlock.VARIANT,
+                                BiasedIntProvider.createWithBias(0,
+                                        ((RandomLilyPadBlock) ModBlocks.WHITE_LILY_PAD).getMaxVariants(), 0.7f))))));
 
         register(context, COBBLESTONE_ROCK_KEY, Feature.FOREST_ROCK, new SingleStateFeatureConfig(Blocks.COBBLESTONE.getDefaultState()));
 
