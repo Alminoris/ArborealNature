@@ -108,6 +108,8 @@ public class ArborealNature implements ModInitializer
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BAUHINIA_COVER_BLOCK, 30, 60);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PINE_COVER, 30, 60);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PINE_COVER_BLOCK, 30, 60);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.SEQUOIA_COVER, 30, 60);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.SEQUOIA_COVER_BLOCK, 30, 60);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.JUNIPER_COVER, 30, 60);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.JUNIPER_COVER_BLOCK, 30, 60);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BAUHINIA_VINES, 30, 60);

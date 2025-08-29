@@ -69,4 +69,11 @@ public class ModEntities
             Registries.ENTITY_TYPE, Identifier.of(ArborealNature.MOD_ID, "tenrec"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, TenrecEntity::new)
                     .dimensions(EntityDimensions.fixed(1f, 0.625f)).build());
+
+
+    //GREAT BLUE HERON
+    //MOSQUITO SWARM
+    //MARSH FROG (like skin)
+    //AMERICAN ALLIGATOR
+
 }

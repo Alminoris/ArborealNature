@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "arborealnature:block/sequoia_planks",
+    "side": "arborealnature:block/sequoia_planks",
+    "top": "arborealnature:block/sequoia_planks"
+  }
+}

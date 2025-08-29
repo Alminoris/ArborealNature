@@ -24,6 +24,8 @@ public class ModTrunkPlacerTypes
 
     public static final TrunkPlacerType<?> CEDAR_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("cedar_trunk_placer", CedarTrunkPlacer.CODEC);
 
+    public static final TrunkPlacerType<?> SEQUOIA_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("sequoia_trunk_placer", SequoiaTrunkPlacer.CODEC);
+
     public static void register()
     {
     }

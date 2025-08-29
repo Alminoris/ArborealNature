@@ -56,6 +56,9 @@ public class ModItems
     public static final Item ARAUCARIA_CONE = registerItem("araucaria_cone", new Item(
             new Item.Settings().maxCount(16)));
 
+    public static final Item SEQUOIA_CONE = registerItem("sequoia_cone", new Item(
+            new Item.Settings().maxCount(16)));
+
     public static final Item PINE_RESIN = registerItem("pine_resin_item", new Item(
             new Item.Settings().maxCount(16)));
 

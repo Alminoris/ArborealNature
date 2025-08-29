@@ -51,6 +51,8 @@ public class ArborealNatureClient implements ClientModInitializer
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BAUHINIA_COVER, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINE_COVER_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINE_COVER, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SEQUOIA_COVER_BLOCK, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SEQUOIA_COVER, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.JUNIPER_COVER_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.JUNIPER_COVER, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BAUHINIA_VINES, RenderLayer.getCutout());
@@ -66,6 +68,7 @@ public class ArborealNatureClient implements ClientModInitializer
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LARGE_CELANDINE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BLUEGRASS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GERANIUM, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.RED_TRILLIUM, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.XEROCHRYSUM, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.THISTLE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PRICKLY_GRASS, RenderLayer.getCutout());
@@ -126,6 +129,10 @@ public class ArborealNatureClient implements ClientModInitializer
                         new PetalsParticle(world, x, y, z, spriteProvider, 12));
 
         ParticleFactoryRegistry.getInstance().register(ModParticles.PINE_NEEDLES,
+                spriteProvider -> (parameters, world, x, y, z, velocityX, velocityY, velocityZ) ->
+                        new NeedlesParticle(world, x, y, z, spriteProvider, 10));
+
+        ParticleFactoryRegistry.getInstance().register(ModParticles.SEQUOIA_NEEDLES,
                 spriteProvider -> (parameters, world, x, y, z, velocityX, velocityY, velocityZ) ->
                         new NeedlesParticle(world, x, y, z, spriteProvider, 10));
 

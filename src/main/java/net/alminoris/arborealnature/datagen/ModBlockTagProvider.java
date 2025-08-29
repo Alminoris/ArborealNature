@@ -171,6 +171,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.WOOD_ANEMONA)
                 .add(ModBlocks.ORCHID)
                 .add(ModBlocks.GERANIUM)
+                .add(ModBlocks.RED_TRILLIUM)
                 .add(ModBlocks.XEROCHRYSUM)
                 .add(ModBlocks.BLUEBELL)
                 .add(ModBlocks.WOOD_SORREL)
@@ -185,6 +186,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
 
         getOrCreateTagBuilder(BlockTags.FLOWER_POTS)
                 .add(ModBlocks.POTTED_GERANIUM)
+                .add(ModBlocks.POTTED_RED_TRILLIUM)
                 .add(ModBlocks.POTTED_XEROCHRYSUM)
                 .add(ModBlocks.POTTED_BLUEBELL)
                 .add(ModBlocks.POTTED_THISTLE)

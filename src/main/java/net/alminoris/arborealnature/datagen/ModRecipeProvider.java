@@ -245,6 +245,13 @@ public class ModRecipeProvider extends FabricRecipeProvider
                 .criterion(hasItem(ModBlocks.PINE_COVER), conditionsFromItem(ModBlocks.PINE_COVER))
                 .offerTo(recipeExporter);
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SEQUOIA_COVER_BLOCK, 1)
+                .pattern("##")
+                .pattern("##")
+                .input('#', ModBlocks.SEQUOIA_COVER)
+                .criterion(hasItem(ModBlocks.SEQUOIA_COVER), conditionsFromItem(ModBlocks.SEQUOIA_COVER))
+                .offerTo(recipeExporter);
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.JUNIPER_COVER_BLOCK, 1)
                 .pattern("##")
                 .pattern("##")
@@ -317,6 +324,7 @@ public class ModRecipeProvider extends FabricRecipeProvider
 
         offerSingleOutputShapelessRecipe(recipeExporter, Items.WHITE_DYE, ModBlocks.WOOD_ANEMONA, String.valueOf(RecipeCategory.MISC));
         offerSingleOutputShapelessRecipe(recipeExporter, Items.MAGENTA_DYE, ModBlocks.GERANIUM, String.valueOf(RecipeCategory.MISC));
+        offerSingleOutputShapelessRecipe(recipeExporter, Items.RED_DYE, ModBlocks.RED_TRILLIUM, String.valueOf(RecipeCategory.MISC));
         offerSingleOutputShapelessRecipe(recipeExporter, Items.YELLOW_DYE, ModBlocks.XEROCHRYSUM, String.valueOf(RecipeCategory.MISC));
         offerSingleOutputShapelessRecipe(recipeExporter, Items.PINK_DYE, ModBlocks.ORCHID, String.valueOf(RecipeCategory.MISC));
         offerSingleOutputShapelessRecipe(recipeExporter, Items.WHITE_DYE, ModBlocks.WOOD_SORREL, String.valueOf(RecipeCategory.MISC));
@@ -375,6 +383,15 @@ public class ModRecipeProvider extends FabricRecipeProvider
                 .criterion(hasItem(ModItems.PINE_CONE), conditionsFromItem(ModItems.PINE_CONE))
                 .offerTo(recipeExporter);
         offerShapelessRecipe(recipeExporter, ModItems.PINE_CONE, ModBlocks.PINE_CONE_BLOCK, String.valueOf(RecipeCategory.MISC), 9);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SEQUOIA_CONE_BLOCK, 1)
+                .pattern("###")
+                .pattern("###")
+                .pattern("###")
+                .input('#', ModItems.SEQUOIA_CONE)
+                .criterion(hasItem(ModItems.SEQUOIA_CONE), conditionsFromItem(ModItems.SEQUOIA_CONE))
+                .offerTo(recipeExporter);
+        offerShapelessRecipe(recipeExporter, ModItems.SEQUOIA_CONE, ModBlocks.SEQUOIA_CONE_BLOCK, String.valueOf(RecipeCategory.MISC), 9);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.FIR_CONE_BLOCK, 1)
                 .pattern("###")

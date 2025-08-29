@@ -1,0 +1,76 @@
+{
+  "type": "minecraft:tree",
+  "config": {
+    "decorators": [
+      {
+        "type": "minecraft:leaf_carpet_decorator",
+        "probability": 0.15,
+        "provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "arborealnature:flat_grass"
+          }
+        },
+        "radius": 3
+      },
+      {
+        "type": "minecraft:leaf_carpet_decorator",
+        "probability": 0.3,
+        "provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "arborealnature:sequoia_cover"
+          }
+        },
+        "radius": 3
+      }
+    ],
+    "dirt_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:dirt"
+      }
+    },
+    "foliage_placer": {
+      "type": "minecraft:sequoia_foliage_placer",
+      "is_giant_foliage": true
+    },
+    "foliage_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "arborealnature:sequoia_leaves",
+        "Properties": {
+          "distance": "7",
+          "persistent": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "force_dirt": false,
+    "ignore_vines": true,
+    "minimum_size": {
+      "type": "minecraft:three_layers_feature_size",
+      "limit": 1,
+      "lower_size": 0,
+      "middle_size": 1,
+      "upper_limit": 1,
+      "upper_size": 1
+    },
+    "trunk_placer": {
+      "type": "minecraft:sequoia_trunk_placer",
+      "base_height": 32,
+      "first_random_height": 7,
+      "is_giant": true,
+      "second_random_height": 10
+    },
+    "trunk_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "arborealnature:sequoia_log",
+        "Properties": {
+          "axis": "y"
+        }
+      }
+    }
+  }
+}

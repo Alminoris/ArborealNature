@@ -21,7 +21,7 @@ public class ModItemGroups
 
     public static final String[] HAZELNUT_WOODS = {"hazelnut", "hornbeam", "hawthorn"};
 
-    public static final String[] CONIFER_WOODS = {"pine", "fir", "cedar", "araucaria", "juniper", "bald_cypress", "thuja"};
+    public static final String[] CONIFER_WOODS = {"pine", "fir", "cedar", "araucaria", "juniper", "bald_cypress", "thuja", "sequoia"};
 
     public static final String[] CONIFER_BERRIES = {"blueberry"};
 
@@ -284,6 +284,7 @@ public class ModItemGroups
                         entries.add(ModBlocks.XEROCHRYSUM);
                         entries.add(ModBlocks.BLUEBELL);
                         entries.add(ModBlocks.THISTLE);
+                        entries.add(ModBlocks.RED_TRILLIUM);
                         entries.add(ModBlocks.PRICKLY_GRASS);
                         entries.add(ModBlocks.SEDGE);
                         entries.add(ModItems.WHITE_LILY_PAD);
@@ -296,6 +297,8 @@ public class ModItemGroups
                         entries.add(ModBlocks.PINE_COVER);
                         entries.add(ModBlocks.PINE_COVER_BLOCK);
                         entries.add(ModBlocks.JUNIPER_COVER);
+                        entries.add(ModBlocks.SEQUOIA_COVER);
+                        entries.add(ModBlocks.SEQUOIA_COVER_BLOCK);
                         entries.add(ModBlocks.MARSH_MOSS_PLANT);
                         entries.add(ModBlocks.MARSH_MOSS_PLANT_BLOCK);
                         entries.add(ModItems.PINE_CONE);
@@ -306,6 +309,8 @@ public class ModItemGroups
                         entries.add(ModBlocks.CEDAR_CONE_BLOCK);
                         entries.add(ModItems.ARAUCARIA_CONE);
                         entries.add(ModBlocks.ARAUCARIA_CONE_BLOCK);
+                        entries.add(ModItems.SEQUOIA_CONE);
+                        entries.add(ModBlocks.SEQUOIA_CONE_BLOCK);
                         for (String name : CONIFER_WOODS)
                         {
                             entries.add(WOODEN_SAPLINGS.get(name));

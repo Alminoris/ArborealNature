@@ -71,6 +71,14 @@
     "arborealnature:thuja_log",
     "arborealnature:stripped_thuja_log",
     "arborealnature:thuja_wood",
-    "arborealnature:stripped_thuja_wood"
+    "arborealnature:stripped_thuja_wood",
+    "arborealnature:sequoia_log",
+    "arborealnature:stripped_sequoia_log",
+    "arborealnature:sequoia_wood",
+    "arborealnature:stripped_sequoia_wood",
+    "arborealnature:mountain_hemlock_log",
+    "arborealnature:stripped_mountain_hemlock_log",
+    "arborealnature:mountain_hemlock_wood",
+    "arborealnature:stripped_mountain_hemlock_wood"
   ]
 }

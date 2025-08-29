@@ -40,6 +40,9 @@ public class ModBiomes
     public static final RegistryKey<Biome> BOREAL_MARSH = RegistryKey.of(RegistryKeys.BIOME,
             Identifier.of(ArborealNature.MOD_ID, "boreal_marsh_biome"));
 
+    public static final RegistryKey<Biome> SEQUOIA_FOREST = RegistryKey.of(RegistryKeys.BIOME,
+            Identifier.of(ArborealNature.MOD_ID, "sequoia_forest_biome"));
+
     public static void bootstrap(Registerable<Biome> context)
     {
         RegistryEntryLookup<PlacedFeature> placedFeatures = context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
@@ -58,6 +61,8 @@ public class ModBiomes
         context.register(ARAUCARIA_SAVANNA, araucariaSavannaBiome(placedFeatures, configuredCarvers));
 
         context.register(BOREAL_MARSH, borealMarshBiome(placedFeatures, configuredCarvers));
+
+        context.register(SEQUOIA_FOREST, sequoiaForestBiome(placedFeatures, configuredCarvers));
     }
 
     public static void globalOverworldGeneration(GenerationSettings.LookupBackedBuilder builder)
@@ -366,5 +371,39 @@ public class ModBiomes
                         .music(null)
                         .particleConfig(new BiomeParticleConfig(ParticleTypes.SNOWFLAKE, 0.01f))
                         .moodSound(BiomeMoodSound.CAVE).build()).build();
+    }
+
+    public static Biome sequoiaForestBiome(RegistryEntryLookup<PlacedFeature> placedFeatures, RegistryEntryLookup<ConfiguredCarver<?>> configuredCarvers)
+    {
+        GenerationSettings.LookupBackedBuilder biomeBuilder = new GenerationSettings.LookupBackedBuilder(placedFeatures, configuredCarvers);
+        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
+
+        DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
+
+        globalOverworldGeneration(biomeBuilder);
+
+        biomeBuilder.feature(GenerationStep.Feature.FLUID_SPRINGS, MiscPlacedFeatures.SPRING_WATER);
+
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.SEQUOIA_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.GIANT_SEQUOIA_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.MOUNTAIN_HEMLOCK_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.SEQUOIA_FOREST_PLACED_KEY);
+
+        return new Biome.Builder()
+                .precipitation(true)
+                .downfall(0.8f)
+                .temperature(0.55f)
+                .generationSettings(biomeBuilder.build())
+                .spawnSettings(spawnBuilder.build())
+                .effects((new BiomeEffects.Builder())
+                        .waterColor(0x2c5e87)
+                        .waterFogColor(0x18435a)
+                        .skyColor(0x7fb0d4)
+                        .grassColor(0x4d7b3b)
+                        .foliageColor(0x3e6c2e)
+                        .fogColor(0x8ba88a)
+                        .moodSound(BiomeMoodSound.CAVE)
+                        .build())
+                .build();
     }
 }

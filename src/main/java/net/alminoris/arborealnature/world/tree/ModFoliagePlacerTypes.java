@@ -16,6 +16,7 @@ public class ModFoliagePlacerTypes
 
     public static final FoliagePlacerType<?> CEDAR_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("cedar_foliage_placer", CedarFoliagePlacer.CODEC);
 
+    public static final FoliagePlacerType<?> SEQUOIA_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("sequoia_foliage_placer", SequoiaFoliagePlacer.CODEC);
 
     public static final FoliagePlacerType<?> THUJA_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("thuja_foliage_placer", ThujaFoliagePlacer.CODEC);
 

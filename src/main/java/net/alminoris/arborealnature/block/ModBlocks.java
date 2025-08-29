@@ -9,6 +9,7 @@ import net.alminoris.arborealnature.ArborealNature;
 import net.alminoris.arborealnature.block.custom.*;
 import net.alminoris.arborealnature.particle.ModParticles;
 import net.alminoris.arborealnature.world.ModConfiguredFeatures;
+import net.alminoris.arborealnature.world.tree.ExtendedSaplingGenerator;
 import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.data.family.BlockFamily;
@@ -144,6 +145,14 @@ public class ModBlocks
                 }
             });
 
+    public static final Block SEQUOIA_CONE_BLOCK = registerBlock("sequoia_cone_block",
+            new FallingBlock(AbstractBlock.Settings.copy(Blocks.MANGROVE_ROOTS).nonOpaque()) {
+                @Override
+                protected MapCodec<? extends FallingBlock> getCodec() {
+                    return null;
+                }
+            });
+
     public static final Block PINE_RESIN_BLOCK = registerBlock("pine_resin_block",
             new Block(AbstractBlock.Settings.copy(Blocks.OAK_WOOD).nonOpaque().sounds(BlockSoundGroup.CORAL)));
 
@@ -182,6 +191,9 @@ public class ModBlocks
 
     public static final Block XEROCHRYSUM = registerBlock("xerochrysum",
             new FlowerBlock(StatusEffects.REGENERATION, 0.45F, AbstractBlock.Settings.copy(Blocks.DANDELION)));
+
+    public static final Block RED_TRILLIUM = registerBlock("red_trillium",
+            new FlowerBlock(StatusEffects.LUCK, 0.45F, AbstractBlock.Settings.copy(Blocks.POPPY)));
 
     public static final Block LARGE_ORCHID = registerBlock("large_orchid",
             new TallFlowerBlock(AbstractBlock.Settings.copy(Blocks.PEONY)));
@@ -229,13 +241,16 @@ public class ModBlocks
             new FlowerPotBlock(GERANIUM, AbstractBlock.Settings.copy(Blocks.POTTED_DANDELION)));
 
     public static final Block POTTED_THISTLE = registerBlock("potted_thistle",
-            new FlowerPotBlock(GERANIUM, AbstractBlock.Settings.copy(Blocks.POTTED_DANDELION)));
+            new FlowerPotBlock(THISTLE, AbstractBlock.Settings.copy(Blocks.POTTED_DANDELION)));
 
     public static final Block POTTED_PRICKLY_GRASS = registerBlock("potted_prickly-grass",
-            new FlowerPotBlock(GERANIUM, AbstractBlock.Settings.copy(Blocks.POTTED_DANDELION)));
+            new FlowerPotBlock(PRICKLY_GRASS, AbstractBlock.Settings.copy(Blocks.POTTED_DANDELION)));
 
     public static final Block POTTED_XEROCHRYSUM = registerBlock("potted_xerochrysum",
             new FlowerPotBlock(XEROCHRYSUM, AbstractBlock.Settings.copy(Blocks.POTTED_DANDELION)));
+
+    public static final Block POTTED_RED_TRILLIUM = registerBlock("potted_red_trillium",
+            new FlowerPotBlock(RED_TRILLIUM, AbstractBlock.Settings.copy(Blocks.POTTED_POPPY)));
 
     public static final Block POTTED_BLUEBELL = registerBlock("potted_bluebell",
             new FlowerPotBlock(BLUEBELL, AbstractBlock.Settings.copy(Blocks.POTTED_LILY_OF_THE_VALLEY)));
@@ -286,6 +301,12 @@ public class ModBlocks
             new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).noCollision()));
 
     public static final Block JUNIPER_COVER = registerBlock("juniper_cover",
+            new CarpetBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).noCollision()));
+
+    public static final Block SEQUOIA_COVER_BLOCK = registerBlock("sequoia_cover_block",
+            new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).noCollision()));
+
+    public static final Block SEQUOIA_COVER = registerBlock("sequoia_cover",
             new CarpetBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).noCollision()));
 
     public static final Block MARSH_MOSS_PLANT_BLOCK = registerBlock("marsh_moss_plant_block",
@@ -353,6 +374,8 @@ public class ModBlocks
                             .solidBlock(Blocks::never), ModParticles.BAUHINIA_PETALS, 10));
             case "pine" -> registerBlock(name + "_leaves",
                     new FallingLeavesBlock(AbstractBlock.Settings.copy(Blocks.SPRUCE_LEAVES), ModParticles.PINE_NEEDLES, 60));
+            case "sequoia" -> registerBlock(name + "_leaves",
+                    new FallingLeavesBlock(AbstractBlock.Settings.copy(Blocks.SPRUCE_LEAVES), ModParticles.SEQUOIA_NEEDLES, 20));
             case "fir" -> registerBlock(name + "_leaves",
                     new FallingLeavesBlock(AbstractBlock.Settings.copy(Blocks.SPRUCE_LEAVES), ModParticles.FIR_NEEDLES, 100));
             case "cedar" -> registerBlock(name + "_leaves",
@@ -517,6 +540,12 @@ public class ModBlocks
 
         return registerBlock(name+"_sapling",
                 new SaplingBlock(saplingGenerator, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
+    }
+
+    public static Block registerSaplingBlock(String name, ExtendedSaplingGenerator saplingGenerator)
+    {
+        return registerBlock(name+"_sapling",
+                new ExtendedSaplingBlock(saplingGenerator, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
     }
 
     public static Block registerSignBlock(String name)

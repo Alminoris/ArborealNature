@@ -73,9 +73,17 @@ public class ModConfiguredFeatures
 
     public static RegistryKey<ConfiguredFeature<?, ?>> FIR_KEY = registerKey("fir");
 
+    public static RegistryKey<ConfiguredFeature<?, ?>> YOUNG_SEQUOIA_KEY = registerKey("young_sequoia");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> SEQUOIA_KEY = registerKey("sequoia");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> GIANT_SEQUOIA_KEY = registerKey("giant_sequoia");
+
     public static RegistryKey<ConfiguredFeature<?, ?>> ARAUCARIA_KEY = registerKey("araucaria");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> JUNIPER_KEY = registerKey("juniper");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> MOUNTAIN_HEMLOCK_KEY = registerKey("mountain_hemlock");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> BALD_CYPRESS_KEY = registerKey("bald_cypress");
 
@@ -132,6 +140,8 @@ public class ModConfiguredFeatures
     public static RegistryKey<ConfiguredFeature<?, ?>> PINE_FOREST_FLOWERS_KEY = registerKey("pine_forest_flowers");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> PINE_FOREST_GRASS_KEY = registerKey("pine_forest_grass");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> SEQUOIA_FOREST_GRASS_KEY = registerKey("sequoia_forest_grass");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> BOREAL_MARSH_GRASS_KEY = registerKey("boreal_marsh_grass");
 
@@ -329,6 +339,14 @@ public class ModConfiguredFeatures
         ).ignoreVines().decorators(ImmutableList.of(
                 new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.JUNIPER_COVER), 2, 0.75f))).build());
 
+        register(context, MOUNTAIN_HEMLOCK_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("mountain_hemlock")),
+                new StraightTrunkPlacer(3, 0, 0),
+                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("mountain_hemlock")),
+                new BushFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(2), 3),
+                new TwoLayersFeatureSize(2, 0, 2)
+        ).ignoreVines().build());
+
         register(context, BALD_CYPRESS_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("bald_cypress")),
 
@@ -400,6 +418,33 @@ public class ModConfiguredFeatures
                 new AlterGroundTreeDecorator(BlockStateProvider.of(Blocks.PODZOL)),
                 new LeafCarpetDecorator(BlockStateProvider.of(Blocks.SNOW), 5, 0.45f))).build());
 
+        register(context, YOUNG_SEQUOIA_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("sequoia")),
+                new CedarGiantTrunkPlacer(15, 3, 5),
+                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("sequoia")),
+                new CedarFoliagePlacer(ConstantIntProvider.create(0), ConstantIntProvider.create(0)),
+                new ThreeLayersFeatureSize(1, 1, 0, 1, 1, OptionalInt.empty())
+        ).ignoreVines().decorators(ImmutableList.of(new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.FLAT_GRASS), 3, 0.35f),
+                new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.SEQUOIA_COVER), 3, 0.1f))).build());
+
+        register(context, SEQUOIA_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("sequoia")),
+                new SequoiaTrunkPlacer(20, 5, 7, false),
+                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("sequoia")),
+                new SequoiaFoliagePlacer(false),
+                new ThreeLayersFeatureSize(1, 1, 0, 1, 1, OptionalInt.empty())
+        ).ignoreVines().decorators(ImmutableList.of(new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.FLAT_GRASS), 3, 0.25f),
+                new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.SEQUOIA_COVER), 3, 0.2f))).build());
+
+        register(context, GIANT_SEQUOIA_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("sequoia")),
+                new SequoiaTrunkPlacer(32, 7, 10, true),
+                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("sequoia")),
+                new SequoiaFoliagePlacer(true),
+                new ThreeLayersFeatureSize(1, 1, 0, 1, 1, OptionalInt.empty())
+        ).ignoreVines().decorators(ImmutableList.of(new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.FLAT_GRASS), 3, 0.15f),
+                new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.SEQUOIA_COVER), 3, 0.3f))).build());
+
         register(context, MEGA_PINE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("pine")),
                 new GiantTrunkPlacer(13, 2, 14),
@@ -441,6 +486,19 @@ public class ModConfiguredFeatures
                                 add(Blocks.SHORT_GRASS.getDefaultState(), 55).
                                 add(Blocks.FERN.getDefaultState(), 15).
                                 add(Blocks.TALL_GRASS.getDefaultState(), 30)), 128
+                ));
+
+        register(context, SEQUOIA_FOREST_GRASS_KEY, Feature.RANDOM_PATCH,
+                createRandomPatchFeatureConfig(
+                        new WeightedBlockStateProvider(DataPool.<BlockState>builder()
+                                .add(Blocks.SHORT_GRASS.getDefaultState(), 35)
+                                .add(Blocks.FERN.getDefaultState(), 35)
+                                .add(Blocks.TALL_GRASS.getDefaultState(), 15)
+                                .add(Blocks.LARGE_FERN.getDefaultState(), 10)
+                                .add(ModBlocks.RED_TRILLIUM.getDefaultState(), 3)
+                                .add(Blocks.LILY_OF_THE_VALLEY.getDefaultState(), 1)
+                                .add(Blocks.ALLIUM.getDefaultState(), 1)
+                        ), 1024
                 ));
 
         register(context, BOREAL_MARSH_GRASS_KEY, Feature.RANDOM_PATCH,

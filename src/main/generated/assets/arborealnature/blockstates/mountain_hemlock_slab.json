@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "arborealnature:block/mountain_hemlock_slab"
+    },
+    "type=double": {
+      "model": "arborealnature:block/mountain_hemlock_planks"
+    },
+    "type=top": {
+      "model": "arborealnature:block/mountain_hemlock_slab_top"
+    }
+  }
+}

@@ -57,6 +57,10 @@ public class ModPlacedFeatures
 
     public static final RegistryKey<PlacedFeature> FIR_PLACED_KEY = registerKey("fir_placed");
 
+    public static final RegistryKey<PlacedFeature> SEQUOIA_PLACED_KEY = registerKey("sequoia_placed");
+
+    public static final RegistryKey<PlacedFeature> GIANT_SEQUOIA_PLACED_KEY = registerKey("giant_sequoia_placed");
+
     public static final RegistryKey<PlacedFeature> ARAUCARIA_PLACED_KEY = registerKey("araucaria_placed");
 
     public static final RegistryKey<PlacedFeature> BALD_CYPRESS_PLACED_KEY = registerKey("bald_cypress_placed");
@@ -70,6 +74,8 @@ public class ModPlacedFeatures
     public static final RegistryKey<PlacedFeature> MEGA_PINE_PLACED_KEY = registerKey("mega_pine_placed");
 
     public static final RegistryKey<PlacedFeature> PINE_FOREST_PLACED_KEY = registerKey("pine_forest_placed");
+
+    public static final RegistryKey<PlacedFeature> SEQUOIA_FOREST_PLACED_KEY = registerKey("sequoia_forest_placed");
 
     public static final RegistryKey<PlacedFeature> FIR_FOREST_PLACED_KEY = registerKey("fir_forest_placed");
 
@@ -147,6 +153,10 @@ public class ModPlacedFeatures
 
     public static final RegistryKey<PlacedFeature> BOREAL_MARSH_GRASS_PLACED_KEY = registerKey("boreal_marsh_grass_placed");
 
+    public static final RegistryKey<PlacedFeature> MOUNTAIN_HEMLOCK_PLACED_KEY = registerKey("mountain_hemlock_placed");
+
+    public static final RegistryKey<PlacedFeature> YOUNG_SEQUOIA_PLACED_KEY = registerKey("young_sequoia_placed");
+
     public static void bootstrap(Registerable<PlacedFeature> context)
     {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
@@ -207,6 +217,22 @@ public class ModPlacedFeatures
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(15, 0.1f, 1),
                         ModBlockSetsHelper.WOODEN_SAPLINGS.get("pine")));
 
+        register(context, YOUNG_SEQUOIA_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.SEQUOIA_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(10, 0.1f, 5),
+                        ModBlockSetsHelper.WOODEN_SAPLINGS.get("sequoia")));
+
+        register(context, SEQUOIA_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.SEQUOIA_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(30, 0.1f, 20),
+                        ModBlockSetsHelper.WOODEN_SAPLINGS.get("sequoia")));
+
+        register(context, GIANT_SEQUOIA_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.GIANT_SEQUOIA_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(20, 0.1f, 10),
+                        ModBlockSetsHelper.WOODEN_SAPLINGS.get("sequoia")));
+
+        register(context, MOUNTAIN_HEMLOCK_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.MOUNTAIN_HEMLOCK_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(5, 0.1f, 1),
+                        ModBlockSetsHelper.WOODEN_SAPLINGS.get("mountain_hemlock")));
+
         register(context, MEGA_PINE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.MEGA_PINE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(2, 0.1f, 2),
                         ModBlockSetsHelper.WOODEN_SAPLINGS.get("pine")));
@@ -261,6 +287,11 @@ public class ModPlacedFeatures
                         BiomePlacementModifier.of()));
 
         register(context, PINE_FOREST_GRASS_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.PINE_FOREST_GRASS_KEY),
+                List.of(SquarePlacementModifier.of(),
+                        PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP,
+                        BiomePlacementModifier.of()));
+
+        register(context, SEQUOIA_FOREST_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.SEQUOIA_FOREST_GRASS_KEY),
                 List.of(SquarePlacementModifier.of(),
                         PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP,
                         BiomePlacementModifier.of()));

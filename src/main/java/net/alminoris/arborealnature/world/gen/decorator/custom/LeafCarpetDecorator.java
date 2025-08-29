@@ -3,6 +3,7 @@ package net.alminoris.arborealnature.world.gen.decorator.custom;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.world.gen.decorator.ModTreeDecorators;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -61,21 +62,45 @@ public class LeafCarpetDecorator extends TreeDecorator
     // Method to place leaf carpets near the lowest log
     private void placeLeafCarpets(Generator generator, TestableWorld world, BlockPos basePos, Random random)
     {
-        List<Block> validBlocks = Arrays.asList(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.STONE, Blocks.PODZOL, Blocks.SAND,
+        List<Block> validBlocks = Arrays.asList(
+                Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.STONE, Blocks.PODZOL, Blocks.SAND,
                 Blocks.GRAVEL, Blocks.SNOW_BLOCK, Blocks.MYCELIUM, Blocks.COARSE_DIRT, Blocks.ROOTED_DIRT, Blocks.WATER);
 
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
-        for (int x = -1*radius; x <= radius; x++)
+        List<Block> validBlocks1 = Arrays.asList(
+                Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.STONE, Blocks.PODZOL, Blocks.SAND,
+                Blocks.GRAVEL, Blocks.SNOW_BLOCK, Blocks.MYCELIUM, Blocks.COARSE_DIRT, Blocks.ROOTED_DIRT);
+
+        BlockPos.Mutable carpetPos = new BlockPos.Mutable();
+        BlockPos.Mutable groundPos = new BlockPos.Mutable();
+
+        for (int x = -radius; x <= radius; x++)
         {
-            for (int z = -1*radius; z <= radius; z++)
+            for (int z = -radius; z <= radius; z++)
             {
                 if (random.nextFloat() < probability)
                 {
-                    mutable.set(basePos.getX() + x, basePos.getY()+1, basePos.getZ() + z);
-                    if (world.testBlockState(mutable, BlockState::isAir) &&
-                            world.testBlockState(mutable.down(), state -> validBlocks.contains(state.getBlock())))
+                    carpetPos.set(basePos.getX() + x, basePos.getY() + 1, basePos.getZ() + z);
+                    groundPos.set(basePos.getX() + x, basePos.getY(), basePos.getZ() + z);
+
+                    Random rnd = generator.getRandom();
+                    BlockState providerState = provider.get(rnd, basePos);
+
+                    if (providerState.isOf(ModBlocks.FLAT_GRASS))
                     {
-                        generator.replace(mutable, provider.get(generator.getRandom(), basePos));
+                        if (world.testBlockState(carpetPos, BlockState::isAir) &&
+                                world.testBlockState(groundPos, state -> validBlocks1.contains(state.getBlock())))
+                        {
+                            generator.replace(carpetPos, providerState);
+                            generator.replace(groundPos, Blocks.COARSE_DIRT.getDefaultState());
+                        }
+                    }
+                    else
+                    {
+                        if (world.testBlockState(carpetPos, BlockState::isAir) &&
+                                world.testBlockState(groundPos, state -> validBlocks.contains(state.getBlock())))
+                        {
+                            generator.replace(carpetPos, providerState);
+                        }
                     }
                 }
             }

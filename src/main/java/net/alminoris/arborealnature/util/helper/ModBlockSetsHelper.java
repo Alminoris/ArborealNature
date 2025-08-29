@@ -19,7 +19,7 @@ public class ModBlockSetsHelper
 
     public static final String[] WOOD_NAMES = new String[] { "hazelnut", "hornbeam", "hawthorn", "quince", "plum", "mango",
             "fig", "viburnum", "wild_cherry", "white_mulberry", "bauhinia", "pine", "fir", "cedar", "araucaria", "juniper",
-            "bald_cypress", "thuja" };
+            "bald_cypress", "thuja", "sequoia", "mountain_hemlock" };
 
     public static final String[] WF_WOOD_NAMES = new String[] { "olive", "tamarisk", "western_serviceberry" };
 
@@ -236,7 +236,13 @@ public class ModBlockSetsHelper
     public static final Dictionary<String, Block> WOODEN_SAPLINGS = new Hashtable<>()
     {{
         for(String name : WOOD_NAMES)
-            put(name, registerSaplingBlock(name, ModSaplingGenerators.saplingGenerators.get(name)));
+        {
+            if (name.equals("sequoia"))
+                put(name, registerSaplingBlock(name, ModSaplingGenerators.extendedSaplingGenerators.get(name)));
+            else
+                put(name, registerSaplingBlock(name, ModSaplingGenerators.saplingGenerators.get(name)));
+        }
+
     }};
 
     public static final Dictionary<String, Item> WOODEN_BOATS = new Hashtable<>()

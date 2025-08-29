@@ -32,6 +32,8 @@ public class ModSaplingGenerators
         put("juniper", ModConfiguredFeatures.JUNIPER_KEY);
         put("bald_cypress", ModConfiguredFeatures.BALD_CYPRESS_KEY);
         put("thuja", ModConfiguredFeatures.THUJA_KEY);
+        put("sequoia", ModConfiguredFeatures.SEQUOIA_KEY);
+        put("mountain_hemlock", ModConfiguredFeatures.MOUNTAIN_HEMLOCK_KEY);
     }};
 
     public static final Dictionary<String, SaplingGenerator> saplingGenerators = new Hashtable<>()
@@ -61,6 +63,26 @@ public class ModSaplingGenerators
                 put(name, new SaplingGenerator(name, 0f, Optional.empty(),
                         Optional.empty(),
                         Optional.of(keys.get(name)),
+                        Optional.empty(),
+                        Optional.empty(),
+                        Optional.empty()));
+            }
+        }
+    }};
+
+    public static final Dictionary<String, ExtendedSaplingGenerator> extendedSaplingGenerators = new Hashtable<>()
+    {{
+        for(String name : ModBlockSetsHelper.WOOD_NAMES)
+        {
+            if (name.equals("sequoia"))
+            {
+                put(name, new ExtendedSaplingGenerator(name, 0f,
+                        Optional.of(ModConfiguredFeatures.YOUNG_SEQUOIA_KEY),
+                        Optional.of(keys.get(name)),
+                        Optional.of(ModConfiguredFeatures.GIANT_SEQUOIA_KEY),
+                        Optional.empty(),
+                        Optional.empty(),
+                        Optional.empty(),
                         Optional.empty(),
                         Optional.empty(),
                         Optional.empty()));

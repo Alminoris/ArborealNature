@@ -175,6 +175,9 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         addDrop(LEAVES.get("thuja"), leavesDrops(LEAVES.get("thuja"),
                 WOODEN_SAPLINGS.get("thuja"), 0.0025f));
 
+        addDrop(LEAVES.get("mountain_hemlock"), leavesDrops(LEAVES.get("mountain_hemlock"),
+                WOODEN_SAPLINGS.get("mountain_hemlock"), 0.0025f));
+
         addDrop(ModBlocks.OAK_CHISELED);
         addDrop(ModBlocks.OAK_CHISELED_SLAB);
         addDrop(ModBlocks.OAK_CHISELED_STAIRS);
@@ -237,6 +240,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         addDrop(ModBlocks.HAZELNUT_COVER, multipleOreDrops(ModBlocks.HAZELNUT_COVER, ModItems.HAZELNUT, 0, 3));
         addDrop(ModBlocks.JUNIPER_COVER, multipleOreDrops(ModBlocks.JUNIPER_COVER, ModItems.JUNIPER_BERRY, 0, 3));
         addDrop(ModBlocks.PINE_COVER, multipleOreDrops(ModBlocks.PINE_COVER, ModItems.PINE_CONE, 0, 3));
+        addDrop(ModBlocks.SEQUOIA_COVER, multipleOreDrops(ModBlocks.SEQUOIA_COVER, ModItems.SEQUOIA_CONE, 0, 2));
         addDrop(LEAVES.get("pine"), leavesItemDrops(ModBlockSetsHelper.LEAVES.get("pine"),
                 ModBlockSetsHelper.WOODEN_SAPLINGS.get("pine"), ModItems.PINE_CONE, 0.0025f));
         addDrop(LEAVES.get("fir"), leavesItemDrops(ModBlockSetsHelper.LEAVES.get("fir"),
@@ -247,6 +251,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
                 ModBlockSetsHelper.WOODEN_SAPLINGS.get("araucaria"), ModItems.ARAUCARIA_CONE, 0.0025f));
         addDrop(LEAVES.get("juniper"), leavesItemDrops(ModBlockSetsHelper.LEAVES.get("juniper"),
                 ModBlockSetsHelper.WOODEN_SAPLINGS.get("juniper"), ModItems.JUNIPER_BERRY, 0.0025f));
+        addDrop(LEAVES.get("sequoia"), leavesItemDrops(ModBlockSetsHelper.LEAVES.get("sequoia"),
+                ModBlockSetsHelper.WOODEN_SAPLINGS.get("sequoia"), ModItems.SEQUOIA_CONE, 0.0025f));
         addDrop(ModBlocks.GERANIUM);
         addDrop(ModBlocks.XEROCHRYSUM);
         addDrop(ModBlocks.LARGE_CELANDINE, block -> this.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));

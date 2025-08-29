@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "arborealnature:block/sequoia_chiseled",
+    "side": "arborealnature:block/sequoia_chiseled",
+    "top": "arborealnature:block/sequoia_chiseled"
+  }
+}
