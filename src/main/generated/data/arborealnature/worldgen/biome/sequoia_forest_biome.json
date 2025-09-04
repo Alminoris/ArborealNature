@@ -63,8 +63,11 @@
       "minecraft:glow_lichen",
       "arborealnature:sequoia_placed",
       "arborealnature:giant_sequoia_placed",
+      "arborealnature:young_sequoia_placed",
       "arborealnature:mountain_hemlock_placed",
-      "arborealnature:sequoia_forest_placed"
+      "arborealnature:sequoia_forest_grass_placed",
+      "arborealnature:golden_chantrelle_placed",
+      "arborealnature:sequoia_forest_short_grass_placed"
     ]
   ],
   "has_precipitation": true,

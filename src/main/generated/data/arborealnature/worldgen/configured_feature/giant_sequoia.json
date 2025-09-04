@@ -11,7 +11,8 @@
             "Name": "arborealnature:flat_grass"
           }
         },
-        "radius": 3
+        "radius": 3,
+        "trunk_thickness": 4
       },
       {
         "type": "minecraft:leaf_carpet_decorator",
@@ -22,7 +23,8 @@
             "Name": "arborealnature:sequoia_cover"
           }
         },
-        "radius": 3
+        "radius": 3,
+        "trunk_thickness": 4
       }
     ],
     "dirt_provider": {

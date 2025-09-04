@@ -1,6 +1,7 @@
 package net.alminoris.arborealnature.world.gen.feature;
 
 import net.alminoris.arborealnature.ArborealNature;
+import net.alminoris.arborealnature.world.gen.feature.custom.HugeGoldenChantrelleFeature;
 import net.alminoris.arborealnature.world.gen.feature.custom.HugeWhiteMushroomFeature;
 import net.alminoris.arborealnature.world.gen.feature.custom.SedgeFeature;
 import net.minecraft.registry.Registries;
@@ -15,11 +16,14 @@ public abstract class ModFeatures<FC extends FeatureConfig>
 {
     public static final Feature<HugeMushroomFeatureConfig> HUGE_WHITE_MUSHROOM = new HugeWhiteMushroomFeature(HugeMushroomFeatureConfig.CODEC);
 
+    public static final Feature<HugeMushroomFeatureConfig> HUGE_GOLDEN_CHANTRELLE = new HugeGoldenChantrelleFeature(HugeMushroomFeatureConfig.CODEC);
+
     public static final SedgeFeature SEDGE = new SedgeFeature(ProbabilityConfig.CODEC);
 
     public static void registerFeatures()
     {
         Registry.register(Registries.FEATURE, Identifier.of(ArborealNature.MOD_ID, "huge_white_mushroom"), HUGE_WHITE_MUSHROOM);
+        Registry.register(Registries.FEATURE, Identifier.of(ArborealNature.MOD_ID, "huge_golden_chantrelle"), HUGE_GOLDEN_CHANTRELLE);
         Registry.register(Registries.FEATURE, Identifier.of(ArborealNature.MOD_ID, "sedge"), SEDGE);
     }
 }

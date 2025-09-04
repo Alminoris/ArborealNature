@@ -21,7 +21,8 @@ public class ModItemGroups
 
     public static final String[] HAZELNUT_WOODS = {"hazelnut", "hornbeam", "hawthorn"};
 
-    public static final String[] CONIFER_WOODS = {"pine", "fir", "cedar", "araucaria", "juniper", "bald_cypress", "thuja", "sequoia"};
+    public static final String[] CONIFER_WOODS = {"pine", "fir", "cedar", "araucaria", "juniper", "bald_cypress",
+            "thuja", "sequoia", "mountain_hemlock", "cryptomeria", "yew", "larch"};
 
     public static final String[] CONIFER_BERRIES = {"blueberry"};
 
@@ -33,8 +34,9 @@ public class ModItemGroups
                     .icon(() -> new ItemStack(ModItems.HAZELNUT_CRACKED)).entries((displayContext, entries) ->
                     {
                         entries.add(ModBlocks.WOOD_ANEMONA);
-                        entries.add(ModBlocks.LARGE_CELANDINE);
-                        entries.add(ModBlocks.HAZELNUT_COVER);
+                        entries.add(TALL_FLOWERS.get("large_celandine"));
+                        entries.add(COVERS.get("hazelnut"));
+                        entries.add(COVER_BLOCKS.get("hazelnut"));
                         entries.add(ModBlocks.WHITE_MUSHROOM);
                         entries.add(ModBlocks.WHITE_MUSHROOM_BLOCK);
                         entries.add(ModBlocks.WHITE_MUSHROOM_STEM);
@@ -46,6 +48,7 @@ public class ModItemGroups
                         {
                             entries.add(LEAVES.get(name));
                         }
+                        entries.add(FRUITED_LEAVES.get("hawthorn"));
                         for (String name : HAZELNUT_WOODS)
                         {
                             entries.add(LOGS.get(name));
@@ -166,16 +169,16 @@ public class ModItemGroups
     public static final ItemGroup ORCHARD_EXPANSION_TAB = Registry.register(Registries.ITEM_GROUP,
             Identifier.of(ArborealNature.MOD_ID, "orchardexptab"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.orchardexptab"))
-                    .icon(() -> new ItemStack(ModBlocks.LARGE_ORCHID)).entries((displayContext, entries) ->
+                    .icon(() -> new ItemStack(TALL_FLOWERS.get("large_orchid"))).entries((displayContext, entries) ->
                     {
                         entries.add(ModBlocks.ORCHID_GRASS_BLOCK);
-                        entries.add(ModBlocks.GERANIUM);
-                        entries.add(ModBlocks.ORCHID);
-                        entries.add(ModBlocks.BLUEGRASS);
-                        entries.add(ModBlocks.LARGE_ORCHID);
+                        entries.add(FLOWERS.get("geranium"));
+                        entries.add(FLOWERS.get("orchid"));
+                        entries.add(TALL_FLOWERS.get("bluegrass"));
+                        entries.add(TALL_FLOWERS.get("large_orchid"));
                         entries.add(ModItems.ORCHID_LILY_PAD);
-                        entries.add(ModBlocks.BAUHINIA_COVER);
-                        entries.add(ModBlocks.BAUHINIA_COVER_BLOCK);
+                        entries.add(COVERS.get("bauhinia"));
+                        entries.add(COVER_BLOCKS.get("bauhinia"));
                         entries.add(ModBlocks.BAUHINIA_VINES);
                         for (String name : ORCHARD_WOODS)
                         {
@@ -185,6 +188,13 @@ public class ModItemGroups
                         {
                             entries.add(LEAVES.get(name));
                         }
+                        entries.add(FRUITED_LEAVES.get("quince"));
+                        entries.add(FRUITED_LEAVES.get("mango"));
+                        entries.add(FRUITED_LEAVES.get("plum"));
+                        entries.add(FRUITED_LEAVES.get("viburnum"));
+                        entries.add(FRUITED_LEAVES.get("wild_cherry"));
+                        entries.add(FRUITED_LEAVES.get("white_mulberry"));
+                        entries.add(FRUITED_LEAVES.get("bauhinia"));
                         for (String name : ORCHARD_WOODS)
                         {
                             entries.add(LOGS.get(name));
@@ -281,36 +291,43 @@ public class ModItemGroups
                         entries.add(ModBlocks.DIRTED_GRASS_BLOCK);
                         entries.add(ModBlocks.BOG_SOIL_COVER);
                         entries.add(ModBlocks.BOG_SOIL);
-                        entries.add(ModBlocks.XEROCHRYSUM);
-                        entries.add(ModBlocks.BLUEBELL);
-                        entries.add(ModBlocks.THISTLE);
-                        entries.add(ModBlocks.RED_TRILLIUM);
+                        entries.add(TALL_FLOWERS.get("goldenrod"));
+                        entries.add(FLOWERS.get("xerochrysum"));
+                        entries.add(FLOWERS.get("bluebell"));
+                        entries.add(FLOWERS.get("thistle"));
+                        entries.add(FLOWERS.get("red_trillium"));
+                        entries.add(FLOWERS.get("golden_aster"));
                         entries.add(ModBlocks.PRICKLY_GRASS);
                         entries.add(ModBlocks.SEDGE);
                         entries.add(ModItems.WHITE_LILY_PAD);
                         entries.add(ModBlocks.WOOD_SORREL);
+                        entries.add(ModBlocks.ALPINE_GENTIAN);
                         entries.add(ModBlocks.MARSH_MOSS);
                         entries.add(ModBlocks.SPANISH_MOSS);
                         entries.add(ModBlocks.REINDEER_LICHEN_CARPET);
                         entries.add(ModBlocks.REINDEER_LICHEN);
                         entries.add(ModBlocks.FLAT_GRASS);
-                        entries.add(ModBlocks.PINE_COVER);
-                        entries.add(ModBlocks.PINE_COVER_BLOCK);
-                        entries.add(ModBlocks.JUNIPER_COVER);
-                        entries.add(ModBlocks.SEQUOIA_COVER);
-                        entries.add(ModBlocks.SEQUOIA_COVER_BLOCK);
+                        for (String name : CONIFER_WOODS)
+                        {
+                            if (!name.equals("fir"))
+                            {
+                                entries.add(COVERS.get(name));
+                                entries.add(COVER_BLOCKS.get(name));
+                            }
+                        }
                         entries.add(ModBlocks.MARSH_MOSS_PLANT);
                         entries.add(ModBlocks.MARSH_MOSS_PLANT_BLOCK);
-                        entries.add(ModItems.PINE_CONE);
-                        entries.add(ModBlocks.PINE_CONE_BLOCK);
-                        entries.add(ModItems.FIR_CONE);
-                        entries.add(ModBlocks.FIR_CONE_BLOCK);
-                        entries.add(ModItems.CEDAR_CONE);
-                        entries.add(ModBlocks.CEDAR_CONE_BLOCK);
-                        entries.add(ModItems.ARAUCARIA_CONE);
-                        entries.add(ModBlocks.ARAUCARIA_CONE_BLOCK);
-                        entries.add(ModItems.SEQUOIA_CONE);
-                        entries.add(ModBlocks.SEQUOIA_CONE_BLOCK);
+                        entries.add(ModBlocks.GOLDEN_CHANTRELLE);
+                        entries.add(ModBlocks.GOLDEN_CHANTRELLE_BLOCK);
+                        entries.add(ModBlocks.GOLDEN_CHANTRELLE_STEM);
+                        for (String name : CONIFER_WOODS)
+                        {
+                            if (!name.equals("juniper") && !name.equals("yew"))
+                            {
+                                entries.add(CONES.get(name));
+                                entries.add(CONE_BLOCKS.get(name));
+                            }
+                        }
                         for (String name : CONIFER_WOODS)
                         {
                             entries.add(WOODEN_SAPLINGS.get(name));
@@ -319,6 +336,8 @@ public class ModItemGroups
                         {
                             entries.add(LEAVES.get(name));
                         }
+                        entries.add(FRUITED_LEAVES.get("juniper"));
+                        entries.add(FRUITED_LEAVES.get("yew"));
                         for (String name : CONIFER_WOODS)
                         {
                             entries.add(LOGS.get(name));
@@ -344,12 +363,19 @@ public class ModItemGroups
                             entries.add(BERRIES.get(name));
                         }
                         entries.add(ModItems.JUNIPER_BERRY);
+                        entries.add(ModItems.YEW_BERRY);
                         entries.add(ModBlocks.PINE_RESIN);
                         entries.add(ModBlocks.PINE_RESIN_BLOCK);
                         entries.add(ModBlocks.PINE_RESIN_CHISELED);
                         entries.add(ModBlocks.PINE_RESIN_BRICKS);
                         entries.add(ModBlocks.PINE_RESIN_BRICKS_SLAB);
                         entries.add(ModBlocks.PINE_RESIN_BRICKS_STAIRS);
+                        entries.add(ModBlocks.CRYPTOMERIA_RESIN);
+                        entries.add(ModBlocks.CRYPTOMERIA_RESIN_BLOCK);
+                        entries.add(ModBlocks.CRYPTOMERIA_RESIN_CHISELED);
+                        entries.add(ModBlocks.CRYPTOMERIA_RESIN_BRICKS);
+                        entries.add(ModBlocks.CRYPTOMERIA_RESIN_BRICKS_SLAB);
+                        entries.add(ModBlocks.CRYPTOMERIA_RESIN_BRICKS_STAIRS);
                         entries.add(ModItems.HUNTING_KNIFE);
                         entries.add(ModItems.MOOSE_HORN);
                         entries.add(ModBlocks.LYNX_HIDE);
@@ -363,15 +389,19 @@ public class ModItemGroups
                         entries.add(ModItems.CARIBOU_HORN);
                         entries.add(ModItems.CARIBOU_FUR);
                         entries.add(ModItems.PINE_RESIN);
+                        entries.add(ModItems.CRYPTOMERIA_RESIN);
                         entries.add(ModItems.MOOSE_VENISON);
                         entries.add(ModItems.COOKED_MOOSE_VENISON);
                         entries.add(ModItems.CARIBOU_VENISON);
                         entries.add(ModItems.COOKED_CARIBOU_VENISON);
+                        entries.add(ModItems.DUCK);
+                        entries.add(ModItems.COOKED_DUCK);
                         entries.add(ModItems.MOOSE_SPAWN_EGG);
                         entries.add(ModItems.LYNX_SPAWN_EGG);
                         entries.add(ModItems.CARIBOU_SPAWN_EGG);
                         entries.add(ModItems.WOLVERINE_SPAWN_EGG);
                         entries.add(ModItems.TENREC_SPAWN_EGG);
+                        entries.add(ModItems.MALLARD_SPAWN_EGG);
                     }).build());
 
     public static void registerItemGroups()

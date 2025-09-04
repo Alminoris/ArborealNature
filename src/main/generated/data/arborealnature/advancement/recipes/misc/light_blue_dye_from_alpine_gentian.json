@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_alpine_gentian": {
+      "conditions": {
+        "items": [
+          {
+            "items": "arborealnature:alpine_gentian"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arborealnature:light_blue_dye_from_alpine_gentian"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_alpine_gentian"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arborealnature:light_blue_dye_from_alpine_gentian"
+    ]
+  }
+}

@@ -8,10 +8,11 @@
         "provider": {
           "type": "minecraft:simple_state_provider",
           "state": {
-            "Name": "arborealnature:hazelnut_cover_block"
+            "Name": "arborealnature:hazelnut_cover"
           }
         },
-        "radius": 2
+        "radius": 2,
+        "trunk_thickness": 1
       }
     ],
     "dirt_provider": {

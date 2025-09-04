@@ -2,7 +2,6 @@ package net.alminoris.arborealnature.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
@@ -174,7 +173,7 @@ public class SpanishMossBlock extends PlantBlock implements Fertilizable, Waterl
         BlockState above = world.getBlockState(pos.up());
         BlockState below = world.getBlockState(pos.down());
 
-        boolean bottom = below.isAir() || below.isOf(Blocks.WATER);
+        boolean bottom = below.isAir() || below.isOf(Blocks.WATER) || below.isSolid();
 
         if (above.getBlock() instanceof SpanishMossBlock)
         {

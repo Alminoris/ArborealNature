@@ -28,6 +28,10 @@ public class ModSounds
     public static final SoundEvent SOUND_MOOSE_HURT = registerSoundEvent("sound_moose_hurt");
     public static final SoundEvent SOUND_MOOSE_DEATH = registerSoundEvent("sound_moose_death");
 
+    public static final SoundEvent SOUND_MALLARD_AMBIENT = registerSoundEvent("sound_mallard_ambient");
+    public static final SoundEvent SOUND_MALLARD_HURT = registerSoundEvent("sound_mallard_hurt");
+    public static final SoundEvent SOUND_MALLARD_DEATH = registerSoundEvent("sound_mallard_death");
+
     public static final SoundEvent SOUND_LYNX_AMBIENT = registerSoundEvent("sound_lynx_ambient");
     public static final SoundEvent SOUND_LYNX_GROWL = registerSoundEvent("sound_lynx_growl");
     public static final SoundEvent SOUND_LYNX_WHINE = registerSoundEvent("sound_lynx_whine");

@@ -21,7 +21,7 @@ public class CustomAlterGroundTreeDecorator extends TreeDecorator
 
     private final BlockStateProvider baseProvider;
 
-    private float probability = 0.05f;
+    private final float probability;
 
     public static final MapCodec<CustomAlterGroundTreeDecorator> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
             Codec.floatRange(0.0F, 1.0F).fieldOf("probability").forGetter(decorator -> decorator.probability),

@@ -1,12 +1,14 @@
 {
   "values": [
-    "arborealnature:potted_geranium",
-    "arborealnature:potted_red_trillium",
-    "arborealnature:potted_xerochrysum",
-    "arborealnature:potted_bluebell",
-    "arborealnature:potted_thistle",
     "arborealnature:potted_prickly-grass",
+    "arborealnature:potted_white_mushroom",
+    "arborealnature:potted_golden_chantrelle",
+    "arborealnature:potted_geranium",
+    "arborealnature:potted_thistle",
+    "arborealnature:potted_xerochrysum",
     "arborealnature:potted_orchid",
-    "arborealnature:potted_white_mushroom"
+    "arborealnature:potted_bluebell",
+    "arborealnature:potted_red_trillium",
+    "arborealnature:potted_golden_aster"
   ]
 }

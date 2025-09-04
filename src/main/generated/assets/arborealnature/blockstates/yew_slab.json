@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "arborealnature:block/yew_slab"
+    },
+    "type=double": {
+      "model": "arborealnature:block/yew_planks"
+    },
+    "type=top": {
+      "model": "arborealnature:block/yew_slab_top"
+    }
+  }
+}

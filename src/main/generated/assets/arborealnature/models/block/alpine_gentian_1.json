@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/flowerbed_1",
+  "textures": {
+    "flowerbed": "arborealnature:block/alpine_gentian",
+    "stem": "arborealnature:block/alpine_gentian_stem"
+  }
+}

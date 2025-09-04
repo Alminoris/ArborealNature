@@ -26,7 +26,6 @@ public class SequoiaRegion extends Region
         {
             modifiedVanillaOverworldBuilder.replaceBiome(BiomeKeys.PLAINS, ModBiomes.SEQUOIA_FOREST);
             modifiedVanillaOverworldBuilder.replaceBiome(BiomeKeys.FOREST, ModBiomes.SEQUOIA_FOREST);
-            modifiedVanillaOverworldBuilder.replaceBiome(BiomeKeys.FLOWER_FOREST, ModBiomes.SEQUOIA_FOREST);
         });
     }
 }

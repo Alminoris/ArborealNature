@@ -40,6 +40,12 @@
     "arborealnature:sequoia_chiseled_slab",
     "arborealnature:mountain_hemlock_slab",
     "arborealnature:mountain_hemlock_chiseled_slab",
+    "arborealnature:cryptomeria_slab",
+    "arborealnature:cryptomeria_chiseled_slab",
+    "arborealnature:yew_slab",
+    "arborealnature:yew_chiseled_slab",
+    "arborealnature:larch_slab",
+    "arborealnature:larch_chiseled_slab",
     "arborealnature:olive_chiseled_slab",
     "arborealnature:tamarisk_chiseled_slab",
     "arborealnature:western_serviceberry_chiseled_slab",
@@ -81,6 +87,7 @@
     "arborealnature:warped_chiseled_slab",
     "arborealnature:mangrove_chiseled_slab",
     "arborealnature:cherry_chiseled_slab",
-    "arborealnature:pine_resin_bricks_slab"
+    "arborealnature:pine_resin_bricks_slab",
+    "arborealnature:cryptomeria_resin_bricks_slab"
   ]
 }

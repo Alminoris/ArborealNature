@@ -44,22 +44,13 @@ public class ModItems
     public static final Item TENREC_SPAWN_EGG = registerItem("tenrec_spawn_egg", new SpawnEggItem(
             ModEntities.TENREC, 0x220f0b, 0Xd58728, new Item.Settings()));
 
-    public static final Item PINE_CONE = registerItem("pine_cone", new Item(
-            new Item.Settings().maxCount(16)));
-
-    public static final Item FIR_CONE = registerItem("fir_cone", new Item(
-            new Item.Settings().maxCount(16)));
-
-    public static final Item CEDAR_CONE = registerItem("cedar_cone", new Item(
-            new Item.Settings().maxCount(16)));
-
-    public static final Item ARAUCARIA_CONE = registerItem("araucaria_cone", new Item(
-            new Item.Settings().maxCount(16)));
-
-    public static final Item SEQUOIA_CONE = registerItem("sequoia_cone", new Item(
-            new Item.Settings().maxCount(16)));
+    public static final Item MALLARD_SPAWN_EGG = registerItem("mallard_spawn_egg", new SpawnEggItem(
+            ModEntities.MALLARD, 0xe0d4cd, 0X235329, new Item.Settings()));
 
     public static final Item PINE_RESIN = registerItem("pine_resin_item", new Item(
+            new Item.Settings().maxCount(16)));
+
+    public static final Item CRYPTOMERIA_RESIN = registerItem("cryptomeria_resin_item", new Item(
             new Item.Settings().maxCount(16)));
 
     public static final Item HAZELNUT_CRACKED = registerItem("hazelnut_cracked", new Item(
@@ -83,6 +74,9 @@ public class ModItems
     public static final Item JUNIPER_BERRY = registerItem("juniper_berry",
             new Item(new Item.Settings().maxCount(16).food(ModFoodComponents.JUNIPER_BERRY)));
 
+    public static final Item YEW_BERRY = registerItem("yew_berry",
+            new Item(new Item.Settings().maxCount(16).food(ModFoodComponents.YEW_BERRY)));
+
     public static final Item MOOSE_VENISON = registerItem("moose_venison",
             new Item(new Item.Settings().food(ModFoodComponents.MOOSE_VENISON)));
 
@@ -94,6 +88,12 @@ public class ModItems
 
     public static final Item COOKED_CARIBOU_VENISON = registerItem("cooked_caribou_venison",
             new Item(new Item.Settings().food(ModFoodComponents.COOKED_CARIBOU_VENISON)));
+
+    public static final Item DUCK = registerItem("duck",
+            new Item(new Item.Settings().food(ModFoodComponents.DUCK)));
+
+    public static final Item COOKED_DUCK = registerItem("cooked_duck",
+            new Item(new Item.Settings().food(ModFoodComponents.COOKED_DUCK)));
 
     public static final Item QUINCE = registerItem("quince",
             new Item(new Item.Settings().maxCount(16).food(ModFoodComponents.QUINCE)));
@@ -203,6 +203,11 @@ public class ModItems
     public static void registerModItems()
     {
 
+    }
+
+    public static Item registerConeItem(String name)
+    {
+        return registerItem(name+"_cone", new Item(new Item.Settings().maxCount(16)));
     }
 
     public static Item registerBerryItem(String name, int nutrition, float saturation, Block block)

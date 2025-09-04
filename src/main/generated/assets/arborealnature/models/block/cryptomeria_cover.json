@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/carpet",
+  "textures": {
+    "wool": "arborealnature:block/cryptomeria_cover_block"
+  }
+}

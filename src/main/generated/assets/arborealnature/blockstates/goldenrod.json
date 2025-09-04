@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "arborealnature:block/goldenrod_bottom"
+    },
+    "half=upper": {
+      "model": "arborealnature:block/goldenrod_top"
+    }
+  }
+}

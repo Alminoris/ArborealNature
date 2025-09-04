@@ -16,7 +16,8 @@
             "Name": "arborealnature:bauhinia_cover"
           }
         },
-        "radius": 2
+        "radius": 2,
+        "trunk_thickness": 1
       },
       {
         "type": "minecraft:custom_alter_ground_decorator",
@@ -76,15 +77,31 @@
       "radius": 3
     },
     "foliage_provider": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "arborealnature:bauhinia_leaves",
-        "Properties": {
-          "distance": "7",
-          "persistent": "false",
-          "waterlogged": "false"
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "arborealnature:bauhinia_leaves",
+            "Properties": {
+              "distance": "7",
+              "persistent": "false",
+              "waterlogged": "false"
+            }
+          },
+          "weight": 3
+        },
+        {
+          "data": {
+            "Name": "arborealnature:bauhinia_fruited_leaves",
+            "Properties": {
+              "distance": "7",
+              "persistent": "false",
+              "waterlogged": "false"
+            }
+          },
+          "weight": 1
         }
-      }
+      ]
     },
     "force_dirt": false,
     "ignore_vines": false,

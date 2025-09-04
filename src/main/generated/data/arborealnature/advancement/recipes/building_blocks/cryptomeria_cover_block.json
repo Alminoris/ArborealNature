@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cryptomeria_cover": {
+      "conditions": {
+        "items": [
+          {
+            "items": "arborealnature:cryptomeria_cover"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arborealnature:cryptomeria_cover_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cryptomeria_cover"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arborealnature:cryptomeria_cover_block"
+    ]
+  }
+}

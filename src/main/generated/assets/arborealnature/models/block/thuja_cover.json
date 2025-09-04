@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/carpet",
+  "textures": {
+    "wool": "arborealnature:block/thuja_cover_block"
+  }
+}

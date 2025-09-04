@@ -5,7 +5,6 @@ import net.alminoris.arborealnature.ArborealNature;
 import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.block.custom.BerryBushBlock;
 import net.alminoris.arborealnature.block.custom.RandomLilyPadBlock;
-import net.alminoris.arborealnature.block.custom.SpanishMossBlock;
 import net.alminoris.arborealnature.util.helper.BiasedIntProvider;
 import net.alminoris.arborealnature.util.helper.ModBlockSetsHelper;
 import net.alminoris.arborealnature.world.gen.decorator.custom.*;
@@ -13,12 +12,12 @@ import net.alminoris.arborealnature.world.gen.feature.ModFeatures;
 import net.alminoris.arborealnature.world.gen.root.custom.FluidLevelAdaptiveMangroveRootPlacer;
 import net.alminoris.arborealnature.world.tree.custom.*;
 import net.minecraft.block.*;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryEntryLookup;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntryList;
-import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.Direction;
@@ -35,7 +34,6 @@ import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.RandomizedIntBlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.treedecorator.AlterGroundTreeDecorator;
-import net.minecraft.world.gen.treedecorator.AttachedToLeavesTreeDecorator;
 import net.minecraft.world.gen.treedecorator.LeavesVineTreeDecorator;
 import net.minecraft.world.gen.trunk.*;
 
@@ -43,7 +41,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.OptionalInt;
 
-import static net.alminoris.arborealnature.util.helper.ModBlockSetsHelper.BUSHES;
+import static net.alminoris.arborealnature.util.helper.ModBlockSetsHelper.*;
 
 public class ModConfiguredFeatures
 {
@@ -77,6 +75,12 @@ public class ModConfiguredFeatures
 
     public static RegistryKey<ConfiguredFeature<?, ?>> SEQUOIA_KEY = registerKey("sequoia");
 
+    public static RegistryKey<ConfiguredFeature<?, ?>> CRYPTOMERIA_KEY = registerKey("cryptomeria");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> YEW_KEY = registerKey("yew");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> LARCH_KEY = registerKey("larch");
+
     public static RegistryKey<ConfiguredFeature<?, ?>> GIANT_SEQUOIA_KEY = registerKey("giant_sequoia");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> ARAUCARIA_KEY = registerKey("araucaria");
@@ -90,6 +94,8 @@ public class ModConfiguredFeatures
     public static RegistryKey<ConfiguredFeature<?, ?>> THUJA_KEY = registerKey("thuja");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> CEDAR_KEY = registerKey("cedar");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> CEDAR_HIGHLANDS_KEY = registerKey("cedar_highlands");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> MEGA_PINE_KEY = registerKey("mega_pine");
 
@@ -129,19 +135,33 @@ public class ModConfiguredFeatures
 
     public static RegistryKey<ConfiguredFeature<?, ?>> WOOD_SORREL_KEY = registerKey("wood_sorrel");
 
+    public static RegistryKey<ConfiguredFeature<?, ?>> ALPINE_GENTIAN_KEY = registerKey("alpine_gentian");
+
     public static RegistryKey<ConfiguredFeature<?, ?>> MARSH_MOSS_KEY = registerKey("marsh_moss");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> FIR_FOREST_GRASS_KEY = registerKey("fir_forest_grass");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> WHITE_MUSHROOM_KEY = registerKey("white_mushroom");
 
+    public static RegistryKey<ConfiguredFeature<?, ?>> GOLDEN_LARCH_FOREST_SPRING_KEY = registerKey("golden_larch_forest_spring");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> GOLDEN_CHANTRELLE_KEY = registerKey("golden_chantrelle");
+
     public static RegistryKey<ConfiguredFeature<?, ?>> HUGE_WHITE_MUSHROOM_KEY = registerKey("huge_white_mushroom");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> HUGE_GOLDEN_CHANTRELLE_KEY = registerKey("huge_golden_chantrelle");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> PINE_FOREST_FLOWERS_KEY = registerKey("pine_forest_flowers");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> PINE_FOREST_GRASS_KEY = registerKey("pine_forest_grass");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> SEQUOIA_FOREST_GRASS_KEY = registerKey("sequoia_forest_grass");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> CEDAR_HIGHLANDS_GRASS_KEY = registerKey("cedar_highlands_grass");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> GOLDEN_LARCH_GRASS_KEY = registerKey("golden_larch_grass");
+
+    public static RegistryKey<ConfiguredFeature<?, ?>> SEQUOIA_FOREST_SHORT_GRASS_KEY = registerKey("sequoia_forest_short_grass");
 
     public static RegistryKey<ConfiguredFeature<?, ?>> BOREAL_MARSH_GRASS_KEY = registerKey("boreal_marsh_grass");
 
@@ -170,7 +190,7 @@ public class ModConfiguredFeatures
                         0.25F, 0.5F, 0.16666667F, 0.33333334F),
 
                 new TwoLayersFeatureSize(2, 2, 0)).ignoreVines().decorators(ImmutableList.of(
-                        new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.HAZELNUT_COVER), 2, 0.75f))).ignoreVines().build());
+                        new LeafCarpetDecorator(BlockStateProvider.of(COVERS.get("hazelnut")), 2, 1, 0.75f))).ignoreVines().build());
 
         register(context, HORNBEAM_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("hornbeam")),
@@ -185,7 +205,9 @@ public class ModConfiguredFeatures
                 BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("hawthorn")),
                 new LargeOakTrunkPlacer(6, 2, 2),
 
-                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("hawthorn")),
+                new WeightedBlockStateProvider(DataPool.<BlockState>builder()
+                        .add(ModBlockSetsHelper.LEAVES.get("hawthorn").getDefaultState(), 3)
+                        .add(ModBlockSetsHelper.FRUITED_LEAVES.get("hawthorn").getDefaultState(), 2)),
                 new CherryFoliagePlacer(ConstantIntProvider.create(4), ConstantIntProvider.create(0), ConstantIntProvider.create(7),
                         0.25F, 0.5F, 0.08F, 0.16F),
 
@@ -194,7 +216,9 @@ public class ModConfiguredFeatures
         register(context, QUINCE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("quince")),
                 new ForkingTrunkPlacer(5, 2, 2),
-                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("quince")),
+                new WeightedBlockStateProvider(DataPool.<BlockState>builder()
+                                .add(ModBlockSetsHelper.LEAVES.get("quince").getDefaultState(), 5)
+                                .add(ModBlockSetsHelper.FRUITED_LEAVES.get("quince").getDefaultState(), 2)),
                 new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
                 new TwoLayersFeatureSize(1, 0, 1)
         ).ignoreVines().build());
@@ -210,7 +234,9 @@ public class ModConfiguredFeatures
                         UniformIntProvider.create(-1, 0),
                         ConstantIntProvider.create(1)
                 ),
-                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("plum")),
+                new WeightedBlockStateProvider(DataPool.<BlockState>builder()
+                        .add(ModBlockSetsHelper.LEAVES.get("plum").getDefaultState(), 4)
+                        .add(ModBlockSetsHelper.FRUITED_LEAVES.get("plum").getDefaultState(), 2)),
                 new CherryFoliagePlacer(
                         ConstantIntProvider.create(4),
                         ConstantIntProvider.create(1),
@@ -234,7 +260,9 @@ public class ModConfiguredFeatures
                         UniformIntProvider.create(-1, 0),
                         ConstantIntProvider.create(1)
                 ),
-                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("mango")),
+                new WeightedBlockStateProvider(DataPool.<BlockState>builder()
+                        .add(ModBlockSetsHelper.LEAVES.get("mango").getDefaultState(), 4)
+                        .add(ModBlockSetsHelper.FRUITED_LEAVES.get("mango").getDefaultState(), 2)),
                 new LargeOakFoliagePlacer(
                         UniformIntProvider.create(2, 4),
                         UniformIntProvider.create(0, 2),
@@ -258,7 +286,9 @@ public class ModConfiguredFeatures
         register(context, VIBURNUM_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("viburnum")),
                 new ViburnumTrunkPlacer(3, 5, 0),
-                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("viburnum")),
+                new WeightedBlockStateProvider(DataPool.<BlockState>builder()
+                        .add(ModBlockSetsHelper.LEAVES.get("viburnum").getDefaultState(), 3)
+                        .add(ModBlockSetsHelper.FRUITED_LEAVES.get("viburnum").getDefaultState(), 2)),
                 new BlobFoliagePlacer(ConstantIntProvider.create(2),  ConstantIntProvider.create(2), 3),
                 new TwoLayersFeatureSize(1, 0, 1)
         ).ignoreVines().build());
@@ -266,7 +296,9 @@ public class ModConfiguredFeatures
         register(context, WILD_CHERRY_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("wild_cherry")),
                 new StraightTrunkPlacer(3, 3, 2),
-                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("wild_cherry")),
+                new WeightedBlockStateProvider(DataPool.<BlockState>builder()
+                        .add(ModBlockSetsHelper.LEAVES.get("wild_cherry").getDefaultState(), 3)
+                        .add(ModBlockSetsHelper.FRUITED_LEAVES.get("wild_cherry").getDefaultState(), 2)),
                 new WildCherryFoliagePlacer(ConstantIntProvider.create(4),  ConstantIntProvider.create(1), 3),
                 new TwoLayersFeatureSize(1, 0, 1)
         ).ignoreVines().build());
@@ -274,7 +306,9 @@ public class ModConfiguredFeatures
         register(context, WHITE_MULBERRY_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("white_mulberry")),
                 new ForkingTrunkPlacer(3, 5, 2),
-                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("white_mulberry")),
+                new WeightedBlockStateProvider(DataPool.<BlockState>builder()
+                        .add(ModBlockSetsHelper.LEAVES.get("white_mulberry").getDefaultState(), 3)
+                        .add(ModBlockSetsHelper.FRUITED_LEAVES.get("white_mulberry").getDefaultState(), 2)),
                 new WhiteMulberryFoliagePlacer(ConstantIntProvider.create(3),  ConstantIntProvider.create(0), 3),
                 new TwoLayersFeatureSize(1, 0, 1)
         ).ignoreVines().build());
@@ -282,7 +316,9 @@ public class ModConfiguredFeatures
         register(context, BAUHINIA_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("bauhinia")),
                 new StraightTrunkPlacer(3, 2, 0),
-                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("bauhinia")),
+                new WeightedBlockStateProvider(DataPool.<BlockState>builder()
+                        .add(ModBlockSetsHelper.LEAVES.get("bauhinia").getDefaultState(), 3)
+                        .add(ModBlockSetsHelper.FRUITED_LEAVES.get("bauhinia").getDefaultState(), 1)),
                 new BlobFoliagePlacer(
                         ConstantIntProvider.create(3),
                         ConstantIntProvider.create(2),
@@ -291,7 +327,7 @@ public class ModConfiguredFeatures
                 new TwoLayersFeatureSize(1, 0, 2)
         ).decorators(ImmutableList.of(
                 new CustomVineDecorator(0.05f, ModBlocks.BAUHINIA_VINES),
-                new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.BAUHINIA_COVER), 2, 0.75f),
+                new LeafCarpetDecorator(BlockStateProvider.of(COVERS.get("bauhinia")), 2, 1, 0.75f),
                 new CustomAlterGroundTreeDecorator(0.05f, BlockStateProvider.of(Blocks.WATER), BlockStateProvider.of(Blocks.GRASS_BLOCK)),
                 new CustomAlterGroundTreeDecorator(0.05f, BlockStateProvider.of(ModBlocks.ORCHID_GRASS_BLOCK), BlockStateProvider.of(Blocks.GRASS_BLOCK)))).build());
 
@@ -302,7 +338,7 @@ public class ModConfiguredFeatures
                 new PineFoliagePlacer(ConstantIntProvider.create(1), ConstantIntProvider.create(1), UniformIntProvider.create(3, 4)),
                 new TwoLayersFeatureSize(2, 0, 2)
         ).ignoreVines().decorators(ImmutableList.of(
-                new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.PINE_COVER), 2, 0.75f),
+                new LeafCarpetDecorator(BlockStateProvider.of(COVERS.get("pine")), 2, 1, 0.75f),
                 new CustomVineLogDecorator(0.5f, ModBlocks.PINE_RESIN),
                 new CustomAlterGroundTreeDecorator(0.15f, BlockStateProvider.of(ModBlocks.DIRTED_GRASS_BLOCK), BlockStateProvider.of(Blocks.GRASS_BLOCK)))).build());
 
@@ -316,8 +352,8 @@ public class ModConfiguredFeatures
                         ConstantIntProvider.create(6)
                 ),
                 new TwoLayersFeatureSize(3, 0, 3))
-                .ignoreVines().decorators(ImmutableList.of(new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.REINDEER_LICHEN_CARPET), 0, 0.05f),
-                        new LeafCarpetDecorator(BlockStateProvider.of(Blocks.SNOW), 5, 0.35f))).build());
+                .ignoreVines().decorators(ImmutableList.of(new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.REINDEER_LICHEN_CARPET), 0, 1, 0.05f),
+                        new LeafCarpetDecorator(BlockStateProvider.of(Blocks.SNOW), 5, 1, 0.35f))).build());
 
         register(context, ARAUCARIA_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("araucaria")),
@@ -328,16 +364,19 @@ public class ModConfiguredFeatures
                         ConstantIntProvider.create(0)
                 ),
                 new TwoLayersFeatureSize(1, 0, 1)
-        ).ignoreVines().build());
+        ).ignoreVines().decorators(ImmutableList.of(
+                new LeafCarpetDecorator(BlockStateProvider.of(COVERS.get("araucaria")), 2, 1, 0.35f))).build());
 
         register(context, JUNIPER_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("juniper")),
                 new ForkingTrunkPlacer(4, 2, 1),
-                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("juniper")),
+                new WeightedBlockStateProvider(DataPool.<BlockState>builder()
+                        .add(ModBlockSetsHelper.LEAVES.get("juniper").getDefaultState(), 4)
+                        .add(ModBlockSetsHelper.FRUITED_LEAVES.get("juniper").getDefaultState(), 2)),
                 new DarkOakFoliagePlacer(ConstantIntProvider.create(1), ConstantIntProvider.create(0)),
                 new TwoLayersFeatureSize(1, 0, 2)
         ).ignoreVines().decorators(ImmutableList.of(
-                new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.JUNIPER_COVER), 2, 0.75f))).build());
+                new LeafCarpetDecorator(BlockStateProvider.of(COVERS.get("juniper")), 2, 1, 0.75f))).build());
 
         register(context, MOUNTAIN_HEMLOCK_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("mountain_hemlock")),
@@ -345,7 +384,8 @@ public class ModConfiguredFeatures
                 BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("mountain_hemlock")),
                 new BushFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(2), 3),
                 new TwoLayersFeatureSize(2, 0, 2)
-        ).ignoreVines().build());
+        ).ignoreVines().decorators(ImmutableList.of(
+                new LeafCarpetDecorator(BlockStateProvider.of(COVERS.get("mountain_hemlock")), 2, 1, 0.35f))).build());
 
         register(context, BALD_CYPRESS_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("bald_cypress")),
@@ -393,7 +433,8 @@ public class ModConfiguredFeatures
         ).decorators(ImmutableList.of(
                 new SpanishMossTreeDecorator(0.15f),
                 new CustomAlterGroundTreeDecorator(1f, BlockStateProvider.of(Blocks.WATER), BlockStateProvider.of(ModBlocks.BOG_SOIL_COVER)),
-                new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.MARSH_MOSS_PLANT), 5, 0.35f)
+                new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.MARSH_MOSS_PLANT), 5, 3, 0.35f),
+                new LeafCarpetDecorator(BlockStateProvider.of(COVERS.get("bald_cypress")), 3, 3, 0.25f)
         )).ignoreVines().build());
 
         register(context, THUJA_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
@@ -406,7 +447,9 @@ public class ModConfiguredFeatures
                         ConstantIntProvider.create(6)
                 ),
                 new TwoLayersFeatureSize(1, 0, 1))
-                .ignoreVines().decorators(ImmutableList.of(new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.MARSH_MOSS_PLANT), 2, 0.75f))).build());
+                .ignoreVines().decorators(ImmutableList.of(
+                        new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.MARSH_MOSS_PLANT), 2, 1, 0.75f),
+                        new LeafCarpetDecorator(BlockStateProvider.of(COVERS.get("thuja")), 3, 1, 0.25f))).build());
 
         register(context, CEDAR_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("cedar")),
@@ -416,7 +459,7 @@ public class ModConfiguredFeatures
                 new ThreeLayersFeatureSize(1, 1, 0, 1, 2, OptionalInt.empty())
         ).ignoreVines().decorators(ImmutableList.of(
                 new AlterGroundTreeDecorator(BlockStateProvider.of(Blocks.PODZOL)),
-                new LeafCarpetDecorator(BlockStateProvider.of(Blocks.SNOW), 5, 0.45f))).build());
+                new LeafCarpetDecorator(BlockStateProvider.of(Blocks.SNOW), 5, 2, 0.45f))).build());
 
         register(context, YOUNG_SEQUOIA_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("sequoia")),
@@ -424,8 +467,9 @@ public class ModConfiguredFeatures
                 BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("sequoia")),
                 new CedarFoliagePlacer(ConstantIntProvider.create(0), ConstantIntProvider.create(0)),
                 new ThreeLayersFeatureSize(1, 1, 0, 1, 1, OptionalInt.empty())
-        ).ignoreVines().decorators(ImmutableList.of(new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.FLAT_GRASS), 3, 0.35f),
-                new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.SEQUOIA_COVER), 3, 0.1f))).build());
+        ).ignoreVines().decorators(ImmutableList.of(
+                new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.FLAT_GRASS), 3, 2, 0.35f),
+                new LeafCarpetDecorator(BlockStateProvider.of(COVERS.get("sequoia")), 3, 2, 0.1f))).build());
 
         register(context, SEQUOIA_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("sequoia")),
@@ -433,8 +477,46 @@ public class ModConfiguredFeatures
                 BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("sequoia")),
                 new SequoiaFoliagePlacer(false),
                 new ThreeLayersFeatureSize(1, 1, 0, 1, 1, OptionalInt.empty())
-        ).ignoreVines().decorators(ImmutableList.of(new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.FLAT_GRASS), 3, 0.25f),
-                new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.SEQUOIA_COVER), 3, 0.2f))).build());
+        ).ignoreVines().decorators(ImmutableList.of(new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.FLAT_GRASS), 3, 3,0.25f),
+                new LeafCarpetDecorator(BlockStateProvider.of(COVERS.get("sequoia")), 3, 3, 0.2f))).build());
+
+        register(context, CRYPTOMERIA_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("cryptomeria")),
+                new StraightTrunkPlacer(8, 4, 2),
+                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("cryptomeria")),
+                new SpruceFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(1), UniformIntProvider.create(4, 5)),
+                new TwoLayersFeatureSize(2, 0, 2)).ignoreVines().decorators(ImmutableList.of(
+                        new CustomVineLogDecorator(0.85f, ModBlocks.CRYPTOMERIA_RESIN),
+                        new LeafCarpetDecorator(BlockStateProvider.of(COVERS.get("cryptomeria")), 3, 1, 0.25f))).build());
+
+        register(context, LARCH_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("larch")),
+                new StraightTrunkPlacer(10, 4, 2),
+                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("larch")),
+                new SpruceFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(1), UniformIntProvider.create(6, 8)),
+                new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().decorators(ImmutableList.of(
+                new LeafCarpetDecorator(BlockStateProvider.of(COVERS.get("larch")), 3, 1, 0.35f),
+                new LeafCarpetDecorator(BlockStateProvider.of(Blocks.MOSS_CARPET), 4, 1, 0.25f))).build());
+
+        register(context, CEDAR_HIGHLANDS_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("cedar")),
+                new CedarGiantTrunkPlacer(10, 2, 3),
+                BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("cedar")),
+                new CedarFoliagePlacer(ConstantIntProvider.create(0), ConstantIntProvider.create(0)),
+                new ThreeLayersFeatureSize(1, 1, 0, 1, 2, OptionalInt.empty())
+        ).ignoreVines().decorators(ImmutableList.of(
+                new LeafCarpetDecorator(BlockStateProvider.of(COVERS.get("cedar")), 3, 2, 0.45f))).build());
+
+        register(context, YEW_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("yew")),
+                new SequoiaTrunkPlacer(5, 1, 2, true),
+                new WeightedBlockStateProvider(DataPool.<BlockState>builder()
+                        .add(ModBlockSetsHelper.LEAVES.get("yew").getDefaultState(), 5)
+                        .add(ModBlockSetsHelper.FRUITED_LEAVES.get("yew").getDefaultState(), 2)),
+                new SequoiaFoliagePlacer(true),
+                new ThreeLayersFeatureSize(1, 1, 0, 1, 1, OptionalInt.empty())
+        ).ignoreVines().decorators(ImmutableList.of(
+                new LeafCarpetDecorator(BlockStateProvider.of(COVERS.get("yew")), 3, 4, 0.25f))).build());
 
         register(context, GIANT_SEQUOIA_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("sequoia")),
@@ -442,8 +524,8 @@ public class ModConfiguredFeatures
                 BlockStateProvider.of(ModBlockSetsHelper.LEAVES.get("sequoia")),
                 new SequoiaFoliagePlacer(true),
                 new ThreeLayersFeatureSize(1, 1, 0, 1, 1, OptionalInt.empty())
-        ).ignoreVines().decorators(ImmutableList.of(new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.FLAT_GRASS), 3, 0.15f),
-                new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.SEQUOIA_COVER), 3, 0.3f))).build());
+        ).ignoreVines().decorators(ImmutableList.of(new LeafCarpetDecorator(BlockStateProvider.of(ModBlocks.FLAT_GRASS), 3, 4, 0.15f),
+                new LeafCarpetDecorator(BlockStateProvider.of(COVERS.get("sequoia")), 3, 4, 0.3f))).build());
 
         register(context, MEGA_PINE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlockSetsHelper.LOGS.get("pine")),
@@ -495,9 +577,45 @@ public class ModConfiguredFeatures
                                 .add(Blocks.FERN.getDefaultState(), 35)
                                 .add(Blocks.TALL_GRASS.getDefaultState(), 15)
                                 .add(Blocks.LARGE_FERN.getDefaultState(), 10)
-                                .add(ModBlocks.RED_TRILLIUM.getDefaultState(), 3)
+                                .add(FLOWERS.get("red_trillium").getDefaultState(), 3)
                                 .add(Blocks.LILY_OF_THE_VALLEY.getDefaultState(), 1)
                                 .add(Blocks.ALLIUM.getDefaultState(), 1)
+                        ), 1024
+                ));
+
+        register(context, CEDAR_HIGHLANDS_GRASS_KEY, Feature.RANDOM_PATCH,
+                createRandomPatchFeatureConfig(
+                        new WeightedBlockStateProvider(DataPool.<BlockState>builder()
+                                .add(Blocks.SHORT_GRASS.getDefaultState(), 40)
+                                .add(Blocks.FERN.getDefaultState(), 25)
+                                .add(Blocks.TALL_GRASS.getDefaultState(), 15)
+                                .add(FLOWERS.get("red_trillium").getDefaultState(), 5)
+                                .add(Blocks.AZURE_BLUET.getDefaultState(), 3)
+                                .add(Blocks.CORNFLOWER.getDefaultState(), 3)
+                                .add(Blocks.OXEYE_DAISY.getDefaultState(), 2)
+                                .add(Blocks.DANDELION.getDefaultState(), 2)
+                        ), 768
+                ));
+
+        register(context, GOLDEN_LARCH_GRASS_KEY, Feature.RANDOM_PATCH,
+                createRandomPatchFeatureConfig(
+                        new WeightedBlockStateProvider(DataPool.<BlockState>builder()
+                                .add(Blocks.SHORT_GRASS.getDefaultState(), 40)
+                                .add(Blocks.FERN.getDefaultState(), 20)
+                                .add(Blocks.TALL_GRASS.getDefaultState(), 15)
+                                .add(FLOWERS.get("golden_aster").getDefaultState(), 5)
+                                .add(TALL_FLOWERS.get("goldenrod").getDefaultState(), 3)
+                                .add(Blocks.OXEYE_DAISY.getDefaultState(), 3)
+                                .add(Blocks.DANDELION.getDefaultState(), 2)
+                                .add(Blocks.AZURE_BLUET.getDefaultState(), 2)
+                        ), 896
+                ));
+
+        register(context, SEQUOIA_FOREST_SHORT_GRASS_KEY, Feature.RANDOM_PATCH,
+                createRandomPatchFeatureConfig(
+                        new WeightedBlockStateProvider(DataPool.<BlockState>builder()
+                                .add(Blocks.SHORT_GRASS.getDefaultState(), 35)
+                                .add(Blocks.FERN.getDefaultState(), 65)
                         ), 1024
                 ));
 
@@ -518,27 +636,31 @@ public class ModConfiguredFeatures
                 ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
                         new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.WHITE_MUSHROOM))));
 
+        register(context, GOLDEN_CHANTRELLE_KEY, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.GOLDEN_CHANTRELLE))));
+
         register(context, LARGE_CELANDINE_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
-                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.LARGE_CELANDINE))));
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(TALL_FLOWERS.get("large_celandine")))));
 
         register(context, SEDGE_KEY, ModFeatures.SEDGE, new ProbabilityConfig(1f));
 
         register(context, BLUEGRASS_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
-                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.BLUEGRASS))));
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(TALL_FLOWERS.get("bluegrass")))));
 
         register(context, GERANIUM_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
-                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.GERANIUM))));
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(FLOWERS.get("geranium")))));
 
         register(context, XEROCHRYSUM_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
-                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.XEROCHRYSUM))));
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(FLOWERS.get("xerochrysum")))));
 
         register(context, THISTLE_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
-                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.THISTLE))));
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(FLOWERS.get("thistle")))));
 
         register(context, PRICKLY_GRASS_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
@@ -546,17 +668,17 @@ public class ModConfiguredFeatures
 
         register(context, BLUEBELL_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
-                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.BLUEBELL))));
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(FLOWERS.get("bluebell")))));
 
         register(context, LARGE_ORCHID_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
-                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.LARGE_ORCHID)),
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(TALL_FLOWERS.get("large_orchid"))),
                         List.of(Blocks.GRASS_BLOCK, Blocks.DIRT),
                         64));
 
         register(context, ORCHID_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
-                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.ORCHID))));
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(FLOWERS.get("orchid")))));
 
         DataPool.Builder<BlockState> builder = DataPool.builder();
         for (int i = 1; i <= 4; i++)
@@ -575,6 +697,15 @@ public class ModConfiguredFeatures
         register(context, WOOD_SORREL_KEY, Feature.RANDOM_PATCH,
                 new RandomPatchFeatureConfig(96, 6, 2, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
                         new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(builder1)))));
+
+        DataPool.Builder<BlockState> builder3 = DataPool.builder();
+        for (int i = 1; i <= 4; i++)
+            for (Direction direction : Direction.Type.HORIZONTAL)
+                builder3.add(ModBlocks.ALPINE_GENTIAN.getDefaultState().with(FlowerbedBlock.FLOWER_AMOUNT, Integer.valueOf(i)).with(FlowerbedBlock.FACING, direction), 1);
+
+        register(context, ALPINE_GENTIAN_KEY, Feature.RANDOM_PATCH,
+                new RandomPatchFeatureConfig(96, 6, 2, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(builder3)))));
 
         DataPool.Builder<BlockState> builder2 = DataPool.builder();
         for (int i = 1; i <= 4; i++)
@@ -625,6 +756,18 @@ public class ModConfiguredFeatures
                 )
         );
 
+        register(context, HUGE_GOLDEN_CHANTRELLE_KEY, ModFeatures.HUGE_GOLDEN_CHANTRELLE,
+                new HugeMushroomFeatureConfig(
+                        BlockStateProvider.of(
+                                ModBlocks.GOLDEN_CHANTRELLE_BLOCK.getDefaultState().with(MushroomBlock.UP, Boolean.valueOf(true)).with(MushroomBlock.DOWN, Boolean.valueOf(false))
+                        ),
+                        BlockStateProvider.of(
+                                ModBlocks.GOLDEN_CHANTRELLE_STEM.getDefaultState().with(MushroomBlock.UP, Boolean.valueOf(false)).with(MushroomBlock.DOWN, Boolean.valueOf(false))
+                        ),
+                        2
+                )
+        );
+
         register(context, ORCHID_LILY_KEY, Feature.RANDOM_PATCH,
                 new RandomPatchFeatureConfig(
                         10, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
@@ -642,6 +785,25 @@ public class ModConfiguredFeatures
                                         ((RandomLilyPadBlock) ModBlocks.WHITE_LILY_PAD).getMaxVariants(), 0.7f))))));
 
         register(context, COBBLESTONE_ROCK_KEY, Feature.FOREST_ROCK, new SingleStateFeatureConfig(Blocks.COBBLESTONE.getDefaultState()));
+
+        register(context, GOLDEN_LARCH_FOREST_SPRING_KEY, Feature.SPRING_FEATURE, new SpringFeatureConfig(
+                Fluids.WATER.getDefaultState(),
+                true,
+                2,
+                3,
+                RegistryEntryList.of(
+                        Block::getRegistryEntry,
+                        Blocks.STONE,
+                        Blocks.GRANITE,
+                        Blocks.DIORITE,
+                        Blocks.ANDESITE,
+                        Blocks.DEEPSLATE,
+                        Blocks.TUFF,
+                        Blocks.CALCITE,
+                        Blocks.DIRT,
+                        Blocks.SNOW_BLOCK,
+                        Blocks.POWDER_SNOW,
+                        Blocks.PACKED_ICE)));
 
         register(context, ORCHID_BIOME_GRASS_1_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(

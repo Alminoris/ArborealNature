@@ -37,7 +37,20 @@
             "Name": "arborealnature:marsh_moss_plant"
           }
         },
-        "radius": 5
+        "radius": 5,
+        "trunk_thickness": 3
+      },
+      {
+        "type": "minecraft:leaf_carpet_decorator",
+        "probability": 0.25,
+        "provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "arborealnature:bald_cypress_cover"
+          }
+        },
+        "radius": 3,
+        "trunk_thickness": 3
       }
     ],
     "dirt_provider": {

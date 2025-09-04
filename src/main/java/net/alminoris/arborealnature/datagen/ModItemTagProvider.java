@@ -85,7 +85,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(ModBlocks.WARPED_CHISELED_SLAB.asItem())
                 .add(ModBlocks.MANGROVE_CHISELED_SLAB.asItem())
                 .add(ModBlocks.CHERRY_CHISELED_SLAB.asItem())
-                .add(ModBlocks.PINE_RESIN_BRICKS_SLAB.asItem());
+                .add(ModBlocks.PINE_RESIN_BRICKS_SLAB.asItem())
+                .add(ModBlocks.CRYPTOMERIA_RESIN_BRICKS_SLAB.asItem());
 
         getOrCreateTagBuilder(ItemTags.WOODEN_STAIRS)
                 .add(ModBlocks.OAK_CHISELED_STAIRS.asItem())
@@ -98,7 +99,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(ModBlocks.WARPED_CHISELED_STAIRS.asItem())
                 .add(ModBlocks.MANGROVE_CHISELED_STAIRS.asItem())
                 .add(ModBlocks.CHERRY_CHISELED_STAIRS.asItem())
-                .add(ModBlocks.PINE_RESIN_BRICKS_STAIRS.asItem());
+                .add(ModBlocks.PINE_RESIN_BRICKS_STAIRS.asItem())
+                .add(ModBlocks.CRYPTOMERIA_RESIN_BRICKS_STAIRS.asItem());
 
         for (String name : WOOD_NAMES)
         {
@@ -161,7 +163,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
                         ModItems.MOOSE_VENISON,
                         ModItems.COOKED_MOOSE_VENISON,
                         ModItems.CARIBOU_VENISON,
-                        ModItems.COOKED_CARIBOU_VENISON
-                );
+                        ModItems.COOKED_CARIBOU_VENISON,
+                        ModItems.DUCK,
+                        ModItems.COOKED_DUCK);
     }
 }

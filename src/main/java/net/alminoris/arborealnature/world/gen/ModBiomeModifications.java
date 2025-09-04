@@ -28,6 +28,9 @@ public class ModBiomeModifications
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.MUSHROOM_FIELDS),
                 GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.HUGE_WHITE_MUSHROOM_PLACED_KEY);
 
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.MUSHROOM_FIELDS),
+                GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.HUGE_GOLDEN_CHANTRELLE_PLACED_KEY);
+
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.DARK_FOREST),
                 GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.LARGE_ORCHID_PLACED_KEY);
 

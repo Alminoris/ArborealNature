@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "MISC",
+  "ingredients": [
+    {
+      "item": "arborealnature:bald_cypress_cone_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "arborealnature:bald_cypress_cone"
+  }
+}

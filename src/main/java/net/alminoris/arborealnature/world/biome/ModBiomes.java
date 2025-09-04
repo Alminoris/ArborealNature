@@ -43,6 +43,12 @@ public class ModBiomes
     public static final RegistryKey<Biome> SEQUOIA_FOREST = RegistryKey.of(RegistryKeys.BIOME,
             Identifier.of(ArborealNature.MOD_ID, "sequoia_forest_biome"));
 
+    public static final RegistryKey<Biome> CEDAR_HIGHLANDS = RegistryKey.of(RegistryKeys.BIOME,
+            Identifier.of(ArborealNature.MOD_ID, "cedar_highlands_biome"));
+
+    public static final RegistryKey<Biome> GOLDEN_LARCH_FOREST = RegistryKey.of(RegistryKeys.BIOME,
+            Identifier.of(ArborealNature.MOD_ID, "golden_larch_forest_biome"));
+
     public static void bootstrap(Registerable<Biome> context)
     {
         RegistryEntryLookup<PlacedFeature> placedFeatures = context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
@@ -63,6 +69,10 @@ public class ModBiomes
         context.register(BOREAL_MARSH, borealMarshBiome(placedFeatures, configuredCarvers));
 
         context.register(SEQUOIA_FOREST, sequoiaForestBiome(placedFeatures, configuredCarvers));
+
+        context.register(CEDAR_HIGHLANDS, cedarHighlandsBiome(placedFeatures, configuredCarvers));
+
+        context.register(GOLDEN_LARCH_FOREST, goldenLarchForestBiome(placedFeatures, configuredCarvers));
     }
 
     public static void globalOverworldGeneration(GenerationSettings.LookupBackedBuilder builder)
@@ -202,6 +212,12 @@ public class ModBiomes
         GenerationSettings.LookupBackedBuilder biomeBuilder =
                 new GenerationSettings.LookupBackedBuilder(placedFeatures, configuredCarvers);
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
+
+        //spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.GREAT_BLUE_HERON, 75, 1, 2));
+
+        //spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.MARSH_ALLIGATOR, 40, 1, 2));
+
+        //spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.MOSQUITO_SWARM, 40, 1, 2));
 
         globalOverworldGeneration(biomeBuilder);
 
@@ -378,6 +394,12 @@ public class ModBiomes
         GenerationSettings.LookupBackedBuilder biomeBuilder = new GenerationSettings.LookupBackedBuilder(placedFeatures, configuredCarvers);
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
 
+        //spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.ELK, 75, 1, 5));
+
+        //spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.OWL, 40, 1, 2));
+
+        DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
+
         DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
 
         globalOverworldGeneration(biomeBuilder);
@@ -386,8 +408,11 @@ public class ModBiomes
 
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.SEQUOIA_PLACED_KEY);
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.GIANT_SEQUOIA_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.YOUNG_SEQUOIA_PLACED_KEY);
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.MOUNTAIN_HEMLOCK_PLACED_KEY);
-        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.SEQUOIA_FOREST_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.SEQUOIA_FOREST_GRASS_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.GOLDEN_CHANTRELLE_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.SEQUOIA_FOREST_SHORT_GRASS_PLACED_KEY);
 
         return new Biome.Builder()
                 .precipitation(true)
@@ -402,6 +427,86 @@ public class ModBiomes
                         .grassColor(0x4d7b3b)
                         .foliageColor(0x3e6c2e)
                         .fogColor(0x8ba88a)
+                        .moodSound(BiomeMoodSound.CAVE)
+                        .build())
+                .build();
+    }
+
+    public static Biome cedarHighlandsBiome(RegistryEntryLookup<PlacedFeature> placedFeatures, RegistryEntryLookup<ConfiguredCarver<?>> configuredCarvers)
+    {
+        GenerationSettings.LookupBackedBuilder biomeBuilder = new GenerationSettings.LookupBackedBuilder(placedFeatures, configuredCarvers);
+        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
+
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.RABBIT, 5, 2, 3));
+
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.GOAT, 45, 1, 2));
+
+        DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
+
+        globalOverworldGeneration(biomeBuilder);
+
+        biomeBuilder.feature(GenerationStep.Feature.FLUID_SPRINGS, MiscPlacedFeatures.SPRING_WATER);
+
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.CRYPTOMERIA_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.CEDAR_HIGHLANDS_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.YEW_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.CEDAR_HIGHLANDS_GRASS_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.ALPINE_GENTIAN_PLACED_KEY);
+
+        return new Biome.Builder()
+                .precipitation(true)
+                .downfall(0.8f)
+                .temperature(0.55f)
+                .generationSettings(biomeBuilder.build())
+                .spawnSettings(spawnBuilder.build())
+                .effects((new BiomeEffects.Builder())
+                        .waterColor(0x4b8c91)
+                        .waterFogColor(0x2e5558)
+                        .skyColor(0x8fbfb6)
+                        .grassColor(0x5f9b5a)
+                        .foliageColor(0x4a8750)
+                        .fogColor(0x8fae8b)
+                        .moodSound(BiomeMoodSound.CAVE)
+                        .build())
+                .build();
+    }
+
+    public static Biome goldenLarchForestBiome(RegistryEntryLookup<PlacedFeature> placedFeatures, RegistryEntryLookup<ConfiguredCarver<?>> configuredCarvers)
+    {
+        GenerationSettings.LookupBackedBuilder biomeBuilder = new GenerationSettings.LookupBackedBuilder(placedFeatures, configuredCarvers);
+        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
+
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.RABBIT, 5, 2, 3));
+
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.MALLARD, 100, 2, 3));
+
+        DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
+
+        DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
+
+        globalOverworldGeneration(biomeBuilder);
+
+        biomeBuilder.feature(GenerationStep.Feature.FLUID_SPRINGS, ModPlacedFeatures.GOLDEN_LARCH_FOREST_SPRING_PLACED_KEY);
+
+        biomeBuilder.feature(GenerationStep.Feature.FLUID_SPRINGS, MiscPlacedFeatures.SPRING_WATER);
+
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.LARCH_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.LARCH1_PLACED_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.GOLDEN_LARCH_GRASS_PLACED_KEY);
+
+        return new Biome.Builder()
+                .precipitation(true)
+                .temperature(0.6f)
+                .downfall(0.75f)
+                .generationSettings(biomeBuilder.build())
+                .spawnSettings(spawnBuilder.build())
+                .effects(new BiomeEffects.Builder()
+                        .waterColor(0x5fa28b)
+                        .waterFogColor(0x3c665b)
+                        .skyColor(0xc2d6cf)
+                        .fogColor(0xcad8b3)
+                        .grassColor(0xa0b55f)
+                        .foliageColor(0xd6b84f)
                         .moodSound(BiomeMoodSound.CAVE)
                         .build())
                 .build();

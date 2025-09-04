@@ -40,6 +40,12 @@
     "arborealnature:sequoia_chiseled_stairs",
     "arborealnature:mountain_hemlock_stairs",
     "arborealnature:mountain_hemlock_chiseled_stairs",
+    "arborealnature:cryptomeria_stairs",
+    "arborealnature:cryptomeria_chiseled_stairs",
+    "arborealnature:yew_stairs",
+    "arborealnature:yew_chiseled_stairs",
+    "arborealnature:larch_stairs",
+    "arborealnature:larch_chiseled_stairs",
     "arborealnature:olive_chiseled_stairs",
     "arborealnature:tamarisk_chiseled_stairs",
     "arborealnature:western_serviceberry_chiseled_stairs",
@@ -81,6 +87,7 @@
     "arborealnature:warped_chiseled_stairs",
     "arborealnature:mangrove_chiseled_stairs",
     "arborealnature:cherry_chiseled_stairs",
-    "arborealnature:pine_resin_bricks_stairs"
+    "arborealnature:pine_resin_bricks_stairs",
+    "arborealnature:cryptomeria_resin_bricks_stairs"
   ]
 }

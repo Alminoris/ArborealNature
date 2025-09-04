@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "arborealnature:block/cryptomeria_slab"
+    },
+    "type=double": {
+      "model": "arborealnature:block/cryptomeria_planks"
+    },
+    "type=top": {
+      "model": "arborealnature:block/cryptomeria_slab_top"
+    }
+  }
+}

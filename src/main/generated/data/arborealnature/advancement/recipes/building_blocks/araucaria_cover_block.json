@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_araucaria_cover": {
+      "conditions": {
+        "items": [
+          {
+            "items": "arborealnature:araucaria_cover"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "arborealnature:araucaria_cover_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_araucaria_cover"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "arborealnature:araucaria_cover_block"
+    ]
+  }
+}

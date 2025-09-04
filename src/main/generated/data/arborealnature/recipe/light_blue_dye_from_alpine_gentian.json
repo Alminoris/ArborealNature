@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "MISC",
+  "ingredients": [
+    {
+      "item": "arborealnature:alpine_gentian"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:light_blue_dye"
+  }
+}

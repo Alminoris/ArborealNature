@@ -22,6 +22,9 @@ public class ModParticles
     public static final SimpleParticleType BALD_CYPRESS_NEEDLES = FabricParticleTypes.simple();
     public static final SimpleParticleType THUJA_NEEDLES = FabricParticleTypes.simple();
     public static final SimpleParticleType SEQUOIA_NEEDLES = FabricParticleTypes.simple();
+    public static final SimpleParticleType CRYPTOMERIA_NEEDLES = FabricParticleTypes.simple();
+    public static final SimpleParticleType YEW_NEEDLES = FabricParticleTypes.simple();
+    public static final SimpleParticleType LARCH_NEEDLES = FabricParticleTypes.simple();
 
     public static void registerParticles()
     {
@@ -41,6 +44,24 @@ public class ModParticles
                 Registries.PARTICLE_TYPE,
                 Identifier.of(ArborealNature.MOD_ID, "sequoia_needles"),
                 SEQUOIA_NEEDLES
+        );
+
+        Registry.register(
+                Registries.PARTICLE_TYPE,
+                Identifier.of(ArborealNature.MOD_ID, "cryptomeria_needles"),
+                CRYPTOMERIA_NEEDLES
+        );
+
+        Registry.register(
+                Registries.PARTICLE_TYPE,
+                Identifier.of(ArborealNature.MOD_ID, "yew_needles"),
+                YEW_NEEDLES
+        );
+
+        Registry.register(
+                Registries.PARTICLE_TYPE,
+                Identifier.of(ArborealNature.MOD_ID, "larch_needles"),
+                LARCH_NEEDLES
         );
 
         Registry.register(
