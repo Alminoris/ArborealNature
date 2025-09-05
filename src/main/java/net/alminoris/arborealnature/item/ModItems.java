@@ -50,6 +50,9 @@ public class ModItems
     public static final Item GREAT_BLUE_HERON_SPAWN_EGG = registerItem("great_blue_heron_spawn_egg", new SpawnEggItem(
             ModEntities.GREAT_BLUE_HERON, 0xadb9cc, 0X28435e, new Item.Settings()));
 
+    public static final Item MOSQUITO_SWARM_SPAWN_EGG = registerItem("mosquito_swarm_spawn_egg", new SpawnEggItem(
+            ModEntities.MOSQUITO_SWARM, 0x3f3220, 0X330400, new Item.Settings()));
+
     public static final Item PINE_RESIN = registerItem("pine_resin_item", new Item(
             new Item.Settings().maxCount(16)));
 

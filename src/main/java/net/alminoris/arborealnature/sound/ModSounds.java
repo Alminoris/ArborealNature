@@ -56,6 +56,10 @@ public class ModSounds
     public static final SoundEvent SOUND_TENREC_HURT = registerSoundEvent("sound_tenrec_hurt");
     public static final SoundEvent SOUND_TENREC_DEATH = registerSoundEvent("sound_tenrec_death");
 
+    public static final SoundEvent SOUND_MOSQUITO_SWARM_AMBIENT = registerSoundEvent("sound_mosquito_swarm_ambient");
+    public static final SoundEvent SOUND_MOSQUITO_SWARM_HURT = registerSoundEvent("sound_mosquito_swarm_hurt");
+    public static final SoundEvent SOUND_MOSQUITO_SWARM_DEATH = registerSoundEvent("sound_mosquito_swarm_death");
+
     private static SoundEvent registerSoundEvent(String name)
     {
         Identifier id = Identifier.of(ArborealNature.MOD_ID, name);

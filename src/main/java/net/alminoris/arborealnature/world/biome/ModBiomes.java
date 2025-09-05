@@ -217,7 +217,7 @@ public class ModBiomes
 
         //spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.MARSH_ALLIGATOR, 40, 1, 2));
 
-        //spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.MOSQUITO_SWARM, 40, 1, 2));
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.MOSQUITO_SWARM, 100, 3, 5));
 
         globalOverworldGeneration(biomeBuilder);
 

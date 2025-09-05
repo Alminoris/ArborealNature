@@ -1,7 +1,6 @@
 package net.alminoris.arborealnature.entity.client;
 
 import net.alminoris.arborealnature.ArborealNature;
-import net.alminoris.arborealnature.entity.custom.FigeaterBeetleEntity;
 import net.alminoris.arborealnature.entity.custom.MosquitoSwarmEntity;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
@@ -13,30 +12,32 @@ import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
-public class FigeaterBeetleRenderer extends GeoEntityRenderer<FigeaterBeetleEntity>
+public class MosquitoSwarmRenderer extends GeoEntityRenderer<MosquitoSwarmEntity>
 {
-    public FigeaterBeetleRenderer(EntityRendererFactory.Context renderManager)
+    public MosquitoSwarmRenderer(EntityRendererFactory.Context renderManager)
     {
-        super(renderManager, new FigeaterBeetleModel());
+        super(renderManager, new MosquitoSwarmModel());
     }
 
     @Override
-    public Identifier getTextureLocation(FigeaterBeetleEntity animatable)
+    public Identifier getTextureLocation(MosquitoSwarmEntity animatable)
     {
-        return Identifier.of(ArborealNature.MOD_ID, "textures/entity/figeater_beetle.png");
+        return Identifier.of(ArborealNature.MOD_ID, "textures/entity/mosquito_swarm.png");
     }
 
     @Override
-    public void preRender(MatrixStack poseStack, FigeaterBeetleEntity entity, BakedGeoModel model, @Nullable VertexConsumerProvider bufferSource, @Nullable VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, int colour)
+    public void preRender(MatrixStack poseStack, MosquitoSwarmEntity entity, BakedGeoModel model, @Nullable VertexConsumerProvider bufferSource, @Nullable VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, int colour)
     {
         if (entity.isBaby())
-            poseStack.scale(0.4f, 0.4f, 0.4f);
-        else { poseStack.scale(1.0F, 1.0F, 1.0F); }
+        {
+            poseStack.scale(0.5f, 0.5f, 0.5f);
+        }
+
         super.preRender(poseStack, entity, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, colour);
     }
 
     @Override
-    public RenderLayer getRenderType(FigeaterBeetleEntity animatable, Identifier texture,
+    public RenderLayer getRenderType(MosquitoSwarmEntity animatable, Identifier texture,
                                      @Nullable VertexConsumerProvider bufferSource,
                                      float partialTick)
     {

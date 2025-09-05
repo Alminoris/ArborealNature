@@ -83,6 +83,12 @@
         "maxCount": 2,
         "minCount": 1,
         "weight": 75
+      },
+      {
+        "type": "arborealnature:mosquito_swarm",
+        "maxCount": 5,
+        "minCount": 3,
+        "weight": 100
       }
     ],
     "misc": [],

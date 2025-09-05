@@ -34,6 +34,11 @@ public class ModEntities
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, GreatBlueHeronEntity::new)
                     .dimensions(EntityDimensions.fixed(0.6f, 2.0f)).build());
 
+    public static final EntityType<MosquitoSwarmEntity> MOSQUITO_SWARM = Registry.register(
+            Registries.ENTITY_TYPE, Identifier.of(ArborealNature.MOD_ID, "mosquito_swarm"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, MosquitoSwarmEntity::new)
+                    .dimensions(EntityDimensions.fixed(1.0f, 0.75f)).build());
+
     public static final EntityType<FigeaterBeetleEntity> FIGEATER_BEETLE = Registry.register(
             Registries.ENTITY_TYPE, Identifier.of(ArborealNature.MOD_ID, "figeater_beetle"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, FigeaterBeetleEntity::new)
@@ -80,9 +85,6 @@ public class ModEntities
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, TenrecEntity::new)
                     .dimensions(EntityDimensions.fixed(1f, 0.625f)).build());
 
-
-    //GREAT BLUE HERON
-    //MOSQUITO SWARM
     //MARSH FROG (like skin)
     //AMERICAN ALLIGATOR
 }

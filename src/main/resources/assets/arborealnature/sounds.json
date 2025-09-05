@@ -183,5 +183,20 @@
   {
     "subtitle": "sounds.arborealnature.sound_great_blue_heron_death",
     "sounds": [ "arborealnature:sound_great_blue_heron_death" ]
+  },
+  "sound_mosquito_swarm_ambient":
+  {
+    "subtitle": "sounds.arborealnature.sound_mosquito_swarm_ambient",
+    "sounds": [ "arborealnature:sound_mosquito_swarm_ambient" ]
+  },
+  "sound_mosquito_swarm_hurt":
+  {
+    "subtitle": "sounds.arborealnature.sound_mosquito_swarm_hurt",
+    "sounds": [ "arborealnature:sound_mosquito_swarm_hurt" ]
+  },
+  "sound_mosquito_swarm_death":
+  {
+    "subtitle": "sounds.arborealnature.sound_mosquito_swarm_death",
+    "sounds": [ "arborealnature:sound_mosquito_swarm_death" ]
   }
 }
