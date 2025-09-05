@@ -29,6 +29,11 @@ public class ModEntities
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, MallardEntity::new)
                     .dimensions(EntityDimensions.fixed(0.625f, 1.0f)).build());
 
+    public static final EntityType<GreatBlueHeronEntity> GREAT_BLUE_HERON = Registry.register(
+            Registries.ENTITY_TYPE, Identifier.of(ArborealNature.MOD_ID, "great_blue_heron"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, GreatBlueHeronEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.6f, 2.0f)).build());
+
     public static final EntityType<FigeaterBeetleEntity> FIGEATER_BEETLE = Registry.register(
             Registries.ENTITY_TYPE, Identifier.of(ArborealNature.MOD_ID, "figeater_beetle"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, FigeaterBeetleEntity::new)

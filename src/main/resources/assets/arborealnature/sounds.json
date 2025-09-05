@@ -168,5 +168,20 @@
   {
     "subtitle": "sounds.arborealnature.sound_mallard_death",
     "sounds": [ "arborealnature:sound_mallard_death" ]
+  },
+  "sound_great_blue_heron_ambient":
+  {
+    "subtitle": "sounds.arborealnature.sound_great_blue_heron_ambient",
+    "sounds": [ "arborealnature:sound_great_blue_heron_ambient" ]
+  },
+  "sound_great_blue_heron_hurt":
+  {
+    "subtitle": "sounds.arborealnature.sound_great_blue_heron_hurt",
+    "sounds": [ "arborealnature:sound_great_blue_heron_hurt" ]
+  },
+  "sound_great_blue_heron_death":
+  {
+    "subtitle": "sounds.arborealnature.sound_great_blue_heron_death",
+    "sounds": [ "arborealnature:sound_great_blue_heron_death" ]
   }
 }

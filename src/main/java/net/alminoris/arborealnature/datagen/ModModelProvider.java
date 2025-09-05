@@ -253,6 +253,7 @@ public class ModModelProvider extends FabricModelProvider
         blockStateModelGenerator.registerParentedItemModel(ModItems.WOLVERINE_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
         blockStateModelGenerator.registerParentedItemModel(ModItems.TENREC_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
         blockStateModelGenerator.registerParentedItemModel(ModItems.MALLARD_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
+        blockStateModelGenerator.registerParentedItemModel(ModItems.GREAT_BLUE_HERON_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
 
         for (String name : COVER_NAMES)
         {
@@ -384,6 +385,8 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.COOKED_MOOSE_VENISON, Models.GENERATED);
         itemModelGenerator.register(ModItems.DUCK, Models.GENERATED);
         itemModelGenerator.register(ModItems.COOKED_DUCK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.HERON, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COOKED_HERON, Models.GENERATED);
         itemModelGenerator.register(ModItems.HUNTING_KNIFE, Models.GENERATED);
         itemModelGenerator.register(ModBlocks.LYNX_HIDE.asItem(), Models.GENERATED);
         itemModelGenerator.register(ModItems.CARIBOU_FUR, Models.GENERATED);

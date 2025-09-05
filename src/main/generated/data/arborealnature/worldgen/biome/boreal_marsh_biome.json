@@ -77,7 +77,14 @@
   "spawners": {
     "ambient": [],
     "axolotls": [],
-    "creature": [],
+    "creature": [
+      {
+        "type": "arborealnature:great_blue_heron",
+        "maxCount": 2,
+        "minCount": 1,
+        "weight": 75
+      }
+    ],
     "misc": [],
     "monster": [],
     "underground_water_creature": [],

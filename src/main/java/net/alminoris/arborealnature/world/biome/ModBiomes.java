@@ -213,7 +213,7 @@ public class ModBiomes
                 new GenerationSettings.LookupBackedBuilder(placedFeatures, configuredCarvers);
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
 
-        //spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.GREAT_BLUE_HERON, 75, 1, 2));
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.GREAT_BLUE_HERON, 75, 1, 2));
 
         //spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.MARSH_ALLIGATOR, 40, 1, 2));
 

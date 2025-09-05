@@ -193,6 +193,7 @@ public class ArborealNature implements ModInitializer
 		FabricDefaultAttributeRegistry.register(ModEntities.WOLVERINE, WolverineEntity.setAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.TENREC, TenrecEntity.setAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.MALLARD, MallardEntity.setAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.GREAT_BLUE_HERON, GreatBlueHeronEntity.setAttributes());
 
 		ModWorldGeneration.generateModWorldGen();
 	}

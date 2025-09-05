@@ -972,9 +972,12 @@
   "block.arborealnature.marsh_moss_plant_block": "Marsh Moss Block",
 
   "entity.arborealnature.mallard": "Mallard",
-  "item.arborealnature.duck_fat": "Duck Fat",
+  "entity.arborealnature.great_blue_heron": "Great Blue Heron",
   "item.arborealnature.duck": "Duck",
-  "item.arborealnature.cooked_duck": "Cooked Fuck",
+  "item.arborealnature.cooked_duck": "Cooked Duck",
+  "item.arborealnature.heron": "Heron",
+  "item.arborealnature.cooked_heron": "Cooked Heron",
 
-  "item.arborealnature.mallard_spawn_egg": "Mallard Spawn Egg"
+  "item.arborealnature.mallard_spawn_egg": "Mallard Spawn Egg",
+  "item.arborealnature.great_blue_heron_spawn_egg": "Great Blue Heron Spawn Egg"
 }

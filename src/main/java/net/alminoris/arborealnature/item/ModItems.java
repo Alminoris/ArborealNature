@@ -47,6 +47,9 @@ public class ModItems
     public static final Item MALLARD_SPAWN_EGG = registerItem("mallard_spawn_egg", new SpawnEggItem(
             ModEntities.MALLARD, 0xe0d4cd, 0X235329, new Item.Settings()));
 
+    public static final Item GREAT_BLUE_HERON_SPAWN_EGG = registerItem("great_blue_heron_spawn_egg", new SpawnEggItem(
+            ModEntities.GREAT_BLUE_HERON, 0xadb9cc, 0X28435e, new Item.Settings()));
+
     public static final Item PINE_RESIN = registerItem("pine_resin_item", new Item(
             new Item.Settings().maxCount(16)));
 
@@ -94,6 +97,12 @@ public class ModItems
 
     public static final Item COOKED_DUCK = registerItem("cooked_duck",
             new Item(new Item.Settings().food(ModFoodComponents.COOKED_DUCK)));
+
+    public static final Item HERON = registerItem("heron",
+            new Item(new Item.Settings().food(ModFoodComponents.HERON)));
+
+    public static final Item COOKED_HERON = registerItem("cooked_heron",
+            new Item(new Item.Settings().food(ModFoodComponents.COOKED_HERON)));
 
     public static final Item QUINCE = registerItem("quince",
             new Item(new Item.Settings().maxCount(16).food(ModFoodComponents.QUINCE)));

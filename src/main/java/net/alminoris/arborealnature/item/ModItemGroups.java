@@ -396,12 +396,15 @@ public class ModItemGroups
                         entries.add(ModItems.COOKED_CARIBOU_VENISON);
                         entries.add(ModItems.DUCK);
                         entries.add(ModItems.COOKED_DUCK);
+                        entries.add(ModItems.HERON);
+                        entries.add(ModItems.COOKED_HERON);
                         entries.add(ModItems.MOOSE_SPAWN_EGG);
                         entries.add(ModItems.LYNX_SPAWN_EGG);
                         entries.add(ModItems.CARIBOU_SPAWN_EGG);
                         entries.add(ModItems.WOLVERINE_SPAWN_EGG);
                         entries.add(ModItems.TENREC_SPAWN_EGG);
                         entries.add(ModItems.MALLARD_SPAWN_EGG);
+                        entries.add(ModItems.GREAT_BLUE_HERON_SPAWN_EGG);
                     }).build());
 
     public static void registerItemGroups()

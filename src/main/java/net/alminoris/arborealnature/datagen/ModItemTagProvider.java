@@ -165,6 +165,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
                         ModItems.CARIBOU_VENISON,
                         ModItems.COOKED_CARIBOU_VENISON,
                         ModItems.DUCK,
-                        ModItems.COOKED_DUCK);
+                        ModItems.COOKED_DUCK,
+                        ModItems.HERON,
+                        ModItems.COOKED_HERON);
     }
 }

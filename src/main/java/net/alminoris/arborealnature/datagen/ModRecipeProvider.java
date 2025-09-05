@@ -347,6 +347,17 @@ public class ModRecipeProvider extends FabricRecipeProvider
                 .criterion("has_duck", conditionsFromItem(ModItems.DUCK))
                 .offerTo(recipeExporter);
 
+        offerFoodCookingRecipe(recipeExporter, "smoking", RecipeSerializer.SMOKING, SmokingRecipe::new,
+                100, ModItems.HERON, ModItems.COOKED_HERON, 0.35f);
+
+        offerFoodCookingRecipe(recipeExporter, "campfire_cooking", RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new,
+                600, ModItems.HERON, ModItems.COOKED_HERON, 0.35f);
+
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(ModItems.HERON), RecipeCategory.FOOD,
+                        ModItems.COOKED_HERON, 0.35F, 200)
+                .criterion("has_heron", conditionsFromItem(ModItems.HERON))
+                .offerTo(recipeExporter);
+
         offerCarpetRecipe(recipeExporter, ModBlocks.REINDEER_LICHEN_CARPET, ModBlocks.REINDEER_LICHEN);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.PINE_RESIN_BRICKS, 4)

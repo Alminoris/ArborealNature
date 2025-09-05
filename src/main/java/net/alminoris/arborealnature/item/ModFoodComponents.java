@@ -39,6 +39,11 @@ public class ModFoodComponents
     public static final FoodComponent COOKED_DUCK = new FoodComponent.Builder().nutrition(6).saturationModifier(0.75f)
             .statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 600, 0), 0.3F).build();
 
+    public static final FoodComponent HERON = new FoodComponent.Builder().nutrition(3).saturationModifier(0.475f).build();
+
+    public static final FoodComponent COOKED_HERON = new FoodComponent.Builder().nutrition(7).saturationModifier(0.775f)
+            .statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 600, 0), 0.3F).build();
+
     public static FoodComponent registerFood(int nutrition, float saturation)
     {
         return new FoodComponent.Builder().nutrition(nutrition).saturationModifier(saturation).build();

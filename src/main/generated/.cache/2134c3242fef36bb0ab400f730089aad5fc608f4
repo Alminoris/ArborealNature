@@ -1,4 +1,4 @@
-// 1.21.1	2025-09-04T12:35:21.9991813	Arboreal Nature/Tags for minecraft:item
+// 1.21.1	2025-09-05T12:41:28.6235115	Arboreal Nature/Tags for minecraft:item
 11c70b365d998248e9a0c74e3ea54909a93f3392 data\arborealnature\tags\item\moose_food.json
 8585f019dd5507dd6fec9e6dac1e6a1992d2f88c data\arborealnature\tags\item\caribou_food.json
 4cf986845abbf5cb873ae7bfbf0788750e22a11a data\minecraft\tags\item\wooden_pressure_plates.json
@@ -16,7 +16,7 @@ f2568b2c25757827fc50cb571471cbf62bc7340e data\minecraft\tags\item\signs.json
 add25f3d8eaeebdb34a5b71b6cb5b918173ac3c7 data\minecraft\tags\item\head_armor.json
 b8f6a8c301dd2e01b5ab258780cb5b2722c82289 data\minecraft\tags\item\wooden_stairs.json
 c81b359290e684c38086affe9dd9e2a640be8792 data\minecraft\tags\item\foot_armor.json
-8579c99c0527a14408aa3205857c3cc0a94835fd data\minecraft\tags\item\meat.json
+82f5c9b0f0b38366304b7cf20bc1958f7dbdb524 data\minecraft\tags\item\meat.json
 15416ff5c6eca4d1a660f80bdb90d7055de1294e data\minecraft\tags\item\wooden_trapdoors.json
 dd46d6dee964908ef04c1c4d4327308435949856 data\minecraft\tags\item\chest_armor.json
 b89784d44c46fcda54b224f27892cafedeca855f data\minecraft\tags\item\freeze_immune_wearables.json
