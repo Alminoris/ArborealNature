@@ -53,6 +53,9 @@ public class ModItems
     public static final Item MOSQUITO_SWARM_SPAWN_EGG = registerItem("mosquito_swarm_spawn_egg", new SpawnEggItem(
             ModEntities.MOSQUITO_SWARM, 0x3f3220, 0X330400, new Item.Settings()));
 
+    public static final Item ELK_SPAWN_EGG = registerItem("elk_spawn_egg", new SpawnEggItem(
+            ModEntities.ELK, 0x644a32, 0X362216, new Item.Settings()));
+
     public static final Item PINE_RESIN = registerItem("pine_resin_item", new Item(
             new Item.Settings().maxCount(16)));
 
@@ -88,6 +91,12 @@ public class ModItems
 
     public static final Item COOKED_MOOSE_VENISON = registerItem("cooked_moose_venison",
             new Item(new Item.Settings().food(ModFoodComponents.COOKED_MOOSE_VENISON)));
+
+    public static final Item ELK_VENISON = registerItem("elk_venison",
+            new Item(new Item.Settings().food(ModFoodComponents.ELK_VENISON)));
+
+    public static final Item COOKED_ELK_VENISON = registerItem("cooked_elk_venison",
+            new Item(new Item.Settings().food(ModFoodComponents.COOKED_ELK_VENISON)));
 
     public static final Item CARIBOU_VENISON = registerItem("caribou_venison",
             new Item(new Item.Settings().food(ModFoodComponents.CARIBOU_VENISON)));
@@ -141,6 +150,9 @@ public class ModItems
             new Item.Settings().maxCount(16)));
 
     public static final Item MOOSE_HORN = registerItem("moose_horn", new Item(
+            new Item.Settings().maxCount(16)));
+
+    public static final Item ELK_HORN = registerItem("elk_horn", new Item(
             new Item.Settings().maxCount(16)));
 
     public static final Item CARIBOU_HORN = registerItem("caribou_horn", new Item(

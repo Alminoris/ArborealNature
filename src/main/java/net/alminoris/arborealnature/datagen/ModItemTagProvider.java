@@ -132,6 +132,10 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(Items.RABBIT)
                 .add(ModItems.CARIBOU_VENISON);
 
+        getOrCreateTagBuilder(ModTags.Items.HUNTING_KNIFE_HORNS)
+                .add(ModItems.MOOSE_HORN)
+                .add(ModItems.ELK_HORN);
+
         getOrCreateTagBuilder(ItemTags.ARROWS)
                 .add(ModItems.SILENT_ARROW);
 
@@ -162,6 +166,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(
                         ModItems.MOOSE_VENISON,
                         ModItems.COOKED_MOOSE_VENISON,
+                        ModItems.ELK_VENISON,
+                        ModItems.COOKED_ELK_VENISON,
                         ModItems.CARIBOU_VENISON,
                         ModItems.COOKED_CARIBOU_VENISON,
                         ModItems.DUCK,

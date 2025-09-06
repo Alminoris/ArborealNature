@@ -208,6 +208,7 @@ public class ArborealNatureClient implements ClientModInitializer
         EntityRendererRegistry.register(ModEntities.MALLARD, MallardRenderer::new);
         EntityRendererRegistry.register(ModEntities.GREAT_BLUE_HERON, GreatBlueHeronRenderer::new);
         EntityRendererRegistry.register(ModEntities.MOSQUITO_SWARM, MosquitoSwarmRenderer::new);
+        EntityRendererRegistry.register(ModEntities.ELK, ElkRenderer::new);
 
         EntityRendererRegistry.register(ModEntities.SILENT_ARROW, SilentArrowRenderer::new);
         EntityRendererRegistry.register(ModEntities.CARIBOU_SPEAR, CaribouSpearEntityRenderer::new);

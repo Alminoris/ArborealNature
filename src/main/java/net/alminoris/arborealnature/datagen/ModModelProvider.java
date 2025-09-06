@@ -255,6 +255,7 @@ public class ModModelProvider extends FabricModelProvider
         blockStateModelGenerator.registerParentedItemModel(ModItems.MALLARD_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
         blockStateModelGenerator.registerParentedItemModel(ModItems.GREAT_BLUE_HERON_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
         blockStateModelGenerator.registerParentedItemModel(ModItems.MOSQUITO_SWARM_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
+        blockStateModelGenerator.registerParentedItemModel(ModItems.ELK_SPAWN_EGG, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
 
         for (String name : COVER_NAMES)
         {
@@ -382,8 +383,11 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.JUNIPER_BERRY, Models.GENERATED);
         itemModelGenerator.register(ModItems.YEW_BERRY, Models.GENERATED);
         itemModelGenerator.register(ModItems.MOOSE_HORN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ELK_HORN, Models.GENERATED);
         itemModelGenerator.register(ModItems.MOOSE_VENISON, Models.GENERATED);
         itemModelGenerator.register(ModItems.COOKED_MOOSE_VENISON, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ELK_VENISON, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COOKED_ELK_VENISON, Models.GENERATED);
         itemModelGenerator.register(ModItems.DUCK, Models.GENERATED);
         itemModelGenerator.register(ModItems.COOKED_DUCK, Models.GENERATED);
         itemModelGenerator.register(ModItems.HERON, Models.GENERATED);

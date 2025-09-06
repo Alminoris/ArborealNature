@@ -394,7 +394,9 @@ public class ModBiomes
         GenerationSettings.LookupBackedBuilder biomeBuilder = new GenerationSettings.LookupBackedBuilder(placedFeatures, configuredCarvers);
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
 
-        //spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.ELK, 75, 1, 5));
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.FOX, 5, 2, 2));
+
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.ELK, 75, 1, 2));
 
         //spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.OWL, 40, 1, 2));
 

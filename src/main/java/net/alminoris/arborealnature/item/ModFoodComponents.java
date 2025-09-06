@@ -30,6 +30,10 @@ public class ModFoodComponents
 
     public static final FoodComponent COOKED_MOOSE_VENISON = new FoodComponent.Builder().nutrition(10).saturationModifier(0.9f).build();
 
+    public static final FoodComponent ELK_VENISON = new FoodComponent.Builder().nutrition(4).saturationModifier(0.3f).build();
+
+    public static final FoodComponent COOKED_ELK_VENISON = new FoodComponent.Builder().nutrition(10).saturationModifier(0.75f).build();
+
     public static final FoodComponent CARIBOU_VENISON = new FoodComponent.Builder().nutrition(4).saturationModifier(0.35f).build();
 
     public static final FoodComponent COOKED_CARIBOU_VENISON = new FoodComponent.Builder().nutrition(9).saturationModifier(0.85f).build();

@@ -974,12 +974,17 @@
   "entity.arborealnature.mallard": "Mallard",
   "entity.arborealnature.great_blue_heron": "Great Blue Heron",
   "entity.arborealnature.mosquito_swarm": "Mosquito Swarm",
+  "entity.arborealnature.elk": "Elk",
   "item.arborealnature.duck": "Duck",
   "item.arborealnature.cooked_duck": "Cooked Duck",
   "item.arborealnature.heron": "Heron",
   "item.arborealnature.cooked_heron": "Cooked Heron",
+  "item.arborealnature.elk_venison": "Elk Venison",
+  "item.arborealnature.cooked_elk_venison": "Cooked Elk Venison",
+  "item.arborealnature.elk_horn": "Elk Horn",
 
   "item.arborealnature.mallard_spawn_egg": "Mallard Spawn Egg",
   "item.arborealnature.great_blue_heron_spawn_egg": "Great Blue Heron Spawn Egg",
-  "item.arborealnature.mosquito_swarm_spawn_egg": "Mosquito Swarm Spawn Egg"
+  "item.arborealnature.mosquito_swarm_spawn_egg": "Mosquito Swarm Spawn Egg",
+  "item.arborealnature.elk_spawn_egg": "Elk Spawn Egg"
 }

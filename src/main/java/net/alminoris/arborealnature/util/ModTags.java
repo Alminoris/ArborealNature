@@ -45,6 +45,8 @@ public class ModTags
 
         public static final TagKey<Item> WOLVERINE_FOOD = createTag("wolverine_food");
 
+        public static final TagKey<Item> HUNTING_KNIFE_HORNS = createTag("hunting_knife_horns");
+
         private static TagKey<Item> createTag(String name)
         {
             return TagKey.of(RegistryKeys.ITEM, Identifier.of(ArborealNature.MOD_ID, name));

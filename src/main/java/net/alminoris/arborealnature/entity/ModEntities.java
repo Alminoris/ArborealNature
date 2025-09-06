@@ -54,6 +54,11 @@ public class ModEntities
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, MooseEntity::new)
                     .dimensions(EntityDimensions.fixed(2.025f, 2.4f)).build());
 
+    public static final EntityType<ElkEntity> ELK = Registry.register(
+            Registries.ENTITY_TYPE, Identifier.of(ArborealNature.MOD_ID, "elk"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ElkEntity::new)
+                    .dimensions(EntityDimensions.fixed(2.025f, 2.4f)).build());
+
     public static final EntityType<LynxEntity> LYNX = Registry.register(
             Registries.ENTITY_TYPE, Identifier.of(ArborealNature.MOD_ID, "lynx"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, LynxEntity::new)

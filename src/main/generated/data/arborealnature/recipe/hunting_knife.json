@@ -3,7 +3,7 @@
   "category": "equipment",
   "key": {
     "#": {
-      "item": "arborealnature:moose_horn"
+      "tag": "arborealnature:hunting_knife_horns"
     },
     "/": {
       "item": "minecraft:stick"

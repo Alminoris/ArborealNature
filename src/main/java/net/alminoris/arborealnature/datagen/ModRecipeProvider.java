@@ -2,6 +2,7 @@ package net.alminoris.arborealnature.datagen;
 
 import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.item.ModItems;
+import net.alminoris.arborealnature.util.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.CookingRecipeJsonBuilder;
@@ -258,9 +259,8 @@ public class ModRecipeProvider extends FabricRecipeProvider
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.HUNTING_KNIFE, 1)
                 .pattern(" # ")
                 .pattern("/  ")
-                .input('#', ModItems.MOOSE_HORN)
+                .input('#', ModTags.Items.HUNTING_KNIFE_HORNS)
                 .input('/', Items.STICK)
-                .criterion(hasItem(ModItems.MOOSE_HORN), conditionsFromItem(ModItems.MOOSE_HORN))
                 .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
                 .offerTo(recipeExporter);
 
@@ -323,6 +323,17 @@ public class ModRecipeProvider extends FabricRecipeProvider
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(ModItems.MOOSE_VENISON), RecipeCategory.FOOD,
                         ModItems.COOKED_MOOSE_VENISON, 0.35F, 200)
                 .criterion("has_moose_venison", conditionsFromItem(ModItems.MOOSE_VENISON))
+                .offerTo(recipeExporter);
+
+        offerFoodCookingRecipe(recipeExporter, "smoking", RecipeSerializer.SMOKING, SmokingRecipe::new,
+                100, ModItems.ELK_VENISON, ModItems.COOKED_ELK_VENISON, 0.35f);
+
+        offerFoodCookingRecipe(recipeExporter, "campfire_cooking", RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new,
+                600, ModItems.ELK_VENISON, ModItems.COOKED_ELK_VENISON, 0.35f);
+
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(ModItems.ELK_VENISON), RecipeCategory.FOOD,
+                        ModItems.COOKED_ELK_VENISON, 0.35F, 200)
+                .criterion("has_elk_venison", conditionsFromItem(ModItems.ELK_VENISON))
                 .offerTo(recipeExporter);
 
         offerFoodCookingRecipe(recipeExporter, "smoking", RecipeSerializer.SMOKING, SmokingRecipe::new,

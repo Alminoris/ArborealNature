@@ -378,6 +378,7 @@ public class ModItemGroups
                         entries.add(ModBlocks.CRYPTOMERIA_RESIN_BRICKS_STAIRS);
                         entries.add(ModItems.HUNTING_KNIFE);
                         entries.add(ModItems.MOOSE_HORN);
+                        entries.add(ModItems.ELK_HORN);
                         entries.add(ModBlocks.LYNX_HIDE);
                         entries.add(ModItems.CARIBOU_SPEAR);
                         entries.add(ModItems.WOLVERINE_PAW);
@@ -394,6 +395,8 @@ public class ModItemGroups
                         entries.add(ModItems.COOKED_MOOSE_VENISON);
                         entries.add(ModItems.CARIBOU_VENISON);
                         entries.add(ModItems.COOKED_CARIBOU_VENISON);
+                        entries.add(ModItems.ELK_VENISON);
+                        entries.add(ModItems.COOKED_ELK_VENISON);
                         entries.add(ModItems.DUCK);
                         entries.add(ModItems.COOKED_DUCK);
                         entries.add(ModItems.HERON);
@@ -406,6 +409,7 @@ public class ModItemGroups
                         entries.add(ModItems.MALLARD_SPAWN_EGG);
                         entries.add(ModItems.GREAT_BLUE_HERON_SPAWN_EGG);
                         entries.add(ModItems.MOSQUITO_SWARM_SPAWN_EGG);
+                        entries.add(ModItems.ELK_SPAWN_EGG);
                     }).build());
 
     public static void registerItemGroups()

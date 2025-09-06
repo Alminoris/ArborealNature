@@ -195,6 +195,7 @@ public class ArborealNature implements ModInitializer
 		FabricDefaultAttributeRegistry.register(ModEntities.MALLARD, MallardEntity.setAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.GREAT_BLUE_HERON, GreatBlueHeronEntity.setAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.MOSQUITO_SWARM, MosquitoSwarmEntity.setAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.ELK, ElkEntity.setAttributes());
 
 		ModWorldGeneration.generateModWorldGen();
 	}
