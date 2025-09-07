@@ -85,13 +85,19 @@
         "type": "minecraft:rabbit",
         "maxCount": 3,
         "minCount": 2,
-        "weight": 5
+        "weight": 15
+      },
+      {
+        "type": "minecraft:fox",
+        "maxCount": 2,
+        "minCount": 1,
+        "weight": 45
       },
       {
         "type": "minecraft:goat",
         "maxCount": 2,
         "minCount": 1,
-        "weight": 45
+        "weight": 40
       }
     ],
     "misc": [],

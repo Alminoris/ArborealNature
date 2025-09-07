@@ -56,6 +56,9 @@ public class ModItems
     public static final Item ELK_SPAWN_EGG = registerItem("elk_spawn_egg", new SpawnEggItem(
             ModEntities.ELK, 0x644a32, 0X362216, new Item.Settings()));
 
+    public static final Item GREAT_HORNED_OWL_SPAWN_EGG = registerItem("great_horned_owl_spawn_egg", new SpawnEggItem(
+            ModEntities.GREAT_HORNED_OWL, 0x534c49, 0X7a5f47, new Item.Settings()));
+
     public static final Item PINE_RESIN = registerItem("pine_resin_item", new Item(
             new Item.Settings().maxCount(16)));
 

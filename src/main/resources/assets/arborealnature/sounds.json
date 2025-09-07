@@ -198,5 +198,20 @@
   {
     "subtitle": "sounds.arborealnature.sound_mosquito_swarm_death",
     "sounds": [ "arborealnature:sound_mosquito_swarm_death" ]
+  },
+  "sound_great_horned_owl_ambient":
+  {
+    "subtitle": "sounds.arborealnature.sound_great_horned_owl_ambient",
+    "sounds": [ "arborealnature:sound_great_horned_owl_ambient" ]
+  },
+  "sound_great_horned_owl_hurt":
+  {
+    "subtitle": "sounds.arborealnature.sound_great_horned_owl_hurt",
+    "sounds": [ "arborealnature:sound_great_horned_owl_hurt" ]
+  },
+  "sound_great_horned_owl_death":
+  {
+    "subtitle": "sounds.arborealnature.sound_great_horned_owl_death",
+    "sounds": [ "arborealnature:sound_great_horned_owl_death" ]
   }
 }

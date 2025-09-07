@@ -3,6 +3,8 @@ package net.alminoris.arborealnature.entity.custom;
 import net.alminoris.arborealnature.entity.ModEntities;
 import net.alminoris.arborealnature.item.ModItems;
 import net.alminoris.arborealnature.sound.ModSounds;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.ai.goal.*;
@@ -22,6 +24,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
@@ -38,7 +41,31 @@ public class GreatBlueHeronEntity extends AnimalEntity implements GeoEntity
     public GreatBlueHeronEntity(EntityType<? extends AnimalEntity> entityType, World world)
     {
         super(entityType, world);
-        this.setPathfindingPenalty(PathNodeType.WATER, 0.0F);
+        this.setPathfindingPenalty(PathNodeType.WATER, -1.0F);
+    }
+
+    @Override
+    public float getPathfindingFavor(BlockPos pos, WorldView world)
+    {
+        BlockState state = world.getBlockState(pos);
+
+        if (state.isOf(Blocks.WATER))
+        {
+            BlockPos below = pos.down();
+            BlockPos above = pos.up();
+
+            boolean solidBelow = world.getBlockState(below).isSolidBlock(world, below);
+            boolean airAbove = world.getBlockState(above).isAir();
+
+            if (solidBelow && airAbove)
+            {
+                return 10.0F;
+            }
+
+            return -100.0F;
+        }
+
+        return super.getPathfindingFavor(pos, world);
     }
 
     @Override

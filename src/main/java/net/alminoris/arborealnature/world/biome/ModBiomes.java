@@ -398,7 +398,7 @@ public class ModBiomes
 
         spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.ELK, 75, 1, 2));
 
-        //spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.OWL, 40, 1, 2));
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.GREAT_HORNED_OWL, 40, 1, 2));
 
         DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
 

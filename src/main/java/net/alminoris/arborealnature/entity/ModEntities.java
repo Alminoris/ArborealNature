@@ -90,6 +90,8 @@ public class ModEntities
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, TenrecEntity::new)
                     .dimensions(EntityDimensions.fixed(1f, 0.625f)).build());
 
-    //MARSH FROG (like skin)
-    //AMERICAN ALLIGATOR
+    public static final EntityType<GreatHornedOwlEntity> GREAT_HORNED_OWL = Registry.register(
+            Registries.ENTITY_TYPE, Identifier.of(ArborealNature.MOD_ID, "great_horned_owl"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, GreatHornedOwlEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.45f, 0.85f)).build());
 }

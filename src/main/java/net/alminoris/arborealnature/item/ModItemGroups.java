@@ -410,6 +410,7 @@ public class ModItemGroups
                         entries.add(ModItems.GREAT_BLUE_HERON_SPAWN_EGG);
                         entries.add(ModItems.MOSQUITO_SWARM_SPAWN_EGG);
                         entries.add(ModItems.ELK_SPAWN_EGG);
+                        entries.add(ModItems.GREAT_HORNED_OWL_SPAWN_EGG);
                     }).build());
 
     public static void registerItemGroups()
