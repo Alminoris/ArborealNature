@@ -85,6 +85,12 @@
         "weight": 75
       },
       {
+        "type": "minecraft:frog",
+        "maxCount": 2,
+        "minCount": 1,
+        "weight": 40
+      },
+      {
         "type": "arborealnature:mosquito_swarm",
         "maxCount": 5,
         "minCount": 3,

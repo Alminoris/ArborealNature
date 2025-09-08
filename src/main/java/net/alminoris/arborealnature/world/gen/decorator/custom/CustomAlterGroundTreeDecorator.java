@@ -118,10 +118,6 @@ public class CustomAlterGroundTreeDecorator extends TreeDecorator
                         {
                             generator.replace(blockPos, state);
                         }
-                        else
-                        {
-                            generator.replace(blockPos, this.baseProvider.get(generator.getRandom(), origin));
-                        }
                     }
                     else
                     {

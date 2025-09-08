@@ -3,6 +3,7 @@ package net.alminoris.arborealnature;
 import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.entity.ModBoats;
 import net.alminoris.arborealnature.entity.ModEntities;
+import net.alminoris.arborealnature.entity.ModMobVariants;
 import net.alminoris.arborealnature.entity.custom.*;
 import net.alminoris.arborealnature.item.ModItemGroups;
 import net.alminoris.arborealnature.item.ModItems;
@@ -182,6 +183,8 @@ public class ArborealNature implements ModInitializer
 		ModTrunkPlacerTypes.register();
 		ModFoliagePlacerTypes.register();
 		ModTreeDecorators.register();
+
+		ModMobVariants.register();
 
 		FabricDefaultAttributeRegistry.register(ModEntities.SQUIRREL, SquirrelEntity.setAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.WOOD_MOUSE, WoodMouseEntity.setAttributes());

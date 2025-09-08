@@ -215,7 +215,7 @@ public class ModBiomes
 
         spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.GREAT_BLUE_HERON, 75, 1, 2));
 
-        //spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.MARSH_ALLIGATOR, 40, 1, 2));
+        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.FROG, 40, 1, 2));
 
         spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.MOSQUITO_SWARM, 100, 3, 5));
 
