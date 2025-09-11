@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "bottom=true":  { "model": "arborealnature:block/spanish_moss_end" },
+    "bottom=false": { "model": "arborealnature:block/spanish_moss_base" }
+  }
+}
