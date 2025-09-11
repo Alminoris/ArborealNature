@@ -24,5 +24,6 @@
     "recipes": [
       "arborealnature:white_mulberry_boat"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

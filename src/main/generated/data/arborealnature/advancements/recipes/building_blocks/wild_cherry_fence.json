@@ -43,5 +43,6 @@
     "recipes": [
       "arborealnature:wild_cherry_fence"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

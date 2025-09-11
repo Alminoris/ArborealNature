@@ -30,5 +30,6 @@
     "recipes": [
       "minecraft:hornbeam_button_from_hornbeam_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

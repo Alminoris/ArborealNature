@@ -30,5 +30,6 @@
     "recipes": [
       "arborealnature:araucaria_chiseled_slab"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

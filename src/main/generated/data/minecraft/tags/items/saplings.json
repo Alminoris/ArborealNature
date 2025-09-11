@@ -16,6 +16,13 @@
     "arborealnature:fir_sapling",
     "arborealnature:cedar_sapling",
     "arborealnature:araucaria_sapling",
-    "arborealnature:juniper_sapling"
+    "arborealnature:juniper_sapling",
+    "arborealnature:bald_cypress_sapling",
+    "arborealnature:thuja_sapling",
+    "arborealnature:sequoia_sapling",
+    "arborealnature:mountain_hemlock_sapling",
+    "arborealnature:cryptomeria_sapling",
+    "arborealnature:yew_sapling",
+    "arborealnature:larch_sapling"
   ]
 }

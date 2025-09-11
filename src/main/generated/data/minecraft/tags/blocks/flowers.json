@@ -2,13 +2,17 @@
   "replace": false,
   "values": [
     "arborealnature:wood_anemona",
-    "arborealnature:orchid",
-    "arborealnature:geranium",
-    "arborealnature:xerochrysum",
-    "arborealnature:bluebell",
     "arborealnature:wood_sorrel",
+    "arborealnature:alpine_gentian",
     "arborealnature:prickly_grass",
+    "arborealnature:hawthorn_fruited_leaves",
+    "arborealnature:bauhinia_fruited_leaves",
+    "arborealnature:geranium",
     "arborealnature:thistle",
-    "arborealnature:hawthorn_leaves"
+    "arborealnature:xerochrysum",
+    "arborealnature:orchid",
+    "arborealnature:bluebell",
+    "arborealnature:red_trillium",
+    "arborealnature:golden_aster"
   ]
 }

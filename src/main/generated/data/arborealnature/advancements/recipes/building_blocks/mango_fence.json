@@ -43,5 +43,6 @@
     "recipes": [
       "arborealnature:mango_fence"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

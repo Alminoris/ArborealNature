@@ -30,5 +30,6 @@
     "recipes": [
       "arborealnature:caribou_fur_chestplate"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

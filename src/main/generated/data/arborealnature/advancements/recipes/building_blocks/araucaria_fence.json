@@ -43,5 +43,6 @@
     "recipes": [
       "arborealnature:araucaria_fence"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

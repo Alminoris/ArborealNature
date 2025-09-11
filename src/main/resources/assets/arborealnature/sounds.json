@@ -153,5 +153,65 @@
   {
     "subtitle": "sounds.arborealnature.sound_tenrec_death",
     "sounds": [ "arborealnature:sound_tenrec_death" ]
+  },
+  "sound_mallard_ambient":
+  {
+    "subtitle": "sounds.arborealnature.sound_mallard_ambient",
+    "sounds": [ "arborealnature:sound_mallard_ambient" ]
+  },
+  "sound_mallard_hurt":
+  {
+    "subtitle": "sounds.arborealnature.sound_mallard_hurt",
+    "sounds": [ "arborealnature:sound_mallard_hurt" ]
+  },
+  "sound_mallard_death":
+  {
+    "subtitle": "sounds.arborealnature.sound_mallard_death",
+    "sounds": [ "arborealnature:sound_mallard_death" ]
+  },
+  "sound_great_blue_heron_ambient":
+  {
+    "subtitle": "sounds.arborealnature.sound_great_blue_heron_ambient",
+    "sounds": [ "arborealnature:sound_great_blue_heron_ambient" ]
+  },
+  "sound_great_blue_heron_hurt":
+  {
+    "subtitle": "sounds.arborealnature.sound_great_blue_heron_hurt",
+    "sounds": [ "arborealnature:sound_great_blue_heron_hurt" ]
+  },
+  "sound_great_blue_heron_death":
+  {
+    "subtitle": "sounds.arborealnature.sound_great_blue_heron_death",
+    "sounds": [ "arborealnature:sound_great_blue_heron_death" ]
+  },
+  "sound_mosquito_swarm_ambient":
+  {
+    "subtitle": "sounds.arborealnature.sound_mosquito_swarm_ambient",
+    "sounds": [ "arborealnature:sound_mosquito_swarm_ambient" ]
+  },
+  "sound_mosquito_swarm_hurt":
+  {
+    "subtitle": "sounds.arborealnature.sound_mosquito_swarm_hurt",
+    "sounds": [ "arborealnature:sound_mosquito_swarm_hurt" ]
+  },
+  "sound_mosquito_swarm_death":
+  {
+    "subtitle": "sounds.arborealnature.sound_mosquito_swarm_death",
+    "sounds": [ "arborealnature:sound_mosquito_swarm_death" ]
+  },
+  "sound_great_horned_owl_ambient":
+  {
+    "subtitle": "sounds.arborealnature.sound_great_horned_owl_ambient",
+    "sounds": [ "arborealnature:sound_great_horned_owl_ambient" ]
+  },
+  "sound_great_horned_owl_hurt":
+  {
+    "subtitle": "sounds.arborealnature.sound_great_horned_owl_hurt",
+    "sounds": [ "arborealnature:sound_great_horned_owl_hurt" ]
+  },
+  "sound_great_horned_owl_death":
+  {
+    "subtitle": "sounds.arborealnature.sound_great_horned_owl_death",
+    "sounds": [ "arborealnature:sound_great_horned_owl_death" ]
   }
 }

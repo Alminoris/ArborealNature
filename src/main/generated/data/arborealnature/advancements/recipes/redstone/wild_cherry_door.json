@@ -30,5 +30,6 @@
     "recipes": [
       "arborealnature:wild_cherry_door"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

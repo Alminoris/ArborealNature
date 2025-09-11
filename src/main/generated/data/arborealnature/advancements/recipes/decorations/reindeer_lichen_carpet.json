@@ -30,5 +30,6 @@
     "recipes": [
       "arborealnature:reindeer_lichen_carpet"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

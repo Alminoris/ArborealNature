@@ -27,6 +27,8 @@ public class ArborealNatureClient implements ClientModInitializer
     @Override
     public void onInitializeClient()
     {
+        for (String name : FRUITED_WOOD_NAMES)
+            BlockRenderLayerMap.INSTANCE.putBlock(FRUITED_LEAVES.get(name), RenderLayer.getCutout());
 
         for (String name : WOOD_NAMES)
         {
@@ -42,30 +44,39 @@ public class ArborealNatureClient implements ClientModInitializer
             BlockRenderLayerMap.INSTANCE.putBlock(BUSHES.get(name), RenderLayer.getCutout());
         }
 
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HAZELNUT_COVER, RenderLayer.getCutout());
+        for (String name : COVER_NAMES)
+        {
+            BlockRenderLayerMap.INSTANCE.putBlock(COVERS.get(name), RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(COVER_BLOCKS.get(name), RenderLayer.getCutout());
+        }
+
+        for (String name : FLOWER_NAMES)
+            BlockRenderLayerMap.INSTANCE.putBlock(FLOWERS.get(name), RenderLayer.getCutout());
+
+        for (String name : TALL_FLOWER_NAMES)
+            BlockRenderLayerMap.INSTANCE.putBlock(TALL_FLOWERS.get(name), RenderLayer.getCutout());
+
+        for (String name : FLOWER_NAMES)
+            BlockRenderLayerMap.INSTANCE.putBlock(POTTED_FLOWERS.get(name), RenderLayer.getCutout());
+
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ORCHID_LILY_PAD, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BAUHINIA_COVER_BLOCK, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BAUHINIA_COVER, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINE_COVER_BLOCK, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINE_COVER, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.JUNIPER_COVER_BLOCK, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.JUNIPER_COVER, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WHITE_LILY_PAD, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SEDGE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SPANISH_MOSS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BAUHINIA_VINES, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINE_RESIN, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CRYPTOMERIA_RESIN, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WOOD_ANEMONA, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WOOD_SORREL, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BLUEBELL, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ALPINE_GENTIAN, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MARSH_MOSS, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MARSH_MOSS_PLANT, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MARSH_MOSS_PLANT_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.REINDEER_LICHEN, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.REINDEER_LICHEN_CARPET, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LARGE_CELANDINE, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BLUEGRASS, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GERANIUM, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.XEROCHRYSUM, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.THISTLE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PRICKLY_GRASS, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LARGE_ORCHID, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ORCHID, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WHITE_MUSHROOM, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GOLDEN_CHANTRELLE, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINE_RESIN, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINE_RESIN_BLOCK, RenderLayer.getTranslucent());
@@ -73,6 +84,12 @@ public class ArborealNatureClient implements ClientModInitializer
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINE_RESIN_BRICKS_STAIRS, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINE_RESIN_BRICKS_SLAB, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PINE_RESIN_CHISELED, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CRYPTOMERIA_RESIN, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CRYPTOMERIA_RESIN_BLOCK, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CRYPTOMERIA_RESIN_BRICKS, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CRYPTOMERIA_RESIN_BRICKS_STAIRS, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CRYPTOMERIA_RESIN_BRICKS_SLAB, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CRYPTOMERIA_RESIN_CHISELED, RenderLayer.getTranslucent());
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FLAT_GRASS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FLAT_GRASS_BLOCK, RenderLayer.getCutout());
@@ -123,6 +140,10 @@ public class ArborealNatureClient implements ClientModInitializer
                 spriteProvider -> (parameters, world, x, y, z, velocityX, velocityY, velocityZ) ->
                         new NeedlesParticle(world, x, y, z, spriteProvider, 10));
 
+        ParticleFactoryRegistry.getInstance().register(ModParticles.SEQUOIA_NEEDLES,
+                spriteProvider -> (parameters, world, x, y, z, velocityX, velocityY, velocityZ) ->
+                        new NeedlesParticle(world, x, y, z, spriteProvider, 10));
+
         ParticleFactoryRegistry.getInstance().register(ModParticles.FIR_NEEDLES,
                 spriteProvider -> (parameters, world, x, y, z, velocityX, velocityY, velocityZ) ->
                         new NeedlesParticle(world, x, y, z, spriteProvider, 8));
@@ -155,6 +176,26 @@ public class ArborealNatureClient implements ClientModInitializer
                 spriteProvider -> (parameters, world, x, y, z, velocityX, velocityY, velocityZ) ->
                         new LeavesParticle(world, x, y, z, spriteProvider, 12));
 
+        ParticleFactoryRegistry.getInstance().register(ModParticles.BALD_CYPRESS_NEEDLES,
+                spriteProvider -> (parameters, world, x, y, z, velocityX, velocityY, velocityZ) ->
+                        new NeedlesParticle(world, x, y, z, spriteProvider, 12));
+
+        ParticleFactoryRegistry.getInstance().register(ModParticles.THUJA_NEEDLES,
+                spriteProvider -> (parameters, world, x, y, z, velocityX, velocityY, velocityZ) ->
+                        new NeedlesParticle(world, x, y, z, spriteProvider, 10));
+
+        ParticleFactoryRegistry.getInstance().register(ModParticles.CRYPTOMERIA_NEEDLES,
+                spriteProvider -> (parameters, world, x, y, z, velocityX, velocityY, velocityZ) ->
+                        new NeedlesParticle(world, x, y, z, spriteProvider, 8));
+
+        ParticleFactoryRegistry.getInstance().register(ModParticles.YEW_NEEDLES,
+                spriteProvider -> (parameters, world, x, y, z, velocityX, velocityY, velocityZ) ->
+                        new NeedlesParticle(world, x, y, z, spriteProvider, 5));
+
+        ParticleFactoryRegistry.getInstance().register(ModParticles.LARCH_NEEDLES,
+                spriteProvider -> (parameters, world, x, y, z, velocityX, velocityY, velocityZ) ->
+                        new NeedlesParticle(world, x, y, z, spriteProvider, 8));
+
         EntityRendererRegistry.register(ModEntities.SQUIRREL, SquirrelRenderer::new);
         EntityRendererRegistry.register(ModEntities.WOOD_MOUSE, WoodMouseRenderer::new);
         EntityRendererRegistry.register(ModEntities.FIGEATER_BEETLE, FigeaterBeetleRenderer::new);
@@ -164,6 +205,11 @@ public class ArborealNatureClient implements ClientModInitializer
         EntityRendererRegistry.register(ModEntities.CARIBOU, CaribouRenderer::new);
         EntityRendererRegistry.register(ModEntities.WOLVERINE, WolverineRenderer::new);
         EntityRendererRegistry.register(ModEntities.TENREC, TenrecRenderer::new);
+        EntityRendererRegistry.register(ModEntities.MALLARD, MallardRenderer::new);
+        EntityRendererRegistry.register(ModEntities.GREAT_BLUE_HERON, GreatBlueHeronRenderer::new);
+        EntityRendererRegistry.register(ModEntities.MOSQUITO_SWARM, MosquitoSwarmRenderer::new);
+        EntityRendererRegistry.register(ModEntities.ELK, ElkRenderer::new);
+        EntityRendererRegistry.register(ModEntities.GREAT_HORNED_OWL, GreatHornedOwlRenderer::new);
 
         EntityRendererRegistry.register(ModEntities.SILENT_ARROW, SilentArrowRenderer::new);
         EntityRendererRegistry.register(ModEntities.CARIBOU_SPEAR, CaribouSpearEntityRenderer::new);

@@ -26,7 +26,8 @@
             }
           }
         },
-        "radius": 5
+        "radius": 5,
+        "trunk_thickness": 2
       }
     ],
     "dirt_provider": {
@@ -36,7 +37,7 @@
       }
     },
     "foliage_placer": {
-      "type": "minecraft:cedar_giant_foliage_placer",
+      "type": "minecraft:cedar_foliage_placer",
       "offset": 0,
       "radius": 0
     },

@@ -30,5 +30,6 @@
     "recipes": [
       "minecraft:quince_planks_from_quince_log"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

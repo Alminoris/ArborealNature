@@ -30,5 +30,6 @@
     "recipes": [
       "minecraft:araucaria_planks_from_araucaria_log"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

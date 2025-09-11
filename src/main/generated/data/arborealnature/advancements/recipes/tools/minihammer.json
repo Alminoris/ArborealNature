@@ -43,5 +43,6 @@
     "recipes": [
       "arborealnature:minihammer"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

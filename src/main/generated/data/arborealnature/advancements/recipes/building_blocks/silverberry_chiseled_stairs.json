@@ -30,5 +30,6 @@
     "recipes": [
       "arborealnature:silverberry_chiseled_stairs"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

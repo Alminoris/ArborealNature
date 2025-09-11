@@ -1,0 +1,6 @@
+{
+  "parent": "block/crop",
+  "textures": {
+    "crop": "arborealnature:block/spanish_moss_end"
+  }
+}

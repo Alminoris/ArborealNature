@@ -30,5 +30,6 @@
     "recipes": [
       "arborealnature:hornbeam_slab"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

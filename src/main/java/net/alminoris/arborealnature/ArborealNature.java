@@ -3,15 +3,18 @@ package net.alminoris.arborealnature;
 import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.entity.ModBoats;
 import net.alminoris.arborealnature.entity.ModEntities;
+import net.alminoris.arborealnature.entity.ModMobVariants;
 import net.alminoris.arborealnature.entity.custom.*;
 import net.alminoris.arborealnature.item.ModItemGroups;
 import net.alminoris.arborealnature.item.ModItems;
 import net.alminoris.arborealnature.particle.ModParticles;
 import net.alminoris.arborealnature.sound.ModSounds;
 import net.alminoris.arborealnature.util.ModTags;
+import net.alminoris.arborealnature.util.helper.ModIntProviderTypes;
 import net.alminoris.arborealnature.world.gen.ModWorldGeneration;
 import net.alminoris.arborealnature.world.gen.decorator.ModTreeDecorators;
 import net.alminoris.arborealnature.world.gen.feature.ModFeatures;
+import net.alminoris.arborealnature.world.gen.root.ModRootPlacerTypes;
 import net.alminoris.arborealnature.world.tree.ModFoliagePlacerTypes;
 import net.alminoris.arborealnature.world.tree.ModTrunkPlacerTypes;
 import net.fabricmc.api.ModInitializer;
@@ -46,6 +49,8 @@ public class ArborealNature implements ModInitializer
 	{
 		LOGGER.info("Initialization Arboreal Nature MOD");
 
+		ModIntProviderTypes.init();
+
 		ModItems.registerModItems();
 
 		ModBlocks.registerModBlocks();
@@ -57,6 +62,8 @@ public class ArborealNature implements ModInitializer
 		FuelRegistry.INSTANCE.add(ModItems.HAZELNUT_SPOILED, 150);
 
 		FuelRegistry.INSTANCE.add(ModItems.PINE_RESIN, 800);
+
+		FuelRegistry.INSTANCE.add(ModItems.CRYPTOMERIA_RESIN, 800);
 
 		for (String name : WOOD_NAMES)
 		{
@@ -72,6 +79,9 @@ public class ArborealNature implements ModInitializer
 			FlammableBlockRegistry.getDefaultInstance().add(WOODEN_CHISELED.get(name), 5, 20);
 			FlammableBlockRegistry.getDefaultInstance().add(LEAVES.get(name), 30, 60);
 		}
+
+		for (String name : FRUITED_WOOD_NAMES)
+			FlammableBlockRegistry.getDefaultInstance().add(FRUITED_LEAVES.get(name), 30, 60);
 
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.OAK_CHISELED, 5, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BIRCH_CHISELED, 5, 20);
@@ -99,13 +109,12 @@ public class ArborealNature implements ModInitializer
 		for (String name : NSS_WOOD_NAMES)
 			FlammableBlockRegistry.getDefaultInstance().add(WOODEN_CHISELED.get(name), 5, 20);
 
-		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.HAZELNUT_COVER, 30, 60);
-		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BAUHINIA_COVER, 30, 60);
-		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BAUHINIA_COVER_BLOCK, 30, 60);
-		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PINE_COVER, 30, 60);
-		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PINE_COVER_BLOCK, 30, 60);
-		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.JUNIPER_COVER, 30, 60);
-		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.JUNIPER_COVER_BLOCK, 30, 60);
+		for (String name : COVER_NAMES)
+		{
+			FlammableBlockRegistry.getDefaultInstance().add(COVERS.get(name), 30, 60);
+			FlammableBlockRegistry.getDefaultInstance().add(COVER_BLOCKS.get(name), 30, 60);
+		}
+
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BAUHINIA_VINES, 30, 60);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PINE_RESIN, 60, 30);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PINE_RESIN_BLOCK, 60, 30);
@@ -113,6 +122,12 @@ public class ArborealNature implements ModInitializer
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PINE_RESIN_CHISELED, 60, 30);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PINE_RESIN_BRICKS_SLAB, 60, 30);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PINE_RESIN_BRICKS_STAIRS, 60, 30);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.CRYPTOMERIA_RESIN, 60, 30);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.CRYPTOMERIA_RESIN_BLOCK, 60, 30);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.CRYPTOMERIA_RESIN_BRICKS, 60, 30);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.CRYPTOMERIA_RESIN_CHISELED, 60, 30);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.CRYPTOMERIA_RESIN_BRICKS_SLAB, 60, 30);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.CRYPTOMERIA_RESIN_BRICKS_STAIRS, 60, 30);
 
 		AttackBlockCallback.EVENT.register((player, world, hand, pos, direction) ->
 		{
@@ -164,9 +179,12 @@ public class ArborealNature implements ModInitializer
 
 		ModFeatures.registerFeatures();
 
+		ModRootPlacerTypes.register();
 		ModTrunkPlacerTypes.register();
 		ModFoliagePlacerTypes.register();
 		ModTreeDecorators.register();
+
+		ModMobVariants.register();
 
 		FabricDefaultAttributeRegistry.register(ModEntities.SQUIRREL, SquirrelEntity.setAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.WOOD_MOUSE, WoodMouseEntity.setAttributes());
@@ -177,6 +195,11 @@ public class ArborealNature implements ModInitializer
 		FabricDefaultAttributeRegistry.register(ModEntities.CARIBOU, CaribouEntity.setAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.WOLVERINE, WolverineEntity.setAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.TENREC, TenrecEntity.setAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.MALLARD, MallardEntity.setAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.GREAT_BLUE_HERON, GreatBlueHeronEntity.setAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.MOSQUITO_SWARM, MosquitoSwarmEntity.setAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.ELK, ElkEntity.setAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.GREAT_HORNED_OWL, GreatHornedOwlEntity.setAttributes());
 
 		ModWorldGeneration.generateModWorldGen();
 	}

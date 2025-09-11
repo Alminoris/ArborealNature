@@ -43,5 +43,6 @@
     "recipes": [
       "arborealnature:juniper_fence"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -30,5 +30,6 @@
     "recipes": [
       "arborealnature:cedar_slab"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

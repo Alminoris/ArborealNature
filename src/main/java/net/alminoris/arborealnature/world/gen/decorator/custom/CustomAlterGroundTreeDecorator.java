@@ -4,7 +4,6 @@ import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import java.util.List;
-import java.util.Objects;
 import java.util.Random;
 
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -23,23 +22,26 @@ public class CustomAlterGroundTreeDecorator extends TreeDecorator
 {
     private final BlockStateProvider provider;
 
-    private final BlockStateProvider baseProvider = BlockStateProvider.of(Blocks.GRASS_BLOCK);
+    private final BlockStateProvider baseProvider;
 
-    private float probability = 0.05f;
+    private final float probability;
 
     public static final Codec<CustomAlterGroundTreeDecorator> CODEC = RecordCodecBuilder.create(instance -> instance.group(
             Codec.floatRange(0.0F, 1.0F).fieldOf("probability").forGetter(decorator -> decorator.probability),
-            BlockStateProvider.TYPE_CODEC.fieldOf("block").forGetter(decorator -> decorator.provider)
+            BlockStateProvider.TYPE_CODEC.fieldOf("provider").forGetter(decorator -> decorator.provider),
+            BlockStateProvider.TYPE_CODEC.fieldOf("baseProvider").forGetter(decorator -> decorator.baseProvider)
     ).apply(instance, CustomAlterGroundTreeDecorator::new));
 
-    public CustomAlterGroundTreeDecorator(float probability, BlockStateProvider provider)
+    public CustomAlterGroundTreeDecorator(float probability, BlockStateProvider provider, BlockStateProvider baseProvider)
     {
         this.probability = probability;
         this.provider = provider;
+        this.baseProvider = baseProvider;
     }
 
     @Override
-    protected TreeDecoratorType<?> getType() {
+    protected TreeDecoratorType<?> getType()
+    {
         return ModTreeDecorators.CUSTOM_ALTER_GROUND_DECORATOR;
     }
 
@@ -110,9 +112,25 @@ public class CustomAlterGroundTreeDecorator extends TreeDecorator
             if (Feature.isSoil(generator.getWorld(), blockPos))
             {
                 if (random.nextFloat() < probability)
-                    generator.replace(blockPos, this.provider.get(generator.getRandom(), origin));
+                {
+                    var state = this.provider.get(generator.getRandom(), origin);
+
+                    if (state.isOf(Blocks.WATER))
+                    {
+                        if (isSurroundedBySolidOrWater(generator, blockPos))
+                        {
+                            generator.replace(blockPos, state);
+                        }
+                    }
+                    else
+                    {
+                        generator.replace(blockPos, state);
+                    }
+                }
                 else
+                {
                     generator.replace(blockPos, this.baseProvider.get(generator.getRandom(), origin));
+                }
                 break;
             }
 
@@ -121,5 +139,21 @@ public class CustomAlterGroundTreeDecorator extends TreeDecorator
                 break;
             }
         }
+    }
+
+    private boolean isSurroundedBySolidOrWater(TreeDecorator.Generator generator, BlockPos pos)
+    {
+        BlockPos[] neighbors = new BlockPos[] { pos.north(), pos.south(), pos.west(), pos.east() };
+
+        for (BlockPos neighbor : neighbors)
+        {
+            boolean air = generator.getWorld().testBlockState(neighbor, state -> state.isAir());
+
+            if (air)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }

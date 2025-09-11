@@ -30,5 +30,6 @@
     "recipes": [
       "arborealnature:tamarisk_chiseled_slab"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

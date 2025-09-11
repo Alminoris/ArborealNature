@@ -43,5 +43,6 @@
     "recipes": [
       "arborealnature:hornbeam_fence"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -30,5 +30,6 @@
     "recipes": [
       "arborealnature:stripped_white_mulberry_wood"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

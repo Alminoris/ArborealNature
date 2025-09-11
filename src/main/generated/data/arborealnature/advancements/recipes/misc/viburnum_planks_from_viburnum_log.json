@@ -30,5 +30,6 @@
     "recipes": [
       "minecraft:viburnum_planks_from_viburnum_log"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

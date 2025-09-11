@@ -43,5 +43,6 @@
     "recipes": [
       "arborealnature:viburnum_fence"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

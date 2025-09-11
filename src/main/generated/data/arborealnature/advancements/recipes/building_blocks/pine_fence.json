@@ -43,5 +43,6 @@
     "recipes": [
       "arborealnature:pine_fence"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

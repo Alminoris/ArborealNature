@@ -30,5 +30,6 @@
     "recipes": [
       "arborealnature:burnt_cypress_nss_wood"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

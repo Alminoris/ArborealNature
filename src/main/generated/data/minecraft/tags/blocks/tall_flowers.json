@@ -1,8 +1,9 @@
 {
   "replace": false,
   "values": [
+    "arborealnature:large_celandine",
     "arborealnature:bluegrass",
     "arborealnature:large_orchid",
-    "arborealnature:large_celandine"
+    "arborealnature:goldenrod"
   ]
 }

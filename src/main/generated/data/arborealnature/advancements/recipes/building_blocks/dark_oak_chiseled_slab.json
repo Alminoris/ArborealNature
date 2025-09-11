@@ -30,5 +30,6 @@
     "recipes": [
       "arborealnature:dark_oak_chiseled_slab"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

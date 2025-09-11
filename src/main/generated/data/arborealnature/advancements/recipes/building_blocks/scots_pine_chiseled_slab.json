@@ -30,5 +30,6 @@
     "recipes": [
       "arborealnature:scots_pine_chiseled_slab"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -30,5 +30,6 @@
     "recipes": [
       "arborealnature:apple_chiseled_slab"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

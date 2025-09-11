@@ -43,5 +43,6 @@
     "recipes": [
       "arborealnature:bauhinia_fence"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

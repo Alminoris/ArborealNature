@@ -43,5 +43,6 @@
     "recipes": [
       "arborealnature:fig_fence"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

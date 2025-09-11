@@ -30,5 +30,6 @@
     "recipes": [
       "minecraft:wild_cherry_planks_from_wild_cherry_log"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

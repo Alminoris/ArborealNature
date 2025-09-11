@@ -43,5 +43,6 @@
     "recipes": [
       "arborealnature:caribou_spear"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -30,5 +30,6 @@
     "recipes": [
       "arborealnature:aspen_chiseled_slab"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

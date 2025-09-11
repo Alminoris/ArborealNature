@@ -43,5 +43,6 @@
     "recipes": [
       "arborealnature:bauhinia_sign_item"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -43,5 +43,6 @@
     "recipes": [
       "arborealnature:quince_sign_item"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

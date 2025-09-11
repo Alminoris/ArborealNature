@@ -30,5 +30,6 @@
     "recipes": [
       "minecraft:hawthorn_planks_from_hawthorn_log"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

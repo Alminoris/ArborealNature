@@ -8,6 +8,7 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
+import java.util.Optional;
 
 public class ModSaplingGenerators
 {
@@ -29,6 +30,13 @@ public class ModSaplingGenerators
         put("cedar", ModConfiguredFeatures.CEDAR_KEY);
         put("araucaria", ModConfiguredFeatures.ARAUCARIA_KEY);
         put("juniper", ModConfiguredFeatures.JUNIPER_KEY);
+        put("bald_cypress", ModConfiguredFeatures.BALD_CYPRESS_KEY);
+        put("thuja", ModConfiguredFeatures.THUJA_KEY);
+        put("sequoia", ModConfiguredFeatures.SEQUOIA_KEY);
+        put("mountain_hemlock", ModConfiguredFeatures.MOUNTAIN_HEMLOCK_KEY);
+        put("cryptomeria", ModConfiguredFeatures.CRYPTOMERIA_KEY);
+        put("yew", ModConfiguredFeatures.YEW_KEY);
+        put("larch", ModConfiguredFeatures.LARCH_KEY);
     }};
 
     public static final Dictionary<String, SaplingGenerator> saplingGenerators = new Hashtable<>()
@@ -46,6 +54,39 @@ public class ModSaplingGenerators
             else
             {
                 put(name, new CustomSaplingGenerator(keys.get(name)));
+            }
+        }
+    }};
+
+    public static final Dictionary<String, ExtendedSaplingGenerator> extendedSaplingGenerators = new Hashtable<>()
+    {{
+        for(String name : ModBlockSetsHelper.WOOD_NAMES)
+        {
+            if (name.equals("sequoia"))
+            {
+                put(name, new ExtendedSaplingGenerator(name, 0f,
+                        Optional.of(ModConfiguredFeatures.YOUNG_SEQUOIA_KEY),
+                        Optional.of(keys.get(name)),
+                        Optional.of(ModConfiguredFeatures.GIANT_SEQUOIA_KEY),
+                        Optional.empty(),
+                        Optional.empty(),
+                        Optional.empty(),
+                        Optional.empty(),
+                        Optional.empty(),
+                        Optional.empty()));
+            }
+            else if (name.equals("yew"))
+            {
+                put(name, new ExtendedSaplingGenerator(name, 0f,
+                        Optional.empty(),
+                        Optional.empty(),
+                        Optional.of(ModConfiguredFeatures.YEW_KEY),
+                        Optional.empty(),
+                        Optional.empty(),
+                        Optional.empty(),
+                        Optional.empty(),
+                        Optional.empty(),
+                        Optional.empty()));
             }
         }
     }};

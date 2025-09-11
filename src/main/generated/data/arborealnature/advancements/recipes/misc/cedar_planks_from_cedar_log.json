@@ -30,5 +30,6 @@
     "recipes": [
       "minecraft:cedar_planks_from_cedar_log"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -43,5 +43,6 @@
     "recipes": [
       "arborealnature:white_mulberry_fence_gate"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

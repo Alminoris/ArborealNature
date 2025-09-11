@@ -30,5 +30,6 @@
     "recipes": [
       "minecraft:plum_button_from_plum_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

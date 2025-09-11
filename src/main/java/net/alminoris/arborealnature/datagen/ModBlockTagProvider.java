@@ -81,6 +81,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
             this.getOrCreateTagBuilder(BlockTags.HOE_MINEABLE).add(LEAVES.get(name));
         }
 
+        for (String name : FRUITED_WOOD_NAMES)
+            this.getOrCreateTagBuilder(BlockTags.HOE_MINEABLE).add(FRUITED_LEAVES.get(name));
+
         for (String name : WF_WOOD_NAMES)
         {
             getOrCreateTagBuilder(BlockTags.PLANKS)
@@ -169,41 +172,43 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
 
         getOrCreateTagBuilder(BlockTags.FLOWERS)
                 .add(ModBlocks.WOOD_ANEMONA)
-                .add(ModBlocks.ORCHID)
-                .add(ModBlocks.GERANIUM)
-                .add(ModBlocks.XEROCHRYSUM)
-                .add(ModBlocks.BLUEBELL)
                 .add(ModBlocks.WOOD_SORREL)
+                .add(ModBlocks.ALPINE_GENTIAN)
                 .add(ModBlocks.PRICKLY_GRASS)
-                .add(ModBlocks.THISTLE)
-                .add(LEAVES.get("hawthorn"));
-
-        getOrCreateTagBuilder(BlockTags.TALL_FLOWERS)
-                .add(ModBlocks.BLUEGRASS)
-                .add(ModBlocks.LARGE_ORCHID)
-                .add(ModBlocks.LARGE_CELANDINE);
+                .add(FRUITED_LEAVES.get("hawthorn"))
+                .add(FRUITED_LEAVES.get("bauhinia"));
 
         getOrCreateTagBuilder(BlockTags.FLOWER_POTS)
-                .add(ModBlocks.POTTED_GERANIUM)
-                .add(ModBlocks.POTTED_XEROCHRYSUM)
-                .add(ModBlocks.POTTED_BLUEBELL)
-                .add(ModBlocks.POTTED_THISTLE)
                 .add(ModBlocks.POTTED_PRICKLY_GRASS)
-                .add(ModBlocks.POTTED_ORCHID)
-                .add(ModBlocks.POTTED_WHITE_MUSHROOM);
+                .add(ModBlocks.POTTED_WHITE_MUSHROOM)
+                .add(ModBlocks.POTTED_GOLDEN_CHANTRELLE);
 
-        this.getOrCreateTagBuilder(BlockTags.INSIDE_STEP_SOUND_BLOCKS).add(ModBlocks.ORCHID_LILY_PAD);
+        for (String name : FLOWER_NAMES)
+            getOrCreateTagBuilder(BlockTags.FLOWERS).add(FLOWERS.get(name));
 
-        this.getOrCreateTagBuilder(BlockTags.AXE_MINEABLE).add(ModBlocks.ORCHID_LILY_PAD);
+        for (String name : FLOWER_NAMES)
+            getOrCreateTagBuilder(BlockTags.FLOWER_POTS).add(POTTED_FLOWERS.get(name));
 
-        this.getOrCreateTagBuilder(BlockTags.FROG_PREFER_JUMP_TO).add(ModBlocks.ORCHID_LILY_PAD);
+        for (String name : TALL_FLOWER_NAMES)
+            getOrCreateTagBuilder(BlockTags.TALL_FLOWERS).add(TALL_FLOWERS.get(name));
+
+        this.getOrCreateTagBuilder(BlockTags.INSIDE_STEP_SOUND_BLOCKS).add(ModBlocks.ORCHID_LILY_PAD, ModBlocks.WHITE_LILY_PAD);
+
+        this.getOrCreateTagBuilder(BlockTags.AXE_MINEABLE).add(ModBlocks.ORCHID_LILY_PAD, ModBlocks.WHITE_LILY_PAD);
+
+        this.getOrCreateTagBuilder(BlockTags.SWORD_EFFICIENT).add(ModBlocks.ORCHID_LILY_PAD, ModBlocks.WHITE_LILY_PAD).add(ModBlocks.REINDEER_LICHEN, ModBlocks.REINDEER_LICHEN_CARPET);
+
+        this.getOrCreateTagBuilder(BlockTags.FROG_PREFER_JUMP_TO).add(ModBlocks.ORCHID_LILY_PAD, ModBlocks.WHITE_LILY_PAD);
 
         this.getOrCreateTagBuilder(BlockTags.HOE_MINEABLE).add(ModBlocks.REINDEER_LICHEN, ModBlocks.REINDEER_LICHEN_CARPET);
 
-        this.getOrCreateTagBuilder(BlockTags.DIRT).add(ModBlocks.REINDEER_LICHEN);
+        this.getOrCreateTagBuilder(BlockTags.DIRT).add(ModBlocks.REINDEER_LICHEN, ModBlocks.BOG_SOIL, ModBlocks.BOG_SOIL_COVER);
+
+        this.getOrCreateTagBuilder(BlockTags.COMBINATION_STEP_SOUND_BLOCKS).add(ModBlocks.REINDEER_LICHEN_CARPET);
 
         this.getOrCreateTagBuilder(BlockTags.CLIMBABLE)
-                .add(ModBlocks.BAUHINIA_VINES);
+                .add(ModBlocks.BAUHINIA_VINES)
+                .add(ModBlocks.SPANISH_MOSS);
 
         getOrCreateTagBuilder(BlockTags.PLANKS)
                 .add(ModBlocks.OAK_CHISELED)
@@ -216,7 +221,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.WARPED_CHISELED)
                 .add(ModBlocks.MANGROVE_CHISELED)
                 .add(ModBlocks.CHERRY_CHISELED)
-                .add(ModBlocks.PINE_RESIN_BRICKS);
+                .add(ModBlocks.PINE_RESIN_BRICKS)
+                .add(ModBlocks.CRYPTOMERIA_RESIN_BRICKS);
 
         getOrCreateTagBuilder(BlockTags.WOODEN_SLABS)
                 .add(ModBlocks.OAK_CHISELED_SLAB)
@@ -229,7 +235,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.WARPED_CHISELED_SLAB)
                 .add(ModBlocks.MANGROVE_CHISELED_SLAB)
                 .add(ModBlocks.CHERRY_CHISELED_SLAB)
-                .add(ModBlocks.PINE_RESIN_BRICKS_SLAB);
+                .add(ModBlocks.PINE_RESIN_BRICKS_SLAB)
+                .add(ModBlocks.CRYPTOMERIA_RESIN_BRICKS_SLAB);
 
         getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS)
                 .add(ModBlocks.OAK_CHISELED_STAIRS)
@@ -242,17 +249,18 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.WARPED_CHISELED_STAIRS)
                 .add(ModBlocks.MANGROVE_CHISELED_STAIRS)
                 .add(ModBlocks.CHERRY_CHISELED_STAIRS)
-                .add(ModBlocks.PINE_RESIN_BRICKS_STAIRS);
+                .add(ModBlocks.PINE_RESIN_BRICKS_STAIRS)
+                .add(ModBlocks.CRYPTOMERIA_RESIN_BRICKS_STAIRS);
 
         getOrCreateTagBuilder(ModTags.Blocks.ORCHID_MANTIS_FLOWERS)
-                .add(ModBlocks.ORCHID)
-                .add(ModBlocks.LARGE_ORCHID);
+                .add(FLOWERS.get("orchid"))
+                .add(TALL_FLOWERS.get("large_orchid"));
 
         getOrCreateTagBuilder(ModTags.Blocks.MOOSE_SPAWNABLE_ON)
                 .add(Blocks.GRASS_BLOCK)
                 .add(Blocks.PODZOL)
                 .add(ModBlocks.DIRTED_GRASS_BLOCK)
-                .add(ModBlocks.PINE_COVER);
+                .add(COVERS.get("pine"));
 
         getOrCreateTagBuilder(ModTags.Blocks.CARIBOU_SPAWNABLE_ON)
                 .add(Blocks.GRASS_BLOCK)

@@ -25,6 +25,7 @@ public class PineRegion extends Region
         this.addModifiedVanillaOverworldBiomes(mapper, modifiedVanillaOverworldBuilder ->
         {
             modifiedVanillaOverworldBuilder.replaceBiome(BiomeKeys.TAIGA, ModBiomes.PINE_FOREST);
+            modifiedVanillaOverworldBuilder.replaceBiome(BiomeKeys.FOREST, ModBiomes.GOLDEN_LARCH_FOREST);
         });
     }
 }

@@ -7,7 +7,6 @@ import net.alminoris.arborealnature.util.helper.ModBlockSetsHelper;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.SweetBerryBushBlock;
 import net.minecraft.block.TallPlantBlock;
 import net.minecraft.block.enums.DoubleBlockHalf;
@@ -29,6 +28,10 @@ import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
 import static net.alminoris.arborealnature.util.helper.ModBlockSetsHelper.*;
@@ -81,7 +84,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
             addDrop(BURNT_LOGS.get(name));
             addDrop(BURNT_WOODS.get(name));
         }
-
 
         for (String name : ST_WOOD_NAMES)
         {
@@ -148,38 +150,32 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
             );
         }
 
+        Set<String> excluded = new HashSet<>(Arrays.asList("hazelnut", "fig", "pine", "fir", "cedar", "araucaria",
+                "bald_cypress", "thuja", "mountain_hemlock", "sequoia", "cryptomeria"));
+        for (String name : WOOD_NAMES)
+            if (!excluded.contains(name))
+                addDrop(LEAVES.get(name), leavesDrops(LEAVES.get(name), WOODEN_SAPLINGS.get(name), 0.0025f));
+
         addDrop(LEAVES.get("hazelnut"), leavesItemDrops(LEAVES.get("hazelnut"),
                 WOODEN_SAPLINGS.get("hazelnut"), ModItems.HAZELNUT, 0.0025f));
-
-        addDrop(LEAVES.get("hornbeam"), leavesDrops(LEAVES.get("hornbeam"),
-                WOODEN_SAPLINGS.get("hornbeam"), 0.0025f));
-
-        addDrop(LEAVES.get("hawthorn"), leavesDrops(LEAVES.get("hawthorn"),
-                WOODEN_SAPLINGS.get("hawthorn"), 0.0025f));
-
-        addDrop(LEAVES.get("quince"), leavesItemDrops(LEAVES.get("quince"),
-                WOODEN_SAPLINGS.get("quince"), ModItems.QUINCE, 0.0025f));
-
-        addDrop(LEAVES.get("plum"), leavesItemDrops(LEAVES.get("plum"),
-                WOODEN_SAPLINGS.get("plum"), ModItems.PLUM, 0.0025f));
-
-        addDrop(LEAVES.get("mango"), leavesItemDrops(LEAVES.get("mango"),
-                WOODEN_SAPLINGS.get("mango"), ModItems.MANGO, 0.0025f));
-
         addDrop(LEAVES.get("fig"), leavesItemDrops(LEAVES.get("fig"),
                 WOODEN_SAPLINGS.get("fig"), ModItems.FIGS, 0.0025f));
-
-        addDrop(LEAVES.get("viburnum"), leavesItemDrops(LEAVES.get("viburnum"),
+        addDrop(FRUITED_LEAVES.get("quince"), leavesItemDrops(FRUITED_LEAVES.get("quince"),
+                WOODEN_SAPLINGS.get("quince"), ModItems.QUINCE, 0.0025f));
+        addDrop(FRUITED_LEAVES.get("plum"), leavesItemDrops(FRUITED_LEAVES.get("plum"),
+                WOODEN_SAPLINGS.get("plum"), ModItems.PLUM, 0.0025f));
+        addDrop(FRUITED_LEAVES.get("mango"), leavesItemDrops(FRUITED_LEAVES.get("mango"),
+                WOODEN_SAPLINGS.get("mango"), ModItems.MANGO, 0.0025f));
+        addDrop(FRUITED_LEAVES.get("viburnum"), leavesItemDrops(FRUITED_LEAVES.get("viburnum"),
                 WOODEN_SAPLINGS.get("viburnum"), ModItems.VIBURNUM, 0.0025f));
-
-        addDrop(LEAVES.get("wild_cherry"), leavesItemDrops(LEAVES.get("wild_cherry"),
+        addDrop(FRUITED_LEAVES.get("wild_cherry"), leavesItemDrops(FRUITED_LEAVES.get("wild_cherry"),
                 WOODEN_SAPLINGS.get("wild_cherry"), ModItems.WILD_CHERRY, 0.0025f));
-
-        addDrop(LEAVES.get("white_mulberry"), leavesItemDrops(LEAVES.get("white_mulberry"),
+        addDrop(FRUITED_LEAVES.get("white_mulberry"), leavesItemDrops(FRUITED_LEAVES.get("white_mulberry"),
                 WOODEN_SAPLINGS.get("white_mulberry"), ModItems.WHITE_MULBERRY, 0.0025f));
-
-        addDrop(LEAVES.get("bauhinia"), leavesDrops(LEAVES.get("bauhinia"),
+        addDrop(FRUITED_LEAVES.get("bauhinia"), leavesDrops(FRUITED_LEAVES.get("bauhinia"),
                 WOODEN_SAPLINGS.get("bauhinia"), 0.0025f));
+        addDrop(FRUITED_LEAVES.get("hawthorn"), leavesDrops(FRUITED_LEAVES.get("hawthorn"),
+                WOODEN_SAPLINGS.get("hawthorn"), 0.0025f));
 
         addDrop(ModBlocks.OAK_CHISELED);
         addDrop(ModBlocks.OAK_CHISELED_SLAB);
@@ -211,54 +207,76 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         addDrop(ModBlocks.CHERRY_CHISELED);
         addDrop(ModBlocks.CHERRY_CHISELED_SLAB);
         addDrop(ModBlocks.CHERRY_CHISELED_STAIRS);
-        addDrop(ModBlocks.PINE_CONE_BLOCK);
         addDrop(ModBlocks.PINE_RESIN_BLOCK);
         addDrop(ModBlocks.PINE_RESIN_BRICKS);
         addDrop(ModBlocks.PINE_RESIN_BRICKS_SLAB);
         addDrop(ModBlocks.PINE_RESIN_BRICKS_STAIRS);
         addDrop(ModBlocks.PINE_RESIN_CHISELED);
+        addDrop(ModBlocks.CRYPTOMERIA_RESIN_BLOCK);
+        addDrop(ModBlocks.CRYPTOMERIA_RESIN_BRICKS);
+        addDrop(ModBlocks.CRYPTOMERIA_RESIN_BRICKS_SLAB);
+        addDrop(ModBlocks.CRYPTOMERIA_RESIN_BRICKS_STAIRS);
+        addDrop(ModBlocks.CRYPTOMERIA_RESIN_CHISELED);
 
         addDrop(ModBlocks.WOOD_ANEMONA);
-        addDrop(ModBlocks.BLUEBELL);
+        addDrop(ModBlocks.MARSH_MOSS);
         addDrop(ModBlocks.WOOD_SORREL);
+        addDrop(ModBlocks.ALPINE_GENTIAN);
         addDrop(ModBlocks.REINDEER_LICHEN);
         addDrop(ModBlocks.ORCHID_LILY_PAD);
-        addDrop(ModBlocks.HAZELNUT_COVER, dropsWithSilkTouch(ModBlocks.HAZELNUT_COVER));
-        addDrop(ModBlocks.BAUHINIA_COVER, dropsWithSilkTouch(ModBlocks.BAUHINIA_COVER));
-        addDrop(ModBlocks.BAUHINIA_COVER_BLOCK, dropsWithSilkTouch(ModBlocks.BAUHINIA_COVER_BLOCK));
-        addDrop(ModBlocks.PINE_COVER, dropsWithSilkTouch(ModBlocks.PINE_COVER));
-        addDrop(ModBlocks.PINE_COVER_BLOCK, dropsWithSilkTouch(ModBlocks.PINE_COVER_BLOCK));
-        addDrop(ModBlocks.JUNIPER_COVER, dropsWithSilkTouch(ModBlocks.JUNIPER_COVER));
-        addDrop(ModBlocks.JUNIPER_COVER_BLOCK, dropsWithSilkTouch(ModBlocks.JUNIPER_COVER_BLOCK));
+        addDrop(ModBlocks.WHITE_LILY_PAD);
+        addDrop(ModBlocks.SPANISH_MOSS);
+        for (String name : COVER_NAMES)
+        {
+            addDrop(COVERS.get(name), dropsWithSilkTouch(COVERS.get(name)));
+            addDrop(COVER_BLOCKS.get(name), dropsWithSilkTouch(COVER_BLOCKS.get(name)));
+        }
+
+        addDrop(ModBlocks.MARSH_MOSS_PLANT, dropsWithSilkTouch(ModBlocks.MARSH_MOSS_PLANT));
+        addDrop(ModBlocks.MARSH_MOSS_PLANT_BLOCK, dropsWithSilkTouch(ModBlocks.MARSH_MOSS_PLANT_BLOCK));
         addDrop(ModBlocks.FLAT_GRASS, dropsWithSilkTouch(ModBlocks.FLAT_GRASS));
         addDrop(ModBlocks.FLAT_GRASS_BLOCK, dropsWithSilkTouch(ModBlocks.FLAT_GRASS_BLOCK));
         addDrop(ModBlocks.LYNX_HIDE, dropsWithSilkTouch(ModBlocks.LYNX_HIDE));
         addDrop(ModBlocks.BAUHINIA_VINES, dropsWithSilkTouch(ModBlocks.BAUHINIA_VINES));
         addDrop(ModBlocks.PINE_RESIN, dropsWithSilkTouch(ModBlocks.PINE_RESIN));
-        addDrop(ModBlocks.HAZELNUT_COVER, multipleOreDrops(ModBlocks.HAZELNUT_COVER, ModItems.HAZELNUT, 0, 3));
-        addDrop(ModBlocks.JUNIPER_COVER, multipleOreDrops(ModBlocks.JUNIPER_COVER, ModItems.JUNIPER_BERRY, 0, 3));
-        addDrop(ModBlocks.PINE_COVER, multipleOreDrops(ModBlocks.PINE_COVER, ModItems.PINE_CONE, 0, 3));
-        addDrop(LEAVES.get("pine"), leavesItemDrops(ModBlockSetsHelper.LEAVES.get("pine"),
-                ModBlockSetsHelper.WOODEN_SAPLINGS.get("pine"), ModItems.PINE_CONE, 0.0025f));
-        addDrop(LEAVES.get("fir"), leavesItemDrops(ModBlockSetsHelper.LEAVES.get("fir"),
-                ModBlockSetsHelper.WOODEN_SAPLINGS.get("fir"), ModItems.FIR_CONE, 0.0025f));
-        addDrop(LEAVES.get("cedar"), leavesItemDrops(ModBlockSetsHelper.LEAVES.get("cedar"),
-                ModBlockSetsHelper.WOODEN_SAPLINGS.get("cedar"), ModItems.CEDAR_CONE, 0.0025f));
-        addDrop(LEAVES.get("araucaria"), leavesItemDrops(ModBlockSetsHelper.LEAVES.get("araucaria"),
-                ModBlockSetsHelper.WOODEN_SAPLINGS.get("araucaria"), ModItems.ARAUCARIA_CONE, 0.0025f));
-        addDrop(LEAVES.get("juniper"), leavesItemDrops(ModBlockSetsHelper.LEAVES.get("juniper"),
+        addDrop(ModBlocks.CRYPTOMERIA_RESIN, dropsWithSilkTouch(ModBlocks.CRYPTOMERIA_RESIN));
+        addDrop(COVERS.get("hazelnut"), multipleOreDrops(COVERS.get("hazelnut"), ModItems.HAZELNUT, 0, 3));
+        addDrop(COVERS.get("juniper"), multipleOreDrops(COVERS.get("juniper"), ModItems.JUNIPER_BERRY, 0, 3));
+        addDrop(COVERS.get("yew"), multipleOreDrops(COVERS.get("yew"), ModItems.YEW_BERRY, 0, 3));
+        for (String name : CONIFER_CONES_NAMES)
+        {
+            addDrop(CONE_BLOCKS.get(name));
+            addDrop(COVERS.get(name), multipleOreDrops(COVERS.get(name), CONES.get(name), 0, 2));
+        }
+
+        for (String name : CONIFER_CONES_NAMES)
+        {
+            addDrop(LEAVES.get(name), leavesItemDrops(LEAVES.get(name),
+                    WOODEN_SAPLINGS.get(name), CONES.get(name), 0.0025f));
+        }
+
+        addDrop(FRUITED_LEAVES.get("juniper"), leavesItemDrops(ModBlockSetsHelper.FRUITED_LEAVES.get("juniper"),
                 ModBlockSetsHelper.WOODEN_SAPLINGS.get("juniper"), ModItems.JUNIPER_BERRY, 0.0025f));
-        addDrop(ModBlocks.GERANIUM);
-        addDrop(ModBlocks.XEROCHRYSUM);
-        addDrop(ModBlocks.LARGE_CELANDINE, block -> this.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
-        addDrop(ModBlocks.BLUEGRASS, block -> this.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
-        addDrop(ModBlocks.LARGE_ORCHID, block -> this.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
-        addDrop(ModBlocks.ORCHID);
+        addDrop(FRUITED_LEAVES.get("yew"), leavesItemDrops(ModBlockSetsHelper.FRUITED_LEAVES.get("yew"),
+                ModBlockSetsHelper.WOODEN_SAPLINGS.get("yew"), ModItems.YEW_BERRY, 0.0025f));
+
+        for (String name : FLOWER_NAMES)
+            addDrop(FLOWERS.get(name));
+
+        for (String name : TALL_FLOWER_NAMES)
+            addDrop(TALL_FLOWERS.get(name), block -> this.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
+
+        addDrop(ModBlocks.SEDGE, block -> this.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
         addDrop(ModBlocks.ORCHID_GRASS_BLOCK);
         addDrop(ModBlocks.DIRTED_GRASS_BLOCK);
+        addDrop(ModBlocks.BOG_SOIL_COVER);
+        addDrop(ModBlocks.BOG_SOIL);
         addDrop(ModBlocks.WHITE_MUSHROOM);
         addDrop(ModBlocks.WHITE_MUSHROOM_BLOCK);
         addDrop(ModBlocks.WHITE_MUSHROOM_STEM);
+        addDrop(ModBlocks.GOLDEN_CHANTRELLE);
+        addDrop(ModBlocks.GOLDEN_CHANTRELLE_BLOCK);
+        addDrop(ModBlocks.GOLDEN_CHANTRELLE_STEM);
     }
 
     private LootTable.Builder multipleOreDrops(Block drop, Item item, float minDrops, float maxDrops)
@@ -267,7 +285,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
                 drop,
                 (LootPoolEntry.Builder<?>)this.applyExplosionDecay(
                         drop,
-                        ItemEntry.builder(Items.RAW_COPPER)
+                        ItemEntry.builder(item)
                                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(minDrops, maxDrops)))
                                 .apply(ApplyBonusLootFunction.oreDrops(Enchantments.FORTUNE))
                 )

@@ -30,5 +30,6 @@
     "recipes": [
       "minecraft:pine_cone_from_pine_cone_block"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

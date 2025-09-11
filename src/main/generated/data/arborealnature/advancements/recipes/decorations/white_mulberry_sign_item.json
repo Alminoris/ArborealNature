@@ -43,5 +43,6 @@
     "recipes": [
       "arborealnature:white_mulberry_sign_item"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

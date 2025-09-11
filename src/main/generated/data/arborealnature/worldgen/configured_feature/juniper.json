@@ -11,7 +11,8 @@
             "Name": "arborealnature:juniper_cover"
           }
         },
-        "radius": 2
+        "radius": 2,
+        "trunk_thickness": 1
       }
     ],
     "dirt_provider": {
@@ -26,15 +27,31 @@
       "radius": 1
     },
     "foliage_provider": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "arborealnature:juniper_leaves",
-        "Properties": {
-          "distance": "7",
-          "persistent": "false",
-          "waterlogged": "false"
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "arborealnature:juniper_leaves",
+            "Properties": {
+              "distance": "7",
+              "persistent": "false",
+              "waterlogged": "false"
+            }
+          },
+          "weight": 4
+        },
+        {
+          "data": {
+            "Name": "arborealnature:juniper_fruited_leaves",
+            "Properties": {
+              "distance": "7",
+              "persistent": "false",
+              "waterlogged": "false"
+            }
+          },
+          "weight": 2
         }
-      }
+      ]
     },
     "force_dirt": false,
     "ignore_vines": true,
