@@ -1,4 +1,4 @@
-// 1.20.1	2025-09-11T18:53:52.1116485	Arboreal Nature/Recipes
+// 1.20.1	2025-09-11T19:54:07.4840696	Arboreal Nature/Recipes
 8d7849f33696a37739672655b70d6c3422d7318b data\arborealnature\recipes\burnt_white_mulberry_wood.json
 d44c882b109a63194117f8e0aa1df3a43cdc4dea data\arborealnature\recipes\white_mulberry_fence_gate.json
 a1cea281ddb030289df19ecea32d41b637900196 data\arborealnature\advancements\recipes\building_blocks\crimson_chiseled_stairs.json
@@ -312,8 +312,8 @@ fa00730eb8de841cc079a0835f1f62c036a5ff3a data\arborealnature\advancements\recipe
 72abc0533a4e809de37e77b3f4e5b8ea70034cc3 data\arborealnature\recipes\quince_fence_gate.json
 89a808e4e15be86ed0ce519b24604a6c1271e185 data\arborealnature\advancements\recipes\building_blocks\burnt_scots_pine_wood.json
 dd98ba7c1b13581e0f94cd4c076dba160d9a51e4 data\arborealnature\advancements\recipes\redstone\yew_pressure_plate.json
-5217ffb667e41a11c6afbfa74e6ba6d9a5b90465 data\arborealnature\advancements\recipes\building_blocks\larch_fence.json
 6e483f117519d87f0fa2589220dbd7fdfc639e50 data\arborealnature\recipes\swamp_oak_chiseled_stairs.json
+5217ffb667e41a11c6afbfa74e6ba6d9a5b90465 data\arborealnature\advancements\recipes\building_blocks\larch_fence.json
 1c23143a8247d456f6a019bbc82ca6fa197b771c data\arborealnature\recipes\bald_cypress_sign_item.json
 8ce990cd49ced83b0078a25afe4651b0924e2e55 data\arborealnature\recipes\larch_cone_block.json
 1e96b01d9151b8f2606c8ce7dc40652ee1acbf3e data\arborealnature\advancements\recipes\redstone\viburnum_trapdoor.json
