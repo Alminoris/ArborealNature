@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:white_mulberry_button_from_white_mulberry_planks"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

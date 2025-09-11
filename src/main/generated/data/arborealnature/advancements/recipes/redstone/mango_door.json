@@ -30,6 +30,5 @@
     "recipes": [
       "arborealnature:mango_door"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

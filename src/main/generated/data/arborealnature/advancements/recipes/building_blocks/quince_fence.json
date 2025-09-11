@@ -43,6 +43,5 @@
     "recipes": [
       "arborealnature:quince_fence"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

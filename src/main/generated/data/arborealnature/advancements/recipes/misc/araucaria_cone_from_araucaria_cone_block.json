@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:araucaria_cone_from_araucaria_cone_block"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

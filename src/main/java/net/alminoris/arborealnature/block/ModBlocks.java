@@ -9,7 +9,6 @@ import net.alminoris.arborealnature.block.custom.*;
 import net.alminoris.arborealnature.particle.ModParticles;
 import net.alminoris.arborealnature.world.ModConfiguredFeatures;
 import net.minecraft.block.*;
-import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.block.sapling.SaplingGenerator;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.entity.effect.StatusEffects;
@@ -206,35 +205,26 @@ public class ModBlocks
             new MushroomBlock(AbstractBlock.Settings.copy(Blocks.MUSHROOM_STEM)));
 
     public static final Block BAUHINIA_VINES = registerBlock("bauhinia_vines",
-            new VineBlock(AbstractBlock.Settings.create()
+            new VineBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT)
                     .mapColor(MapColor.MAGENTA)
-                    .replaceable()
                     .noCollision()
                     .ticksRandomly()
                     .strength(0.2F)
-                    .sounds(BlockSoundGroup.VINE)
-                    .burnable()
-                    .pistonBehavior(PistonBehavior.DESTROY)));
+                    .sounds(BlockSoundGroup.VINE)));
 
     public static final Block PINE_RESIN = registerBlock("pine_resin",
-            new CustomVineBlock(AbstractBlock.Settings.create()
+            new CustomVineBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT)
                     .mapColor(MapColor.YELLOW)
-                    .replaceable()
                     .noCollision()
                     .strength(0.2F)
-                    .sounds(BlockSoundGroup.CORAL)
-                    .burnable()
-                    .pistonBehavior(PistonBehavior.DESTROY)));
+                    .sounds(BlockSoundGroup.CORAL)));
 
     public static final Block CRYPTOMERIA_RESIN = registerBlock("cryptomeria_resin",
-            new CustomVineBlock(AbstractBlock.Settings.create()
+            new CustomVineBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT)
                     .mapColor(MapColor.EMERALD_GREEN)
-                    .replaceable()
                     .noCollision()
                     .strength(0.2F)
-                    .sounds(BlockSoundGroup.CORAL)
-                    .burnable()
-                    .pistonBehavior(PistonBehavior.DESTROY)));
+                    .sounds(BlockSoundGroup.CORAL)));
 
     public static final Block MARSH_MOSS_PLANT_BLOCK = registerBlock("marsh_moss_plant_block",
             new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).noCollision()));
@@ -324,8 +314,7 @@ public class ModBlocks
         return switch (name)
         {
             case "bauhinia" -> registerBlock(name + "_leaves",
-                    new FallingLeavesBlock(AbstractBlock.Settings.create()
-                            .mapColor(MapColor.MAGENTA)
+                    new FallingLeavesBlock(AbstractBlock.Settings.of(Material.LEAVES, MapColor.MAGENTA)
                             .strength(0.2F)
                             .ticksRandomly()
                             .sounds(BlockSoundGroup.CHERRY_LEAVES)
@@ -333,8 +322,6 @@ public class ModBlocks
                             .allowsSpawning(Blocks::canSpawnOnLeaves)
                             .suffocates(Blocks::never)
                             .blockVision(Blocks::never)
-                            .burnable()
-                            .pistonBehavior(PistonBehavior.DESTROY)
                             .solidBlock(Blocks::never), ModParticles.BAUHINIA_PETALS, 10));
             case "pine" -> registerBlock(name + "_leaves",
                     new FallingLeavesBlock(AbstractBlock.Settings.copy(Blocks.SPRUCE_LEAVES), ModParticles.PINE_NEEDLES, 60));
@@ -363,7 +350,7 @@ public class ModBlocks
             case "hornbeam" -> registerBlock(name + "_leaves",
                     new FallingLeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES), ModParticles.HORNBEAM_LEAVES, 35));
             case "hawthorn" -> registerBlock(name + "_leaves",
-                    new FallingLeavesBlock(AbstractBlock.Settings.create()
+                    new FallingLeavesBlock(AbstractBlock.Settings.of(Material.LEAVES, MapColor.WHITE)
                             .mapColor(MapColor.WHITE)
                             .strength(0.2F)
                             .ticksRandomly()
@@ -372,8 +359,6 @@ public class ModBlocks
                             .allowsSpawning(Blocks::canSpawnOnLeaves)
                             .suffocates(Blocks::never)
                             .blockVision(Blocks::never)
-                            .burnable()
-                            .pistonBehavior(PistonBehavior.DESTROY)
                             .solidBlock(Blocks::never), ModParticles.HAWTHORN_PETALS, 15));
             case "fig" -> registerBlock(name + "_leaves",
                     new FallingLeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES), ModParticles.FIG_LEAVES, 45));

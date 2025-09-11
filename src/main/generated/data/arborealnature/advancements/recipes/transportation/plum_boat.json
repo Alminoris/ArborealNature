@@ -24,6 +24,5 @@
     "recipes": [
       "arborealnature:plum_boat"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

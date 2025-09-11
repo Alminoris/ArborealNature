@@ -30,6 +30,5 @@
     "recipes": [
       "arborealnature:caribou_fur_leggings"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

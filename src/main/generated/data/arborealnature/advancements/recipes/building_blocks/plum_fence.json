@@ -43,6 +43,5 @@
     "recipes": [
       "arborealnature:plum_fence"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -196,15 +196,11 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
 
         this.getOrCreateTagBuilder(BlockTags.AXE_MINEABLE).add(ModBlocks.ORCHID_LILY_PAD, ModBlocks.WHITE_LILY_PAD);
 
-        this.getOrCreateTagBuilder(BlockTags.SWORD_EFFICIENT).add(ModBlocks.ORCHID_LILY_PAD, ModBlocks.WHITE_LILY_PAD).add(ModBlocks.REINDEER_LICHEN, ModBlocks.REINDEER_LICHEN_CARPET);
-
         this.getOrCreateTagBuilder(BlockTags.FROG_PREFER_JUMP_TO).add(ModBlocks.ORCHID_LILY_PAD, ModBlocks.WHITE_LILY_PAD);
 
         this.getOrCreateTagBuilder(BlockTags.HOE_MINEABLE).add(ModBlocks.REINDEER_LICHEN, ModBlocks.REINDEER_LICHEN_CARPET);
 
         this.getOrCreateTagBuilder(BlockTags.DIRT).add(ModBlocks.REINDEER_LICHEN, ModBlocks.BOG_SOIL, ModBlocks.BOG_SOIL_COVER);
-
-        this.getOrCreateTagBuilder(BlockTags.COMBINATION_STEP_SOUND_BLOCKS).add(ModBlocks.REINDEER_LICHEN_CARPET);
 
         this.getOrCreateTagBuilder(BlockTags.CLIMBABLE)
                 .add(ModBlocks.BAUHINIA_VINES)

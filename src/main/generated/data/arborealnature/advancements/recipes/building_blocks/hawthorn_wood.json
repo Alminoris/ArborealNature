@@ -30,6 +30,5 @@
     "recipes": [
       "arborealnature:hawthorn_wood"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

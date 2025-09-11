@@ -30,6 +30,5 @@
     "recipes": [
       "arborealnature:apple_chiseled_stairs"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

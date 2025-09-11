@@ -30,6 +30,5 @@
     "recipes": [
       "arborealnature:palo_verde_nss_chiseled_slab"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

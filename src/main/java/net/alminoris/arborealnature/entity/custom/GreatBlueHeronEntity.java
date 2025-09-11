@@ -40,7 +40,7 @@ public class GreatBlueHeronEntity extends AnimalEntity implements GeoEntity
     private final AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
     private static final Ingredient BREEDING_INGREDIENT = Ingredient.ofItems(
-            Items.WHEAT_SEEDS, Items.MELON_SEEDS, Items.PUMPKIN_SEEDS, Items.BEETROOT_SEEDS, Items.TORCHFLOWER_SEEDS, Items.PITCHER_POD
+            Items.WHEAT_SEEDS, Items.MELON_SEEDS, Items.PUMPKIN_SEEDS, Items.BEETROOT_SEEDS, Items.TORCHFLOWER_SEEDS
     );
 
     public GreatBlueHeronEntity(EntityType<? extends AnimalEntity> entityType, World world)

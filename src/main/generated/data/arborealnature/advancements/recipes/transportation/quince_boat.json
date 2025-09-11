@@ -24,6 +24,5 @@
     "recipes": [
       "arborealnature:quince_boat"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

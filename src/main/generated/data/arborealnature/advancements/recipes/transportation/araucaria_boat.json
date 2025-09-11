@@ -24,6 +24,5 @@
     "recipes": [
       "arborealnature:araucaria_boat"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

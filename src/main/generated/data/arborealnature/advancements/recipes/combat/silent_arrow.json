@@ -43,6 +43,5 @@
     "recipes": [
       "arborealnature:silent_arrow"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

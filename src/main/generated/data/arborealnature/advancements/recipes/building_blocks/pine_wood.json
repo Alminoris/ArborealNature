@@ -30,6 +30,5 @@
     "recipes": [
       "arborealnature:pine_wood"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

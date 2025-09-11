@@ -30,6 +30,5 @@
     "recipes": [
       "arborealnature:wild_cherry_chiseled_slab"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

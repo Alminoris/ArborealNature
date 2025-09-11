@@ -30,6 +30,5 @@
     "recipes": [
       "arborealnature:staghorn_sumac_chiseled_slab"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

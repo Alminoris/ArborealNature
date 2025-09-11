@@ -30,6 +30,5 @@
     "recipes": [
       "arborealnature:juniper_door"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

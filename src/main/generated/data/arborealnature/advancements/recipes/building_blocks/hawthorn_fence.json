@@ -43,6 +43,5 @@
     "recipes": [
       "arborealnature:hawthorn_fence"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

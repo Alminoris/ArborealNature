@@ -30,6 +30,5 @@
     "recipes": [
       "arborealnature:pine_resin_bricks_stairs"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

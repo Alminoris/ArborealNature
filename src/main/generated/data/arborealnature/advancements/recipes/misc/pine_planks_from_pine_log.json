@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:pine_planks_from_pine_log"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -1,4 +1,4 @@
-// 1.20.1	2025-09-11T16:18:44.9831967	Arboreal Nature/Tags for minecraft:block
+// 1.19.4	2025-09-11T18:23:24.2604122	Arboreal Nature/Tags for minecraft:block
 76ce834d1b9bec5726c992e7e99370b070b6e32f data\minecraft\tags\blocks\wooden_slabs.json
 8dfdca8ae7d703fbeb58aa5c0ca1e4af3bebeb30 data\minecraft\tags\blocks\wooden_doors.json
 84d6cf9dda7d61cb7be1db53e4c9a74ee74b8979 data\minecraft\tags\blocks\inside_step_sound_blocks.json
@@ -10,7 +10,6 @@ afd44c1ac9cc5a7193bf03f9023ed8ccdf61881d data\minecraft\tags\blocks\tall_flowers
 0df393e6e1c1c03a4e03cd4208a326ceff7c334f data\arborealnature\tags\blocks\caribou_spawnable_on.json
 9deb64c54855ef8fbcaaa3224e94b34a5490dff1 data\minecraft\tags\blocks\wooden_buttons.json
 817dcf294352a88fbc8a319220190364fa7e0c31 data\arborealnature\tags\blocks\logs_to_be_burnt.json
-420c9c80b8584dd8e504e2c5c378e44d48b2ece8 data\minecraft\tags\blocks\sword_efficient.json
 524670de9761504dc95b6be1c8af8da9263f192e data\minecraft\tags\blocks\wooden_stairs.json
 2d3fcefde71fbc097b26ab865d77977c3bbec82a data\minecraft\tags\blocks\ceiling_hanging_signs.json
 62f34e99218fbaa481f242599e19a8be944e5a91 data\arborealnature\tags\blocks\wolverine_spawnable_on.json
@@ -21,7 +20,6 @@ afd44c1ac9cc5a7193bf03f9023ed8ccdf61881d data\minecraft\tags\blocks\tall_flowers
 184389cca4c1c8855aa140f288de01579b3a6b33 data\minecraft\tags\blocks\wooden_pressure_plates.json
 331aec9ad042c8772ae19612f790038b6499a781 data\minecraft\tags\blocks\dirt.json
 29ac7a4438823ed260ef2024a117c486fe80cc30 data\minecraft\tags\blocks\wooden_fences.json
-9508467446a81014ef0a1d02de100a308afa7a9c data\minecraft\tags\blocks\combination_step_sound_blocks.json
 84d6cf9dda7d61cb7be1db53e4c9a74ee74b8979 data\minecraft\tags\blocks\frog_prefer_jump_to.json
 959061ab56b46d18fd1b445dc9f04c112a6def95 data\minecraft\tags\blocks\flower_pots.json
 c2f073a80e26c7e85139dd3d087265bd94380f7d data\minecraft\tags\blocks\logs_that_burn.json

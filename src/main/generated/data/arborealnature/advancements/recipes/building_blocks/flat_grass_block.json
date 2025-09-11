@@ -30,6 +30,5 @@
     "recipes": [
       "arborealnature:flat_grass_block"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

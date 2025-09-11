@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:hawthorn_button_from_hawthorn_planks"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

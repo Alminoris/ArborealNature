@@ -30,6 +30,5 @@
     "recipes": [
       "arborealnature:white_mulberry_slab"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -30,6 +30,5 @@
     "recipes": [
       "arborealnature:burnt_cedar_wood"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -24,6 +24,5 @@
     "recipes": [
       "arborealnature:wild_cherry_boat"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

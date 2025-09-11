@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:bauhinia_planks_from_bauhinia_log"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

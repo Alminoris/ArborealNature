@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:pine_resin_item_from_pine_resin_block"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -164,7 +164,7 @@ public class SpanishMossBlock extends PlantBlock implements Fertilizable, Waterl
         BlockState above = world.getBlockState(pos.up());
         BlockState below = world.getBlockState(pos.down());
 
-        boolean bottom = below.isAir() || below.isOf(Blocks.WATER) || below.isSolid();
+        boolean bottom = below.isAir() || below.isOf(Blocks.WATER) || below.isSideSolidFullSquare(world, pos.down(), Direction.UP);
 
         if (above.getBlock() instanceof SpanishMossBlock)
         {

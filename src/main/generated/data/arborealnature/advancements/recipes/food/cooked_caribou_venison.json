@@ -30,6 +30,5 @@
     "recipes": [
       "arborealnature:cooked_caribou_venison"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:juniper_button_from_juniper_planks"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

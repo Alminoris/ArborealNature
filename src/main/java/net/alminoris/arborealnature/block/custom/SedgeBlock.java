@@ -84,27 +84,27 @@ public class SedgeBlock extends TallPlantBlock implements Waterloggable
     }
 
     @Override
-    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos)
-    {
-        if (state.get(HALF) == DoubleBlockHalf.UPPER)
-        {
+    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
+        if (state.get(HALF) == DoubleBlockHalf.UPPER) {
             BlockState below = world.getBlockState(pos.down());
             if (!(below.isOf(this) && below.get(HALF) == DoubleBlockHalf.LOWER)) return false;
             return !world.getFluidState(pos).isIn(FluidTags.WATER);
-        }
-        else
-        {
+        } else {
             FluidState here = world.getFluidState(pos);
             FluidState above = world.getFluidState(pos.up());
             if (!here.isIn(FluidTags.WATER) || !here.isStill()) return false;
             if (above.isIn(FluidTags.WATER)) return false;
 
-            BlockState northBlockState = world.getBlockState(pos.north());
-            BlockState southBlockState = world.getBlockState(pos.south());
-            BlockState eastBlockState = world.getBlockState(pos.east());
-            BlockState westBlockState = world.getBlockState(pos.west());
+            BlockPos north = pos.north();
+            BlockPos south = pos.south();
+            BlockPos east = pos.east();
+            BlockPos west = pos.west();
 
-            boolean isHasNearSolidBlock = (northBlockState.isSolid() || southBlockState.isSolid() || eastBlockState.isSolid() || westBlockState.isSolid());
+            boolean isHasNearSolidBlock =
+                    world.getBlockState(north).isSideSolidFullSquare(world, north, Direction.SOUTH) ||
+                            world.getBlockState(south).isSideSolidFullSquare(world, south, Direction.NORTH) ||
+                            world.getBlockState(east).isSideSolidFullSquare(world, east, Direction.WEST) ||
+                            world.getBlockState(west).isSideSolidFullSquare(world, west, Direction.EAST);
 
             if (!isHasNearSolidBlock) return false;
 

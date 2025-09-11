@@ -30,6 +30,5 @@
     "recipes": [
       "arborealnature:silver_maple_chiseled_slab"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

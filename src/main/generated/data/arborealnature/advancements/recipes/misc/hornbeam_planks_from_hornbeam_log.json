@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:hornbeam_planks_from_hornbeam_log"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

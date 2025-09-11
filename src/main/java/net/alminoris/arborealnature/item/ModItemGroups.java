@@ -7,8 +7,6 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
@@ -28,9 +26,8 @@ public class ModItemGroups
 
     public static final String[] ORCHARD_BERRIES = {"bilberry", "blackberry", "pink_currant"};
 
-    public static final ItemGroup HAZELNUT_EXPANSION_TAB = Registry.register(Registries.ITEM_GROUP,
-            Identifier.of(ArborealNature.MOD_ID, "hazelnutexptab"),
-            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.hazelnutexptab"))
+    public static final ItemGroup HAZELNUT_EXPANSION_TAB =
+            FabricItemGroup.builder(Identifier.of(ArborealNature.MOD_ID, "hazelnutexptab")).displayName(Text.translatable("itemgroup.hazelnutexptab"))
                     .icon(() -> new ItemStack(ModItems.HAZELNUT_CRACKED)).entries((displayContext, entries) ->
                     {
                         entries.add(ModBlocks.WOOD_ANEMONA);
@@ -164,11 +161,10 @@ public class ModItemGroups
                         entries.add(ModItems.WOOD_MOUSE_TAIL);
                         entries.add(ModItems.SQUIRREL_SPAWN_EGG);
                         entries.add(ModItems.WOOD_MOUSE_SPAWN_EGG);
-                    }).build());
+                    }).build();
 
-    public static final ItemGroup ORCHARD_EXPANSION_TAB = Registry.register(Registries.ITEM_GROUP,
-            Identifier.of(ArborealNature.MOD_ID, "orchardexptab"),
-            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.orchardexptab"))
+    public static final ItemGroup ORCHARD_EXPANSION_TAB =
+            FabricItemGroup.builder(Identifier.of(ArborealNature.MOD_ID, "orchardexptab")).displayName(Text.translatable("itemgroup.orchardexptab"))
                     .icon(() -> new ItemStack(TALL_FLOWERS.get("large_orchid"))).entries((displayContext, entries) ->
                     {
                         entries.add(ModBlocks.ORCHID_GRASS_BLOCK);
@@ -281,11 +277,10 @@ public class ModItemGroups
                         entries.add(ModItems.FIGEATER_BEETLE_SHELL);
                         entries.add(ModItems.FIGEATER_BEETLE_SPAWN_EGG);
                         entries.add(ModItems.ORCHID_MANTIS_SPAWN_EGG);
-                    }).build());
+                    }).build();
 
-    public static final ItemGroup CONIFEROUS_EXPANSION_TAB = Registry.register(Registries.ITEM_GROUP,
-            Identifier.of(ArborealNature.MOD_ID, "coniferousexptab"),
-            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.coniferousexptab"))
+    public static final ItemGroup CONIFEROUS_EXPANSION_TAB =
+            FabricItemGroup.builder(Identifier.of(ArborealNature.MOD_ID, "coniferousexptab")).displayName(Text.translatable("itemgroup.coniferousexptab"))
                     .icon(() -> new ItemStack(Blocks.SPRUCE_SAPLING)).entries((displayContext, entries) ->
                     {
                         entries.add(ModBlocks.DIRTED_GRASS_BLOCK);
@@ -411,7 +406,7 @@ public class ModItemGroups
                         entries.add(ModItems.MOSQUITO_SWARM_SPAWN_EGG);
                         entries.add(ModItems.ELK_SPAWN_EGG);
                         entries.add(ModItems.GREAT_HORNED_OWL_SPAWN_EGG);
-                    }).build());
+                    }).build();
 
     public static void registerItemGroups()
     {

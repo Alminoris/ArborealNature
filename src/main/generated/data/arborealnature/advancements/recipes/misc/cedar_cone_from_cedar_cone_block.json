@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:cedar_cone_from_cedar_cone_block"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

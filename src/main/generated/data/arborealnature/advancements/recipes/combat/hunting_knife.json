@@ -30,6 +30,5 @@
     "recipes": [
       "arborealnature:hunting_knife"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

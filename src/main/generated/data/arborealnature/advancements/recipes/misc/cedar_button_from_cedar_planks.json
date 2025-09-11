@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:cedar_button_from_cedar_planks"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

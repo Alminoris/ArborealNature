@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:fig_button_from_fig_planks"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

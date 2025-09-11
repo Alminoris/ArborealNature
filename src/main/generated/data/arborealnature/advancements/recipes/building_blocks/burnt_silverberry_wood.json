@@ -30,6 +30,5 @@
     "recipes": [
       "arborealnature:burnt_silverberry_wood"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:mango_button_from_mango_planks"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
