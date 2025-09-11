@@ -16,6 +16,13 @@
     "arborealnature:fir_sign_item",
     "arborealnature:cedar_sign_item",
     "arborealnature:araucaria_sign_item",
-    "arborealnature:juniper_sign_item"
+    "arborealnature:juniper_sign_item",
+    "arborealnature:bald_cypress_sign_item",
+    "arborealnature:thuja_sign_item",
+    "arborealnature:sequoia_sign_item",
+    "arborealnature:mountain_hemlock_sign_item",
+    "arborealnature:cryptomeria_sign_item",
+    "arborealnature:yew_sign_item",
+    "arborealnature:larch_sign_item"
   ]
 }

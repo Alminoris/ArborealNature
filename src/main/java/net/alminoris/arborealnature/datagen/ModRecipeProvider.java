@@ -2,6 +2,7 @@ package net.alminoris.arborealnature.datagen;
 
 import net.alminoris.arborealnature.block.ModBlocks;
 import net.alminoris.arborealnature.item.ModItems;
+import net.alminoris.arborealnature.util.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.CookingRecipeJsonBuilder;
@@ -11,7 +12,6 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.book.RecipeCategory;
-
 import java.util.function.Consumer;
 
 import static net.alminoris.arborealnature.util.helper.ModBlockSetsHelper.*;
@@ -228,25 +228,21 @@ public class ModRecipeProvider extends FabricRecipeProvider
                     .offerTo(recipeExporter);
         }
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BAUHINIA_COVER_BLOCK, 1)
-                .pattern("##")
-                .pattern("##")
-                .input('#', ModBlocks.BAUHINIA_COVER)
-                .criterion(hasItem(ModBlocks.BAUHINIA_COVER), conditionsFromItem(ModBlocks.BAUHINIA_COVER))
-                .offerTo(recipeExporter);
+        for (String name : COVER_NAMES)
+        {
+            ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, COVER_BLOCKS.get(name), 1)
+                    .pattern("##")
+                    .pattern("##")
+                    .input('#', COVERS.get(name))
+                    .criterion(hasItem(COVERS.get(name)), conditionsFromItem(COVERS.get(name)))
+                    .offerTo(recipeExporter);
+        }
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.PINE_COVER_BLOCK, 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.MARSH_MOSS_PLANT_BLOCK, 1)
                 .pattern("##")
                 .pattern("##")
-                .input('#', ModBlocks.PINE_COVER)
-                .criterion(hasItem(ModBlocks.PINE_COVER), conditionsFromItem(ModBlocks.PINE_COVER))
-                .offerTo(recipeExporter);
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.JUNIPER_COVER_BLOCK, 1)
-                .pattern("##")
-                .pattern("##")
-                .input('#', ModBlocks.JUNIPER_COVER)
-                .criterion(hasItem(ModBlocks.JUNIPER_COVER), conditionsFromItem(ModBlocks.JUNIPER_COVER))
+                .input('#', ModBlocks.MARSH_MOSS_PLANT)
+                .criterion(hasItem(ModBlocks.MARSH_MOSS_PLANT), conditionsFromItem(ModBlocks.MARSH_MOSS_PLANT))
                 .offerTo(recipeExporter);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.FLAT_GRASS_BLOCK, 1)
@@ -259,9 +255,8 @@ public class ModRecipeProvider extends FabricRecipeProvider
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.HUNTING_KNIFE, 1)
                 .pattern(" # ")
                 .pattern("/  ")
-                .input('#', ModItems.MOOSE_HORN)
+                .input('#', ModTags.Items.HUNTING_KNIFE_HORNS)
                 .input('/', Items.STICK)
-                .criterion(hasItem(ModItems.MOOSE_HORN), conditionsFromItem(ModItems.MOOSE_HORN))
                 .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
                 .offerTo(recipeExporter);
 
@@ -306,11 +301,14 @@ public class ModRecipeProvider extends FabricRecipeProvider
                 .offerTo(recipeExporter);
 
         offerSingleOutputShapelessRecipe(recipeExporter, Items.WHITE_DYE, ModBlocks.WOOD_ANEMONA, String.valueOf(RecipeCategory.MISC));
-        offerSingleOutputShapelessRecipe(recipeExporter, Items.MAGENTA_DYE, ModBlocks.GERANIUM, String.valueOf(RecipeCategory.MISC));
-        offerSingleOutputShapelessRecipe(recipeExporter, Items.YELLOW_DYE, ModBlocks.XEROCHRYSUM, String.valueOf(RecipeCategory.MISC));
-        offerSingleOutputShapelessRecipe(recipeExporter, Items.PINK_DYE, ModBlocks.ORCHID, String.valueOf(RecipeCategory.MISC));
+        offerSingleOutputShapelessRecipe(recipeExporter, Items.MAGENTA_DYE, FLOWERS.get("geranium"), String.valueOf(RecipeCategory.MISC));
+        offerSingleOutputShapelessRecipe(recipeExporter, Items.RED_DYE, FLOWERS.get("red_trillium"), String.valueOf(RecipeCategory.MISC));
+        offerSingleOutputShapelessRecipe(recipeExporter, Items.YELLOW_DYE, FLOWERS.get("xerochrysum"), String.valueOf(RecipeCategory.MISC));
+        offerSingleOutputShapelessRecipe(recipeExporter, Items.YELLOW_DYE, FLOWERS.get("golden_aster"), String.valueOf(RecipeCategory.MISC));
+        offerSingleOutputShapelessRecipe(recipeExporter, Items.PINK_DYE, FLOWERS.get("orchid"), String.valueOf(RecipeCategory.MISC));
         offerSingleOutputShapelessRecipe(recipeExporter, Items.WHITE_DYE, ModBlocks.WOOD_SORREL, String.valueOf(RecipeCategory.MISC));
-        offerSingleOutputShapelessRecipe(recipeExporter, Items.BLUE_DYE, ModBlocks.BLUEBELL, String.valueOf(RecipeCategory.MISC));
+        offerSingleOutputShapelessRecipe(recipeExporter, Items.LIGHT_BLUE_DYE, ModBlocks.ALPINE_GENTIAN, String.valueOf(RecipeCategory.MISC));
+        offerSingleOutputShapelessRecipe(recipeExporter, Items.BLUE_DYE, FLOWERS.get("bluebell"), String.valueOf(RecipeCategory.MISC));
 
         offerFoodCookingRecipe(recipeExporter, "smoking", RecipeSerializer.SMOKING,
                 100, ModItems.MOOSE_VENISON, ModItems.COOKED_MOOSE_VENISON, 0.35f);
@@ -320,7 +318,18 @@ public class ModRecipeProvider extends FabricRecipeProvider
 
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(ModItems.MOOSE_VENISON), RecipeCategory.FOOD,
                         ModItems.COOKED_MOOSE_VENISON, 0.35F, 200)
-                .criterion("has_beef", conditionsFromItem(ModItems.MOOSE_VENISON))
+                .criterion("has_moose_venison", conditionsFromItem(ModItems.MOOSE_VENISON))
+                .offerTo(recipeExporter);
+
+        offerFoodCookingRecipe(recipeExporter, "smoking", RecipeSerializer.SMOKING,
+                100, ModItems.ELK_VENISON, ModItems.COOKED_ELK_VENISON, 0.35f);
+
+        offerFoodCookingRecipe(recipeExporter, "campfire_cooking", RecipeSerializer.CAMPFIRE_COOKING,
+                600, ModItems.ELK_VENISON, ModItems.COOKED_ELK_VENISON, 0.35f);
+
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(ModItems.ELK_VENISON), RecipeCategory.FOOD,
+                        ModItems.COOKED_ELK_VENISON, 0.35F, 200)
+                .criterion("has_elk_venison", conditionsFromItem(ModItems.ELK_VENISON))
                 .offerTo(recipeExporter);
 
         offerFoodCookingRecipe(recipeExporter, "smoking", RecipeSerializer.SMOKING,
@@ -331,7 +340,29 @@ public class ModRecipeProvider extends FabricRecipeProvider
 
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(ModItems.CARIBOU_VENISON), RecipeCategory.FOOD,
                         ModItems.COOKED_CARIBOU_VENISON, 0.35F, 200)
-                .criterion("has_beef", conditionsFromItem(ModItems.CARIBOU_VENISON))
+                .criterion("has_caribou_venison", conditionsFromItem(ModItems.CARIBOU_VENISON))
+                .offerTo(recipeExporter);
+
+        offerFoodCookingRecipe(recipeExporter, "smoking", RecipeSerializer.SMOKING,
+                100, ModItems.DUCK, ModItems.COOKED_DUCK, 0.35f);
+
+        offerFoodCookingRecipe(recipeExporter, "campfire_cooking", RecipeSerializer.CAMPFIRE_COOKING,
+                600, ModItems.DUCK, ModItems.COOKED_DUCK, 0.35f);
+
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(ModItems.DUCK), RecipeCategory.FOOD,
+                        ModItems.COOKED_DUCK, 0.35F, 200)
+                .criterion("has_duck", conditionsFromItem(ModItems.DUCK))
+                .offerTo(recipeExporter);
+
+        offerFoodCookingRecipe(recipeExporter, "smoking", RecipeSerializer.SMOKING,
+                100, ModItems.HERON, ModItems.COOKED_HERON, 0.35f);
+
+        offerFoodCookingRecipe(recipeExporter, "campfire_cooking", RecipeSerializer.CAMPFIRE_COOKING,
+                600, ModItems.HERON, ModItems.COOKED_HERON, 0.35f);
+
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(ModItems.HERON), RecipeCategory.FOOD,
+                        ModItems.COOKED_HERON, 0.35F, 200)
+                .criterion("has_heron", conditionsFromItem(ModItems.HERON))
                 .offerTo(recipeExporter);
 
         offerCarpetRecipe(recipeExporter, ModBlocks.REINDEER_LICHEN_CARPET, ModBlocks.REINDEER_LICHEN);
@@ -357,45 +388,43 @@ public class ModRecipeProvider extends FabricRecipeProvider
                 .offerTo(recipeExporter);
         offerShapelessRecipe(recipeExporter, ModItems.PINE_RESIN, ModBlocks.PINE_RESIN_BLOCK, String.valueOf(RecipeCategory.MISC), 9);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.PINE_CONE_BLOCK, 1)
-                .pattern("###")
-                .pattern("###")
-                .pattern("###")
-                .input('#', ModItems.PINE_CONE)
-                .criterion(hasItem(ModItems.PINE_CONE), conditionsFromItem(ModItems.PINE_CONE))
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CRYPTOMERIA_RESIN_BRICKS, 4)
+                .pattern("##")
+                .pattern("##")
+                .input('#', ModBlocks.CRYPTOMERIA_RESIN_BLOCK)
+                .criterion(hasItem(ModBlocks.CRYPTOMERIA_RESIN_BLOCK), conditionsFromItem(ModBlocks.CRYPTOMERIA_RESIN_BLOCK))
                 .offerTo(recipeExporter);
-        offerShapelessRecipe(recipeExporter, ModItems.PINE_CONE, ModBlocks.PINE_CONE_BLOCK, String.valueOf(RecipeCategory.MISC), 9);
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.FIR_CONE_BLOCK, 1)
-                .pattern("###")
-                .pattern("###")
-                .pattern("###")
-                .input('#', ModItems.FIR_CONE)
-                .criterion(hasItem(ModItems.FIR_CONE), conditionsFromItem(ModItems.FIR_CONE))
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CRYPTOMERIA_RESIN_CHISELED, 1)
+                .pattern("#")
+                .pattern("#")
+                .input('#', ModBlocks.CRYPTOMERIA_RESIN_BRICKS_SLAB)
+                .criterion(hasItem(ModBlocks.CRYPTOMERIA_RESIN_BRICKS_SLAB), conditionsFromItem(ModBlocks.CRYPTOMERIA_RESIN_BRICKS_SLAB))
                 .offerTo(recipeExporter);
-        offerShapelessRecipe(recipeExporter, ModItems.FIR_CONE, ModBlocks.FIR_CONE_BLOCK, String.valueOf(RecipeCategory.MISC), 9);
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CEDAR_CONE_BLOCK, 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CRYPTOMERIA_RESIN_BLOCK, 1)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
-                .input('#', ModItems.CEDAR_CONE)
-                .criterion(hasItem(ModItems.CEDAR_CONE), conditionsFromItem(ModItems.CEDAR_CONE))
+                .input('#', ModItems.CRYPTOMERIA_RESIN)
+                .criterion(hasItem(ModItems.CRYPTOMERIA_RESIN), conditionsFromItem(ModItems.CRYPTOMERIA_RESIN))
                 .offerTo(recipeExporter);
-        offerShapelessRecipe(recipeExporter, ModItems.CEDAR_CONE, ModBlocks.CEDAR_CONE_BLOCK, String.valueOf(RecipeCategory.MISC), 9);
+        offerShapelessRecipe(recipeExporter, ModItems.CRYPTOMERIA_RESIN, ModBlocks.CRYPTOMERIA_RESIN_BLOCK, String.valueOf(RecipeCategory.MISC), 9);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ARAUCARIA_CONE_BLOCK, 1)
-                .pattern("###")
-                .pattern("###")
-                .pattern("###")
-                .input('#', ModItems.ARAUCARIA_CONE)
-                .criterion(hasItem(ModItems.ARAUCARIA_CONE), conditionsFromItem(ModItems.ARAUCARIA_CONE))
-                .offerTo(recipeExporter);
-        offerShapelessRecipe(recipeExporter, ModItems.ARAUCARIA_CONE, ModBlocks.ARAUCARIA_CONE_BLOCK, String.valueOf(RecipeCategory.MISC), 9);
+        for (String name : CONIFER_CONES_NAMES)
+        {
+            ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, CONE_BLOCKS.get(name), 1)
+                    .pattern("###")
+                    .pattern("###")
+                    .pattern("###")
+                    .input('#', CONES.get(name))
+                    .criterion(hasItem(CONES.get(name)), conditionsFromItem(CONES.get(name)))
+                    .offerTo(recipeExporter);
+            offerShapelessRecipe(recipeExporter, CONES.get(name), CONE_BLOCKS.get(name), String.valueOf(RecipeCategory.MISC), 9);
+        }
 
-        offerShapelessRecipe(recipeExporter, Items.YELLOW_DYE, ModBlocks.LARGE_CELANDINE, String.valueOf(RecipeCategory.MISC), 2);
-        offerShapelessRecipe(recipeExporter, Items.LIGHT_GRAY_DYE, ModBlocks.BLUEGRASS, String.valueOf(RecipeCategory.MISC), 2);
-        offerShapelessRecipe(recipeExporter, Items.PINK_DYE, ModBlocks.LARGE_ORCHID, String.valueOf(RecipeCategory.MISC), 2);
+        offerShapelessRecipe(recipeExporter, Items.YELLOW_DYE, TALL_FLOWERS.get("large_celandine"), String.valueOf(RecipeCategory.MISC), 2);
+        offerShapelessRecipe(recipeExporter, Items.YELLOW_DYE, TALL_FLOWERS.get("goldenrod"), String.valueOf(RecipeCategory.MISC), 2);
+        offerShapelessRecipe(recipeExporter, Items.LIGHT_GRAY_DYE, TALL_FLOWERS.get("bluegrass"), String.valueOf(RecipeCategory.MISC), 2);
+        offerShapelessRecipe(recipeExporter, Items.PINK_DYE, TALL_FLOWERS.get("large_orchid"), String.valueOf(RecipeCategory.MISC), 2);
 
         offerSlabRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.OAK_CHISELED_SLAB, ModBlocks.OAK_CHISELED);
         offerSlabRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.BIRCH_CHISELED_SLAB, ModBlocks.BIRCH_CHISELED);
@@ -408,6 +437,7 @@ public class ModRecipeProvider extends FabricRecipeProvider
         offerSlabRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.MANGROVE_CHISELED_SLAB, ModBlocks.MANGROVE_CHISELED);
         offerSlabRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHERRY_CHISELED_SLAB, ModBlocks.CHERRY_CHISELED);
         offerSlabRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.PINE_RESIN_BRICKS_SLAB, ModBlocks.PINE_RESIN_BRICKS);
+        offerSlabRecipe(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CRYPTOMERIA_RESIN_BRICKS_SLAB, ModBlocks.CRYPTOMERIA_RESIN_BRICKS);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.OAK_CHISELED_STAIRS, 4)
                 .pattern("#  ")
@@ -495,6 +525,14 @@ public class ModRecipeProvider extends FabricRecipeProvider
                 .pattern("###")
                 .input('#', ModBlocks.PINE_RESIN_BRICKS)
                 .criterion(hasItem(ModBlocks.PINE_RESIN_BRICKS), conditionsFromItem(ModBlocks.PINE_RESIN_BRICKS))
+                .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CRYPTOMERIA_RESIN_BRICKS_STAIRS, 4)
+                .pattern("#  ")
+                .pattern("## ")
+                .pattern("###")
+                .input('#', ModBlocks.CRYPTOMERIA_RESIN_BRICKS)
+                .criterion(hasItem(ModBlocks.CRYPTOMERIA_RESIN_BRICKS), conditionsFromItem(ModBlocks.CRYPTOMERIA_RESIN_BRICKS))
                 .offerTo(recipeExporter);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.MINIHAMMER, 1)

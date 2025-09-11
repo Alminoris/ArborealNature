@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/carpet",
+  "parent": "minecraft:block/leaves",
   "textures": {
-    "wool": "arborealnature:block/hazelnut_leaves"
+    "all": "arborealnature:block/hazelnut_cover_block"
   }
 }

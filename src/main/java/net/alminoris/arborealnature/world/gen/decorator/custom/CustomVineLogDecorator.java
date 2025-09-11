@@ -24,7 +24,7 @@ public class CustomVineLogDecorator extends TreeDecorator
     ).apply(instance, CustomVineLogDecorator::new));
 
     private final float probability;
-    private static Block block;
+    private final Block block;
 
     public CustomVineLogDecorator(float probability, Block block)
     {
@@ -82,7 +82,7 @@ public class CustomVineLogDecorator extends TreeDecorator
     /**
      * Places a vine at a given position and then up to 4 more vines going downwards.
      */
-    private static void placeVines(BlockPos pos, BooleanProperty faceProperty, TreeDecorator.Generator generator)
+    private void placeVines(BlockPos pos, BooleanProperty faceProperty, TreeDecorator.Generator generator)
     {
         generator.replace(pos, block.getDefaultState().with(faceProperty, Boolean.valueOf(true)));
     }

@@ -12,13 +12,12 @@ import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.gen.foliage.FoliagePlacer;
 import net.minecraft.world.gen.foliage.FoliagePlacerType;
 
-public class CedarGiantFoliagePlacer extends FoliagePlacer
+public class CedarFoliagePlacer extends FoliagePlacer
 {
-    public static final Codec<CedarGiantFoliagePlacer> CODEC = RecordCodecBuilder.create(
-            instance -> fillFoliagePlacerFields(instance).apply(instance, CedarGiantFoliagePlacer::new)
-    );
+    public static final Codec<CedarFoliagePlacer> CODEC = RecordCodecBuilder.create(
+            instance -> fillFoliagePlacerFields(instance).apply(instance, CedarFoliagePlacer::new));
 
-    public CedarGiantFoliagePlacer(IntProvider radius, IntProvider offset)
+    public CedarFoliagePlacer(IntProvider radius, IntProvider offset)
     {
         super(radius, offset);
     }
@@ -26,12 +25,12 @@ public class CedarGiantFoliagePlacer extends FoliagePlacer
     @Override
     protected FoliagePlacerType<?> getType()
     {
-        return ModFoliagePlacerTypes.CEDAR_GIANT_FOLIAGE_PLACER;
+        return ModFoliagePlacerTypes.CEDAR_FOLIAGE_PLACER;
     }
 
     @Override
     protected void generate(TestableWorld world, FoliagePlacer.BlockPlacer placer, Random random, TreeFeatureConfig config,
-            int trunkHeight, FoliagePlacer.TreeNode treeNode, int foliageHeight, int radius, int offset)
+                            int trunkHeight, FoliagePlacer.TreeNode treeNode, int foliageHeight, int radius, int offset)
     {
         BlockPos blockPos = treeNode.getCenter().up(offset);
         boolean bl = treeNode.isGiantTrunk();
@@ -53,7 +52,8 @@ public class CedarGiantFoliagePlacer extends FoliagePlacer
     }
 
     @Override
-    public int getRandomHeight(Random random, int trunkHeight, TreeFeatureConfig config) {
+    public int getRandomHeight(Random random, int trunkHeight, TreeFeatureConfig config)
+    {
         return 3;
     }
 

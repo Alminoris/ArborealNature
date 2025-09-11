@@ -15,6 +15,12 @@ public class ModParticles
     public static final DefaultParticleType CEDAR_NEEDLES = FabricParticleTypes.simple();
     public static final DefaultParticleType ARAUCARIA_NEEDLES = FabricParticleTypes.simple();
     public static final DefaultParticleType JUNIPER_NEEDLES = FabricParticleTypes.simple();
+    public static final DefaultParticleType BALD_CYPRESS_NEEDLES = FabricParticleTypes.simple();
+    public static final DefaultParticleType THUJA_NEEDLES = FabricParticleTypes.simple();
+    public static final DefaultParticleType SEQUOIA_NEEDLES = FabricParticleTypes.simple();
+    public static final DefaultParticleType CRYPTOMERIA_NEEDLES = FabricParticleTypes.simple();
+    public static final DefaultParticleType YEW_NEEDLES = FabricParticleTypes.simple();
+    public static final DefaultParticleType LARCH_NEEDLES = FabricParticleTypes.simple();
     public static final DefaultParticleType HAZELNUT_LEAVES = FabricParticleTypes.simple();
     public static final DefaultParticleType HORNBEAM_LEAVES = FabricParticleTypes.simple();
     public static final DefaultParticleType HAWTHORN_PETALS = FabricParticleTypes.simple();
@@ -56,6 +62,42 @@ public class ModParticles
                 Registries.PARTICLE_TYPE,
                 Identifier.of(ArborealNature.MOD_ID, "juniper_needles"),
                 JUNIPER_NEEDLES
+        );
+
+        Registry.register(
+                Registries.PARTICLE_TYPE,
+                Identifier.of(ArborealNature.MOD_ID, "bald_cypress_needles"),
+                BALD_CYPRESS_NEEDLES
+        );
+
+        Registry.register(
+                Registries.PARTICLE_TYPE,
+                Identifier.of(ArborealNature.MOD_ID, "thuja_needles"),
+                THUJA_NEEDLES
+        );
+
+        Registry.register(
+                Registries.PARTICLE_TYPE,
+                Identifier.of(ArborealNature.MOD_ID, "cryptomeria_needles"),
+                CRYPTOMERIA_NEEDLES
+        );
+
+        Registry.register(
+                Registries.PARTICLE_TYPE,
+                Identifier.of(ArborealNature.MOD_ID, "yew_needles"),
+                YEW_NEEDLES
+        );
+
+        Registry.register(
+                Registries.PARTICLE_TYPE,
+                Identifier.of(ArborealNature.MOD_ID, "larch_needles"),
+                LARCH_NEEDLES
+        );
+
+        Registry.register(
+                Registries.PARTICLE_TYPE,
+                Identifier.of(ArborealNature.MOD_ID, "sequoia_needles"),
+                SEQUOIA_NEEDLES
         );
 
         Registry.register(

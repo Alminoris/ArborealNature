@@ -18,7 +18,22 @@ public class ModBlockSetsHelper
             "mangrove", "crimson", "warped", "spruce", "oak" };
 
     public static final String[] WOOD_NAMES = new String[] { "hazelnut", "hornbeam", "hawthorn", "quince", "plum", "mango",
-            "fig", "viburnum", "wild_cherry", "white_mulberry", "bauhinia", "pine", "fir", "cedar", "araucaria", "juniper" };
+            "fig", "viburnum", "wild_cherry", "white_mulberry", "bauhinia", "pine", "fir", "cedar", "araucaria", "juniper",
+            "bald_cypress", "thuja", "sequoia", "mountain_hemlock", "cryptomeria", "yew", "larch" };
+
+    public static final String[] FRUITED_WOOD_NAMES = new String[] { "hawthorn", "quince", "plum", "mango", "viburnum",
+            "wild_cherry", "white_mulberry", "bauhinia", "juniper", "yew" };
+
+    public static final String[] CONIFER_CONES_NAMES = new String[] { "pine", "fir", "cedar", "araucaria",
+            "bald_cypress", "thuja", "sequoia", "mountain_hemlock", "cryptomeria", "larch" };
+
+    public static final String[] COVER_NAMES = new String[] { "hazelnut", "bauhinia", "pine", "fir", "cedar", "araucaria", "juniper",
+            "bald_cypress", "thuja", "sequoia", "mountain_hemlock", "cryptomeria", "yew", "larch" };
+
+    public static final String[] FLOWER_NAMES = new String[] { "geranium", "thistle", "xerochrysum", "orchid",
+            "bluebell", "red_trillium", "golden_aster"};
+
+    public static final String[] TALL_FLOWER_NAMES = new String[] { "large_celandine", "bluegrass", "large_orchid", "goldenrod" };
 
     public static final String[] WF_WOOD_NAMES = new String[] { "olive", "tamarisk", "western_serviceberry" };
 
@@ -44,10 +59,58 @@ public class ModBlockSetsHelper
         }
     }
 
+    public static final Dictionary<String, Block> FLOWERS = new Hashtable<>()
+    {{
+        for(String name : FLOWER_NAMES)
+            put(name, registerFlower(name));
+    }};
+
+    public static final Dictionary<String, Block> POTTED_FLOWERS = new Hashtable<>()
+    {{
+        for(String name : FLOWER_NAMES)
+            put(name, registerPottedFlower(name, FLOWERS.get(name)));
+    }};
+
+    public static final Dictionary<String, Block> TALL_FLOWERS = new Hashtable<>()
+    {{
+        for(String name : TALL_FLOWER_NAMES)
+            put(name, registerTallFlower(name));
+    }};
+
+    public static final Dictionary<String, Block> COVERS = new Hashtable<>()
+    {{
+        for(String name : COVER_NAMES)
+            put(name, registerCover(name));
+    }};
+
+    public static final Dictionary<String, Block> COVER_BLOCKS = new Hashtable<>()
+    {{
+        for(String name : COVER_NAMES)
+            put(name, registerCoverBlock(name));
+    }};
+
+    public static final Dictionary<String, Item> CONES = new Hashtable<>()
+    {{
+        for(String name : CONIFER_CONES_NAMES)
+            put(name, registerConeItem(name));
+    }};
+
+    public static final Dictionary<String, Block> CONE_BLOCKS = new Hashtable<>()
+    {{
+        for(String name : CONIFER_CONES_NAMES)
+            put(name, registerConeBlock(name));
+    }};
+
     public static final Dictionary<String, Block> LEAVES = new Hashtable<>()
     {{
         for(String name : WOOD_NAMES)
             put(name, registerLeavesBlock(name));
+    }};
+
+    public static final Dictionary<String, Block> FRUITED_LEAVES = new Hashtable<>()
+    {{
+        for(String name : FRUITED_WOOD_NAMES)
+            put(name, registerFruitedLeavesBlock(name));
     }};
 
     public static final Dictionary<String, Block> LOGS = new Hashtable<>()
@@ -235,7 +298,13 @@ public class ModBlockSetsHelper
     public static final Dictionary<String, Block> WOODEN_SAPLINGS = new Hashtable<>()
     {{
         for(String name : WOOD_NAMES)
-            put(name, registerSaplingBlock(name, ModSaplingGenerators.saplingGenerators.get(name)));
+        {
+            if (name.equals("sequoia") || name.equals("yew"))
+                put(name, registerSaplingBlock(name, ModSaplingGenerators.extendedSaplingGenerators.get(name)));
+            else
+                put(name, registerSaplingBlock(name, ModSaplingGenerators.saplingGenerators.get(name)));
+        }
+
     }};
 
     public static final Dictionary<String, Item> WOODEN_BOATS = new Hashtable<>()

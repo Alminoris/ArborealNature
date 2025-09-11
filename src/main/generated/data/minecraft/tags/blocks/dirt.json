@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "arborealnature:reindeer_lichen"
+    "arborealnature:reindeer_lichen",
+    "arborealnature:bog_soil",
+    "arborealnature:bog_soil_cover"
   ]
 }

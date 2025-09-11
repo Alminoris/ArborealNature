@@ -43,19 +43,25 @@ public class ModItems
     public static final Item TENREC_SPAWN_EGG = registerItem("tenrec_spawn_egg", new SpawnEggItem(
             ModEntities.TENREC, 0x220f0b, 0Xd58728, new Item.Settings()));
 
-    public static final Item PINE_CONE = registerItem("pine_cone", new Item(
-            new Item.Settings().maxCount(16)));
+    public static final Item MALLARD_SPAWN_EGG = registerItem("mallard_spawn_egg", new SpawnEggItem(
+            ModEntities.MALLARD, 0xe0d4cd, 0X235329, new Item.Settings()));
 
-    public static final Item FIR_CONE = registerItem("fir_cone", new Item(
-            new Item.Settings().maxCount(16)));
+    public static final Item GREAT_BLUE_HERON_SPAWN_EGG = registerItem("great_blue_heron_spawn_egg", new SpawnEggItem(
+            ModEntities.GREAT_BLUE_HERON, 0xadb9cc, 0X28435e, new Item.Settings()));
 
-    public static final Item CEDAR_CONE = registerItem("cedar_cone", new Item(
-            new Item.Settings().maxCount(16)));
+    public static final Item MOSQUITO_SWARM_SPAWN_EGG = registerItem("mosquito_swarm_spawn_egg", new SpawnEggItem(
+            ModEntities.MOSQUITO_SWARM, 0x3f3220, 0X330400, new Item.Settings()));
 
-    public static final Item ARAUCARIA_CONE = registerItem("araucaria_cone", new Item(
-            new Item.Settings().maxCount(16)));
+    public static final Item ELK_SPAWN_EGG = registerItem("elk_spawn_egg", new SpawnEggItem(
+            ModEntities.ELK, 0x644a32, 0X362216, new Item.Settings()));
+
+    public static final Item GREAT_HORNED_OWL_SPAWN_EGG = registerItem("great_horned_owl_spawn_egg", new SpawnEggItem(
+            ModEntities.GREAT_HORNED_OWL, 0x534c49, 0X7a5f47, new Item.Settings()));
 
     public static final Item PINE_RESIN = registerItem("pine_resin_item", new Item(
+            new Item.Settings().maxCount(16)));
+
+    public static final Item CRYPTOMERIA_RESIN = registerItem("cryptomeria_resin_item", new Item(
             new Item.Settings().maxCount(16)));
 
     public static final Item HAZELNUT_CRACKED = registerItem("hazelnut_cracked", new Item(
@@ -79,6 +85,9 @@ public class ModItems
     public static final Item JUNIPER_BERRY = registerItem("juniper_berry",
             new Item(new Item.Settings().maxCount(16).food(ModFoodComponents.JUNIPER_BERRY)));
 
+    public static final Item YEW_BERRY = registerItem("yew_berry",
+            new Item(new Item.Settings().maxCount(16).food(ModFoodComponents.YEW_BERRY)));
+
     public static final Item MOOSE_VENISON = registerItem("moose_venison",
             new Item(new Item.Settings().food(ModFoodComponents.MOOSE_VENISON)));
 
@@ -90,6 +99,24 @@ public class ModItems
 
     public static final Item COOKED_CARIBOU_VENISON = registerItem("cooked_caribou_venison",
             new Item(new Item.Settings().food(ModFoodComponents.COOKED_CARIBOU_VENISON)));
+
+    public static final Item ELK_VENISON = registerItem("elk_venison",
+            new Item(new Item.Settings().food(ModFoodComponents.ELK_VENISON)));
+
+    public static final Item COOKED_ELK_VENISON = registerItem("cooked_elk_venison",
+            new Item(new Item.Settings().food(ModFoodComponents.COOKED_ELK_VENISON)));
+
+    public static final Item DUCK = registerItem("duck",
+            new Item(new Item.Settings().food(ModFoodComponents.DUCK)));
+
+    public static final Item COOKED_DUCK = registerItem("cooked_duck",
+            new Item(new Item.Settings().food(ModFoodComponents.COOKED_DUCK)));
+
+    public static final Item HERON = registerItem("heron",
+            new Item(new Item.Settings().food(ModFoodComponents.HERON)));
+
+    public static final Item COOKED_HERON = registerItem("cooked_heron",
+            new Item(new Item.Settings().food(ModFoodComponents.COOKED_HERON)));
 
     public static final Item QUINCE = registerItem("quince",
             new Item(new Item.Settings().maxCount(16).food(ModFoodComponents.QUINCE)));
@@ -125,6 +152,9 @@ public class ModItems
             new Item.Settings().maxCount(16)));
 
     public static final Item MOOSE_HORN = registerItem("moose_horn", new Item(
+            new Item.Settings().maxCount(16)));
+
+    public static final Item ELK_HORN = registerItem("elk_horn", new Item(
             new Item.Settings().maxCount(16)));
 
     public static final Item CARIBOU_HORN = registerItem("caribou_horn", new Item(
@@ -179,6 +209,8 @@ public class ModItems
 
     public static final Item ORCHID_LILY_PAD = registerItem("orchid_lily_pad_item", new PlaceableOnWaterItem(ModBlocks.ORCHID_LILY_PAD, new Item.Settings()));
 
+    public static final Item WHITE_LILY_PAD = registerItem("white_lily_pad_item", new PlaceableOnWaterItem(ModBlocks.WHITE_LILY_PAD, new Item.Settings()));
+
     private static Item registerItem(String name, Item item)
     {
         return Registry.register(Registries.ITEM, Identifier.of(ArborealNature.MOD_ID, name), item);
@@ -187,6 +219,11 @@ public class ModItems
     public static void registerModItems()
     {
 
+    }
+
+    public static Item registerConeItem(String name)
+    {
+        return registerItem(name+"_cone", new Item(new Item.Settings().maxCount(16)));
     }
 
     public static Item registerBerryItem(String name, int nutrition, float saturation, Block block)

@@ -7,7 +7,6 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
 
 import java.util.concurrent.CompletableFuture;
@@ -86,7 +85,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(ModBlocks.WARPED_CHISELED_SLAB.asItem())
                 .add(ModBlocks.MANGROVE_CHISELED_SLAB.asItem())
                 .add(ModBlocks.CHERRY_CHISELED_SLAB.asItem())
-                .add(ModBlocks.PINE_RESIN_BRICKS_SLAB.asItem());
+                .add(ModBlocks.PINE_RESIN_BRICKS_SLAB.asItem())
+                .add(ModBlocks.CRYPTOMERIA_RESIN_BRICKS_SLAB.asItem());
 
         getOrCreateTagBuilder(ItemTags.WOODEN_STAIRS)
                 .add(ModBlocks.OAK_CHISELED_STAIRS.asItem())
@@ -99,7 +99,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(ModBlocks.WARPED_CHISELED_STAIRS.asItem())
                 .add(ModBlocks.MANGROVE_CHISELED_STAIRS.asItem())
                 .add(ModBlocks.CHERRY_CHISELED_STAIRS.asItem())
-                .add(ModBlocks.PINE_RESIN_BRICKS_STAIRS.asItem());
+                .add(ModBlocks.PINE_RESIN_BRICKS_STAIRS.asItem())
+                .add(ModBlocks.CRYPTOMERIA_RESIN_BRICKS_STAIRS.asItem());
 
         for (String name : WOOD_NAMES)
         {
@@ -131,6 +132,10 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(Items.RABBIT)
                 .add(ModItems.CARIBOU_VENISON);
 
+        getOrCreateTagBuilder(ModTags.Items.HUNTING_KNIFE_HORNS)
+                .add(ModItems.MOOSE_HORN)
+                .add(ModItems.ELK_HORN);
+
         getOrCreateTagBuilder(ItemTags.ARROWS)
                 .add(ModItems.SILENT_ARROW);
 
@@ -143,5 +148,18 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
 
         getOrCreateTagBuilder(ItemTags.FREEZE_IMMUNE_WEARABLES)
                 .add(ModItems.CARIBOU_FUR_HELMET, ModItems.CARIBOU_FUR_CHESTPLATE, ModItems.CARIBOU_FUR_LEGGINGS, ModItems.CARIBOU_FUR_BOOTS);
+
+        this.getOrCreateTagBuilder(ModTags.Items.LYNX_FOOD)
+                .add(
+                        ModItems.MOOSE_VENISON,
+                        ModItems.COOKED_MOOSE_VENISON,
+                        ModItems.ELK_VENISON,
+                        ModItems.COOKED_ELK_VENISON,
+                        ModItems.CARIBOU_VENISON,
+                        ModItems.COOKED_CARIBOU_VENISON,
+                        ModItems.DUCK,
+                        ModItems.COOKED_DUCK,
+                        ModItems.HERON,
+                        ModItems.COOKED_HERON);
     }
 }
