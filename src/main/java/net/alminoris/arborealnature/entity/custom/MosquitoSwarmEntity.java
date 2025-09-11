@@ -2,6 +2,7 @@ package net.alminoris.arborealnature.entity.custom;
 
 import net.alminoris.arborealnature.entity.ModEntities;
 import net.alminoris.arborealnature.sound.ModSounds;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.control.FlightMoveControl;
 import net.minecraft.entity.ai.goal.*;
@@ -46,6 +47,11 @@ public class MosquitoSwarmEntity extends PathAwareEntity implements GeoEntity {
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.3D)
                 .add(EntityAttributes.GENERIC_FLYING_SPEED, 0.6D)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 16.0D);
+    }
+
+    @Override
+    protected void fall(double heightDifference, boolean onGround, BlockState state, BlockPos landedPosition)
+    {
     }
 
     @Override

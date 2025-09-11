@@ -3,6 +3,7 @@ package net.alminoris.arborealnature.entity.custom;
 import net.alminoris.arborealnature.entity.ModEntities;
 import net.alminoris.arborealnature.item.ModItems;
 import net.alminoris.arborealnature.sound.ModSounds;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.ai.goal.*;
@@ -74,6 +75,10 @@ public class MallardEntity extends AnimalEntity implements GeoEntity
         }*/
     }
 
+    @Override
+    protected void fall(double heightDifference, boolean onGround, BlockState state, BlockPos landedPosition)
+    {
+    }
 
     public static DefaultAttributeContainer.Builder setAttributes()
     {
