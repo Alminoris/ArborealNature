@@ -3,7 +3,7 @@
   "config": {
     "decorators": [
       {
-        "type": "minecraft:custom_vine_log_decorator",
+        "type": "arborealnature:custom_vine_log_decorator",
         "block": "arborealnature:pine_resin",
         "probability": 0.5
       },

@@ -3,12 +3,12 @@
   "config": {
     "decorators": [
       {
-        "type": "minecraft:custom_vine_log_decorator",
+        "type": "arborealnature:custom_vine_log_decorator",
         "block": "arborealnature:cryptomeria_resin",
         "probability": 0.85
       },
       {
-        "type": "minecraft:leaf_carpet_decorator",
+        "type": "arborealnature:leaf_carpet_decorator",
         "probability": 0.25,
         "provider": {
           "type": "minecraft:simple_state_provider",

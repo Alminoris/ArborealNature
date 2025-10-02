@@ -1,4 +1,4 @@
-// 1.21.1	2025-09-11T19:08:12.5828587	Arboreal Nature/Block Loot Tables
+// 1.21.1	2025-10-02T22:20:53.6119908	Arboreal Nature/Block Loot Tables
 10e6bac8c1a1b8afe2f125c8dc70bd9c333830b4 data\arborealnature\loot_table\blocks\fig_sign.json
 d454857973117eccafd30c28cd2a3ca79ab1bc4c data\arborealnature\loot_table\blocks\hornbeam_sapling.json
 9b85c888dcc8356c96919ef948a8932b64c00a6e data\arborealnature\loot_table\blocks\fir_leaves.json
@@ -588,8 +588,8 @@ f5103d9613072219ce0e437b5078245e9d0725a0 data\arborealnature\loot_table\blocks\a
 2e2121da1b3eb3cd19c50f8c9042b4ab3e08b414 data\arborealnature\loot_table\blocks\stripped_yew_log.json
 e3aed95dccbc9267af4756f4d10236d2320b5931 data\arborealnature\loot_table\blocks\mango_fruited_leaves.json
 b6c963c3dc9d6be22cb4808b948e044d5ae6a0f7 data\arborealnature\loot_table\blocks\quince_button.json
-0d15aac9ad549f98ca05f2a9e0ea690e1873714b data\arborealnature\loot_table\blocks\burnt_warped_log.json
 248f21ca6d0eb1effb9ea05fe111e2904f922bf0 data\arborealnature\loot_table\blocks\yew_chiseled_slab.json
+0d15aac9ad549f98ca05f2a9e0ea690e1873714b data\arborealnature\loot_table\blocks\burnt_warped_log.json
 10ed0df9bb6a8ba5d2a6c20272e323a448669a5f data\arborealnature\loot_table\blocks\hazelnut_trapdoor.json
 026f15506871ffdb9706d45303f02844be697817 data\arborealnature\loot_table\blocks\fir_nss_chiseled_slab.json
 0fe4bcec4eb4fe0ac17c268c258df38b0e9849e5 data\arborealnature\loot_table\blocks\stripped_bald_cypress_log.json

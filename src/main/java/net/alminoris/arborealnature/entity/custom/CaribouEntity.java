@@ -71,12 +71,12 @@ public class CaribouEntity extends AbstractHorseEntity implements GeoEntity
 
         if (this.random.nextFloat() < 0.05F)
         {
-            this.dropStack(new ItemStack(ModItems.MOOSE_HORN, random.nextInt(2)));
+            this.dropStack(new ItemStack(ModItems.CARIBOU_HORN, random.nextInt(2)));
         }
 
         if (this.random.nextFloat() < 0.5F)
         {
-            this.dropStack(new ItemStack(ModItems.MOOSE_VENISON, random.nextInt(5)));
+            this.dropStack(new ItemStack(ModItems.CARIBOU_VENISON, random.nextInt(5)));
         }
 
         if (this.random.nextFloat() < 0.2F)

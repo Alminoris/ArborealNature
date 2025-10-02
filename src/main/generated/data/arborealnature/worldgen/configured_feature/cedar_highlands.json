@@ -3,7 +3,7 @@
   "config": {
     "decorators": [
       {
-        "type": "minecraft:leaf_carpet_decorator",
+        "type": "arborealnature:leaf_carpet_decorator",
         "probability": 0.45,
         "provider": {
           "type": "minecraft:simple_state_provider",
