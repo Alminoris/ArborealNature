@@ -1,4 +1,4 @@
-// 1.19.4	2025-09-11T20:00:57.6301925	Arboreal Nature/Tags for minecraft:item
+// 1.19.4	2025-10-02T22:29:06.7337257	Arboreal Nature/Tags for minecraft:item
 d6746b3de6f9e02fb2a9063cfc5a4153e18c375b data\arborealnature\tags\items\moose_food.json
 29ac7a4438823ed260ef2024a117c486fe80cc30 data\minecraft\tags\items\wooden_fences.json
 c2f073a80e26c7e85139dd3d087265bd94380f7d data\minecraft\tags\items\logs_that_burn.json
@@ -12,8 +12,8 @@ d61949a3c2ad99da2db0134970e69b2b82657558 data\minecraft\tags\items\freeze_immune
 fdae4206b668c3cec663927ad683d7e0a2723f6d data\arborealnature\tags\items\squirrel_food.json
 77273382ee493f62b92daed189816af6ed11afcf data\minecraft\tags\items\wooden_slabs.json
 036b0cf1ae5a733f982b62b7d9725e2f6bb4c12d data\minecraft\tags\items\saplings.json
-6dbbc6f1f71cfee49c93b7b6856447843ef58b4c data\minecraft\tags\items\wooden_trapdoors.json
 ae31c1acbf6f97d6bf2d9a7c5aba807c87bab6d7 data\minecraft\tags\items\hanging_signs.json
+6dbbc6f1f71cfee49c93b7b6856447843ef58b4c data\minecraft\tags\items\wooden_trapdoors.json
 b60645ab00c4099d314ee596c523fbc7c46758df data\minecraft\tags\items\planks.json
 778ab7a20bfd872e2b281eba914b45726d539724 data\arborealnature\tags\items\hunting_knife_horns.json
 e4b2f0dc16ae889e29b84af278b78a1a6fef31bb data\arborealnature\tags\items\wolverine_food.json
